@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "id": "elementalcreepers",
+  "version": "${version}",
+
+  "name": "Elemental Creepers: Reloaded",
+  "description": "a",
+  "authors": [
+    "b"
+  ],
+  "contact": {
+    "website": "c",
+    "repo": "d"
+  },
+
+  "license": "MIT",
+  "icon": "assets/elementalcreepers/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "me.luligabi.elementalcreepers.client.ElementalCreepersClient"
+    ],
+    "main": [
+      "me.luligabi.elementalcreepers.ElementalCreepers"
+    ]
+  },
+
+
+  "depends": {
+    "fabricloader": ">=0.11.1",
+              "fabric": "*",
+          "minecraft": "1.16.5"
+  }
+}
