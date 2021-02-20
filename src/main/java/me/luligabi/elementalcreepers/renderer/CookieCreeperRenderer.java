@@ -9,7 +9,7 @@ import net.minecraft.util.Identifier;
 public class CookieCreeperRenderer extends MobEntityRenderer<CookieCreeperEntity, CreeperEntityModel<CookieCreeperEntity>> {
 
     public CookieCreeperRenderer(EntityRenderDispatcher entityRenderDispatcher) {
-        super(entityRenderDispatcher, new CreeperEntityModel<>(), 1);
+        super(entityRenderDispatcher, new CreeperEntityModel<>(), 0.5F);
     }
 
     @Override
