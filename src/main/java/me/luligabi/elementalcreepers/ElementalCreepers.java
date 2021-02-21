@@ -24,7 +24,7 @@ public class ElementalCreepers implements ModInitializer {
     @Override
     public void onInitialize() {
         System.out.println("ElementalCreepers debug message");
-        FabricDefaultAttributeRegistry.register(COOKIE_CREEPER, CookieCreeperEntity.createMobAttributes());
+        FabricDefaultAttributeRegistry.register(COOKIE_CREEPER, CookieCreeperEntity.createCreeperAttributes());
         Registry.register(Registry.ITEM, new Identifier("elementalcreepers", "cookie_creeper_spawn_egg"), new SpawnEggItem(COOKIE_CREEPER, 0xE88E3F, 0x8A4929, new Item.Settings().group(ItemGroup.MISC)));
     }
 }

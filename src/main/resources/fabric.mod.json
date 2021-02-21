@@ -4,13 +4,13 @@
   "version": "${version}",
 
   "name": "Elemental Creepers: Refabricated",
-  "description": "a",
+  "description": "A recreation of xSmallDeadGuyx's original Elemental Creepers mod on 1.16+.",
   "authors": [
-    "b"
+    "Luligabi",
+    "xSmallDeadGuyx"
   ],
   "contact": {
-    "website": "c",
-    "repo": "d"
+    "repo": "https://github.com/Luligabi1/ElementalCreepersRefabricated"
   },
 
   "license": "MIT",
@@ -18,15 +18,13 @@
 
   "environment": "*",
   "entrypoints": {
-    "client": [
-      "me.luligabi.elementalcreepers.client.ElementalCreepersClient"
-    ],
     "main": [
       "me.luligabi.elementalcreepers.ElementalCreepers"
+    ],
+    "client": [
+      "me.luligabi.elementalcreepers.client.ElementalCreepersClient"
     ]
   },
-
-
   "depends": {
     "fabricloader": ">=0.11.1",
               "fabric": "*",
