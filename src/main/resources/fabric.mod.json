@@ -25,6 +25,9 @@
       "me.luligabi.elementalcreepers.client.ElementalCreepersClient"
     ]
   },
+  "mixins": [
+    "elementalcreepers.mixins.json"
+  ],
   "depends": {
     "fabricloader": ">=0.11.1",
               "fabric": "*",

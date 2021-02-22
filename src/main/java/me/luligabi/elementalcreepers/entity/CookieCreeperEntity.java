@@ -9,5 +9,4 @@ public class CookieCreeperEntity extends CreeperEntity {
     public CookieCreeperEntity(EntityType<? extends CreeperEntity> entityType, World world) {
         super(entityType, world);
     }
-
 }
