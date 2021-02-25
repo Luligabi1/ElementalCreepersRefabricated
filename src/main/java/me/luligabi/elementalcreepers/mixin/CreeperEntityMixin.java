@@ -1,11 +1,5 @@
 package me.luligabi.elementalcreepers.mixin;
 
-import net.minecraft.client.render.entity.CreeperEntityRenderer;
-import net.minecraft.client.render.entity.EntityRenderDispatcher;
-import net.minecraft.client.render.entity.EntityRenderer;
-import net.minecraft.client.render.entity.MobEntityRenderer;
-import net.minecraft.client.render.entity.model.CreeperEntityModel;
-import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.*;
 import net.minecraft.entity.mob.CreeperEntity;
 import net.minecraft.item.ItemStack;
@@ -35,6 +29,11 @@ public abstract class CreeperEntityMixin {
                 lightningEntity.refreshPositionAfterTeleport(
                         creeperEntity.getX(), creeperEntity.getY(), creeperEntity.getZ());
                 creeperEntity.getEntityWorld().spawnEntity(lightningEntity);
+                break;
+            case "HydrogenCreeperEntity":
+                creeperEntity.getEntityWorld().createExplosion(creeperEntity,
+                        creeperEntity.getX(), creeperEntity.getY(), creeperEntity.getZ(),
+                        9, Explosion.DestructionType.DESTROY);
                 break;
             case "CookieCreeperEntity":
                 creeperEntity.getEntityWorld().createExplosion(creeperEntity,
