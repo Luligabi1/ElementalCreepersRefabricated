@@ -5,6 +5,9 @@
   "entity.elementalcreepers.hydrogen_creeper": "Hydrogen Creeper",
   "item.elementalcreepers.hydrogen_creeper_spawn_egg": "Hydrogen Creeper Spawn Egg",
 
+  "entity.elementalcreepers.firework_creeper": "Firework Creeper",
+  "item.elementalcreepers.firework_creeper_spawn_egg": "Firework Creeper Spawn Egg",
+
   "entity.elementalcreepers.cookie_creeper": "Cookie Creeper",
   "item.elementalcreepers.cookie_creeper_spawn_egg": "Cookie Creeper Spawn Egg"
 }

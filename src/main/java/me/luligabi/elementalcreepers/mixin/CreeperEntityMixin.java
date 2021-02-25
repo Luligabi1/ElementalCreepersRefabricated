@@ -1,9 +1,7 @@
 package me.luligabi.elementalcreepers.mixin;
 
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
-import me.luligabi.elementalcreepers.entity.FireWorkCreeperEntity;
 import net.minecraft.entity.*;
-import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.entity.mob.CreeperEntity;
 import net.minecraft.entity.projectile.FireworkRocketEntity;
 import net.minecraft.item.ItemStack;
@@ -42,7 +40,7 @@ public abstract class CreeperEntityMixin {
                         9, creeperEntity.getEntityWorld().getGameRules().getBoolean(GameRules.DO_MOB_GRIEFING) ?
                                 Explosion.DestructionType.DESTROY : Explosion.DestructionType.NONE);
                 break;
-            case "FireWorkCreeperEntity":
+            case "FireworkCreeperEntity":
                 ItemStack fireWork = new ItemStack(Items.FIREWORK_ROCKET);
                 CompoundTag compoundTag = new CompoundTag();
                 fireWork.putSubTag("Fireworks", StringNbtReader.parse("{Explosions:[{Type:3,Flicker:1,Colors:[I;4312372],FadeColors:[I;4312372]}],Flight:1}"));

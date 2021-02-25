@@ -2,7 +2,7 @@ package me.luligabi.elementalcreepers;
 
 import me.luligabi.elementalcreepers.entity.CookieCreeperEntity;
 import me.luligabi.elementalcreepers.entity.ElectricCreeperEntity;
-import me.luligabi.elementalcreepers.entity.FireWorkCreeperEntity;
+import me.luligabi.elementalcreepers.entity.FireworkCreeperEntity;
 import me.luligabi.elementalcreepers.entity.HydrogenCreeperEntity;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
@@ -30,11 +30,11 @@ public class ElementalCreepers implements ModInitializer {
                     new Identifier("elementalcreepers", "hydrogen_creeper"),
                     FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, HydrogenCreeperEntity::new).dimensions(EntityDimensions.fixed(0.6F, 1.7F)).build());
 
-    public static final EntityType<FireWorkCreeperEntity> FIREWORK_CREEPER =
+    public static final EntityType<FireworkCreeperEntity> FIREWORK_CREEPER =
             Registry.register(
                     Registry.ENTITY_TYPE,
                     new Identifier("elementalcreepers", "firework_creeper"),
-                    FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, FireWorkCreeperEntity::new).dimensions(EntityDimensions.fixed(0.6F, 1.7F)).build());
+                    FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, FireworkCreeperEntity::new).dimensions(EntityDimensions.fixed(0.6F, 1.7F)).build());
 
     public static final EntityType<CookieCreeperEntity> COOKIE_CREEPER =
             Registry.register(
