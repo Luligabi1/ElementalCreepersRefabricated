@@ -1,10 +1,15 @@
 package me.luligabi.elementalcreepers.mixin;
 
+import com.mojang.brigadier.exceptions.CommandSyntaxException;
+import me.luligabi.elementalcreepers.entity.FireWorkCreeperEntity;
 import net.minecraft.entity.*;
+import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.entity.mob.CreeperEntity;
 import net.minecraft.entity.projectile.FireworkRocketEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.StringNbtReader;
 import net.minecraft.world.GameRules;
 import net.minecraft.world.explosion.Explosion;
 import org.spongepowered.asm.mixin.Mixin;
@@ -22,7 +27,7 @@ public abstract class CreeperEntityMixin {
      * @author Luligabi
      */
     @Overwrite
-    private void explode() {
+    private void explode() throws CommandSyntaxException {
         if(creeperEntity.getEntityWorld().isClient) return;
         //((CreeperEntityRendererInvoker) creeperEntityRenderer).invokerScale(creeperEntity, new MatrixStack(), 0.5F);
         switch(this.getClass().getSimpleName()) {
@@ -38,9 +43,14 @@ public abstract class CreeperEntityMixin {
                                 Explosion.DestructionType.DESTROY : Explosion.DestructionType.NONE);
                 break;
             case "FireWorkCreeperEntity":
-                FireworkRocketEntity fireworkEntity = EntityType.FIREWORK_ROCKET.create(creeperEntity.world);
+                ItemStack fireWork = new ItemStack(Items.FIREWORK_ROCKET);
+                CompoundTag compoundTag = new CompoundTag();
+                fireWork.putSubTag("Fireworks", StringNbtReader.parse("{Explosions:[{Type:3,Flicker:1,Colors:[I;4312372],FadeColors:[I;4312372]}],Flight:1}"));
+                FireworkRocketEntity fireworkEntity = new FireworkRocketEntity(
+                        creeperEntity.getEntityWorld(), creeperEntity.getX(), creeperEntity.getY(), creeperEntity.getZ(), fireWork);
                 fireworkEntity.refreshPositionAfterTeleport(
                     creeperEntity.getX(), creeperEntity.getY(), creeperEntity.getZ());
+                creeperEntity.getEntityWorld().spawnEntity(fireworkEntity);
                 break;
             case "CookieCreeperEntity":
                 creeperEntity.getEntityWorld().createExplosion(creeperEntity,
@@ -50,7 +60,6 @@ public abstract class CreeperEntityMixin {
                         creeperEntity.getX(), creeperEntity.getY(), creeperEntity.getZ(), new ItemStack(Items.COOKIE, new Random().nextInt(4 - 2 + 1) + 2)));
                 break;
             default:
-                Explosion.DestructionType destructionType2 = creeperEntity.getEntityWorld().getGameRules().getBoolean(GameRules.DO_MOB_GRIEFING) ? Explosion.DestructionType.DESTROY : Explosion.DestructionType.NONE;
                 creeperEntity.getEntityWorld().createExplosion(creeperEntity,
                         creeperEntity.getX(), creeperEntity.getY(), creeperEntity.getZ(),
                         (float) 3*(creeperEntity.shouldRenderOverlay() ? 2.0F : 1.0F), creeperEntity.getEntityWorld().getGameRules().getBoolean(GameRules.DO_MOB_GRIEFING) ?
