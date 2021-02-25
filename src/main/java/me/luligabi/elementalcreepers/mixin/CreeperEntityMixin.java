@@ -2,6 +2,7 @@ package me.luligabi.elementalcreepers.mixin;
 
 import net.minecraft.entity.*;
 import net.minecraft.entity.mob.CreeperEntity;
+import net.minecraft.entity.projectile.FireworkRocketEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.world.GameRules;
@@ -33,7 +34,13 @@ public abstract class CreeperEntityMixin {
             case "HydrogenCreeperEntity":
                 creeperEntity.getEntityWorld().createExplosion(creeperEntity,
                         creeperEntity.getX(), creeperEntity.getY(), creeperEntity.getZ(),
-                        9, Explosion.DestructionType.DESTROY);
+                        9, creeperEntity.getEntityWorld().getGameRules().getBoolean(GameRules.DO_MOB_GRIEFING) ?
+                                Explosion.DestructionType.DESTROY : Explosion.DestructionType.NONE);
+                break;
+            case "FireWorkCreeperEntity":
+                FireworkRocketEntity fireworkEntity = EntityType.FIREWORK_ROCKET.create(creeperEntity.world);
+                fireworkEntity.refreshPositionAfterTeleport(
+                    creeperEntity.getX(), creeperEntity.getY(), creeperEntity.getZ());
                 break;
             case "CookieCreeperEntity":
                 creeperEntity.getEntityWorld().createExplosion(creeperEntity,
@@ -43,10 +50,11 @@ public abstract class CreeperEntityMixin {
                         creeperEntity.getX(), creeperEntity.getY(), creeperEntity.getZ(), new ItemStack(Items.COOKIE, new Random().nextInt(4 - 2 + 1) + 2)));
                 break;
             default:
-                Explosion.DestructionType destructionType = creeperEntity.getEntityWorld().getGameRules().getBoolean(GameRules.DO_MOB_GRIEFING) ? Explosion.DestructionType.DESTROY : Explosion.DestructionType.NONE;
+                Explosion.DestructionType destructionType2 = creeperEntity.getEntityWorld().getGameRules().getBoolean(GameRules.DO_MOB_GRIEFING) ? Explosion.DestructionType.DESTROY : Explosion.DestructionType.NONE;
                 creeperEntity.getEntityWorld().createExplosion(creeperEntity,
                         creeperEntity.getX(), creeperEntity.getY(), creeperEntity.getZ(),
-                        (float) 3*(creeperEntity.shouldRenderOverlay() ? 2.0F : 1.0F), destructionType);
+                        (float) 3*(creeperEntity.shouldRenderOverlay() ? 2.0F : 1.0F), creeperEntity.getEntityWorld().getGameRules().getBoolean(GameRules.DO_MOB_GRIEFING) ?
+                                Explosion.DestructionType.DESTROY : Explosion.DestructionType.NONE);
                 break;
         }
         ((LivingEntityAccessor) creeperEntity).setDead(true);
