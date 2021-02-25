@@ -1,6 +1,5 @@
 package me.luligabi.elementalcreepers.renderer;
 
-import me.luligabi.elementalcreepers.entity.ElectricCreeperEntity;
 import me.luligabi.elementalcreepers.entity.HydrogenCreeperEntity;
 import net.minecraft.client.render.entity.EntityRenderDispatcher;
 import net.minecraft.client.render.entity.MobEntityRenderer;
