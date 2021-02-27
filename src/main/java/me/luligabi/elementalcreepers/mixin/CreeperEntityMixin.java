@@ -40,6 +40,12 @@ public abstract class CreeperEntityMixin {
         posZ = creeperEntity.getZ();
         switch(this.getClass().getSimpleName()) {
             case "WaterCreeperEntity":
+                double radiusWater = 3; //TODO: Add config to change radius
+                for (int x = (int) -radiusWater - 1; x <= radiusWater; x++)
+                    for (int y = (int) -radiusWater - 1; y <= radiusWater; y++)
+                        for (int z = (int) -radiusWater - 1; z <= radiusWater; z++)
+                            if (creeperEntity.world.getBlockState(new BlockPos((int) posX + x, (int) posY + y, (int) posZ + z)).isAir() && Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2) + Math.pow(z, 2)) <= radiusWater)
+                                creeperEntity.world.setBlockState(new BlockPos((int) posX + x, (int) posY + y, (int) posZ + z), Blocks.WATER.getDefaultState());
                 break;
             case "ElectricCreeperEntity":
                 lightningEntity.refreshPositionAfterTeleport(
@@ -53,31 +59,30 @@ public abstract class CreeperEntityMixin {
                                 Explosion.DestructionType.DESTROY : Explosion.DestructionType.NONE);
                 break;
             case "IceCreeperEntity":
-                if (creeperEntity.getAttacker() != null) {
-                    creeperEntity.getAttacker().applyStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, 20*20, 1));
-                    creeperEntity.getAttacker().applyStatusEffect(new StatusEffectInstance(StatusEffects.MINING_FATIGUE, 10*20, 1));
-                }
                 creeperEntity.world.createExplosion(creeperEntity,
                         posX, posY, posZ, 0, Explosion.DestructionType.NONE);
-                FrostWalkerEnchantment.freezeWater(creeperEntity, creeperEntity.world, new BlockPos(
-                        posX, posY, posZ), 3);
-                float radius = 7;
-                for(int x = (int) -radius - 1; x <= radius; x++) for(int y = (int) -radius - 1; y <= radius; y++) for(int z = (int) -radius - 1; z <= radius; z++) {
-                    if(Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2)) <= radius) {
-                        BlockPos blockPos = new BlockPos((int) posX + x, (int) posY + y, (int) posZ + z);
-                        if(creeperEntity.world.getBlockState(blockPos) == Blocks.WATER.getDefaultState()) {
-                            creeperEntity.world.setBlockState(blockPos, Blocks.ICE.getDefaultState());
-                            System.out.println("water -> ice");
-                        } else if(creeperEntity.world.getBlockState(blockPos) == Blocks.LAVA.getDefaultState()) {
-                            creeperEntity.world.setBlockState(blockPos, Blocks.OBSIDIAN.getDefaultState());
-                            System.out.println("lava -> obsidian");
-                        } else if(Blocks.DIRT.canPlaceAt(null, null, blockPos) && !Blocks.DIRT.canPlaceAt(null, null, new BlockPos((int) posX + x, (int) (posY + y) - 1, (int) posZ + z))) {
-                            creeperEntity.world.setBlockState(blockPos, Blocks.SNOW_BLOCK.getDefaultState());
-                            System.out.println("place snow");
-                        }
-                    }
+                if (creeperEntity.getAttacker() != null) { //TODO: Change effect apply to area rather than attacker.
+                    creeperEntity.getAttacker().applyStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, 20 * 20, 1));
+                    creeperEntity.getAttacker().applyStatusEffect(new StatusEffectInstance(StatusEffects.MINING_FATIGUE, 10 * 20, 1));
                 }
-                //TODO: Add more effects
+                double radiusIce = 4;
+                for (int x = (int) -radiusIce - 1; x <= radiusIce; x++)
+                    for (int y = (int) -radiusIce - 1; y <= radiusIce; y++)
+                        for (int z = (int) -radiusIce - 1; z <= radiusIce; z++)
+                            if (Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2) + Math.pow(z, 2)) <= radiusIce) {
+                                BlockPos blockPos = new BlockPos((int) posX + x, (int) posY + y, (int) posZ + z);
+                                if (creeperEntity.world.getBlockState(blockPos).isAir() && !creeperEntity.world.getBlockState(new BlockPos((int) posX + x, (int) (posY + y) - 1, (int) posZ + z)).isAir()) {
+                                    if ((new Random().nextInt(10 - 1 + 1) + 1) >= 5) {
+                                        creeperEntity.world.setBlockState(blockPos, Blocks.SNOW_BLOCK.getDefaultState());
+                                    } else {
+                                        creeperEntity.world.setBlockState(blockPos, Blocks.SNOW.getDefaultState());
+                                    }
+                                } else if (creeperEntity.world.getBlockState(blockPos) == Blocks.WATER.getDefaultState()) {
+                                    creeperEntity.world.setBlockState(blockPos, Blocks.ICE.getDefaultState());
+                                } else if (creeperEntity.world.getBlockState(blockPos) == Blocks.LAVA.getDefaultState()) {
+                                    creeperEntity.world.setBlockState(blockPos, Blocks.OBSIDIAN.getDefaultState());
+                                }
+                            }
                 break;
             case "FireworkCreeperEntity":
                 ItemStack fireWork = new ItemStack(Items.FIREWORK_ROCKET);
