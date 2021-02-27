@@ -66,7 +66,7 @@ public abstract class CreeperEntityMixin {
                     if(Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2)) <= radius) {
                         BlockPos blockPos = new BlockPos((int) posX + x, (int) posY + y, (int) posZ + z);
                         if(creeperEntity.world.getBlockState(blockPos) == Blocks.WATER.getDefaultState()) {
-                            creeperEntity.world.setBlockState(blockPos, Blocks..getDefaultState());
+                            creeperEntity.world.setBlockState(blockPos, Blocks.ICE.getDefaultState());
                             System.out.println("water -> ice");
                         } else if(creeperEntity.world.getBlockState(blockPos) == Blocks.LAVA.getDefaultState()) {
                             creeperEntity.world.setBlockState(blockPos, Blocks.OBSIDIAN.getDefaultState());
