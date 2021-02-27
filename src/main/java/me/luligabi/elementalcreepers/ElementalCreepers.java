@@ -68,9 +68,9 @@ public class ElementalCreepers implements ModInitializer {
     private void registerCreeperSpawnEggItems() {
         Registry.register(Registry.ITEM, new Identifier("elementalcreepers", "water_creeper_spawn_egg"), new SpawnEggItem(WATER_CREEPER, 0xE88E3F, 0x8A4929, new Item.Settings().group(ItemGroup.MISC))); // TODO: Change colors
         Registry.register(Registry.ITEM, new Identifier("elementalcreepers", "electric_creeper_spawn_egg"), new SpawnEggItem(ELECTRIC_CREEPER, 0xF2DB47, 0xEED111, new Item.Settings().group(ItemGroup.MISC)));
-        Registry.register(Registry.ITEM, new Identifier("elementalcreepers", "ice_creeper_spawn_egg"), new SpawnEggItem(ICE_CREEPER, 0xE88E3F, 0x8A4929, new Item.Settings().group(ItemGroup.MISC))); // TODO: Change colors
+        Registry.register(Registry.ITEM, new Identifier("elementalcreepers", "ice_creeper_spawn_egg"), new SpawnEggItem(ICE_CREEPER, 0x7CACFC, 0x8CC4FC, new Item.Settings().group(ItemGroup.MISC)));
         Registry.register(Registry.ITEM, new Identifier("elementalcreepers", "hydrogen_creeper_spawn_egg"), new SpawnEggItem(HYDROGEN_CREEPER, 0xE88E3F, 0x8A4929, new Item.Settings().group(ItemGroup.MISC))); // TODO: Change colors
-        Registry.register(Registry.ITEM, new Identifier("elementalcreepers", "firework_creeper_spawn_egg"), new SpawnEggItem(FIREWORK_CREEPER, 0xE88E3F, 0x8A4929, new Item.Settings().group(ItemGroup.MISC))); // TODO: Change colors
+        Registry.register(Registry.ITEM, new Identifier("elementalcreepers", "firework_creeper_spawn_egg"), new SpawnEggItem(FIREWORK_CREEPER, 0xD73939, 0xE4E4E4, new Item.Settings().group(ItemGroup.MISC)));
         Registry.register(Registry.ITEM, new Identifier("elementalcreepers", "cookie_creeper_spawn_egg"), new SpawnEggItem(COOKIE_CREEPER, 0xE88E3F, 0x8A4929, new Item.Settings().group(ItemGroup.MISC)));
     }
 }
