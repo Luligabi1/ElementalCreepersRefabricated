@@ -1,4 +1,7 @@
 {
+  "entity.elementalcreepers.water_creeper": "Water Creeper",
+  "item.elementalcreepers.water_creeper_spawn_egg": "Water Creeper Spawn Egg",
+
   "entity.elementalcreepers.electric_creeper": "Electric Creeper",
   "item.elementalcreepers.electric_creeper_spawn_egg": "Electric Creeper Spawn Egg",
 
@@ -12,5 +15,7 @@
   "item.elementalcreepers.firework_creeper_spawn_egg": "Firework Creeper Spawn Egg",
 
   "entity.elementalcreepers.cookie_creeper": "Cookie Creeper",
-  "item.elementalcreepers.cookie_creeper_spawn_egg": "Cookie Creeper Spawn Egg"
+  "item.elementalcreepers.cookie_creeper_spawn_egg": "Cookie Creeper Spawn Egg",
+
+  "itemGroup.elementalcreepers.category": "Elemental Creepers"
 }
