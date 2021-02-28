@@ -27,23 +27,24 @@ public class IceCreeperEntity extends ElementalCreeperEntity {
     @Override
     public void tickMovement() {
         super.tickMovement();
-        if(this.world.isClient) return;
-        if(!this.world.getGameRules().getBoolean(GameRules.DO_MOB_GRIEFING)) return;
-        int posX = MathHelper.floor(this.getX());
-        int posY = MathHelper.floor(this.getY());
-        int posZ = MathHelper.floor(this.getZ());
-        if (this.world.getBiome(new BlockPos(posX, 0, posZ)).getTemperature(new BlockPos(posX, posY, posZ)) > 1.0F) {
-            this.damage(DamageSource.ON_FIRE, 1.0F);
-        }
-        BlockState blockState = Blocks.SNOW.getDefaultState();
+        if(!this.world.isClient) {
+            if (!this.world.getGameRules().getBoolean(GameRules.DO_MOB_GRIEFING)) return;
+            int posX = MathHelper.floor(this.getX());
+            int posY = MathHelper.floor(this.getY());
+            int posZ = MathHelper.floor(this.getZ());
+            if (this.world.getBiome(new BlockPos(posX, 0, posZ)).getTemperature(new BlockPos(posX, posY, posZ)) > 1.0F) {
+                this.damage(DamageSource.ON_FIRE, 1.0F);
+            }
+            BlockState blockState = Blocks.SNOW.getDefaultState();
 
-        for(int i = 0; i < 4; ++i) {
-            posX = MathHelper.floor(this.getX() + (double)((float)(i%2*2-1)*0.25F));
-            posY = MathHelper.floor(this.getY());
-            posZ = MathHelper.floor(this.getZ() + (double)((float)(i/2%2*2-1)*0.25F));
-            BlockPos blockPos = new BlockPos(posX, posY, posZ);
-            if (this.world.getBlockState(blockPos).isAir() && this.world.getBiome(blockPos).getTemperature(blockPos)< 0.8F && blockState.canPlaceAt(this.world, blockPos)) {
-                this.world.setBlockState(blockPos, blockState);
+            for (int i = 0; i < 4; ++i) {
+                posX = MathHelper.floor(this.getX() + (double) ((float) (i % 2 * 2 - 1) * 0.25F));
+                posY = MathHelper.floor(this.getY());
+                posZ = MathHelper.floor(this.getZ() + (double) ((float) (i / 2 % 2 * 2 - 1) * 0.25F));
+                BlockPos blockPos = new BlockPos(posX, posY, posZ);
+                if (this.world.getBlockState(blockPos).isAir() && this.world.getBiome(blockPos).getTemperature(blockPos) < 0.8F && blockState.canPlaceAt(this.world, blockPos)) {
+                    this.world.setBlockState(blockPos, blockState);
+                }
             }
         }
     }
