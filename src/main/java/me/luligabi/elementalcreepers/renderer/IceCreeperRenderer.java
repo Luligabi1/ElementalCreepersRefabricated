@@ -1,19 +1,18 @@
 package me.luligabi.elementalcreepers.renderer;
 
-import me.luligabi.elementalcreepers.entity.IceCreeperEntity;
+import net.minecraft.client.render.entity.CreeperEntityRenderer;
 import net.minecraft.client.render.entity.EntityRenderDispatcher;
-import net.minecraft.client.render.entity.MobEntityRenderer;
-import net.minecraft.client.render.entity.model.CreeperEntityModel;
+import net.minecraft.entity.mob.CreeperEntity;
 import net.minecraft.util.Identifier;
 
-public class IceCreeperRenderer extends MobEntityRenderer<IceCreeperEntity, CreeperEntityModel<IceCreeperEntity>> {
+public class IceCreeperRenderer extends CreeperEntityRenderer {
 
     public IceCreeperRenderer(EntityRenderDispatcher entityRenderDispatcher) {
-        super(entityRenderDispatcher, new CreeperEntityModel<>(), 0.5F);
+        super(entityRenderDispatcher);
     }
 
     @Override
-    public Identifier getTexture(IceCreeperEntity entity) {
+    public Identifier getTexture(CreeperEntity entity) {
         return new Identifier("elementalcreepers:textures/entity/ice_creeper/creeper.png");
     }
 }

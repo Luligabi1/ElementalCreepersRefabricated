@@ -4,13 +4,18 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.mob.CreeperEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.GameRules;
 import net.minecraft.world.World;
+import net.minecraft.world.explosion.Explosion;
 
-public class IceCreeperEntity extends CreeperEntity {
+import java.util.Random;
+
+public class IceCreeperEntity extends ElementalCreeperEntity {
 
     public IceCreeperEntity(EntityType<? extends CreeperEntity> entityType, World world) {
         super(entityType, world);
@@ -38,5 +43,34 @@ public class IceCreeperEntity extends CreeperEntity {
                 this.world.setBlockState(blockPos, blockState);
             }
         }
+    }
+    @Override
+    public void onExplode() {
+        this.world.createExplosion(this,
+                this.getX(), this.getY(), this.getZ(), 0, Explosion.DestructionType.NONE);
+        if (this.getAttacker() != null) { //TODO: Change effect apply to area rather than attacker.
+            this.getAttacker().applyStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, 20 * 20, 1));
+            this.getAttacker().applyStatusEffect(new StatusEffectInstance(StatusEffects.MINING_FATIGUE, 10 * 20, 1));
+        }
+        //this.world.getOtherEntities(null, new Box(this.getX()-9, this.getY()-9, this.getZ()-9, this.getX()+9, this.getY()+9, this.getZ()+9))
+        double radiusIce = 4;
+        for (int x = (int) -radiusIce - 1; x <= radiusIce; x++)
+            for (int y = (int) -radiusIce - 1; y <= radiusIce; y++)
+                for (int z = (int) -radiusIce - 1; z <= radiusIce; z++)
+                    if (Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2) + Math.pow(z, 2)) <= radiusIce) {
+                        BlockPos blockPos = new BlockPos((int) this.getX() + x, (int) this.getY() + y, (int) this.getZ() + z);
+                        if (this.world.getBlockState(blockPos).isAir() && !this.world.getBlockState(new BlockPos((int) this.getX() + x, (int) (this.getY() + y) - 1, (int) this.getZ() + z)).isAir()) {
+                            if ((new Random().nextInt(10 - 1 + 1) + 1) >= 5) {
+                                this.world.setBlockState(blockPos, Blocks.SNOW_BLOCK.getDefaultState());
+                            } else {
+                                this.world.setBlockState(blockPos, Blocks.SNOW.getDefaultState());
+                            }
+                        } else if (this.world.getBlockState(blockPos) == Blocks.WATER.getDefaultState()) {
+                            this.world.setBlockState(blockPos, Blocks.ICE.getDefaultState());
+                        } else if (this.world.getBlockState(blockPos) == Blocks.LAVA.getDefaultState()) {
+                            this.world.setBlockState(blockPos, Blocks.OBSIDIAN.getDefaultState());
+                        }
+                    }
+        super.onExplode();
     }
 }

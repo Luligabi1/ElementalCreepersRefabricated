@@ -10,6 +10,7 @@ public class ElementalCreepersClient implements ClientModInitializer {
     public void onInitializeClient() {
         EntityRendererRegistry.INSTANCE.register(ElementalCreepers.WATER_CREEPER, (entityRenderDispatcher, context) -> new WaterCreeperRenderer(entityRenderDispatcher));
         EntityRendererRegistry.INSTANCE.register(ElementalCreepers.ELECTRIC_CREEPER, (entityRenderDispatcher, context) -> new ElectricCreeperRenderer(entityRenderDispatcher));
+        EntityRendererRegistry.INSTANCE.register(ElementalCreepers.LIGHT_CREEPER, (entityRenderDispatcher, context) -> new LightCreeperRenderer(entityRenderDispatcher));
         EntityRendererRegistry.INSTANCE.register(ElementalCreepers.ICE_CREEPER, (entityRenderDispatcher, context) -> new IceCreeperRenderer(entityRenderDispatcher));
         EntityRendererRegistry.INSTANCE.register(ElementalCreepers.HYDROGEN_CREEPER, (entityRenderDispatcher, context) -> new HydrogenCreeperRenderer(entityRenderDispatcher));
         EntityRendererRegistry.INSTANCE.register(ElementalCreepers.FIREWORK_CREEPER, (entityRenderDispatcher, context) -> new FireworkCreeperRenderer(entityRenderDispatcher));

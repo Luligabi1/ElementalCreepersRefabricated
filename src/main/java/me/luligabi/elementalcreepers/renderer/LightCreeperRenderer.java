@@ -5,9 +5,9 @@ import net.minecraft.client.render.entity.EntityRenderDispatcher;
 import net.minecraft.entity.mob.CreeperEntity;
 import net.minecraft.util.Identifier;
 
-public class CookieCreeperRenderer extends CreeperEntityRenderer {
+public class LightCreeperRenderer extends CreeperEntityRenderer {
 
-    public CookieCreeperRenderer(EntityRenderDispatcher entityRenderDispatcher) {
+    public LightCreeperRenderer(EntityRenderDispatcher entityRenderDispatcher) {
         super(entityRenderDispatcher);
     }
 

@@ -1,19 +1,18 @@
 package me.luligabi.elementalcreepers.renderer;
 
-import me.luligabi.elementalcreepers.entity.HydrogenCreeperEntity;
+import net.minecraft.client.render.entity.CreeperEntityRenderer;
 import net.minecraft.client.render.entity.EntityRenderDispatcher;
-import net.minecraft.client.render.entity.MobEntityRenderer;
-import net.minecraft.client.render.entity.model.CreeperEntityModel;
+import net.minecraft.entity.mob.CreeperEntity;
 import net.minecraft.util.Identifier;
 
-public class HydrogenCreeperRenderer extends MobEntityRenderer<HydrogenCreeperEntity, CreeperEntityModel<HydrogenCreeperEntity>> {
+public class HydrogenCreeperRenderer extends CreeperEntityRenderer {
 
     public HydrogenCreeperRenderer(EntityRenderDispatcher entityRenderDispatcher) {
-        super(entityRenderDispatcher, new CreeperEntityModel<>(), 0.5F);
+        super(entityRenderDispatcher);
     }
 
     @Override
-    public Identifier getTexture(HydrogenCreeperEntity entity) {
+    public Identifier getTexture(CreeperEntity entity) {
         return new Identifier("elementalcreepers:textures/entity/electric_creeper/creeper.png"); //TODO: Add proper texture
 
     }
