@@ -2,12 +2,15 @@ package me.luligabi.elementalcreepers.entity;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.mob.CreeperEntity;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Box;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.GameRules;
 import net.minecraft.world.World;
@@ -48,11 +51,11 @@ public class IceCreeperEntity extends ElementalCreeperEntity {
     public void onExplode() {
         this.world.createExplosion(this,
                 this.getX(), this.getY(), this.getZ(), 0, Explosion.DestructionType.NONE);
-        if (this.getAttacker() != null) { //TODO: Change effect apply to area rather than attacker.
-            this.getAttacker().applyStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, 20 * 20, 1));
-            this.getAttacker().applyStatusEffect(new StatusEffectInstance(StatusEffects.MINING_FATIGUE, 10 * 20, 1));
+        for(Entity entity : this.world.getOtherEntities(null, new Box(this.getX()-5, this.getY()-5, this.getZ()-5, this.getX()+5, this.getY()+5, this.getZ()+5))) {
+            if(entity.isLiving()) {
+                ((LivingEntity) entity).applyStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, 40 * 20, 1));
+            }
         }
-        //this.world.getOtherEntities(null, new Box(this.getX()-9, this.getY()-9, this.getZ()-9, this.getX()+9, this.getY()+9, this.getZ()+9))
         double radiusIce = 4;
         for (int x = (int) -radiusIce - 1; x <= radiusIce; x++)
             for (int y = (int) -radiusIce - 1; y <= radiusIce; y++)
