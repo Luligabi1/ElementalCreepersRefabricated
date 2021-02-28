@@ -22,6 +22,7 @@ public class ElementalCreepers implements ModInitializer {
     }
     private void registerCreeperEntities() {
         FabricDefaultAttributeRegistry.register(WATER_CREEPER, WaterCreeperEntity.createCreeperAttributes());
+        FabricDefaultAttributeRegistry.register(FIRE_CREEPER, FireCreeperEntity.createCreeperAttributes());
         FabricDefaultAttributeRegistry.register(ELECTRIC_CREEPER, ElectricCreeperEntity.createCreeperAttributes());
         FabricDefaultAttributeRegistry.register(LIGHT_CREEPER, LightCreeperEntity.createCreeperAttributes());
         FabricDefaultAttributeRegistry.register(ICE_CREEPER, IceCreeperEntity.createCreeperAttributes());
@@ -30,7 +31,8 @@ public class ElementalCreepers implements ModInitializer {
         FabricDefaultAttributeRegistry.register(COOKIE_CREEPER, CookieCreeperEntity.createCreeperAttributes());
     }
     private void registerCreeperSpawnEggItems() {
-        Registry.register(Registry.ITEM, new Identifier("elementalcreepers", "water_creeper_spawn_egg"), new SpawnEggItem(WATER_CREEPER, 0x415db3, 0xa4a4cc, new Item.Settings().group(ElementalCreepers.SPAWN_EGGS)));
+        Registry.register(Registry.ITEM, new Identifier("elementalcreepers", "water_creeper_spawn_egg"), new SpawnEggItem(WATER_CREEPER, 0x415DB3, 0XA4A4CC, new Item.Settings().group(ElementalCreepers.SPAWN_EGGS)));
+        Registry.register(Registry.ITEM, new Identifier("elementalcreepers", "fire_creeper_spawn_egg"), new SpawnEggItem(FIRE_CREEPER, 0xA50B0E, 0xD599A5, new Item.Settings().group(ElementalCreepers.SPAWN_EGGS)));
         Registry.register(Registry.ITEM, new Identifier("elementalcreepers", "electric_creeper_spawn_egg"), new SpawnEggItem(ELECTRIC_CREEPER, 0xF2DB47, 0xEED111, new Item.Settings().group(ElementalCreepers.SPAWN_EGGS)));
         Registry.register(Registry.ITEM, new Identifier("elementalcreepers", "light_creeper_spawn_egg"), new SpawnEggItem(LIGHT_CREEPER, 0xF2DB47, 0xEED111, new Item.Settings().group(ElementalCreepers.SPAWN_EGGS))); //TODO: Change colors
         Registry.register(Registry.ITEM, new Identifier("elementalcreepers", "ice_creeper_spawn_egg"), new SpawnEggItem(ICE_CREEPER, 0x7CACFC, 0x8CC4FC, new Item.Settings().group(ElementalCreepers.SPAWN_EGGS)));
@@ -44,6 +46,13 @@ public class ElementalCreepers implements ModInitializer {
                     Registry.ENTITY_TYPE,
                     new Identifier("elementalcreepers", "water_creeper"),
                     FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, WaterCreeperEntity::new).dimensions(EntityDimensions.fixed(0.6F, 1.7F)).build());
+
+    public static final EntityType<FireCreeperEntity> FIRE_CREEPER =
+            Registry.register(
+                    Registry.ENTITY_TYPE,
+                    new Identifier("elementalcreepers", "fire_creeper"),
+                    FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, FireCreeperEntity::new).dimensions(EntityDimensions.fixed(0.6F, 1.7F)).build());
+
 
     public static final EntityType<ElectricCreeperEntity> ELECTRIC_CREEPER =
             Registry.register(
