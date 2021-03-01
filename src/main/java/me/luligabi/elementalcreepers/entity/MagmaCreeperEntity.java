@@ -8,6 +8,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.GameRules;
 import net.minecraft.world.World;
+import net.minecraft.world.explosion.Explosion;
 
 public class MagmaCreeperEntity extends ElementalCreeperEntity {
 
@@ -38,12 +39,19 @@ public class MagmaCreeperEntity extends ElementalCreeperEntity {
 
     @Override
     public void onExplode() {
-        double radiusLava = 3; //TODO: Add config to change radius
-        for (int x = (int) -radiusLava - 1; x <= radiusLava; x++)
-            for (int y = (int) -radiusLava - 1; y <= radiusLava; y++)
-                for (int z = (int) -radiusLava - 1; z <= radiusLava; z++)
-                    if (this.world.getBlockState(new BlockPos((int) this.getX() + x, (int) this.getY() + y, (int) this.getZ() + z)).isAir() && Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2) + Math.pow(z, 2)) <= radiusLava)
-                        this.world.setBlockState(new BlockPos((int) this.getX() + x, (int) this.getY() + y, (int) this.getZ() + z), Blocks.LAVA.getDefaultState());
+        double radiusLava = 3; //TODO: Add config to change radius and charged value.
+        this.world.createExplosion(this,
+                this.getX(), this.getY(), this.getZ(), 0, Explosion.DestructionType.NONE);
+        for (int x = (int) -radiusLava - 1; x <= radiusLava; x++) {
+            for (int y = (int) -radiusLava - 1; y <= radiusLava; y++) {
+                for (int z = (int) -radiusLava - 1; z <= radiusLava; z++) {
+                    BlockPos blockPos = new BlockPos((int) this.getX() + x, (int) this.getY() + y, (int) this.getZ() + z);
+                    if (this.world.getBlockState(blockPos).isAir() && Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2) + Math.pow(z, 2)) <= radiusLava) {
+                        this.world.setBlockState(blockPos, Blocks.LAVA.getDefaultState());
+                    }
+                }
+            }
+        }
         super.onExplode();
     }
 }

@@ -57,10 +57,10 @@ public class IceCreeperEntity extends ElementalCreeperEntity {
                 ((LivingEntity) entity).applyStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, 40 * 20, 1));
             }
         }
-        double radiusIce = 4;
-        for (int x = (int) -radiusIce - 1; x <= radiusIce; x++)
-            for (int y = (int) -radiusIce - 1; y <= radiusIce; y++)
-                for (int z = (int) -radiusIce - 1; z <= radiusIce; z++)
+        double radiusIce = 4; //TODO: Add config to change radius and charged value.
+        for (int x = (int) -radiusIce - 1; x <= radiusIce; x++)  {
+            for (int y = (int) -radiusIce - 1; y <= radiusIce; y++) {
+                for (int z = (int) -radiusIce - 1; z <= radiusIce; z++) {
                     if (Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2) + Math.pow(z, 2)) <= radiusIce) {
                         BlockPos blockPos = new BlockPos((int) this.getX() + x, (int) this.getY() + y, (int) this.getZ() + z);
                         if (this.world.getBlockState(blockPos).isAir() && !this.world.getBlockState(new BlockPos((int) this.getX() + x, (int) (this.getY() + y) - 1, (int) this.getZ() + z)).isAir()) {
@@ -75,6 +75,9 @@ public class IceCreeperEntity extends ElementalCreeperEntity {
                             this.world.setBlockState(blockPos, Blocks.OBSIDIAN.getDefaultState());
                         }
                     }
+                }
+            }
+        }
         super.onExplode();
     }
 }
