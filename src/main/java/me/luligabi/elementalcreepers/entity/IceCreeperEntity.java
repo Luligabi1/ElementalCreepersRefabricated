@@ -64,7 +64,7 @@ public class IceCreeperEntity extends ElementalCreeperEntity {
                     if (Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2) + Math.pow(z, 2)) <= radiusIce) {
                         BlockPos blockPos = new BlockPos((int) this.getX() + x, (int) this.getY() + y, (int) this.getZ() + z);
                         if (this.world.getBlockState(blockPos).isAir() && !this.world.getBlockState(new BlockPos((int) this.getX() + x, (int) (this.getY() + y) - 1, (int) this.getZ() + z)).isAir()) {
-                            if ((new Random().nextInt(10 - 1 + 1) + 1) >= 5) {
+                            if (new Random().nextBoolean()) {
                                 this.world.setBlockState(blockPos, Blocks.SNOW_BLOCK.getDefaultState());
                             } else {
                                 this.world.setBlockState(blockPos, Blocks.SNOW.getDefaultState());
