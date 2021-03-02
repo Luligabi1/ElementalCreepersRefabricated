@@ -8,6 +8,9 @@
   "entity.elementalcreepers.earth_creeper": "Earth Creeper",
   "item.elementalcreepers.earth_creeper_spawn_egg": "Earth Creeper Spawn Egg",
 
+  "entity.elementalcreepers.air_creeper": "Air Creeper",
+  "item.elementalcreepers.air_creeper_spawn_egg": "Air Creeper Spawn Egg",
+
   "entity.elementalcreepers.electric_creeper": "Electric Creeper",
   "item.elementalcreepers.electric_creeper_spawn_egg": "Electric Creeper Spawn Egg",
 
@@ -26,5 +29,5 @@
   "entity.elementalcreepers.cookie_creeper": "Cookie Creeper",
   "item.elementalcreepers.cookie_creeper_spawn_egg": "Cookie Creeper Spawn Egg",
 
-  "itemGroup.elementalcreepers.category": "Elemental Creepers"
+  "itemGroup.elementalcreepers.category": "Elemental Creepers: Refabricated"
 }
