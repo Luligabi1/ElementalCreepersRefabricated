@@ -15,4 +15,9 @@ public abstract class CreeperEntityMixin {
         CreeperEntity creeperEntity = ((CreeperEntity) (Object) this);
         CreeperEntityHooks.onExplode(creeperEntity, info);
     }
+    @Inject(at = @At("HEAD"), method="tick", cancellable = true)
+    public void injectTick(CallbackInfo info) {
+        CreeperEntity creeperEntity = ((CreeperEntity) (Object) this);
+        CreeperEntityHooks.tick(creeperEntity);
+    }
 }

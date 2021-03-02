@@ -12,9 +12,9 @@ public abstract class ElementalCreeperEntity extends CreeperEntity {
         super(entityType, world);
     }
     public void onExplode() {
+        this.clearStatusEffects();
         this.dead = true;
         this.remove();
         ((CreeperEntityInvoker) this).invokeSpawnEffectsCloud();
-
     }
 }

@@ -16,8 +16,6 @@ public class MagmaCreeperEntity extends ElementalCreeperEntity {
         super(entityType, world);
     }
 
-    //TODO: Disable fire damage.
-
     @Override
     public void tickMovement() {
         super.tickMovement();
