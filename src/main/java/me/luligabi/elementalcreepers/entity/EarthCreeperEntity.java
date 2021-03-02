@@ -19,12 +19,12 @@ public class EarthCreeperEntity extends ElementalCreeperEntity {
     public void onExplode() {
         this.world.createExplosion(this,
                 this.getX(), this.getY(), this.getZ(), 0, Explosion.DestructionType.NONE);
-        double radiusEarth = 5;
-        for (int x = (int) -radiusEarth - 1; x <= radiusEarth; x++) {
-            for (int y = (int) -radiusEarth - 1; y <= radiusEarth; y++) {
-                for (int z = (int) -radiusEarth - 1; z <= radiusEarth; z++) {
+        double radius = 5; //TODO: Add config to change radius and charged value.
+        for (int x = (int) -radius - 1; x <= radius; x++) {
+            for (int y = (int) -radius - 1; y <= radius; y++) {
+                for (int z = (int) -radius - 1; z <= radius; z++) {
                     BlockPos blockPos = new BlockPos((int) this.getX() + x, (int) this.getY() + y, (int) this.getZ() + z);
-                    if (this.world.getBlockState(blockPos).isAir() && Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2) + Math.pow(z, 2)) <= radiusEarth) {
+                    if (this.world.getBlockState(blockPos).isAir() && Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2) + Math.pow(z, 2)) <= radius) {
                         switch(new Random().nextInt(5 - 1 + 1) + 1) {
                             case 1: case 2: case 3:
                                 this.world.setBlockState(blockPos, Blocks.AIR.getDefaultState());

@@ -17,12 +17,12 @@ public class FireCreeperEntity extends ElementalCreeperEntity {
 
     @Override
     public void onExplode() {
-        double radiusFire = 3; //TODO: Add config to change radius and charged value.
+        double radius = 3; //TODO: Add config to change radius and charged value.
         this.world.createExplosion(this,
                 this.getX(), this.getY(), this.getZ(), 0, Explosion.DestructionType.NONE);
-        for (int x = (int) -radiusFire - 1; x <= radiusFire; x++) {
-            for (int y = (int) -radiusFire - 1; y <= radiusFire; y++) {
-                for (int z = (int) -radiusFire - 1; z <= radiusFire; z++) {
+        for (int x = (int) -radius - 1; x <= radius; x++) {
+            for (int y = (int) -radius - 1; y <= radius; y++) {
+                for (int z = (int) -radius - 1; z <= radius; z++) {
                     BlockPos blockPos = new BlockPos((int) this.getX() + x, (int) this.getY() + y, (int) this.getZ() + z);
                     if (this.world.getBlockState(blockPos).isAir() && !this.world.getBlockState(new BlockPos((int) this.getX() + x, (int) (this.getY() + y) - 1, (int) this.getZ() + z)).isAir()) {
                         if(new Random().nextBoolean()) this.world.setBlockState(blockPos, Blocks.FIRE.getDefaultState());

@@ -57,11 +57,11 @@ public class IceCreeperEntity extends ElementalCreeperEntity {
                 ((LivingEntity) entity).applyStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, 40 * 20, 1));
             }
         }
-        double radiusIce = 4; //TODO: Add config to change radius and charged value.
-        for (int x = (int) -radiusIce - 1; x <= radiusIce; x++)  {
-            for (int y = (int) -radiusIce - 1; y <= radiusIce; y++) {
-                for (int z = (int) -radiusIce - 1; z <= radiusIce; z++) {
-                    if (Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2) + Math.pow(z, 2)) <= radiusIce) {
+        double radius = 4; //TODO: Add config to change radius and charged value.
+        for (int x = (int) -radius - 1; x <= radius; x++)  {
+            for (int y = (int) -radius - 1; y <= radius; y++) {
+                for (int z = (int) -radius - 1; z <= radius; z++) {
+                    if (Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2) + Math.pow(z, 2)) <= radius) {
                         BlockPos blockPos = new BlockPos((int) this.getX() + x, (int) this.getY() + y, (int) this.getZ() + z);
                         if (this.world.getBlockState(blockPos).isAir() && !this.world.getBlockState(new BlockPos((int) this.getX() + x, (int) (this.getY() + y) - 1, (int) this.getZ() + z)).isAir()) {
                             if (new Random().nextBoolean()) {
