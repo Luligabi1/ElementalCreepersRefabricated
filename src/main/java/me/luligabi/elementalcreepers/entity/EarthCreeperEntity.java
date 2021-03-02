@@ -26,11 +26,14 @@ public class EarthCreeperEntity extends ElementalCreeperEntity {
                     BlockPos blockPos = new BlockPos((int) this.getX() + x, (int) this.getY() + y, (int) this.getZ() + z);
                     if (this.world.getBlockState(blockPos).isAir() && Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2) + Math.pow(z, 2)) <= radius) {
                         switch(new Random().nextInt(5 - 1 + 1) + 1) {
-                            case 1: case 2: case 3:
-                                this.world.setBlockState(blockPos, Blocks.AIR.getDefaultState());
-                                break;
-                            case 4: case 5:
+                            case 1:
                                 this.world.setBlockState(blockPos, Blocks.DIRT.getDefaultState());
+                                break;
+                            case 2:
+                                this.world.setBlockState(blockPos, Blocks.COARSE_DIRT.getDefaultState());
+                                break;
+                            case 3: case 4: case 5:
+                                this.world.setBlockState(blockPos, Blocks.AIR.getDefaultState());
                                 break;
                         }
                     }
