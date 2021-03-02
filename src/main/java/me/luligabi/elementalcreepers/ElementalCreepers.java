@@ -44,57 +44,48 @@ public class ElementalCreepers implements ModInitializer {
     }
 
     public static final EntityType<WaterCreeperEntity> WATER_CREEPER =
-            Registry.register(
-                    Registry.ENTITY_TYPE,
+            Registry.register(Registry.ENTITY_TYPE,
                     new Identifier("elementalcreepers", "water_creeper"),
                     FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, WaterCreeperEntity::new).dimensions(EntityDimensions.fixed(0.6F, 1.7F)).build());
 
     public static final EntityType<FireCreeperEntity> FIRE_CREEPER =
-            Registry.register(
-                    Registry.ENTITY_TYPE,
+            Registry.register(Registry.ENTITY_TYPE,
                     new Identifier("elementalcreepers", "fire_creeper"),
                     FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, FireCreeperEntity::new).dimensions(EntityDimensions.fixed(0.6F, 1.7F)).build());
 
     public static final EntityType<EarthCreeperEntity> EARTH_CREEPER =
-            Registry.register(
-                    Registry.ENTITY_TYPE,
+            Registry.register(Registry.ENTITY_TYPE,
                     new Identifier("elementalcreepers", "earth_creeper"),
                     FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, EarthCreeperEntity::new).dimensions(EntityDimensions.fixed(0.6F, 1.7F)).build());
 
 
     public static final EntityType<ElectricCreeperEntity> ELECTRIC_CREEPER =
-            Registry.register(
-                    Registry.ENTITY_TYPE,
+            Registry.register(Registry.ENTITY_TYPE,
                     new Identifier("elementalcreepers", "electric_creeper"),
                     FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, ElectricCreeperEntity::new).dimensions(EntityDimensions.fixed(0.6F, 1.7F)).build());
 
     public static final EntityType<IceCreeperEntity> ICE_CREEPER =
-            Registry.register(
-                    Registry.ENTITY_TYPE,
+            Registry.register(Registry.ENTITY_TYPE,
                     new Identifier("elementalcreepers", "ice_creeper"),
                     FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, IceCreeperEntity::new).dimensions(EntityDimensions.fixed(0.6F, 1.7F)).build());
 
     public static final EntityType<MagmaCreeperEntity> MAGMA_CREEPER =
-            Registry.register(
-                    Registry.ENTITY_TYPE,
+            Registry.register(Registry.ENTITY_TYPE,
                     new Identifier("elementalcreepers", "magma_creeper"),
                     FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, MagmaCreeperEntity::new).dimensions(EntityDimensions.fixed(0.6F, 1.7F)).build());
 
     public static final EntityType<HydrogenCreeperEntity> HYDROGEN_CREEPER =
-            Registry.register(
-                    Registry.ENTITY_TYPE,
+            Registry.register(Registry.ENTITY_TYPE,
                     new Identifier("elementalcreepers", "hydrogen_creeper"),
                     FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, HydrogenCreeperEntity::new).dimensions(EntityDimensions.fixed(0.6F, 1.7F)).build());
 
     public static final EntityType<FireworkCreeperEntity> FIREWORK_CREEPER =
-            Registry.register(
-                    Registry.ENTITY_TYPE,
+            Registry.register(Registry.ENTITY_TYPE,
                     new Identifier("elementalcreepers", "firework_creeper"),
                     FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, FireworkCreeperEntity::new).dimensions(EntityDimensions.fixed(0.6F, 1.7F)).build());
 
     public static final EntityType<CookieCreeperEntity> COOKIE_CREEPER =
-            Registry.register(
-                    Registry.ENTITY_TYPE,
+            Registry.register(Registry.ENTITY_TYPE,
                     new Identifier("elementalcreepers", "cookie_creeper"),
                     FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, CookieCreeperEntity::new).dimensions(EntityDimensions.fixed(0.6F, 1.7F)).build());
 
