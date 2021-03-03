@@ -13,7 +13,7 @@ public class HydrogenCreeperRenderer extends CreeperEntityRenderer {
 
     @Override
     public Identifier getTexture(CreeperEntity entity) {
-        return new Identifier("elementalcreepers:textures/entity/electric_creeper/creeper.png"); //TODO: Add proper texture
+        return new Identifier("elementalcreepers:textures/entity/hydrogen_creeper/creeper.png");
 
     }
 }
