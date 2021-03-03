@@ -1,5 +1,6 @@
 package me.luligabi.elementalcreepers.hooks;
 
+import me.luligabi.elementalcreepers.entity.AirCreeperEntity;
 import me.luligabi.elementalcreepers.entity.ElementalCreeperEntity;
 import me.luligabi.elementalcreepers.entity.FireCreeperEntity;
 import me.luligabi.elementalcreepers.entity.MagmaCreeperEntity;
@@ -12,7 +13,11 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public class CreeperEntityHooks {
 
     public static void onExplode(CreeperEntity creeperEntity, CallbackInfo info) {
-        if(!creeperEntity.world.isClient && creeperEntity instanceof ElementalCreeperEntity) {
+        if(!creeperEntity.world.isClient && creeperEntity instanceof ElementalCreeperEntity && !(creeperEntity instanceof AirCreeperEntity)) {
+            ((ElementalCreeperEntity) creeperEntity).onExplode();
+            info.cancel();
+        }
+        if(creeperEntity instanceof AirCreeperEntity) {
             ((ElementalCreeperEntity) creeperEntity).onExplode();
             info.cancel();
         }
