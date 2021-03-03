@@ -3,6 +3,7 @@ package me.luligabi.elementalcreepers.entity;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.ai.pathing.PathNodeType;
 import net.minecraft.entity.mob.CreeperEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
@@ -14,6 +15,7 @@ public class MagmaCreeperEntity extends ElementalCreeperEntity {
 
     public MagmaCreeperEntity(EntityType<? extends CreeperEntity> entityType, World world) {
         super(entityType, world);
+        this.setPathfindingPenalty(PathNodeType.WATER, -1.0F);
     }
 
     @Override
@@ -33,6 +35,9 @@ public class MagmaCreeperEntity extends ElementalCreeperEntity {
                 }
             }
         }
+    }
+    public boolean hurtByWater() {
+        return true;
     }
 
     @Override
