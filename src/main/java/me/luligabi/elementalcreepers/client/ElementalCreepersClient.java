@@ -6,6 +6,7 @@ import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.rendereregistry.v1.EntityRendererRegistry;
 
 public class ElementalCreepersClient implements ClientModInitializer {
+
     @Override
     public void onInitializeClient() {
         EntityRendererRegistry.INSTANCE.register(ElementalCreepers.WATER_CREEPER, (entityRenderDispatcher, context) -> new WaterCreeperRenderer(entityRenderDispatcher));
@@ -18,7 +19,6 @@ public class ElementalCreepersClient implements ClientModInitializer {
         EntityRendererRegistry.INSTANCE.register(ElementalCreepers.HYDROGEN_CREEPER, (entityRenderDispatcher, context) -> new HydrogenCreeperRenderer(entityRenderDispatcher));
 
         EntityRendererRegistry.INSTANCE.register(ElementalCreepers.REVERSE_CREEPER, (entityRenderDispatcher, context) -> new ReverseCreeperRenderer(entityRenderDispatcher));
-        EntityRendererRegistry.INSTANCE.register(ElementalCreepers.ENDER_CREEPER, (entityRenderDispatcher, context) -> new EnderCreeperRenderer(entityRenderDispatcher));
         EntityRendererRegistry.INSTANCE.register(ElementalCreepers.ILLUSION_CREEPER, (entityRenderDispatcher, context) -> new IllusionCreeperRenderer(entityRenderDispatcher));
         EntityRendererRegistry.INSTANCE.register(ElementalCreepers.FAKE_ILLUSION_CREEPER, (entityRenderDispatcher, context) -> new IllusionCreeperRenderer(entityRenderDispatcher));
         EntityRendererRegistry.INSTANCE.register(ElementalCreepers.FIREWORK_CREEPER, (entityRenderDispatcher, context) -> new FireworkCreeperRenderer(entityRenderDispatcher));
