@@ -17,6 +17,7 @@ public class ElementalCreepersClient implements ClientModInitializer {
         EntityRendererRegistry.INSTANCE.register(ElementalCreepers.MAGMA_CREEPER, (entityRenderDispatcher, context) -> new MagmaCreeperRenderer(entityRenderDispatcher));
         EntityRendererRegistry.INSTANCE.register(ElementalCreepers.HYDROGEN_CREEPER, (entityRenderDispatcher, context) -> new HydrogenCreeperRenderer(entityRenderDispatcher));
 
+        EntityRendererRegistry.INSTANCE.register(ElementalCreepers.REVERSE_CREEPER, (entityRenderDispatcher, context) -> new ReverseCreeperRenderer(entityRenderDispatcher));
         EntityRendererRegistry.INSTANCE.register(ElementalCreepers.ENDER_CREEPER, (entityRenderDispatcher, context) -> new EnderCreeperRenderer(entityRenderDispatcher));
         EntityRendererRegistry.INSTANCE.register(ElementalCreepers.FIREWORK_CREEPER, (entityRenderDispatcher, context) -> new FireworkCreeperRenderer(entityRenderDispatcher));
         EntityRendererRegistry.INSTANCE.register(ElementalCreepers.COOKIE_CREEPER, (entityRenderDispatcher, context) -> new CookieCreeperRenderer(entityRenderDispatcher));
