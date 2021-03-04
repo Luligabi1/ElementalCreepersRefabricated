@@ -32,6 +32,8 @@ public class ElementalCreepers implements ModInitializer {
 
         FabricDefaultAttributeRegistry.register(REVERSE_CREEPER, ReverseCreeperEntity.createCreeperAttributes());
         FabricDefaultAttributeRegistry.register(ENDER_CREEPER, EnderCreeperEntity.createCreeperAttributes());
+        FabricDefaultAttributeRegistry.register(ILLUSION_CREEPER, IllusionCreeperEntity.createCreeperAttributes());
+        FabricDefaultAttributeRegistry.register(FAKE_ILLUSION_CREEPER, FakeIllusionCreeperEntity.createCreeperAttributes());
         FabricDefaultAttributeRegistry.register(FIREWORK_CREEPER, FireworkCreeperEntity.createCreeperAttributes());
         FabricDefaultAttributeRegistry.register(COOKIE_CREEPER, CookieCreeperEntity.createCreeperAttributes());
     }
@@ -47,6 +49,7 @@ public class ElementalCreepers implements ModInitializer {
 
         Registry.register(Registry.ITEM, new Identifier("elementalcreepers", "reverse_creeper_spawn_egg"), new SpawnEggItem(REVERSE_CREEPER, 0xD73939, 0xE4E4E4, new Item.Settings().group(ElementalCreepers.SPAWN_EGGS))); //TODO: Change colors
         Registry.register(Registry.ITEM, new Identifier("elementalcreepers", "ender_creeper_spawn_egg"), new SpawnEggItem(ENDER_CREEPER, 0xD73939, 0xE4E4E4, new Item.Settings().group(ElementalCreepers.SPAWN_EGGS))); //TODO: Change colors
+        Registry.register(Registry.ITEM, new Identifier("elementalcreepers", "illusion_creeper_spawn_egg"), new SpawnEggItem(ILLUSION_CREEPER, 0xD73939, 0xE4E4E4, new Item.Settings().group(ElementalCreepers.SPAWN_EGGS))); //TODO: Change colors
         Registry.register(Registry.ITEM, new Identifier("elementalcreepers", "firework_creeper_spawn_egg"), new SpawnEggItem(FIREWORK_CREEPER, 0xD73939, 0xE4E4E4, new Item.Settings().group(ElementalCreepers.SPAWN_EGGS)));
         Registry.register(Registry.ITEM, new Identifier("elementalcreepers", "cookie_creeper_spawn_egg"), new SpawnEggItem(COOKIE_CREEPER, 0xE88E3F, 0x8A4929, new Item.Settings().group(ElementalCreepers.SPAWN_EGGS)));
     }
@@ -100,6 +103,16 @@ public class ElementalCreepers implements ModInitializer {
             Registry.register(Registry.ENTITY_TYPE,
                     new Identifier("elementalcreepers", "ender_creeper"),
                     FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, EnderCreeperEntity::new).dimensions(EntityDimensions.fixed(0.6F, 1.7F)).build());
+
+    public static final EntityType<IllusionCreeperEntity> ILLUSION_CREEPER =
+            Registry.register(Registry.ENTITY_TYPE,
+                    new Identifier("elementalcreepers", "illusion_creeper"),
+                    FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, IllusionCreeperEntity::new).dimensions(EntityDimensions.fixed(0.6F, 1.7F)).build());
+
+    public static final EntityType<FakeIllusionCreeperEntity> FAKE_ILLUSION_CREEPER =
+            Registry.register(Registry.ENTITY_TYPE,
+                    new Identifier("elementalcreepers", "fake_illusion_creeper"),
+                    FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, FakeIllusionCreeperEntity::new).dimensions(EntityDimensions.fixed(0.6F, 1.7F)).build());
 
     public static final EntityType<FireworkCreeperEntity> FIREWORK_CREEPER =
             Registry.register(Registry.ENTITY_TYPE,

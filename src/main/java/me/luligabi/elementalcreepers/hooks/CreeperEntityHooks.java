@@ -1,9 +1,6 @@
 package me.luligabi.elementalcreepers.hooks;
 
-import me.luligabi.elementalcreepers.entity.AirCreeperEntity;
-import me.luligabi.elementalcreepers.entity.ElementalCreeperEntity;
-import me.luligabi.elementalcreepers.entity.FireCreeperEntity;
-import me.luligabi.elementalcreepers.entity.MagmaCreeperEntity;
+import me.luligabi.elementalcreepers.entity.*;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.mob.CreeperEntity;
@@ -23,7 +20,7 @@ public class CreeperEntityHooks {
         }
     }
     public static void tick(CreeperEntity creeperEntity) {
-        if(!creeperEntity.hasStatusEffect(StatusEffects.FIRE_RESISTANCE) && !creeperEntity.isDead() && creeperEntity instanceof FireCreeperEntity || creeperEntity instanceof MagmaCreeperEntity) {
+        if(creeperEntity instanceof FireCreeperEntity || creeperEntity instanceof MagmaCreeperEntity && !creeperEntity.hasStatusEffect(StatusEffects.FIRE_RESISTANCE) && !creeperEntity.isDead()) {
             creeperEntity.applyStatusEffect(new StatusEffectInstance(
                     StatusEffects.FIRE_RESISTANCE, 9999*20, 0, true, false, false));
         }
