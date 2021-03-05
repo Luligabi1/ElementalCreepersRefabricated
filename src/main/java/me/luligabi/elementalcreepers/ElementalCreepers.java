@@ -47,9 +47,9 @@ public class ElementalCreepers implements ModInitializer {
         Registry.register(Registry.ITEM, new Identifier("elementalcreepers", "magma_creeper_spawn_egg"), new SpawnEggItem(MAGMA_CREEPER, 0xA50B0E, 0xD599A5, new Item.Settings().group(ElementalCreepers.SPAWN_EGGS)));
         Registry.register(Registry.ITEM, new Identifier("elementalcreepers", "hydrogen_creeper_spawn_egg"), new SpawnEggItem(HYDROGEN_CREEPER, 0x0D5F04, 0x242C24, new Item.Settings().group(ElementalCreepers.SPAWN_EGGS)));
 
-        Registry.register(Registry.ITEM, new Identifier("elementalcreepers", "reverse_creeper_spawn_egg"), new SpawnEggItem(REVERSE_CREEPER, 0xD73939, 0xE4E4E4, new Item.Settings().group(ElementalCreepers.SPAWN_EGGS))); //TODO: Change colors
-        Registry.register(Registry.ITEM, new Identifier("elementalcreepers", "miner_creeper_spawn_egg"), new SpawnEggItem(MINER_CREEPER, 0xD73939, 0xE4E4E4, new Item.Settings().group(ElementalCreepers.SPAWN_EGGS))); //TODO: Change colors
-        Registry.register(Registry.ITEM, new Identifier("elementalcreepers", "illusion_creeper_spawn_egg"), new SpawnEggItem(ILLUSION_CREEPER, 0xD73939, 0xE4E4E4, new Item.Settings().group(ElementalCreepers.SPAWN_EGGS))); //TODO: Change colors
+        Registry.register(Registry.ITEM, new Identifier("elementalcreepers", "reverse_creeper_spawn_egg"), new SpawnEggItem(REVERSE_CREEPER, 0x0c9e0a, 0x000000, new Item.Settings().group(ElementalCreepers.SPAWN_EGGS)));
+        Registry.register(Registry.ITEM, new Identifier("elementalcreepers", "miner_creeper_spawn_egg"), new SpawnEggItem(MINER_CREEPER, 0xA4A4A4, 0xCBCBCB, new Item.Settings().group(ElementalCreepers.SPAWN_EGGS)));
+        Registry.register(Registry.ITEM, new Identifier("elementalcreepers", "illusion_creeper_spawn_egg"), new SpawnEggItem(ILLUSION_CREEPER, 0x4319A2, 0x8274C6, new Item.Settings().group(ElementalCreepers.SPAWN_EGGS)));
         Registry.register(Registry.ITEM, new Identifier("elementalcreepers", "firework_creeper_spawn_egg"), new SpawnEggItem(FIREWORK_CREEPER, 0xD73939, 0xE4E4E4, new Item.Settings().group(ElementalCreepers.SPAWN_EGGS)));
         Registry.register(Registry.ITEM, new Identifier("elementalcreepers", "cookie_creeper_spawn_egg"), new SpawnEggItem(COOKIE_CREEPER, 0xE88E3F, 0x8A4929, new Item.Settings().group(ElementalCreepers.SPAWN_EGGS)));
     }

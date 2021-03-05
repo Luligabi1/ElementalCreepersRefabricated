@@ -67,7 +67,7 @@ public class IllusionCreeperEntity extends ElementalCreeperEntity {
             this.mob.setTarget(this.targetEntity);
             IllusionCreeperEntity illusionCreeperEntity = new IllusionCreeperEntity((EntityType<? extends CreeperEntity>) this.mob.getType(), this.mob.world);
             if(!illusionCreeperEntity.hasDuplicated()) {
-                for (int i = 0; i < 5; ++i) {
+                for (int i = 0; i < 4; ++i) {
                     FakeIllusionCreeperEntity fakeIllusionCreeperEntity = new FakeIllusionCreeperEntity(
                             (EntityType<? extends CreeperEntity>) this.mob.getType(), this.mob.world);
                     fakeIllusionCreeperEntity.refreshPositionAfterTeleport(this.mob.getX(), this.mob.getY(), this.mob.getZ());
