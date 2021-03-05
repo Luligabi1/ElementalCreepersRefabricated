@@ -14,17 +14,25 @@
   "entity.elementalcreepers.electric_creeper": "Electric Creeper",
   "item.elementalcreepers.electric_creeper_spawn_egg": "Electric Creeper Spawn Egg",
 
-  "entity.elementalcreepers.hydrogen_creeper": "Hydrogen Creeper",
-  "item.elementalcreepers.hydrogen_creeper_spawn_egg": "Hydrogen Creeper Spawn Egg",
-
   "entity.elementalcreepers.ice_creeper": "Ice Creeper",
   "item.elementalcreepers.ice_creeper_spawn_egg": "Ice Creeper Spawn Egg",
 
   "entity.elementalcreepers.magma_creeper": "Magma Creeper",
   "item.elementalcreepers.magma_creeper_spawn_egg": "Magma Creeper Spawn Egg",
 
-  "entity.elementalcreepers.ender_creeper": "Ender Creeper",
-  "item.elementalcreepers.ender_creeper_spawn_egg": "Ender Creeper Spawn Egg",
+  "entity.elementalcreepers.hydrogen_creeper": "Hydrogen Creeper",
+  "item.elementalcreepers.hydrogen_creeper_spawn_egg": "Hydrogen Creeper Spawn Egg",
+
+  "entity.elementalcreepers.reverse_creeper": "Reverse Creeper",
+  "item.elementalcreepers.reverse_creeper_spawn_egg": "Reverse Creeper Spawn Egg",
+
+  "entity.elementalcreepers.miner_creeper": "Miner Creeper",
+  "item.elementalcreepers.miner_creeper_spawn_egg": "Miner Creeper Spawn Egg",
+
+  "entity.elementalcreepers.illusion_creeper": "Illusion Creeper",
+  "item.elementalcreepers.illusion_creeper_spawn_egg": "Illusion Creeper Spawn Egg",
+
+  "entity.elementalcreepers.fake_illusion_creeper": "Illusion Creeper",
 
   "entity.elementalcreepers.firework_creeper": "Firework Creeper",
   "item.elementalcreepers.firework_creeper_spawn_egg": "Firework Creeper Spawn Egg",
