@@ -1,5 +1,7 @@
 package me.luligabi.elementalcreepers.entity;
 
+import me.luligabi.elementalcreepers.ElementalCreepers;
+import me.luligabi.elementalcreepers.SimpleConfig;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.Entity;
@@ -23,6 +25,7 @@ public class IceCreeperEntity extends ElementalCreeperEntity {
     public IceCreeperEntity(EntityType<? extends CreeperEntity> entityType, World world) {
         super(entityType, world);
     }
+    SimpleConfig config = new ElementalCreepers().getConfig();
 
     @Override
     public void tickMovement() {
@@ -57,7 +60,7 @@ public class IceCreeperEntity extends ElementalCreeperEntity {
                 ((LivingEntity) entity).applyStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, 40 * 20, 1));
             }
         }
-        double radius = 4; //TODO: Add config to change radius and charged value.
+        double radius = !this.shouldRenderOverlay() ? config.getOrDefault("iceCreeperRadius", 4) : config.getOrDefault("iceCreeperRadius", 4)*1.5;
         for (int x = (int) -radius - 1; x <= radius; x++)  {
             for (int y = (int) -radius - 1; y <= radius; y++) {
                 for (int z = (int) -radius - 1; z <= radius; z++) {

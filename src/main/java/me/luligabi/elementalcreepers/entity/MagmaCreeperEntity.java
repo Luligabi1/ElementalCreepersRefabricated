@@ -1,5 +1,7 @@
 package me.luligabi.elementalcreepers.entity;
 
+import me.luligabi.elementalcreepers.ElementalCreepers;
+import me.luligabi.elementalcreepers.SimpleConfig;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityType;
@@ -17,6 +19,7 @@ public class MagmaCreeperEntity extends ElementalCreeperEntity {
         super(entityType, world);
         this.setPathfindingPenalty(PathNodeType.WATER, -1.0F);
     }
+    SimpleConfig config = new ElementalCreepers().getConfig();
 
     @Override
     public void tickMovement() {
@@ -42,7 +45,7 @@ public class MagmaCreeperEntity extends ElementalCreeperEntity {
 
     @Override
     public void onExplode() {
-        double radius = 3; //TODO: Add config to change radius and charged value.
+        double radius = !this.shouldRenderOverlay() ? config.getOrDefault("magmaCreeperRadius", 4) : config.getOrDefault("magmaCreeperRadius", 4)*1.5F;
         this.world.createExplosion(this,
                 this.getX(), this.getY(), this.getZ(), 0, Explosion.DestructionType.NONE);
         for (int x = (int) -radius - 1; x <= radius; x++) {

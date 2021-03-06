@@ -1,5 +1,7 @@
 package me.luligabi.elementalcreepers.entity;
 
+import me.luligabi.elementalcreepers.ElementalCreepers;
+import me.luligabi.elementalcreepers.SimpleConfig;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -15,9 +17,11 @@ public class ReverseCreeperEntity extends ElementalCreeperEntity {
     public ReverseCreeperEntity(EntityType<? extends CreeperEntity> entityType, World world) {
         super(entityType, world);
     }
+    SimpleConfig config = new ElementalCreepers().getConfig();
+
     @Override
     public void onExplode() {
-        double radius = 3.75; //TODO: Add config to change radius and charged value.
+        double radius = !this.shouldRenderOverlay() ? config.getOrDefault("reverseCreeperRadius", 3.75) : config.getOrDefault("reverseCreeperRadius", 3.75)*1.5;
         double posX = this.getX();
         double posY = this.getY();
         double posZ = this.getZ();

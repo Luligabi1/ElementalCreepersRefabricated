@@ -1,5 +1,7 @@
 package me.luligabi.elementalcreepers.entity;
 
+import me.luligabi.elementalcreepers.ElementalCreepers;
+import me.luligabi.elementalcreepers.SimpleConfig;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.mob.CreeperEntity;
@@ -12,9 +14,11 @@ public class WaterCreeperEntity extends ElementalCreeperEntity {
     public WaterCreeperEntity(EntityType<? extends CreeperEntity> entityType, World world) {
         super(entityType, world);
     }
+    SimpleConfig config = new ElementalCreepers().getConfig();
+
     @Override
     public void onExplode() {
-        double radius = 3; //TODO: Add config to change radius and charged value.
+        double radius = !this.shouldRenderOverlay() ? config.getOrDefault("waterCreeperRadius", 3) : config.getOrDefault("waterCreeperRadius", 3)*1.5;
         this.world.createExplosion(this,
                 this.getX(), this.getY(), this.getZ(), 0, Explosion.DestructionType.NONE);
         for (int x = (int) -radius - 1; x <= radius; x++) {

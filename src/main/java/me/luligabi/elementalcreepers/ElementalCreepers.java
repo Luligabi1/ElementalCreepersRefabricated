@@ -20,16 +20,16 @@ public class ElementalCreepers implements ModInitializer {
     SimpleConfig config = SimpleConfig.of("elementalcreepers").provider(this::provider).request();
 
     private String provider(String filename) {
-        return "#Elemental Creepers: Refabricated Configuration File\n\n" +
+        return "# Elemental Creepers: Refabricated Configuration File\n\n" +
 
                 "# enabled - If creeper can naturally spawn | true for yes, false for no.\n" +
-                "# radius - Radius of the explosion effect | Number\n" +
+                "# radius - Radius of the explosion effect and/or effect applied | Number\n" +
                 "# spawnRate - Rate of spawn | The smaller the number, more rarely it spawns. Vanilla Creeper's 100.\n\n" +
 
                 "# Water Creeper\n" +
                 "waterCreeperEnabled=true\n" +
                 "waterCreeperRadius=3\n" +
-                "waterCreeperSpawnRate=90\n\n" +
+                "waterCreeperSpawnRate=50\n\n" +
 
                 "# Fire Creeper\n" +
                 "fireCreeperEnabled=true\n" +
@@ -38,57 +38,53 @@ public class ElementalCreepers implements ModInitializer {
 
                 "# Earth Creeper\n" +
                 "earthCreeperEnabled=true\n" +
-                "earthCreeperRadius=3\n" +
+                "earthCreeperRadius=5\n" +
                 "earthCreeperSpawnRate=80\n\n" +
 
                 "# Air Creeper\n" +
                 "airCreeperEnabled=true\n" +
-                "airCreeperRadius=3\n" +
+                "airCreeperRadius=1.75\n" +
                 "airCreeperSpawnRate=70\n\n" +
 
                 "# Electric Creeper\n" +
                 "electricCreeperEnabled=true\n" +
-                "electricCreeperRadius=3\n" +
                 "electricCreeperSpawnRate=90\n\n" +
 
                 "# Ice Creeper\n" +
                 "iceCreeperEnabled=true\n" +
-                "iceCreeperRadius=3\n" +
+                "iceCreeperRadius=4\n" +
                 "iceCreeperSpawnRate=40\n\n" +
 
                 "# Magma Creeper\n" +
                 "magmaCreeperEnabled=true\n" +
-                "magmaCreeperRadius=3\n" +
+                "magmaCreeperRadius=4\n" +
                 "magmaCreeperSpawnRate=60\n\n" +
 
                 "# Hydrogen Creeper\n" +
                 "hydrogenCreeperEnabled=true\n" +
-                "hydrogenCreeperRadius=3\n" +
+                "hydrogenCreeperRadius=7\n" +
                 "hydrogenCreeperSpawnRate=20\n\n" +
 
                 "# Reverse Creeper\n" +
                 "reverseCreeperEnabled=true\n" +
-                "reverseCreeperRadius=3\n" +
+                "reverseCreeperRadius=3.75\n" +
                 "reverseCreeperSpawnRate=45\n\n" +
 
                 "# Miner Creeper\n" +
                 "minerCreeperEnabled=true\n" +
-                "minerCreeperRadius=3\n" +
+                "minerCreeperRadius=3.75\n" +
                 "minerCreeperSpawnRate=60\n\n" +
 
                 "# Illusion Creeper\n" +
                 "illusionCreeperEnabled=true\n" +
-                "illusionCreeperRadius=3\n" +
                 "illusionCreeperSpawnRate=25\n\n" +
 
                 "# Firework Creeper\n" +
                 "fireworkCreeperEnabled=true\n" +
-                "fireworkCreeperRadius=3\n" +
                 "fireworkCreeperSpawnRate=5\n\n" +
 
                 "# Cookie Creeper\n" +
                 "cookieCreeperEnabled=true\n" +
-                "cookieCreeperRadius=3\n" +
                 "cookieCreeperSpawnRate=2";
     }
 
@@ -97,9 +93,6 @@ public class ElementalCreepers implements ModInitializer {
         registerCreeperEntities();
         registerCreeperSpawnEggItems();
         registerNaturalSpawning();
-        System.out.println(config.getOrDefault("waterCreeperEnabled", true));
-        System.out.println(config.getOrDefault("waterCreeperRadius", 3));
-        System.out.println(config.getOrDefault("waterCreeperSpawnRate", 90));
     }
 
     private void registerCreeperEntities() {
@@ -124,10 +117,9 @@ public class ElementalCreepers implements ModInitializer {
         // Water Creeper
         if(config.getOrDefault("waterCreeperEnabled", true)) {
             BiomeModifications.addSpawn(biomeSelector ->
-                    biomeSelector.getBiome().getCategory() == Biome.Category.OCEAN ||
                     biomeSelector.getBiome().getCategory() == Biome.Category.RIVER ||
                     biomeSelector.getBiome().getCategory() == Biome.Category.BEACH ||
-                    biomeSelector.getBiome().getCategory() == Biome.Category.SWAMP, SpawnGroup.MONSTER, WATER_CREEPER, config.getOrDefault("waterCreeperSpawnRate", 90), 1, 3);
+                    biomeSelector.getBiome().getCategory() == Biome.Category.SWAMP, SpawnGroup.MONSTER, WATER_CREEPER, config.getOrDefault("waterCreeperSpawnRate", 50), 1, 2);
         }
         // Fire Creeper
         if(config.getOrDefault("fireCreeperEnabled", true)) {
@@ -327,4 +319,6 @@ public class ElementalCreepers implements ModInitializer {
             new Identifier("elementalcreepers", "category"))
             .icon(() -> new ItemStack(Items.CREEPER_SPAWN_EGG))
             .build();
+
+    public SimpleConfig getConfig() { return config; }
 }

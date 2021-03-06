@@ -21,8 +21,9 @@ public class CookieCreeperEntity extends ElementalCreeperEntity {
         this.world.createExplosion(this,
                 this.getX(), this.getY(), this.getZ(),
                 0, Explosion.DestructionType.NONE);
+        int randomCookie = !this.shouldRenderOverlay() ? new Random().nextInt(4 - 2 + 1) + 2 : new Random().nextInt(6 - 4 + 1) + 4;
         this.world.spawnEntity(new ItemEntity(this.world,
-                this.getX(), this.getY(), this.getZ(), new ItemStack(Items.COOKIE, new Random().nextInt(4 - 2 + 1) + 2)));
+                this.getX(), this.getY(), this.getZ(), new ItemStack(Items.COOKIE, randomCookie)));
         super.onExplode();
     }
 }

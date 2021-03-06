@@ -1,5 +1,7 @@
 package me.luligabi.elementalcreepers.entity;
 
+import me.luligabi.elementalcreepers.ElementalCreepers;
+import me.luligabi.elementalcreepers.SimpleConfig;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.pathing.PathNodeType;
@@ -16,6 +18,7 @@ public class FireCreeperEntity extends ElementalCreeperEntity {
         super(entityType, world);
         this.setPathfindingPenalty(PathNodeType.WATER, -1.0F);
     }
+    SimpleConfig config = new ElementalCreepers().getConfig();
 
     public boolean hurtByWater() {
         return true;
@@ -23,7 +26,7 @@ public class FireCreeperEntity extends ElementalCreeperEntity {
 
     @Override
     public void onExplode() {
-        double radius = 3; //TODO: Add config to change radius and charged value.
+        double radius = !this.shouldRenderOverlay() ? config.getOrDefault("fireCreeperRadius", 3) : config.getOrDefault("fireCreeperRadius", 3)*1.5;
         this.world.createExplosion(this,
                 this.getX(), this.getY(), this.getZ(), 0, Explosion.DestructionType.NONE);
         for (int x = (int) -radius - 1; x <= radius; x++) {
