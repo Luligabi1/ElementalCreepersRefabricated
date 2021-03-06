@@ -28,7 +28,7 @@ public class MinerCreeperEntity extends ElementalCreeperEntity {
         this.world.createExplosion(this,
                 this.getX(), this.getY(), this.getZ(),
                 0, Explosion.DestructionType.NONE);
-        double radius = !this.shouldRenderOverlay() ? config.getOrDefault("minerCreeperRadius", 3.75) : config.getOrDefault("minerCreeperRadius", 3.75)*1.5;
+        double radius = config.getOrDefault("minerCreeperRadius", 3.75);
         for (int x = (int) -radius; x <= radius; x++) {
             for (int y = (int) -radius; y <= radius; y++) {
                 for (int z = (int) -radius; z <= radius; z++) {

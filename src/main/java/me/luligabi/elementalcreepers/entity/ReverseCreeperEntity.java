@@ -21,7 +21,7 @@ public class ReverseCreeperEntity extends ElementalCreeperEntity {
 
     @Override
     public void onExplode() {
-        double radius = !this.shouldRenderOverlay() ? config.getOrDefault("reverseCreeperRadius", 3.75) : config.getOrDefault("reverseCreeperRadius", 3.75)*1.5;
+        double radius = config.getOrDefault("reverseCreeperRadius", 3.75);
         double posX = this.getX();
         double posY = this.getY();
         double posZ = this.getZ();

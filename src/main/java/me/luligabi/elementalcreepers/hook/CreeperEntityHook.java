@@ -21,8 +21,8 @@ public class CreeperEntityHook {
     }
     public static void tick(CreeperEntity creeperEntity) {
         if(creeperEntity instanceof FireCreeperEntity || creeperEntity instanceof MagmaCreeperEntity && !creeperEntity.hasStatusEffect(StatusEffects.FIRE_RESISTANCE) && !creeperEntity.isDead()) {
-            creeperEntity.applyStatusEffect(new StatusEffectInstance(
-                    StatusEffects.FIRE_RESISTANCE, 9999*20, 0, true, false, false));
+            creeperEntity.addStatusEffect(new StatusEffectInstance(
+                    StatusEffects.FIRE_RESISTANCE, Integer.MAX_VALUE, 0, true, false, false));
         }
     }
 }

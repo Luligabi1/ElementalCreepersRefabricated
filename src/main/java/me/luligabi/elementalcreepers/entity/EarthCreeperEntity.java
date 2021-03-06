@@ -22,7 +22,7 @@ public class EarthCreeperEntity extends ElementalCreeperEntity {
     public void onExplode() {
         this.world.createExplosion(this,
                 this.getX(), this.getY(), this.getZ(), 0, Explosion.DestructionType.NONE);
-        double radius = !this.shouldRenderOverlay() ? config.getOrDefault("earthCreeperRadius", 5): config.getOrDefault("earthCreeperRadius", 5)*1.5;
+        double radius = config.getOrDefault("earthCreeperRadius", 5);
         for (int x = (int) -radius - 1; x <= radius; x++) {
             for (int y = (int) -radius - 1; y <= radius; y++) {
                 for (int z = (int) -radius - 1; z <= radius; z++) {

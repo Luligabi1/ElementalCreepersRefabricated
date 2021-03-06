@@ -18,8 +18,8 @@ public class HydrogenCreeperEntity extends ElementalCreeperEntity {
     @Override
     public void onExplode() {
         this.getEntityWorld().createExplosion(this, this.getX(), this.getY(), this.getZ(),
-                (float) (!this.shouldRenderOverlay() ? config.getOrDefault("hydrogenCreeperRadius", 7F) : config.getOrDefault("hydrogenCreeperRadius", 7F)*1.5), this.world.getGameRules().getBoolean(GameRules.DO_MOB_GRIEFING) ?
-                        Explosion.DestructionType.DESTROY : Explosion.DestructionType.NONE);
+                (float) config.getOrDefault("hydrogenCreeperRadius", 7F), this.world.getGameRules().getBoolean(GameRules.DO_MOB_GRIEFING) ?
+                Explosion.DestructionType.DESTROY : Explosion.DestructionType.NONE);
         super.onExplode();
     }
 }

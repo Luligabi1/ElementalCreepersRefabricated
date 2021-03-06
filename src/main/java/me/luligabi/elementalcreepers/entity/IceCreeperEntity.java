@@ -26,41 +26,40 @@ public class IceCreeperEntity extends ElementalCreeperEntity {
         super(entityType, world);
     }
     SimpleConfig config = new ElementalCreepers().getConfig();
+    boolean generateSnow = true;
 
     @Override
     public void tickMovement() {
         super.tickMovement();
         if(!this.world.isClient) {
-            if (!this.world.getGameRules().getBoolean(GameRules.DO_MOB_GRIEFING)) return;
-            int posX = MathHelper.floor(this.getX());
-            int posY = MathHelper.floor(this.getY());
-            int posZ = MathHelper.floor(this.getZ());
-            if (this.world.getBiome(new BlockPos(posX, 0, posZ)).getTemperature(new BlockPos(posX, posY, posZ)) > 1.0F) {
-                this.damage(DamageSource.ON_FIRE, 1.0F);
-            }
-            BlockState blockState = Blocks.SNOW.getDefaultState();
+            if(generateSnow) {
+                if (!this.world.getGameRules().getBoolean(GameRules.DO_MOB_GRIEFING)) return;
+                int posX = MathHelper.floor(this.getX());
+                int posY = MathHelper.floor(this.getY());
+                int posZ = MathHelper.floor(this.getZ());
+                if (this.world.getBiome(new BlockPos(posX, 0, posZ)).getTemperature(new BlockPos(posX, posY, posZ)) > 1.0F) {
+                    this.damage(DamageSource.ON_FIRE, 1.0F);
+                }
+                BlockState blockState = Blocks.SNOW.getDefaultState();
 
-            for (int i = 0; i < 4; ++i) {
-                posX = MathHelper.floor(this.getX() + (double) ((float) (i % 2 * 2 - 1) * 0.25F));
-                posY = MathHelper.floor(this.getY());
-                posZ = MathHelper.floor(this.getZ() + (double) ((float) (i / 2 % 2 * 2 - 1) * 0.25F));
-                BlockPos blockPos = new BlockPos(posX, posY, posZ);
-                if (this.world.getBlockState(blockPos).isAir() && this.world.getBiome(blockPos).getTemperature(blockPos) < 0.8F && blockState.canPlaceAt(this.world, blockPos)) {
-                    this.world.setBlockState(blockPos, blockState);
+                for (int i = 0; i < 4; ++i) {
+                    posX = MathHelper.floor(this.getX() + (double) ((float) (i % 2 * 2 - 1) * 0.25F));
+                    posY = MathHelper.floor(this.getY());
+                    posZ = MathHelper.floor(this.getZ() + (double) ((float) (i / 2 % 2 * 2 - 1) * 0.25F));
+                    BlockPos blockPos = new BlockPos(posX, posY, posZ);
+                    if (this.world.getBlockState(blockPos).isAir() && this.world.getBiome(blockPos).getTemperature(blockPos) < 0.8F && blockState.canPlaceAt(this.world, blockPos)) {
+                        this.world.setBlockState(blockPos, blockState);
+                    }
                 }
             }
         }
     }
     @Override
     public void onExplode() {
+        generateSnow = false;
         this.world.createExplosion(this,
                 this.getX(), this.getY(), this.getZ(), 0, Explosion.DestructionType.NONE);
-        for(Entity entity : this.world.getOtherEntities(null, new Box(this.getX()-5, this.getY()-5, this.getZ()-5, this.getX()+5, this.getY()+5, this.getZ()+5))) {
-            if(entity.isLiving()) {
-                ((LivingEntity) entity).applyStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, 40 * 20, 1));
-            }
-        }
-        double radius = !this.shouldRenderOverlay() ? config.getOrDefault("iceCreeperRadius", 4) : config.getOrDefault("iceCreeperRadius", 4)*1.5;
+        double radius = config.getOrDefault("iceCreeperRadius", 4);
         for (int x = (int) -radius - 1; x <= radius; x++)  {
             for (int y = (int) -radius - 1; y <= radius; y++) {
                 for (int z = (int) -radius - 1; z <= radius; z++) {
@@ -82,5 +81,6 @@ public class IceCreeperEntity extends ElementalCreeperEntity {
             }
         }
         super.onExplode();
+        generateSnow = true;
     }
 }

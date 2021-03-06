@@ -45,7 +45,7 @@ public class MagmaCreeperEntity extends ElementalCreeperEntity {
 
     @Override
     public void onExplode() {
-        double radius = !this.shouldRenderOverlay() ? config.getOrDefault("magmaCreeperRadius", 4) : config.getOrDefault("magmaCreeperRadius", 4)*1.5F;
+        double radius = config.getOrDefault("magmaCreeperRadius", 4);
         this.world.createExplosion(this,
                 this.getX(), this.getY(), this.getZ(), 0, Explosion.DestructionType.NONE);
         for (int x = (int) -radius - 1; x <= radius; x++) {

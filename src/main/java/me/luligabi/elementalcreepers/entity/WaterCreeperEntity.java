@@ -18,7 +18,7 @@ public class WaterCreeperEntity extends ElementalCreeperEntity {
 
     @Override
     public void onExplode() {
-        double radius = !this.shouldRenderOverlay() ? config.getOrDefault("waterCreeperRadius", 3) : config.getOrDefault("waterCreeperRadius", 3)*1.5;
+        double radius = config.getOrDefault("waterCreeperRadius", 3);
         this.world.createExplosion(this,
                 this.getX(), this.getY(), this.getZ(), 0, Explosion.DestructionType.NONE);
         for (int x = (int) -radius - 1; x <= radius; x++) {
