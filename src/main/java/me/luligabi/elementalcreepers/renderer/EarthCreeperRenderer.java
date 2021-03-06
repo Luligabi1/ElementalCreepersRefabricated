@@ -13,6 +13,6 @@ public class EarthCreeperRenderer extends CreeperEntityRenderer {
 
     @Override
     public Identifier getTexture(CreeperEntity entity) {
-        return new Identifier("elementalcreepers:textures/entity/cookie_creeper/creeper.png"); //TODO: Add proper texture.
+        return new Identifier("elementalcreepers:textures/entity/earth_creeper/creeper.png");
     }
 }
