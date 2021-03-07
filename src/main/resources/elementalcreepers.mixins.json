@@ -3,12 +3,12 @@
   "minVersion": "0.8",
   "package": "me.luligabi.elementalcreepers.mixin",
   "compatibilityLevel": "JAVA_8",
-  "mixins": [],
-  "client": [],
-  "server": [
+  "mixins": [
     "CreeperEntityMixin",
     "CreeperEntityInvoker"
   ],
+  "client": [],
+  "server": [],
   "injectors": {
     "defaultRequire": 1
   }

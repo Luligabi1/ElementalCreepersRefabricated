@@ -46,7 +46,7 @@ public class ReverseCreeperEntity extends ElementalCreeperEntity {
                     if (state != null && state.getBlock() != null) {
                         Block id = state.getBlock();
 
-                        if (id != Blocks.BEDROCK) { //TODO: Make it so bedrock can't be removed or moved by Reverse Creepers.
+                        if (id != Blocks.BEDROCK) {
                             states[ax][ay][az] = null;
 
                             if (id != null && Math.sqrt(Math.pow(x, 2.0D) + Math.pow(y, 2.0D) + Math.pow(z, 2.0D)) <= radius && ey > -1) {
@@ -66,7 +66,7 @@ public class ReverseCreeperEntity extends ElementalCreeperEntity {
                     BlockState state = states[(int) (x + radius + 1)][(int) (2 * radius - (y + radius))][(int) (z + radius + 1)];
                     BlockEntity te = tiles[(int) (x + radius + 1)][(int) (2 * radius - (y + radius))][(int) (z + radius + 1)];
 
-                    if (state != null && state.getBlock() != null && posY + y > 0) {
+                    if (state != null && state.getBlock() != null && posY + y > 5) {
                         world.setBlockState(blockPos, state, 3);
                         if (te != null) {
                             world.setBlockEntity(blockPos, te);
