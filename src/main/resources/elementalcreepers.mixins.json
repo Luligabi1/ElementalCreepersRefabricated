@@ -5,8 +5,7 @@
   "compatibilityLevel": "JAVA_8",
   "mixins": [
     "CreeperEntityMixin",
-    "CreeperEntityInvoker",
-    "DefaultBiomeFeaturesMixin"
+    "CreeperEntityInvoker"
   ],
   "client": [],
   "server": [],
