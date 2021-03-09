@@ -2,7 +2,6 @@ package me.luligabi.elementalcreepers;
 
 import me.luligabi.elementalcreepers.entity.*;
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
@@ -13,7 +12,6 @@ import net.minecraft.item.*;
 
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
-import net.minecraft.world.biome.Biome;
 
 public class ElementalCreepers implements ModInitializer {
 
@@ -34,26 +32,26 @@ public class ElementalCreepers implements ModInitializer {
                 "# Fire Creeper\n" +
                 "fireCreeperEnabled=true\n" +
                 "fireCreeperRadius=3\n" +
-                "fireCreeperSpawnRate=90\n\n" +
+                "fireCreeperSpawnRate=25\n\n" +
 
                 "# Earth Creeper\n" +
                 "earthCreeperEnabled=true\n" +
                 "earthCreeperRadius=5\n" +
-                "earthCreeperSpawnRate=80\n\n" +
+                "earthCreeperSpawnRate=20\n\n" +
 
                 "# Air Creeper\n" +
                 "airCreeperEnabled=true\n" +
                 "airCreeperRadius=1.75\n" +
-                "airCreeperSpawnRate=70\n\n" +
+                "airCreeperSpawnRate=30\n\n" +
 
                 "# Electric Creeper\n" +
                 "electricCreeperEnabled=true\n" +
-                "electricCreeperSpawnRate=90\n\n" +
+                "electricCreeperSpawnRate=10\n\n" +
 
                 "# Ice Creeper\n" +
                 "iceCreeperEnabled=true\n" +
                 "iceCreeperRadius=4\n" +
-                "iceCreeperSpawnRate=40\n\n" +
+                "iceCreeperSpawnRate=35\n\n" +
 
                 "# Magma Creeper\n" +
                 "magmaCreeperEnabled=true\n" +
@@ -63,21 +61,21 @@ public class ElementalCreepers implements ModInitializer {
                 "# Hydrogen Creeper\n" +
                 "hydrogenCreeperEnabled=true\n" +
                 "hydrogenCreeperRadius=7\n" +
-                "hydrogenCreeperSpawnRate=20\n\n" +
+                "hydrogenCreeperSpawnRate=7\n\n" +
 
                 "# Reverse Creeper\n" +
                 "reverseCreeperEnabled=true\n" +
                 "reverseCreeperRadius=3.75\n" +
-                "reverseCreeperSpawnRate=45\n\n" +
+                "reverseCreeperSpawnRate=15\n\n" +
 
                 "# Miner Creeper\n" +
                 "minerCreeperEnabled=true\n" +
                 "minerCreeperRadius=3.75\n" +
-                "minerCreeperSpawnRate=60\n\n" +
+                "minerCreeperSpawnRate=20\n\n" +
 
                 "# Illusion Creeper\n" +
                 "illusionCreeperEnabled=true\n" +
-                "illusionCreeperSpawnRate=25\n\n" +
+                "illusionCreeperSpawnRate=15\n\n" +
 
                 "# Firework Creeper\n" +
                 "fireworkCreeperEnabled=true\n" +
@@ -92,7 +90,6 @@ public class ElementalCreepers implements ModInitializer {
     public void onInitialize() {
         registerCreeperEntities();
         registerCreeperSpawnEggItems();
-        registerNaturalSpawning();
     }
 
     private void registerCreeperEntities() {
@@ -112,122 +109,6 @@ public class ElementalCreepers implements ModInitializer {
         FabricDefaultAttributeRegistry.register(FIREWORK_CREEPER, FireworkCreeperEntity.createCreeperAttributes());
         FabricDefaultAttributeRegistry.register(COOKIE_CREEPER, CookieCreeperEntity.createCreeperAttributes());
     }
-
-    private void registerNaturalSpawning() {
-        // Water Creeper
-        if(config.getOrDefault("waterCreeperEnabled", true)) {
-            BiomeModifications.addSpawn(biomeSelector ->
-                    biomeSelector.getBiome().getCategory() == Biome.Category.RIVER ||
-                    biomeSelector.getBiome().getCategory() == Biome.Category.BEACH ||
-                    biomeSelector.getBiome().getCategory() == Biome.Category.SWAMP, SpawnGroup.MONSTER, WATER_CREEPER, config.getOrDefault("waterCreeperSpawnRate", 50), 1, 2);
-        }
-        // Fire Creeper
-        if(config.getOrDefault("fireCreeperEnabled", true)) {
-            BiomeModifications.addSpawn(biomeSelector ->
-                    biomeSelector.getBiome().getCategory() == Biome.Category.DESERT ||
-                    biomeSelector.getBiome().getCategory() == Biome.Category.SAVANNA ||
-                    biomeSelector.getBiome().getCategory() == Biome.Category.MESA, SpawnGroup.MONSTER, FIRE_CREEPER, config.getOrDefault("fireCreeperSpawnRate", 90), 1, 4);
-        }
-        // Earth Creeper
-        if(config.getOrDefault("earthCreeperEnabled", true)) {
-            BiomeModifications.addSpawn(biomeSelector ->
-                    biomeSelector.getBiome().getCategory() == Biome.Category.PLAINS ||
-                    biomeSelector.getBiome().getCategory() == Biome.Category.FOREST ||
-                    biomeSelector.getBiome().getCategory() == Biome.Category.TAIGA ||
-                    biomeSelector.getBiome().getCategory() == Biome.Category.SAVANNA ||
-                    biomeSelector.getBiome().getCategory() == Biome.Category.SWAMP ||
-                    biomeSelector.getBiome().getCategory() == Biome.Category.JUNGLE ||
-                    biomeSelector.getBiome().getCategory() == Biome.Category.MUSHROOM, SpawnGroup.MONSTER, EARTH_CREEPER, config.getOrDefault("earthCreeperSpawnRate", 80), 1, 2);
-        }
-        // Air Creeper
-        if(config.getOrDefault("airCreeperEnabled", true)) {
-            BiomeModifications.addSpawn(biomeSelector ->
-                    biomeSelector.getBiome().getCategory() == Biome.Category.EXTREME_HILLS, SpawnGroup.MONSTER, AIR_CREEPER, config.getOrDefault("airCreeperSpawnRate", 70), 1, 2);
-        }
-        // Electric Creeper
-        if(config.getOrDefault("electricCreeperEnabled", true)) {
-            BiomeModifications.addSpawn(biomeSelector ->
-                    biomeSelector.getBiome().getCategory() == Biome.Category.PLAINS ||
-                    biomeSelector.getBiome().getCategory() == Biome.Category.FOREST ||
-                    biomeSelector.getBiome().getCategory() == Biome.Category.TAIGA ||
-                    biomeSelector.getBiome().getCategory() == Biome.Category.SAVANNA ||
-                    biomeSelector.getBiome().getCategory() == Biome.Category.SWAMP ||
-                    biomeSelector.getBiome().getCategory() == Biome.Category.JUNGLE ||
-                    biomeSelector.getBiome().getCategory() == Biome.Category.MUSHROOM, SpawnGroup.MONSTER, ELECTRIC_CREEPER, config.getOrDefault("electricCreeperSpawnRate", 30), 1, 3);
-        }
-        // Ice Creeper
-        if(config.getOrDefault("iceCreeperEnabled", true)) {
-            BiomeModifications.addSpawn(biomeSelector ->
-                    biomeSelector.getBiome().getCategory() == Biome.Category.ICY ||
-                    biomeSelector.getBiome().getCategory() == Biome.Category.EXTREME_HILLS, SpawnGroup.MONSTER, ICE_CREEPER, config.getOrDefault("iceCreeperSpawnRate", 40), 1, 4);
-        }
-        // Magma Creeper
-        if(config.getOrDefault("magmaCreeperEnabled", true)) {
-            BiomeModifications.addSpawn(biomeSelector ->
-                    biomeSelector.getBiome().getCategory() == Biome.Category.NETHER, SpawnGroup.MONSTER, MAGMA_CREEPER, config.getOrDefault("magmaCreeperSpawnRate", 5), 1, 1);
-        }
-        // Hydrogen Creeper
-        if(config.getOrDefault("hydrogenCreeperEnabled", true)) {
-            BiomeModifications.addSpawn(biomeSelector ->
-                    biomeSelector.getBiome().getCategory() == Biome.Category.PLAINS ||
-                    biomeSelector.getBiome().getCategory() == Biome.Category.FOREST ||
-                    biomeSelector.getBiome().getCategory() == Biome.Category.TAIGA ||
-                    biomeSelector.getBiome().getCategory() == Biome.Category.SAVANNA ||
-                    biomeSelector.getBiome().getCategory() == Biome.Category.SWAMP ||
-                    biomeSelector.getBiome().getCategory() == Biome.Category.JUNGLE ||
-                    biomeSelector.getBiome().getCategory() == Biome.Category.MUSHROOM, SpawnGroup.MONSTER, HYDROGEN_CREEPER, config.getOrDefault("hydrogenCreeperSpawnRate", 20), 1, 1);
-        }
-        // Reverse Creeper
-        if(config.getOrDefault("reverseCreeperEnabled", true)) {
-            BiomeModifications.addSpawn(biomeSelector ->
-                    biomeSelector.getBiome().getCategory() == Biome.Category.PLAINS ||
-                    biomeSelector.getBiome().getCategory() == Biome.Category.FOREST ||
-                    biomeSelector.getBiome().getCategory() == Biome.Category.TAIGA ||
-                    biomeSelector.getBiome().getCategory() == Biome.Category.SAVANNA ||
-                    biomeSelector.getBiome().getCategory() == Biome.Category.SWAMP ||
-                    biomeSelector.getBiome().getCategory() == Biome.Category.JUNGLE ||
-                    biomeSelector.getBiome().getCategory() == Biome.Category.MUSHROOM, SpawnGroup.MONSTER, REVERSE_CREEPER, config.getOrDefault("reverseCreeperSpawnRate", 45), 1, 1);
-        }
-        // Miner Creeper
-        if(config.getOrDefault("minerCreeperEnabled", true)) {
-            BiomeModifications.addSpawn(biomeSelector ->
-                    biomeSelector.getBiome().getCategory() == Biome.Category.EXTREME_HILLS, SpawnGroup.MONSTER, MINER_CREEPER, config.getOrDefault("minerCreeperSpawnRate", 60), 1, 2);
-        }
-        // Illusion Creeper
-        if(config.getOrDefault("illusionCreeperEnabled", true)) {
-            BiomeModifications.addSpawn(biomeSelector ->
-                    biomeSelector.getBiome().getCategory() == Biome.Category.PLAINS ||
-                    biomeSelector.getBiome().getCategory() == Biome.Category.FOREST ||
-                    biomeSelector.getBiome().getCategory() == Biome.Category.TAIGA ||
-                    biomeSelector.getBiome().getCategory() == Biome.Category.SAVANNA ||
-                    biomeSelector.getBiome().getCategory() == Biome.Category.SWAMP ||
-                    biomeSelector.getBiome().getCategory() == Biome.Category.JUNGLE ||
-                    biomeSelector.getBiome().getCategory() == Biome.Category.MUSHROOM, SpawnGroup.MONSTER, ILLUSION_CREEPER, config.getOrDefault("illusionCreeperSpawnRate", 25), 1, 1);
-        }
-        // Firework Creeper
-        if(config.getOrDefault("fireworkCreeperEnabled", true)) {
-            BiomeModifications.addSpawn(biomeSelector ->
-                    biomeSelector.getBiome().getCategory() == Biome.Category.PLAINS ||
-                    biomeSelector.getBiome().getCategory() == Biome.Category.FOREST ||
-                    biomeSelector.getBiome().getCategory() == Biome.Category.TAIGA ||
-                    biomeSelector.getBiome().getCategory() == Biome.Category.SAVANNA ||
-                    biomeSelector.getBiome().getCategory() == Biome.Category.SWAMP ||
-                    biomeSelector.getBiome().getCategory() == Biome.Category.JUNGLE ||
-                    biomeSelector.getBiome().getCategory() == Biome.Category.MUSHROOM, SpawnGroup.MONSTER, FIREWORK_CREEPER, config.getOrDefault("fireworkCreeperSpawnRate", 5), 1, 1);
-        }
-        // Cookie Creeper
-        if(config.getOrDefault("cookieCreeperEnabled", true)) {
-            BiomeModifications.addSpawn(biomeSelector ->
-                    biomeSelector.getBiome().getCategory() == Biome.Category.PLAINS ||
-                    biomeSelector.getBiome().getCategory() == Biome.Category.FOREST ||
-                    biomeSelector.getBiome().getCategory() == Biome.Category.TAIGA ||
-                    biomeSelector.getBiome().getCategory() == Biome.Category.SAVANNA ||
-                    biomeSelector.getBiome().getCategory() == Biome.Category.SWAMP ||
-                    biomeSelector.getBiome().getCategory() == Biome.Category.JUNGLE ||
-                    biomeSelector.getBiome().getCategory() == Biome.Category.MUSHROOM, SpawnGroup.MONSTER, COOKIE_CREEPER, config.getOrDefault("cookieCreeperSpawnRate", 2), 1, 2);
-        }
-    }
-
     private void registerCreeperSpawnEggItems() {
         Registry.register(Registry.ITEM, new Identifier("elementalcreepers", "water_creeper_spawn_egg"), new SpawnEggItem(WATER_CREEPER, 0x415DB3, 0XA4A4CC, new Item.Settings().group(ElementalCreepers.SPAWN_EGGS)));
         Registry.register(Registry.ITEM, new Identifier("elementalcreepers", "fire_creeper_spawn_egg"), new SpawnEggItem(FIRE_CREEPER, 0xC4814F, 0xA65F0A, new Item.Settings().group(ElementalCreepers.SPAWN_EGGS)));
