@@ -29,7 +29,7 @@ public class ElementalCreepers implements ModInitializer {
                 "# Water Creeper\n" +
                 "waterCreeperEnabled=true\n" +
                 "waterCreeperRadius=3\n" +
-                "waterCreeperSpawnRate=50\n\n" +
+                "waterCreeperSpawnRate=15\n\n" +
 
                 "# Fire Creeper\n" +
                 "fireCreeperEnabled=true\n" +
