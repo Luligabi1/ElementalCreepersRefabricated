@@ -80,6 +80,11 @@ public class IceCreeperEntity extends ElementalCreeperEntity {
                 }
             }
         }
+        for(Entity entity : this.world.getOtherEntities(null, new Box(this.getX()-5, this.getY()-5, this.getZ()-5, this.getX()+5, this.getY()+5, this.getZ()+5))) {
+            if(entity instanceof LivingEntity) {
+                ((LivingEntity) entity).addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, 40 * 20, 1));
+            }
+        }
         super.onExplode();
         generateSnow = true;
     }
