@@ -8,6 +8,7 @@ import net.minecraft.entity.passive.CatEntity;
 import net.minecraft.entity.passive.OcelotEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.world.GameRules;
 import net.minecraft.world.World;
 import net.minecraft.world.explosion.Explosion;
 
@@ -35,9 +36,9 @@ public class IllusionCreeperEntity extends ElementalCreeperEntity {
 
     @Override
     public void onExplode() {
-        this.world.createExplosion(this,
-                this.getX(), this.getY(), this.getZ(),
-                3, Explosion.DestructionType.DESTROY);
+        this.world.createExplosion(this, this.getX(), this.getY(), this.getZ(),
+                3,  this.world.getGameRules().getBoolean(GameRules.DO_MOB_GRIEFING) ?
+                Explosion.DestructionType.DESTROY : Explosion.DestructionType.NONE);
         super.onExplode();
     }
 

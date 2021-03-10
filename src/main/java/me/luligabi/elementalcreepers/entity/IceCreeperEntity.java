@@ -59,22 +59,24 @@ public class IceCreeperEntity extends ElementalCreeperEntity {
         generateSnow = false;
         this.world.createExplosion(this,
                 this.getX(), this.getY(), this.getZ(), 0, Explosion.DestructionType.NONE);
-        double radius = config.getOrDefault("iceCreeperRadius", 4);
-        for (int x = (int) -radius - 1; x <= radius; x++)  {
-            for (int y = (int) -radius - 1; y <= radius; y++) {
-                for (int z = (int) -radius - 1; z <= radius; z++) {
-                    if (Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2) + Math.pow(z, 2)) <= radius) {
-                        BlockPos blockPos = new BlockPos((int) this.getX() + x, (int) this.getY() + y, (int) this.getZ() + z);
-                        if (this.world.getBlockState(blockPos).isAir() && !this.world.getBlockState(new BlockPos((int) this.getX() + x, (int) (this.getY() + y) - 1, (int) this.getZ() + z)).isAir()) {
-                            if (new Random().nextBoolean()) {
-                                this.world.setBlockState(blockPos, Blocks.SNOW_BLOCK.getDefaultState());
-                            } else {
-                                this.world.setBlockState(blockPos, Blocks.SNOW.getDefaultState());
+        if(this.world.getGameRules().getBoolean(GameRules.DO_MOB_GRIEFING)) {
+            double radius = config.getOrDefault("iceCreeperRadius", 4);
+            for (int x = (int) -radius - 1; x <= radius; x++) {
+                for (int y = (int) -radius - 1; y <= radius; y++) {
+                    for (int z = (int) -radius - 1; z <= radius; z++) {
+                        if (Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2) + Math.pow(z, 2)) <= radius) {
+                            BlockPos blockPos = new BlockPos((int) this.getX() + x, (int) this.getY() + y, (int) this.getZ() + z);
+                            if (this.world.getBlockState(blockPos).isAir() && !this.world.getBlockState(new BlockPos((int) this.getX() + x, (int) (this.getY() + y) - 1, (int) this.getZ() + z)).isAir()) {
+                                if (new Random().nextBoolean()) {
+                                    this.world.setBlockState(blockPos, Blocks.SNOW_BLOCK.getDefaultState());
+                                } else {
+                                    this.world.setBlockState(blockPos, Blocks.SNOW.getDefaultState());
+                                }
+                            } else if (this.world.getBlockState(blockPos) == Blocks.WATER.getDefaultState()) {
+                                this.world.setBlockState(blockPos, Blocks.ICE.getDefaultState());
+                            } else if (this.world.getBlockState(blockPos) == Blocks.LAVA.getDefaultState()) {
+                                this.world.setBlockState(blockPos, Blocks.OBSIDIAN.getDefaultState());
                             }
-                        } else if (this.world.getBlockState(blockPos) == Blocks.WATER.getDefaultState()) {
-                            this.world.setBlockState(blockPos, Blocks.ICE.getDefaultState());
-                        } else if (this.world.getBlockState(blockPos) == Blocks.LAVA.getDefaultState()) {
-                            this.world.setBlockState(blockPos, Blocks.OBSIDIAN.getDefaultState());
                         }
                     }
                 }
