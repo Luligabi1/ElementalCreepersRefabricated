@@ -2,6 +2,7 @@ package me.luligabi.elementalcreepers;
 
 import me.luligabi.elementalcreepers.entity.*;
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
@@ -9,8 +10,10 @@ import net.minecraft.entity.EntityDimensions;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
 import net.minecraft.item.*;
+
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
+import net.minecraft.world.biome.Biome;
 
 public class ElementalCreepers implements ModInitializer {
 
@@ -26,7 +29,7 @@ public class ElementalCreepers implements ModInitializer {
                 "# Water Creeper\n" +
                 "waterCreeperEnabled=true\n" +
                 "waterCreeperRadius=3\n" +
-                "waterCreeperSpawnRate=50\n\n" +
+                "waterCreeperSpawnRate=20\n\n" +
 
                 "# Fire Creeper\n" +
                 "fireCreeperEnabled=true\n" +
@@ -36,21 +39,21 @@ public class ElementalCreepers implements ModInitializer {
                 "# Earth Creeper\n" +
                 "earthCreeperEnabled=true\n" +
                 "earthCreeperRadius=5\n" +
-                "earthCreeperSpawnRate=20\n\n" +
+                "earthCreeperSpawnRate=15\n\n" +
 
                 "# Air Creeper\n" +
                 "airCreeperEnabled=true\n" +
                 "airCreeperRadius=1.75\n" +
-                "airCreeperSpawnRate=30\n\n" +
+                "airCreeperSpawnRate=20\n\n" +
 
                 "# Electric Creeper\n" +
                 "electricCreeperEnabled=true\n" +
-                "electricCreeperSpawnRate=10\n\n" +
+                "electricCreeperSpawnRate=7\n\n" +
 
                 "# Ice Creeper\n" +
                 "iceCreeperEnabled=true\n" +
                 "iceCreeperRadius=4\n" +
-                "iceCreeperSpawnRate=35\n\n" +
+                "iceCreeperSpawnRate=20\n\n" +
 
                 "# Magma Creeper\n" +
                 "magmaCreeperEnabled=true\n" +
@@ -60,29 +63,188 @@ public class ElementalCreepers implements ModInitializer {
                 "# Hydrogen Creeper\n" +
                 "hydrogenCreeperEnabled=true\n" +
                 "hydrogenCreeperRadius=7\n" +
-                "hydrogenCreeperSpawnRate=7\n\n" +
+                "hydrogenCreeperSpawnRate=3\n\n" +
 
                 "# Reverse Creeper\n" +
                 "reverseCreeperEnabled=true\n" +
                 "reverseCreeperRadius=3.75\n" +
-                "reverseCreeperSpawnRate=15\n\n" +
+                "reverseCreeperSpawnRate=10\n\n" +
 
                 "# Miner Creeper\n" +
                 "minerCreeperEnabled=true\n" +
                 "minerCreeperRadius=3.75\n" +
-                "minerCreeperSpawnRate=20\n\n" +
+                "minerCreeperSpawnRate=15\n\n" +
 
                 "# Illusion Creeper\n" +
                 "illusionCreeperEnabled=true\n" +
-                "illusionCreeperSpawnRate=15\n\n" +
+                "illusionCreeperSpawnRate=10\n\n" +
 
                 "# Firework Creeper\n" +
                 "fireworkCreeperEnabled=true\n" +
-                "fireworkCreeperSpawnRate=5\n\n" +
+                "fireworkCreeperSpawnRate=4\n\n" +
 
                 "# Cookie Creeper\n" +
                 "cookieCreeperEnabled=true\n" +
                 "cookieCreeperSpawnRate=2";
+    }
+
+    @Override
+    public void onInitialize() {
+        registerCreeperEntities();
+        registerCreeperSpawnEggItems();
+        registerNaturalSpawning();
+    }
+
+    private void registerCreeperEntities() {
+        FabricDefaultAttributeRegistry.register(WATER_CREEPER, WaterCreeperEntity.createCreeperAttributes());
+        FabricDefaultAttributeRegistry.register(FIRE_CREEPER, FireCreeperEntity.createCreeperAttributes());
+        FabricDefaultAttributeRegistry.register(EARTH_CREEPER, EarthCreeperEntity.createCreeperAttributes());
+        FabricDefaultAttributeRegistry.register(AIR_CREEPER, AirCreeperEntity.createCreeperAttributes());
+        FabricDefaultAttributeRegistry.register(ELECTRIC_CREEPER, ElectricCreeperEntity.createCreeperAttributes());
+        FabricDefaultAttributeRegistry.register(ICE_CREEPER, IceCreeperEntity.createCreeperAttributes());
+        FabricDefaultAttributeRegistry.register(MAGMA_CREEPER, MagmaCreeperEntity.createCreeperAttributes());
+        FabricDefaultAttributeRegistry.register(HYDROGEN_CREEPER, HydrogenCreeperEntity.createCreeperAttributes());
+
+        FabricDefaultAttributeRegistry.register(REVERSE_CREEPER, ReverseCreeperEntity.createCreeperAttributes());
+        FabricDefaultAttributeRegistry.register(MINER_CREEPER, MinerCreeperEntity.createCreeperAttributes());
+        FabricDefaultAttributeRegistry.register(ILLUSION_CREEPER, IllusionCreeperEntity.createCreeperAttributes());
+        FabricDefaultAttributeRegistry.register(FAKE_ILLUSION_CREEPER, FakeIllusionCreeperEntity.createCreeperAttributes());
+        FabricDefaultAttributeRegistry.register(FIREWORK_CREEPER, FireworkCreeperEntity.createCreeperAttributes());
+        FabricDefaultAttributeRegistry.register(COOKIE_CREEPER, CookieCreeperEntity.createCreeperAttributes());
+    }
+
+    private void registerNaturalSpawning() {
+        // Water Creeper
+        if(config.getOrDefault("waterCreeperEnabled", true)) {
+            BiomeModifications.addSpawn(biomeSelector ->
+                    biomeSelector.getBiome().getCategory() == Biome.Category.RIVER ||
+                    biomeSelector.getBiome().getCategory() == Biome.Category.BEACH ||
+                    biomeSelector.getBiome().getCategory() == Biome.Category.SWAMP, SpawnGroup.MONSTER, WATER_CREEPER, config.getOrDefault("waterCreeperSpawnRate", 20), 1, 1);
+        }
+        // Fire Creeper
+        if(config.getOrDefault("fireCreeperEnabled", true)) {
+            BiomeModifications.addSpawn(biomeSelector ->
+                    biomeSelector.getBiome().getCategory() == Biome.Category.DESERT ||
+                    biomeSelector.getBiome().getCategory() == Biome.Category.SAVANNA ||
+                    biomeSelector.getBiome().getCategory() == Biome.Category.MESA, SpawnGroup.MONSTER, FIRE_CREEPER, config.getOrDefault("fireCreeperSpawnRate", 25), 1, 2);
+        }
+        // Earth Creeper
+        if(config.getOrDefault("earthCreeperEnabled", true)) {
+            BiomeModifications.addSpawn(biomeSelector ->
+                    biomeSelector.getBiome().getCategory() == Biome.Category.PLAINS ||
+                    biomeSelector.getBiome().getCategory() == Biome.Category.FOREST ||
+                    biomeSelector.getBiome().getCategory() == Biome.Category.TAIGA ||
+                    biomeSelector.getBiome().getCategory() == Biome.Category.SAVANNA ||
+                    biomeSelector.getBiome().getCategory() == Biome.Category.SWAMP ||
+                    biomeSelector.getBiome().getCategory() == Biome.Category.JUNGLE ||
+                    biomeSelector.getBiome().getCategory() == Biome.Category.MUSHROOM, SpawnGroup.MONSTER, EARTH_CREEPER, config.getOrDefault("earthCreeperSpawnRate", 15), 1, 1);
+        }
+        // Air Creeper
+        if(config.getOrDefault("airCreeperEnabled", true)) {
+            BiomeModifications.addSpawn(biomeSelector ->
+                    biomeSelector.getBiome().getCategory() == Biome.Category.EXTREME_HILLS, SpawnGroup.MONSTER, AIR_CREEPER, config.getOrDefault("airCreeperSpawnRate", 20), 1, 1);
+        }
+        // Electric Creeper
+        if(config.getOrDefault("electricCreeperEnabled", true)) {
+            BiomeModifications.addSpawn(biomeSelector ->
+                    biomeSelector.getBiome().getCategory() == Biome.Category.PLAINS ||
+                    biomeSelector.getBiome().getCategory() == Biome.Category.FOREST ||
+                    biomeSelector.getBiome().getCategory() == Biome.Category.TAIGA ||
+                    biomeSelector.getBiome().getCategory() == Biome.Category.SAVANNA ||
+                    biomeSelector.getBiome().getCategory() == Biome.Category.SWAMP ||
+                    biomeSelector.getBiome().getCategory() == Biome.Category.JUNGLE ||
+                    biomeSelector.getBiome().getCategory() == Biome.Category.MUSHROOM, SpawnGroup.MONSTER, ELECTRIC_CREEPER, config.getOrDefault("electricCreeperSpawnRate", 7), 1, 1);
+        }
+        // Ice Creeper
+        if(config.getOrDefault("iceCreeperEnabled", true)) {
+            BiomeModifications.addSpawn(biomeSelector ->
+                    biomeSelector.getBiome().getCategory() == Biome.Category.ICY ||
+                    biomeSelector.getBiome().getCategory() == Biome.Category.EXTREME_HILLS, SpawnGroup.MONSTER, ICE_CREEPER, config.getOrDefault("iceCreeperSpawnRate", 20), 1, 2);
+        }
+        // Magma Creeper
+        if(config.getOrDefault("magmaCreeperEnabled", true)) {
+            BiomeModifications.addSpawn(biomeSelector ->
+                    biomeSelector.getBiome().getCategory() == Biome.Category.DESERT ||
+                            biomeSelector.getBiome().getCategory() == Biome.Category.SAVANNA ||
+                            biomeSelector.getBiome().getCategory() == Biome.Category.MESA, SpawnGroup.MONSTER, MAGMA_CREEPER, config.getOrDefault("magmaCreeperSpawnRate", 5), 1, 1);
+        }
+        // Hydrogen Creeper
+        if(config.getOrDefault("hydrogenCreeperEnabled", true)) {
+            BiomeModifications.addSpawn(biomeSelector ->
+                    biomeSelector.getBiome().getCategory() == Biome.Category.PLAINS ||
+                    biomeSelector.getBiome().getCategory() == Biome.Category.FOREST ||
+                    biomeSelector.getBiome().getCategory() == Biome.Category.TAIGA ||
+                    biomeSelector.getBiome().getCategory() == Biome.Category.SAVANNA ||
+                    biomeSelector.getBiome().getCategory() == Biome.Category.SWAMP ||
+                    biomeSelector.getBiome().getCategory() == Biome.Category.JUNGLE ||
+                    biomeSelector.getBiome().getCategory() == Biome.Category.MUSHROOM, SpawnGroup.MONSTER, HYDROGEN_CREEPER, config.getOrDefault("hydrogenCreeperSpawnRate", 3), 1, 1);
+        }
+        // Reverse Creeper
+        if(config.getOrDefault("reverseCreeperEnabled", true)) {
+            BiomeModifications.addSpawn(biomeSelector ->
+                    biomeSelector.getBiome().getCategory() == Biome.Category.PLAINS ||
+                    biomeSelector.getBiome().getCategory() == Biome.Category.FOREST ||
+                    biomeSelector.getBiome().getCategory() == Biome.Category.TAIGA ||
+                    biomeSelector.getBiome().getCategory() == Biome.Category.SAVANNA ||
+                    biomeSelector.getBiome().getCategory() == Biome.Category.SWAMP ||
+                    biomeSelector.getBiome().getCategory() == Biome.Category.JUNGLE ||
+                    biomeSelector.getBiome().getCategory() == Biome.Category.MUSHROOM, SpawnGroup.MONSTER, REVERSE_CREEPER, config.getOrDefault("reverseCreeperSpawnRate", 10), 1, 1);
+        }
+        // Miner Creeper
+        if(config.getOrDefault("minerCreeperEnabled", true)) {
+            BiomeModifications.addSpawn(biomeSelector ->
+                    biomeSelector.getBiome().getCategory() == Biome.Category.EXTREME_HILLS, SpawnGroup.MONSTER, MINER_CREEPER, config.getOrDefault("minerCreeperSpawnRate", 15), 1, 2);
+        }
+        // Illusion Creeper
+        if(config.getOrDefault("illusionCreeperEnabled", true)) {
+            BiomeModifications.addSpawn(biomeSelector ->
+                    biomeSelector.getBiome().getCategory() == Biome.Category.PLAINS ||
+                    biomeSelector.getBiome().getCategory() == Biome.Category.FOREST ||
+                    biomeSelector.getBiome().getCategory() == Biome.Category.TAIGA ||
+                    biomeSelector.getBiome().getCategory() == Biome.Category.SAVANNA ||
+                    biomeSelector.getBiome().getCategory() == Biome.Category.SWAMP ||
+                    biomeSelector.getBiome().getCategory() == Biome.Category.JUNGLE ||
+                    biomeSelector.getBiome().getCategory() == Biome.Category.MUSHROOM, SpawnGroup.MONSTER, ILLUSION_CREEPER, config.getOrDefault("illusionCreeperSpawnRate", 10), 1, 1);
+        }
+        // Firework Creeper
+        if(config.getOrDefault("fireworkCreeperEnabled", true)) {
+            BiomeModifications.addSpawn(biomeSelector ->
+                    biomeSelector.getBiome().getCategory() == Biome.Category.PLAINS ||
+                    biomeSelector.getBiome().getCategory() == Biome.Category.FOREST ||
+                    biomeSelector.getBiome().getCategory() == Biome.Category.TAIGA ||
+                    biomeSelector.getBiome().getCategory() == Biome.Category.SAVANNA ||
+                    biomeSelector.getBiome().getCategory() == Biome.Category.SWAMP ||
+                    biomeSelector.getBiome().getCategory() == Biome.Category.JUNGLE ||
+                    biomeSelector.getBiome().getCategory() == Biome.Category.MUSHROOM, SpawnGroup.MONSTER, FIREWORK_CREEPER, config.getOrDefault("fireworkCreeperSpawnRate", 4), 1, 1);
+        }
+        // Cookie Creeper
+        if(config.getOrDefault("cookieCreeperEnabled", true)) {
+            BiomeModifications.addSpawn(biomeSelector ->
+                    biomeSelector.getBiome().getCategory() == Biome.Category.PLAINS ||
+                    biomeSelector.getBiome().getCategory() == Biome.Category.FOREST ||
+                    biomeSelector.getBiome().getCategory() == Biome.Category.TAIGA ||
+                    biomeSelector.getBiome().getCategory() == Biome.Category.SAVANNA ||
+                    biomeSelector.getBiome().getCategory() == Biome.Category.SWAMP ||
+                    biomeSelector.getBiome().getCategory() == Biome.Category.JUNGLE ||
+                    biomeSelector.getBiome().getCategory() == Biome.Category.MUSHROOM, SpawnGroup.MONSTER, COOKIE_CREEPER, config.getOrDefault("cookieCreeperSpawnRate", 2), 1, 2);
+        }
+    }
+
+    private void registerCreeperSpawnEggItems() {
+        Registry.register(Registry.ITEM, new Identifier("elementalcreepers", "water_creeper_spawn_egg"), new SpawnEggItem(WATER_CREEPER, 0x415DB3, 0XA4A4CC, new Item.Settings().group(ElementalCreepers.SPAWN_EGGS)));
+        Registry.register(Registry.ITEM, new Identifier("elementalcreepers", "fire_creeper_spawn_egg"), new SpawnEggItem(FIRE_CREEPER, 0xC4814F, 0xA65F0A, new Item.Settings().group(ElementalCreepers.SPAWN_EGGS)));
+        Registry.register(Registry.ITEM, new Identifier("elementalcreepers", "earth_creeper_spawn_egg"), new SpawnEggItem(EARTH_CREEPER, 0x7A583C, 0x64A444, new Item.Settings().group(ElementalCreepers.SPAWN_EGGS)));
+        Registry.register(Registry.ITEM, new Identifier("elementalcreepers", "air_creeper_spawn_egg"), new SpawnEggItem(AIR_CREEPER, 0x52C671, 0x348349, new Item.Settings().group(ElementalCreepers.SPAWN_EGGS)));
+        Registry.register(Registry.ITEM, new Identifier("elementalcreepers", "electric_creeper_spawn_egg"), new SpawnEggItem(ELECTRIC_CREEPER, 0xF2DB47, 0xEED111, new Item.Settings().group(ElementalCreepers.SPAWN_EGGS)));
+        Registry.register(Registry.ITEM, new Identifier("elementalcreepers", "ice_creeper_spawn_egg"), new SpawnEggItem(ICE_CREEPER, 0x7CACFC, 0x8CC4FC, new Item.Settings().group(ElementalCreepers.SPAWN_EGGS)));
+        Registry.register(Registry.ITEM, new Identifier("elementalcreepers", "magma_creeper_spawn_egg"), new SpawnEggItem(MAGMA_CREEPER, 0xA50B0E, 0xD599A5, new Item.Settings().group(ElementalCreepers.SPAWN_EGGS)));
+        Registry.register(Registry.ITEM, new Identifier("elementalcreepers", "hydrogen_creeper_spawn_egg"), new SpawnEggItem(HYDROGEN_CREEPER, 0x0D5F04, 0x242C24, new Item.Settings().group(ElementalCreepers.SPAWN_EGGS)));
+
+        Registry.register(Registry.ITEM, new Identifier("elementalcreepers", "reverse_creeper_spawn_egg"), new SpawnEggItem(REVERSE_CREEPER, 0x0c9e0a, 0x000000, new Item.Settings().group(ElementalCreepers.SPAWN_EGGS)));
+        Registry.register(Registry.ITEM, new Identifier("elementalcreepers", "miner_creeper_spawn_egg"), new SpawnEggItem(MINER_CREEPER, 0xA4A4A4, 0xCBCBCB, new Item.Settings().group(ElementalCreepers.SPAWN_EGGS)));
+        Registry.register(Registry.ITEM, new Identifier("elementalcreepers", "illusion_creeper_spawn_egg"), new SpawnEggItem(ILLUSION_CREEPER, 0x4319A2, 0x8274C6, new Item.Settings().group(ElementalCreepers.SPAWN_EGGS)));
+        Registry.register(Registry.ITEM, new Identifier("elementalcreepers", "firework_creeper_spawn_egg"), new SpawnEggItem(FIREWORK_CREEPER, 0xD73939, 0xE4E4E4, new Item.Settings().group(ElementalCreepers.SPAWN_EGGS)));
+        Registry.register(Registry.ITEM, new Identifier("elementalcreepers", "cookie_creeper_spawn_egg"), new SpawnEggItem(COOKIE_CREEPER, 0xE88E3F, 0x8A4929, new Item.Settings().group(ElementalCreepers.SPAWN_EGGS)));
     }
 
     public static final EntityType<WaterCreeperEntity> WATER_CREEPER =
@@ -154,47 +316,6 @@ public class ElementalCreepers implements ModInitializer {
             Registry.register(Registry.ENTITY_TYPE,
                     new Identifier("elementalcreepers", "cookie_creeper"),
                     FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, CookieCreeperEntity::new).dimensions(EntityDimensions.fixed(0.6F, 1.7F)).build());
-
-    @Override
-    public void onInitialize() {
-        registerCreeperEntities();
-        registerCreeperSpawnEggItems();
-    }
-
-    private void registerCreeperEntities() {
-        FabricDefaultAttributeRegistry.register(WATER_CREEPER, WaterCreeperEntity.createCreeperAttributes());
-        FabricDefaultAttributeRegistry.register(FIRE_CREEPER, FireCreeperEntity.createCreeperAttributes());
-        FabricDefaultAttributeRegistry.register(EARTH_CREEPER, EarthCreeperEntity.createCreeperAttributes());
-        FabricDefaultAttributeRegistry.register(AIR_CREEPER, AirCreeperEntity.createCreeperAttributes());
-        FabricDefaultAttributeRegistry.register(ELECTRIC_CREEPER, ElectricCreeperEntity.createCreeperAttributes());
-        FabricDefaultAttributeRegistry.register(ICE_CREEPER, IceCreeperEntity.createCreeperAttributes());
-        FabricDefaultAttributeRegistry.register(MAGMA_CREEPER, MagmaCreeperEntity.createCreeperAttributes());
-        FabricDefaultAttributeRegistry.register(HYDROGEN_CREEPER, HydrogenCreeperEntity.createCreeperAttributes());
-
-        FabricDefaultAttributeRegistry.register(REVERSE_CREEPER, ReverseCreeperEntity.createCreeperAttributes());
-        FabricDefaultAttributeRegistry.register(MINER_CREEPER, MinerCreeperEntity.createCreeperAttributes());
-        FabricDefaultAttributeRegistry.register(ILLUSION_CREEPER, IllusionCreeperEntity.createCreeperAttributes());
-        FabricDefaultAttributeRegistry.register(FAKE_ILLUSION_CREEPER, FakeIllusionCreeperEntity.createCreeperAttributes());
-        FabricDefaultAttributeRegistry.register(FIREWORK_CREEPER, FireworkCreeperEntity.createCreeperAttributes());
-        FabricDefaultAttributeRegistry.register(ElementalCreepers.COOKIE_CREEPER, CookieCreeperEntity.createCreeperAttributes());
-    }
-
-    private void registerCreeperSpawnEggItems() {
-        Registry.register(Registry.ITEM, new Identifier("elementalcreepers", "water_creeper_spawn_egg"), new SpawnEggItem(WATER_CREEPER, 0x415DB3, 0XA4A4CC, new Item.Settings().group(ElementalCreepers.SPAWN_EGGS)));
-        Registry.register(Registry.ITEM, new Identifier("elementalcreepers", "fire_creeper_spawn_egg"), new SpawnEggItem(FIRE_CREEPER, 0xC4814F, 0xA65F0A, new Item.Settings().group(ElementalCreepers.SPAWN_EGGS)));
-        Registry.register(Registry.ITEM, new Identifier("elementalcreepers", "earth_creeper_spawn_egg"), new SpawnEggItem(EARTH_CREEPER, 0x7A583C, 0x64A444, new Item.Settings().group(ElementalCreepers.SPAWN_EGGS)));
-        Registry.register(Registry.ITEM, new Identifier("elementalcreepers", "air_creeper_spawn_egg"), new SpawnEggItem(AIR_CREEPER, 0x52C671, 0x348349, new Item.Settings().group(ElementalCreepers.SPAWN_EGGS)));
-        Registry.register(Registry.ITEM, new Identifier("elementalcreepers", "electric_creeper_spawn_egg"), new SpawnEggItem(ELECTRIC_CREEPER, 0xF2DB47, 0xEED111, new Item.Settings().group(ElementalCreepers.SPAWN_EGGS)));
-        Registry.register(Registry.ITEM, new Identifier("elementalcreepers", "ice_creeper_spawn_egg"), new SpawnEggItem(ICE_CREEPER, 0x7CACFC, 0x8CC4FC, new Item.Settings().group(ElementalCreepers.SPAWN_EGGS)));
-        Registry.register(Registry.ITEM, new Identifier("elementalcreepers", "magma_creeper_spawn_egg"), new SpawnEggItem(MAGMA_CREEPER, 0xA50B0E, 0xD599A5, new Item.Settings().group(ElementalCreepers.SPAWN_EGGS)));
-        Registry.register(Registry.ITEM, new Identifier("elementalcreepers", "hydrogen_creeper_spawn_egg"), new SpawnEggItem(HYDROGEN_CREEPER, 0x0D5F04, 0x242C24, new Item.Settings().group(ElementalCreepers.SPAWN_EGGS)));
-
-        Registry.register(Registry.ITEM, new Identifier("elementalcreepers", "reverse_creeper_spawn_egg"), new SpawnEggItem(REVERSE_CREEPER, 0x0c9e0a, 0x000000, new Item.Settings().group(ElementalCreepers.SPAWN_EGGS)));
-        Registry.register(Registry.ITEM, new Identifier("elementalcreepers", "miner_creeper_spawn_egg"), new SpawnEggItem(MINER_CREEPER, 0xA4A4A4, 0xCBCBCB, new Item.Settings().group(ElementalCreepers.SPAWN_EGGS)));
-        Registry.register(Registry.ITEM, new Identifier("elementalcreepers", "illusion_creeper_spawn_egg"), new SpawnEggItem(ILLUSION_CREEPER, 0x4319A2, 0x8274C6, new Item.Settings().group(ElementalCreepers.SPAWN_EGGS)));
-        Registry.register(Registry.ITEM, new Identifier("elementalcreepers", "firework_creeper_spawn_egg"), new SpawnEggItem(FIREWORK_CREEPER, 0xD73939, 0xE4E4E4, new Item.Settings().group(ElementalCreepers.SPAWN_EGGS)));
-        Registry.register(Registry.ITEM, new Identifier("elementalcreepers", "cookie_creeper_spawn_egg"), new SpawnEggItem(COOKIE_CREEPER, 0xE88E3F, 0x8A4929, new Item.Settings().group(ElementalCreepers.SPAWN_EGGS)));
-    }
 
     public static final ItemGroup SPAWN_EGGS = FabricItemGroupBuilder.create(
             new Identifier("elementalcreepers", "category"))
