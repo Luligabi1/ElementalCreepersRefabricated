@@ -10,7 +10,8 @@
     "xSmallDeadGuyx"
   ],
   "contact": {
-    "repo": "https://github.com/Luligabi1/ElementalCreepersRefabricated"
+    "homepage": "https://www.curseforge.com/minecraft/mc-mods/elemental-creepers-refabricated",
+    "sourcesRe": "https://github.com/Luligabi1/ElementalCreepersRefabricated"
   },
 
   "license": "MIT",
@@ -30,7 +31,7 @@
   ],
   "depends": {
     "fabricloader": ">=0.11.1",
-              "fabric": "*",
-          "minecraft": "1.16.5"
+    "fabric": "*",
+    "minecraft": "1.16.5"
   }
 }
