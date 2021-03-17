@@ -39,7 +39,7 @@ public class MinerCreeperEntity extends ElementalCreeperEntity {
 
                         if (state != null && state.getBlock() != null) {
                             Block stoneBlock = state.getBlock();
-                            Block[] stoneBlockList = {Blocks.STONE, Blocks.GRANITE, Blocks.DIORITE, Blocks.ANDESITE, Blocks.CLAY};
+                            Block[] stoneBlockList = {Blocks.STONE, Blocks.GRANITE, Blocks.DIORITE, Blocks.ANDESITE, Blocks.GRAVEL, Blocks.CLAY};
 
                             if (stoneBlock != null && Arrays.asList(stoneBlockList).contains(stoneBlock) && Math.sqrt(Math.pow(x, 2.0D) + Math.pow(y, 2.0D) + Math.pow(z, 2.0D)) <= radius) {
                                 this.world.setBlockState(blockPos, Blocks.AIR.getDefaultState());

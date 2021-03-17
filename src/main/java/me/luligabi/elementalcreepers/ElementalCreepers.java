@@ -16,7 +16,8 @@ import net.minecraft.world.biome.Biome;
 
 public class ElementalCreepers implements ModInitializer {
 
-    SimpleConfig config = SimpleConfig.of("elementalcreepers").provider(this::provider).request();
+    private static final String NAME_SPACE = "elementalcreepers";
+    SimpleConfig config = SimpleConfig.of(NAME_SPACE).provider(this::provider).request();
 
     private String provider(String filename) {
         return "# Elemental Creepers: Refabricated Configuration File\n\n" +
@@ -232,94 +233,94 @@ public class ElementalCreepers implements ModInitializer {
     }
 
     private void registerCreeperSpawnEggItems() {
-        Registry.register(Registry.ITEM, new Identifier("elementalcreepers", "water_creeper_spawn_egg"), new SpawnEggItem(WATER_CREEPER, 0x415DB3, 0XA4A4CC, new Item.Settings().group(ElementalCreepers.CATEGORY)));
-        Registry.register(Registry.ITEM, new Identifier("elementalcreepers", "fire_creeper_spawn_egg"), new SpawnEggItem(FIRE_CREEPER, 0xC4814F, 0xA65F0A, new Item.Settings().group(ElementalCreepers.CATEGORY)));
-        Registry.register(Registry.ITEM, new Identifier("elementalcreepers", "earth_creeper_spawn_egg"), new SpawnEggItem(EARTH_CREEPER, 0x7A583C, 0x64A444, new Item.Settings().group(ElementalCreepers.CATEGORY)));
-        Registry.register(Registry.ITEM, new Identifier("elementalcreepers", "air_creeper_spawn_egg"), new SpawnEggItem(AIR_CREEPER, 0x52C671, 0x348349, new Item.Settings().group(ElementalCreepers.CATEGORY)));
-        Registry.register(Registry.ITEM, new Identifier("elementalcreepers", "electric_creeper_spawn_egg"), new SpawnEggItem(ELECTRIC_CREEPER, 0xF2DB47, 0xEED111, new Item.Settings().group(ElementalCreepers.CATEGORY)));
-        Registry.register(Registry.ITEM, new Identifier("elementalcreepers", "ice_creeper_spawn_egg"), new SpawnEggItem(ICE_CREEPER, 0x7CACFC, 0x8CC4FC, new Item.Settings().group(ElementalCreepers.CATEGORY)));
-        Registry.register(Registry.ITEM, new Identifier("elementalcreepers", "magma_creeper_spawn_egg"), new SpawnEggItem(MAGMA_CREEPER, 0xA50B0E, 0xD599A5, new Item.Settings().group(ElementalCreepers.CATEGORY)));
-        Registry.register(Registry.ITEM, new Identifier("elementalcreepers", "hydrogen_creeper_spawn_egg"), new SpawnEggItem(HYDROGEN_CREEPER, 0x0D5F04, 0x242C24, new Item.Settings().group(ElementalCreepers.CATEGORY)));
+        Registry.register(Registry.ITEM, new Identifier(NAME_SPACE, "water_creeper_spawn_egg"), new SpawnEggItem(WATER_CREEPER, 0x415DB3, 0XA4A4CC, new Item.Settings().group(ElementalCreepers.CATEGORY)));
+        Registry.register(Registry.ITEM, new Identifier(NAME_SPACE, "fire_creeper_spawn_egg"), new SpawnEggItem(FIRE_CREEPER, 0xC4814F, 0xA65F0A, new Item.Settings().group(ElementalCreepers.CATEGORY)));
+        Registry.register(Registry.ITEM, new Identifier(NAME_SPACE, "earth_creeper_spawn_egg"), new SpawnEggItem(EARTH_CREEPER, 0x7A583C, 0x64A444, new Item.Settings().group(ElementalCreepers.CATEGORY)));
+        Registry.register(Registry.ITEM, new Identifier(NAME_SPACE, "air_creeper_spawn_egg"), new SpawnEggItem(AIR_CREEPER, 0x52C671, 0x348349, new Item.Settings().group(ElementalCreepers.CATEGORY)));
+        Registry.register(Registry.ITEM, new Identifier(NAME_SPACE, "electric_creeper_spawn_egg"), new SpawnEggItem(ELECTRIC_CREEPER, 0xF2DB47, 0xEED111, new Item.Settings().group(ElementalCreepers.CATEGORY)));
+        Registry.register(Registry.ITEM, new Identifier(NAME_SPACE, "ice_creeper_spawn_egg"), new SpawnEggItem(ICE_CREEPER, 0x7CACFC, 0x8CC4FC, new Item.Settings().group(ElementalCreepers.CATEGORY)));
+        Registry.register(Registry.ITEM, new Identifier(NAME_SPACE, "magma_creeper_spawn_egg"), new SpawnEggItem(MAGMA_CREEPER, 0xA50B0E, 0xD599A5, new Item.Settings().group(ElementalCreepers.CATEGORY)));
+        Registry.register(Registry.ITEM, new Identifier(NAME_SPACE, "hydrogen_creeper_spawn_egg"), new SpawnEggItem(HYDROGEN_CREEPER, 0x0D5F04, 0x242C24, new Item.Settings().group(ElementalCreepers.CATEGORY)));
 
-        Registry.register(Registry.ITEM, new Identifier("elementalcreepers", "reverse_creeper_spawn_egg"), new SpawnEggItem(REVERSE_CREEPER, 0x0c9e0a, 0x000000, new Item.Settings().group(ElementalCreepers.CATEGORY)));
-        Registry.register(Registry.ITEM, new Identifier("elementalcreepers", "miner_creeper_spawn_egg"), new SpawnEggItem(MINER_CREEPER, 0xA4A4A4, 0xCBCBCB, new Item.Settings().group(ElementalCreepers.CATEGORY)));
-        Registry.register(Registry.ITEM, new Identifier("elementalcreepers", "illusion_creeper_spawn_egg"), new SpawnEggItem(ILLUSION_CREEPER, 0x4319A2, 0x8274C6, new Item.Settings().group(ElementalCreepers.CATEGORY)));
-        Registry.register(Registry.ITEM, new Identifier("elementalcreepers", "firework_creeper_spawn_egg"), new SpawnEggItem(FIREWORK_CREEPER, 0xD73939, 0xE4E4E4, new Item.Settings().group(ElementalCreepers.CATEGORY)));
-        Registry.register(Registry.ITEM, new Identifier("elementalcreepers", "cookie_creeper_spawn_egg"), new SpawnEggItem(COOKIE_CREEPER, 0xE88E3F, 0x8A4929, new Item.Settings().group(ElementalCreepers.CATEGORY)));
+        Registry.register(Registry.ITEM, new Identifier(NAME_SPACE, "reverse_creeper_spawn_egg"), new SpawnEggItem(REVERSE_CREEPER, 0x0c9e0a, 0x000000, new Item.Settings().group(ElementalCreepers.CATEGORY)));
+        Registry.register(Registry.ITEM, new Identifier(NAME_SPACE, "miner_creeper_spawn_egg"), new SpawnEggItem(MINER_CREEPER, 0xA4A4A4, 0xCBCBCB, new Item.Settings().group(ElementalCreepers.CATEGORY)));
+        Registry.register(Registry.ITEM, new Identifier(NAME_SPACE, "illusion_creeper_spawn_egg"), new SpawnEggItem(ILLUSION_CREEPER, 0x4319A2, 0x8274C6, new Item.Settings().group(ElementalCreepers.CATEGORY)));
+        Registry.register(Registry.ITEM, new Identifier(NAME_SPACE, "firework_creeper_spawn_egg"), new SpawnEggItem(FIREWORK_CREEPER, 0xD73939, 0xE4E4E4, new Item.Settings().group(ElementalCreepers.CATEGORY)));
+        Registry.register(Registry.ITEM, new Identifier(NAME_SPACE, "cookie_creeper_spawn_egg"), new SpawnEggItem(COOKIE_CREEPER, 0xE88E3F, 0x8A4929, new Item.Settings().group(ElementalCreepers.CATEGORY)));
     }
 
     public static final EntityType<WaterCreeperEntity> WATER_CREEPER =
             Registry.register(Registry.ENTITY_TYPE,
-                    new Identifier("elementalcreepers", "water_creeper"),
+                    new Identifier(NAME_SPACE, "water_creeper"),
                     FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, WaterCreeperEntity::new).dimensions(EntityDimensions.fixed(0.6F, 1.7F)).build());
 
     public static final EntityType<FireCreeperEntity> FIRE_CREEPER =
             Registry.register(Registry.ENTITY_TYPE,
-                    new Identifier("elementalcreepers", "fire_creeper"),
+                    new Identifier(NAME_SPACE, "fire_creeper"),
                     FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, FireCreeperEntity::new).dimensions(EntityDimensions.fixed(0.6F, 1.7F)).build());
 
     public static final EntityType<EarthCreeperEntity> EARTH_CREEPER =
             Registry.register(Registry.ENTITY_TYPE,
-                    new Identifier("elementalcreepers", "earth_creeper"),
+                    new Identifier(NAME_SPACE, "earth_creeper"),
                     FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, EarthCreeperEntity::new).dimensions(EntityDimensions.fixed(0.6F, 1.7F)).build());
 
     public static final EntityType<AirCreeperEntity> AIR_CREEPER =
             Registry.register(Registry.ENTITY_TYPE,
-                    new Identifier("elementalcreepers", "air_creeper"),
+                    new Identifier(NAME_SPACE, "air_creeper"),
                     FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, AirCreeperEntity::new).dimensions(EntityDimensions.fixed(0.6F, 1.7F)).build());
 
     public static final EntityType<ElectricCreeperEntity> ELECTRIC_CREEPER =
             Registry.register(Registry.ENTITY_TYPE,
-                    new Identifier("elementalcreepers", "electric_creeper"),
+                    new Identifier(NAME_SPACE, "electric_creeper"),
                     FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, ElectricCreeperEntity::new).dimensions(EntityDimensions.fixed(0.6F, 1.7F)).build());
 
     public static final EntityType<IceCreeperEntity> ICE_CREEPER =
             Registry.register(Registry.ENTITY_TYPE,
-                    new Identifier("elementalcreepers", "ice_creeper"),
+                    new Identifier(NAME_SPACE, "ice_creeper"),
                     FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, IceCreeperEntity::new).dimensions(EntityDimensions.fixed(0.6F, 1.7F)).build());
 
     public static final EntityType<MagmaCreeperEntity> MAGMA_CREEPER =
             Registry.register(Registry.ENTITY_TYPE,
-                    new Identifier("elementalcreepers", "magma_creeper"),
+                    new Identifier(NAME_SPACE, "magma_creeper"),
                     FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, MagmaCreeperEntity::new).dimensions(EntityDimensions.fixed(0.6F, 1.7F)).build());
 
     public static final EntityType<HydrogenCreeperEntity> HYDROGEN_CREEPER =
             Registry.register(Registry.ENTITY_TYPE,
-                    new Identifier("elementalcreepers", "hydrogen_creeper"),
+                    new Identifier(NAME_SPACE, "hydrogen_creeper"),
                     FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, HydrogenCreeperEntity::new).dimensions(EntityDimensions.fixed(0.6F, 1.7F)).build());
 
     public static final EntityType<ReverseCreeperEntity> REVERSE_CREEPER =
             Registry.register(Registry.ENTITY_TYPE,
-                    new Identifier("elementalcreepers", "reverse_creeper"),
+                    new Identifier(NAME_SPACE, "reverse_creeper"),
                     FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, ReverseCreeperEntity::new).dimensions(EntityDimensions.fixed(0.6F, 1.7F)).build());
 
     public static final EntityType<MinerCreeperEntity> MINER_CREEPER =
             Registry.register(Registry.ENTITY_TYPE,
-                    new Identifier("elementalcreepers", "miner_creeper"),
+                    new Identifier(NAME_SPACE, "miner_creeper"),
                     FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, MinerCreeperEntity::new).dimensions(EntityDimensions.fixed(0.6F, 1.7F)).build());
 
     public static final EntityType<IllusionCreeperEntity> ILLUSION_CREEPER =
             Registry.register(Registry.ENTITY_TYPE,
-                    new Identifier("elementalcreepers", "illusion_creeper"),
+                    new Identifier(NAME_SPACE, "illusion_creeper"),
                     FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, IllusionCreeperEntity::new).dimensions(EntityDimensions.fixed(0.6F, 1.7F)).build());
 
     public static final EntityType<FakeIllusionCreeperEntity> FAKE_ILLUSION_CREEPER =
             Registry.register(Registry.ENTITY_TYPE,
-                    new Identifier("elementalcreepers", "fake_illusion_creeper"),
+                    new Identifier(NAME_SPACE, "fake_illusion_creeper"),
                     FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, FakeIllusionCreeperEntity::new).dimensions(EntityDimensions.fixed(0.6F, 1.7F)).build());
 
     public static final EntityType<FireworkCreeperEntity> FIREWORK_CREEPER =
             Registry.register(Registry.ENTITY_TYPE,
-                    new Identifier("elementalcreepers", "firework_creeper"),
+                    new Identifier(NAME_SPACE, "firework_creeper"),
                     FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, FireworkCreeperEntity::new).dimensions(EntityDimensions.fixed(0.6F, 1.7F)).build());
 
     public static final EntityType<CookieCreeperEntity> COOKIE_CREEPER =
             Registry.register(Registry.ENTITY_TYPE,
-                    new Identifier("elementalcreepers", "cookie_creeper"),
+                    new Identifier(NAME_SPACE, "cookie_creeper"),
                     FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, CookieCreeperEntity::new).dimensions(EntityDimensions.fixed(0.6F, 1.7F)).build());
 
     public static final ItemGroup CATEGORY = FabricItemGroupBuilder.create(
-            new Identifier("elementalcreepers", "category"))
+            new Identifier(NAME_SPACE, "category"))
             .icon(() -> new ItemStack(Items.CREEPER_SPAWN_EGG))
             .build();
 
