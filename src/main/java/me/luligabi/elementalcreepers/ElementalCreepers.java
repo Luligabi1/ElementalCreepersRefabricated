@@ -9,7 +9,6 @@ import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
 import net.minecraft.entity.EntityDimensions;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
-import net.minecraft.entity.mob.CreeperEntity;
 import net.minecraft.item.*;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
@@ -102,7 +101,8 @@ public class ElementalCreepers implements ModInitializer {
         FabricDefaultAttributeRegistry.register(EARTH_CREEPER, EarthCreeperEntity.createCreeperAttributes());
         FabricDefaultAttributeRegistry.register(AIR_CREEPER, AirCreeperEntity.createCreeperAttributes());
         FabricDefaultAttributeRegistry.register(ELECTRIC_CREEPER, ElectricCreeperEntity.createCreeperAttributes());
-        FabricDefaultAttributeRegistry.register(LIGHT_CREEPER, CreeperEntity.createCreeperAttributes());
+        FabricDefaultAttributeRegistry.register(LIGHT_CREEPER, LightCreeperEntity.createCreeperAttributes());
+        FabricDefaultAttributeRegistry.register(DARK_CREEPER, DarkCreeperEntity.createCreeperAttributes());
         FabricDefaultAttributeRegistry.register(ICE_CREEPER, IceCreeperEntity.createCreeperAttributes());
         FabricDefaultAttributeRegistry.register(MAGMA_CREEPER, MagmaCreeperEntity.createCreeperAttributes());
         FabricDefaultAttributeRegistry.register(HYDROGEN_CREEPER, HydrogenCreeperEntity.createCreeperAttributes());
@@ -241,6 +241,7 @@ public class ElementalCreepers implements ModInitializer {
         Registry.register(Registry.ITEM, new Identifier(NAME_SPACE, "air_creeper_spawn_egg"), new SpawnEggItem(AIR_CREEPER, 0x52C671, 0x348349, new Item.Settings().group(ElementalCreepers.CATEGORY)));
         Registry.register(Registry.ITEM, new Identifier(NAME_SPACE, "electric_creeper_spawn_egg"), new SpawnEggItem(ELECTRIC_CREEPER, 0xF2DB47, 0xEED111, new Item.Settings().group(ElementalCreepers.CATEGORY)));
         Registry.register(Registry.ITEM, new Identifier(NAME_SPACE, "light_creeper_spawn_egg"), new SpawnEggItem(LIGHT_CREEPER, 0xECEE29, 0xEBE779, new Item.Settings().group(ElementalCreepers.CATEGORY)));
+        Registry.register(Registry.ITEM, new Identifier(NAME_SPACE, "dark_creeper_spawn_egg"), new SpawnEggItem(DARK_CREEPER, 0x343434, 0x747474, new Item.Settings().group(ElementalCreepers.CATEGORY)));
         Registry.register(Registry.ITEM, new Identifier(NAME_SPACE, "ice_creeper_spawn_egg"), new SpawnEggItem(ICE_CREEPER, 0x7CACFC, 0x8CC4FC, new Item.Settings().group(ElementalCreepers.CATEGORY)));
         Registry.register(Registry.ITEM, new Identifier(NAME_SPACE, "magma_creeper_spawn_egg"), new SpawnEggItem(MAGMA_CREEPER, 0xA50B0E, 0xD599A5, new Item.Settings().group(ElementalCreepers.CATEGORY)));
         Registry.register(Registry.ITEM, new Identifier(NAME_SPACE, "hydrogen_creeper_spawn_egg"), new SpawnEggItem(HYDROGEN_CREEPER, 0x0D5F04, 0x242C24, new Item.Settings().group(ElementalCreepers.CATEGORY)));
@@ -281,6 +282,11 @@ public class ElementalCreepers implements ModInitializer {
             Registry.register(Registry.ENTITY_TYPE,
                     new Identifier(NAME_SPACE, "light_creeper"),
                     FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, LightCreeperEntity::new).dimensions(EntityDimensions.fixed(0.6F, 1.7F)).build());
+
+    public static final EntityType<DarkCreeperEntity> DARK_CREEPER =
+            Registry.register(Registry.ENTITY_TYPE,
+                    new Identifier(NAME_SPACE, "dark_creeper"),
+                    FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, DarkCreeperEntity::new).dimensions(EntityDimensions.fixed(0.6F, 1.7F)).build());
 
     public static final EntityType<IceCreeperEntity> ICE_CREEPER =
             Registry.register(Registry.ENTITY_TYPE,

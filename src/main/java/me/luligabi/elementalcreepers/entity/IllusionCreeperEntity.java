@@ -40,6 +40,7 @@ public class IllusionCreeperEntity extends ElementalCreeperEntity {
                 3,  this.world.getGameRules().getBoolean(GameRules.DO_MOB_GRIEFING) ?
                 Explosion.DestructionType.DESTROY : Explosion.DestructionType.NONE);
         super.onExplode();
+        hasDuplicated = false;
     }
 
     @Override
@@ -73,6 +74,8 @@ public class IllusionCreeperEntity extends ElementalCreeperEntity {
                             (EntityType<? extends CreeperEntity>) this.mob.getType(), this.mob.world);
                     fakeIllusionCreeperEntity.refreshPositionAfterTeleport(this.mob.getX(), this.mob.getY(), this.mob.getZ());
                     this.mob.world.spawnEntity(fakeIllusionCreeperEntity);
+                    illusionCreeperEntity.setVelocity(0, 0.5F, 0);
+                    fakeIllusionCreeperEntity.setVelocity(0, 0.5F, 0);
                 }
                 illusionCreeperEntity.setHasDuplicated(true);
             }

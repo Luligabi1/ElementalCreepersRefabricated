@@ -50,8 +50,8 @@ public class LightCreeperEntity extends ElementalCreeperEntity {
         }
         for(Entity entity : this.world.getOtherEntities(null, new Box(this.getX()-5, this.getY()-5, this.getZ()-5, this.getX()+5, this.getY()+5, this.getZ()+5))) {
             if(entity instanceof LivingEntity) {
-                //((LivingEntity) entity).addStatusEffect(new StatusEffectInstance(StatusEffects.GLOWING, 40 * 20, 1)); TODO: Add "white blindness" effect
-                ((LivingEntity) entity).addStatusEffect(new StatusEffectInstance(StatusEffects.GLOWING, 40 * 20, 1));
+                //((LivingEntity) entity).addStatusEffect(new StatusEffectInstance(StatusEffects.GLOWING, 40 * 20, 0)); TODO: Add "white blindness" effect
+                ((LivingEntity) entity).addStatusEffect(new StatusEffectInstance(StatusEffects.GLOWING, 40 * 20, 0));
             }
         }
         super.onExplode();
