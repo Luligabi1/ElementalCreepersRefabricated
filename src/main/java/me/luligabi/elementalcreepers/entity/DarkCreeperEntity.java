@@ -39,11 +39,10 @@ public class DarkCreeperEntity extends ElementalCreeperEntity {
                     for (int z = (int) -radius; z <= radius; z++) {
                         BlockPos blockPos = new BlockPos(this.getX() + x, this.getY() + y, this.getZ() + z);
                         BlockState state = world.getBlockState(blockPos);
-
                         if (state != null && state.getBlock() != null) {
                             Block lightBlock = state.getBlock();
-
-                            if (lightBlock != null && !lightBlock.hasBlockEntity() && Math.sqrt(Math.pow(x, 2.0D) + Math.pow(y, 2.0D) + Math.pow(z, 2.0D)) <= radius) {
+                            if (lightBlock != null && !lightBlock.hasBlockEntity() && state.getLuminance() > 7.5F &&
+                                    Math.sqrt(Math.pow(x, 2.0D) + Math.pow(y, 2.0D) + Math.pow(z, 2.0D)) <= radius) {
                                 this.world.setBlockState(blockPos, Blocks.AIR.getDefaultState());
                                 this.world.spawnEntity(new ItemEntity(this.world,
                                         this.getX(), this.getY(), this.getZ(), new ItemStack(lightBlock.asItem(), 1)));
