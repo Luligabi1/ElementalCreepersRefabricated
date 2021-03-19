@@ -71,7 +71,7 @@ public class ElementalCreepers implements ModInitializer {
                 "# Magma Creeper\n" +
                 "magmaCreeperEnabled=true\n" +
                 "magmaCreeperRadius=4\n" +
-                "magmaCreeperSpawnRate=5\n\n" +
+                "magmaCreeperSpawnRate=25\n\n" +
 
                 "# Hydrogen Creeper\n" +
                 "hydrogenCreeperEnabled=true\n" +
@@ -214,9 +214,7 @@ public class ElementalCreepers implements ModInitializer {
         // Magma Creeper
         if(config.getOrDefault("magmaCreeperEnabled", true)) {
             BiomeModifications.addSpawn(biomeSelector ->
-                    biomeSelector.getBiome().getCategory() == Biome.Category.DESERT ||
-                            biomeSelector.getBiome().getCategory() == Biome.Category.SAVANNA ||
-                            biomeSelector.getBiome().getCategory() == Biome.Category.MESA, SpawnGroup.MONSTER, MAGMA_CREEPER, config.getOrDefault("magmaCreeperSpawnRate", 5), 1, 1);
+                    biomeSelector.getBiome().getCategory() == Biome.Category.NETHER, SpawnGroup.MONSTER, MAGMA_CREEPER, config.getOrDefault("magmaCreeperSpawnRate", 25), 1, 1);
 
             SpawnRestrictionAccessor.callRegister(MAGMA_CREEPER, SpawnRestriction.Location.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, (type, world, reason, pos, random) -> true);
         }
