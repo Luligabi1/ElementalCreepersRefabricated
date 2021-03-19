@@ -29,7 +29,7 @@ public class LightCreeperEntity extends ElementalCreeperEntity {
         this.world.createExplosion(this,
                 this.getX(), this.getY(), this.getZ(), 0, Explosion.DestructionType.NONE);
         if(this.world.getGameRules().getBoolean(GameRules.DO_MOB_GRIEFING)) {
-            double radius = config.getOrDefault("lightCreeperRadius", 5);
+            double radius = config.getOrDefault("lightCreeperRadius", 4);
             for (int x = (int) -radius - 1; x <= radius; x++) {
                 for (int y = (int) -radius - 1; y <= radius; y++) {
                     for (int z = (int) -radius - 1; z <= radius; z++) {
@@ -50,7 +50,7 @@ public class LightCreeperEntity extends ElementalCreeperEntity {
         }
         for(Entity entity : this.world.getOtherEntities(null, new Box(this.getX()-5, this.getY()-5, this.getZ()-5, this.getX()+5, this.getY()+5, this.getZ()+5))) {
             if(entity instanceof LivingEntity) {
-                //((LivingEntity) entity).addStatusEffect(new StatusEffectInstance(StatusEffects.GLOWING, 40 * 20, 0)); TODO: Add "white blindness" effect
+                // TODO: Add "white blindness" effect
                 ((LivingEntity) entity).addStatusEffect(new StatusEffectInstance(StatusEffects.GLOWING, 40 * 20, 0));
             }
         }

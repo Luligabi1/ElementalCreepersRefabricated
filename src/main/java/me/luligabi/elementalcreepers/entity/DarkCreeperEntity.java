@@ -27,6 +27,8 @@ public class DarkCreeperEntity extends ElementalCreeperEntity {
     }
     SimpleConfig config = new ElementalCreepers().getConfig();
 
+
+
     @Override
     public void onExplode() {
         this.world.createExplosion(this,

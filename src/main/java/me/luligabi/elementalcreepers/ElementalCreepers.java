@@ -50,6 +50,16 @@ public class ElementalCreepers implements ModInitializer {
                 "electricCreeperEnabled=true\n" +
                 "electricCreeperSpawnRate=7\n\n" +
 
+                "# Light Creeper\n" +
+                "lightCreeperEnabled=true\n" +
+                "lightCreeperRadius=4\n" +
+                "lightCreeperSpawnRate=12\n\n" +
+
+                "# Dark Creeper\n" +
+                "darkCreeperEnabled=true\n" +
+                "darkCreeperRadius=4\n" +
+                "darkCreeperSpawnRate=12\n\n" +
+
                 "# Ice Creeper\n" +
                 "iceCreeperEnabled=true\n" +
                 "iceCreeperRadius=4\n" +
@@ -157,6 +167,28 @@ public class ElementalCreepers implements ModInitializer {
                     biomeSelector.getBiome().getCategory() == Biome.Category.SWAMP ||
                     biomeSelector.getBiome().getCategory() == Biome.Category.JUNGLE ||
                     biomeSelector.getBiome().getCategory() == Biome.Category.MUSHROOM, SpawnGroup.MONSTER, ELECTRIC_CREEPER, config.getOrDefault("electricCreeperSpawnRate", 7), 1, 1);
+        }
+        // Light Creeper
+        if(config.getOrDefault("lightCreeperEnabled", true)) {
+            BiomeModifications.addSpawn(biomeSelector ->
+                    biomeSelector.getBiome().getCategory() == Biome.Category.PLAINS ||
+                            biomeSelector.getBiome().getCategory() == Biome.Category.FOREST ||
+                            biomeSelector.getBiome().getCategory() == Biome.Category.TAIGA ||
+                            biomeSelector.getBiome().getCategory() == Biome.Category.SAVANNA ||
+                            biomeSelector.getBiome().getCategory() == Biome.Category.SWAMP ||
+                            biomeSelector.getBiome().getCategory() == Biome.Category.JUNGLE ||
+                            biomeSelector.getBiome().getCategory() == Biome.Category.MUSHROOM, SpawnGroup.MONSTER, LIGHT_CREEPER, config.getOrDefault("lightCreeperSpawnRate", 12), 1, 1);
+        }
+        // Dark Creeper
+        if(config.getOrDefault("darkCreeperEnabled", true)) {
+            BiomeModifications.addSpawn(biomeSelector ->
+                    biomeSelector.getBiome().getCategory() == Biome.Category.PLAINS ||
+                            biomeSelector.getBiome().getCategory() == Biome.Category.FOREST ||
+                            biomeSelector.getBiome().getCategory() == Biome.Category.TAIGA ||
+                            biomeSelector.getBiome().getCategory() == Biome.Category.SAVANNA ||
+                            biomeSelector.getBiome().getCategory() == Biome.Category.SWAMP ||
+                            biomeSelector.getBiome().getCategory() == Biome.Category.JUNGLE ||
+                            biomeSelector.getBiome().getCategory() == Biome.Category.MUSHROOM, SpawnGroup.MONSTER, DARK_CREEPER, config.getOrDefault("darkCreeperSpawnRate", 12), 1, 1);
         }
         // Ice Creeper
         if(config.getOrDefault("iceCreeperEnabled", true)) {
