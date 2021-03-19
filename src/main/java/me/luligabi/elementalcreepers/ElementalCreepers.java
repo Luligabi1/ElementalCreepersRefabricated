@@ -149,8 +149,7 @@ public class ElementalCreepers implements ModInitializer {
                     biomeSelector.getBiome().getCategory() == Biome.Category.TAIGA ||
                     biomeSelector.getBiome().getCategory() == Biome.Category.SAVANNA ||
                     biomeSelector.getBiome().getCategory() == Biome.Category.SWAMP ||
-                    biomeSelector.getBiome().getCategory() == Biome.Category.JUNGLE ||
-                    biomeSelector.getBiome().getCategory() == Biome.Category.MUSHROOM, SpawnGroup.MONSTER, EARTH_CREEPER, config.getOrDefault("earthCreeperSpawnRate", 15), 1, 1);
+                    biomeSelector.getBiome().getCategory() == Biome.Category.JUNGLE, SpawnGroup.MONSTER, EARTH_CREEPER, config.getOrDefault("earthCreeperSpawnRate", 15), 1, 1);
         }
         // Air Creeper
         if(config.getOrDefault("airCreeperEnabled", true)) {
@@ -165,8 +164,7 @@ public class ElementalCreepers implements ModInitializer {
                     biomeSelector.getBiome().getCategory() == Biome.Category.TAIGA ||
                     biomeSelector.getBiome().getCategory() == Biome.Category.SAVANNA ||
                     biomeSelector.getBiome().getCategory() == Biome.Category.SWAMP ||
-                    biomeSelector.getBiome().getCategory() == Biome.Category.JUNGLE ||
-                    biomeSelector.getBiome().getCategory() == Biome.Category.MUSHROOM, SpawnGroup.MONSTER, ELECTRIC_CREEPER, config.getOrDefault("electricCreeperSpawnRate", 7), 1, 1);
+                    biomeSelector.getBiome().getCategory() == Biome.Category.JUNGLE, SpawnGroup.MONSTER, ELECTRIC_CREEPER, config.getOrDefault("electricCreeperSpawnRate", 7), 1, 1);
         }
         // Light Creeper
         if(config.getOrDefault("lightCreeperEnabled", true)) {
@@ -176,8 +174,7 @@ public class ElementalCreepers implements ModInitializer {
                             biomeSelector.getBiome().getCategory() == Biome.Category.TAIGA ||
                             biomeSelector.getBiome().getCategory() == Biome.Category.SAVANNA ||
                             biomeSelector.getBiome().getCategory() == Biome.Category.SWAMP ||
-                            biomeSelector.getBiome().getCategory() == Biome.Category.JUNGLE ||
-                            biomeSelector.getBiome().getCategory() == Biome.Category.MUSHROOM, SpawnGroup.MONSTER, LIGHT_CREEPER, config.getOrDefault("lightCreeperSpawnRate", 12), 1, 1);
+                            biomeSelector.getBiome().getCategory() == Biome.Category.JUNGLE, SpawnGroup.MONSTER, LIGHT_CREEPER, config.getOrDefault("lightCreeperSpawnRate", 12), 1, 1);
         }
         // Dark Creeper
         if(config.getOrDefault("darkCreeperEnabled", true)) {
@@ -187,8 +184,7 @@ public class ElementalCreepers implements ModInitializer {
                             biomeSelector.getBiome().getCategory() == Biome.Category.TAIGA ||
                             biomeSelector.getBiome().getCategory() == Biome.Category.SAVANNA ||
                             biomeSelector.getBiome().getCategory() == Biome.Category.SWAMP ||
-                            biomeSelector.getBiome().getCategory() == Biome.Category.JUNGLE ||
-                            biomeSelector.getBiome().getCategory() == Biome.Category.MUSHROOM, SpawnGroup.MONSTER, DARK_CREEPER, config.getOrDefault("darkCreeperSpawnRate", 12), 1, 1);
+                            biomeSelector.getBiome().getCategory() == Biome.Category.JUNGLE, SpawnGroup.MONSTER, DARK_CREEPER, config.getOrDefault("darkCreeperSpawnRate", 12), 1, 1);
         }
         // Ice Creeper
         if(config.getOrDefault("iceCreeperEnabled", true)) {
@@ -212,8 +208,7 @@ public class ElementalCreepers implements ModInitializer {
                     biomeSelector.getBiome().getCategory() == Biome.Category.TAIGA ||
                     biomeSelector.getBiome().getCategory() == Biome.Category.SAVANNA ||
                     biomeSelector.getBiome().getCategory() == Biome.Category.SWAMP ||
-                    biomeSelector.getBiome().getCategory() == Biome.Category.JUNGLE ||
-                    biomeSelector.getBiome().getCategory() == Biome.Category.MUSHROOM, SpawnGroup.MONSTER, HYDROGEN_CREEPER, config.getOrDefault("hydrogenCreeperSpawnRate", 3), 1, 1);
+                    biomeSelector.getBiome().getCategory() == Biome.Category.JUNGLE, SpawnGroup.MONSTER, HYDROGEN_CREEPER, config.getOrDefault("hydrogenCreeperSpawnRate", 3), 1, 1);
         }
         // Reverse Creeper
         if(config.getOrDefault("reverseCreeperEnabled", true)) {
@@ -223,8 +218,7 @@ public class ElementalCreepers implements ModInitializer {
                     biomeSelector.getBiome().getCategory() == Biome.Category.TAIGA ||
                     biomeSelector.getBiome().getCategory() == Biome.Category.SAVANNA ||
                     biomeSelector.getBiome().getCategory() == Biome.Category.SWAMP ||
-                    biomeSelector.getBiome().getCategory() == Biome.Category.JUNGLE ||
-                    biomeSelector.getBiome().getCategory() == Biome.Category.MUSHROOM, SpawnGroup.MONSTER, REVERSE_CREEPER, config.getOrDefault("reverseCreeperSpawnRate", 10), 1, 1);
+                    biomeSelector.getBiome().getCategory() == Biome.Category.JUNGLE, SpawnGroup.MONSTER, REVERSE_CREEPER, config.getOrDefault("reverseCreeperSpawnRate", 10), 1, 1);
         }
         // Miner Creeper
         if(config.getOrDefault("minerCreeperEnabled", true)) {
@@ -239,8 +233,7 @@ public class ElementalCreepers implements ModInitializer {
                     biomeSelector.getBiome().getCategory() == Biome.Category.TAIGA ||
                     biomeSelector.getBiome().getCategory() == Biome.Category.SAVANNA ||
                     biomeSelector.getBiome().getCategory() == Biome.Category.SWAMP ||
-                    biomeSelector.getBiome().getCategory() == Biome.Category.JUNGLE ||
-                    biomeSelector.getBiome().getCategory() == Biome.Category.MUSHROOM, SpawnGroup.MONSTER, ILLUSION_CREEPER, config.getOrDefault("illusionCreeperSpawnRate", 10), 1, 1);
+                    biomeSelector.getBiome().getCategory() == Biome.Category.JUNGLE, SpawnGroup.MONSTER, ILLUSION_CREEPER, config.getOrDefault("illusionCreeperSpawnRate", 10), 1, 1);
         }
         // Firework Creeper
         if(config.getOrDefault("fireworkCreeperEnabled", true)) {
@@ -250,8 +243,7 @@ public class ElementalCreepers implements ModInitializer {
                     biomeSelector.getBiome().getCategory() == Biome.Category.TAIGA ||
                     biomeSelector.getBiome().getCategory() == Biome.Category.SAVANNA ||
                     biomeSelector.getBiome().getCategory() == Biome.Category.SWAMP ||
-                    biomeSelector.getBiome().getCategory() == Biome.Category.JUNGLE ||
-                    biomeSelector.getBiome().getCategory() == Biome.Category.MUSHROOM, SpawnGroup.MONSTER, FIREWORK_CREEPER, config.getOrDefault("fireworkCreeperSpawnRate", 4), 1, 1);
+                    biomeSelector.getBiome().getCategory() == Biome.Category.JUNGLE, SpawnGroup.MONSTER, FIREWORK_CREEPER, config.getOrDefault("fireworkCreeperSpawnRate", 4), 1, 1);
         }
         // Cookie Creeper
         if(config.getOrDefault("cookieCreeperEnabled", true)) {
@@ -261,8 +253,7 @@ public class ElementalCreepers implements ModInitializer {
                     biomeSelector.getBiome().getCategory() == Biome.Category.TAIGA ||
                     biomeSelector.getBiome().getCategory() == Biome.Category.SAVANNA ||
                     biomeSelector.getBiome().getCategory() == Biome.Category.SWAMP ||
-                    biomeSelector.getBiome().getCategory() == Biome.Category.JUNGLE ||
-                    biomeSelector.getBiome().getCategory() == Biome.Category.MUSHROOM, SpawnGroup.MONSTER, COOKIE_CREEPER, config.getOrDefault("cookieCreeperSpawnRate", 2), 1, 2);
+                    biomeSelector.getBiome().getCategory() == Biome.Category.JUNGLE, SpawnGroup.MONSTER, COOKIE_CREEPER, config.getOrDefault("cookieCreeperSpawnRate", 2), 1, 2);
         }
     }
 
@@ -293,7 +284,7 @@ public class ElementalCreepers implements ModInitializer {
     public static final EntityType<FireCreeperEntity> FIRE_CREEPER =
             Registry.register(Registry.ENTITY_TYPE,
                     new Identifier(NAME_SPACE, "fire_creeper"),
-                    FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, FireCreeperEntity::new).dimensions(EntityDimensions.fixed(0.6F, 1.7F)).build());
+                    FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, FireCreeperEntity::new).dimensions(EntityDimensions.fixed(0.6F, 1.7F)).fireImmune().build());
 
     public static final EntityType<EarthCreeperEntity> EARTH_CREEPER =
             Registry.register(Registry.ENTITY_TYPE,
@@ -328,7 +319,7 @@ public class ElementalCreepers implements ModInitializer {
     public static final EntityType<MagmaCreeperEntity> MAGMA_CREEPER =
             Registry.register(Registry.ENTITY_TYPE,
                     new Identifier(NAME_SPACE, "magma_creeper"),
-                    FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, MagmaCreeperEntity::new).dimensions(EntityDimensions.fixed(0.6F, 1.7F)).build());
+                    FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, MagmaCreeperEntity::new).dimensions(EntityDimensions.fixed(0.6F, 1.7F)).fireImmune().build());
 
     public static final EntityType<HydrogenCreeperEntity> HYDROGEN_CREEPER =
             Registry.register(Registry.ENTITY_TYPE,
