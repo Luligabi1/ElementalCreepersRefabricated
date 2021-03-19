@@ -1,5 +1,6 @@
 package me.luligabi.elementalcreepers.entity;
 
+import me.luligabi.elementalcreepers.ElementalCreepers;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.mob.CreeperEntity;
@@ -11,7 +12,6 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.GameRules;
 import net.minecraft.world.World;
 import net.minecraft.world.explosion.Explosion;
-
 
 public class IllusionCreeperEntity extends ElementalCreeperEntity {
 
@@ -40,18 +40,19 @@ public class IllusionCreeperEntity extends ElementalCreeperEntity {
                 3,  this.world.getGameRules().getBoolean(GameRules.DO_MOB_GRIEFING) ?
                 Explosion.DestructionType.DESTROY : Explosion.DestructionType.NONE);
         super.onExplode();
+        hasDuplicated = false;
     }
 
     @Override
-    public void fromTag(CompoundTag compoundTag) {
-        super.fromTag(compoundTag);
-        hasDuplicated = compoundTag.getBoolean("hasDuplicated");
-    }
-
-    @Override
-    public CompoundTag toTag(CompoundTag compoundTag) {
+    public void writeCustomDataToTag(CompoundTag compoundTag) {
+        super.writeCustomDataToTag(compoundTag);
         compoundTag.putBoolean("hasDuplicated", hasDuplicated);
-        return super.toTag(compoundTag);
+    }
+
+    @Override
+    public void readCustomDataFromTag(CompoundTag compoundTag) {
+        super.readCustomDataFromTag(compoundTag);
+        this.hasDuplicated = compoundTag.getBoolean("hasDuplicated");
     }
 
     public boolean hasDuplicated() { return hasDuplicated; }
@@ -66,15 +67,15 @@ public class IllusionCreeperEntity extends ElementalCreeperEntity {
         @Override
         public void start() {
             this.mob.setTarget(this.targetEntity);
-            IllusionCreeperEntity illusionCreeperEntity = new IllusionCreeperEntity((EntityType<? extends CreeperEntity>) this.mob.getType(), this.mob.world);
-            if(!illusionCreeperEntity.hasDuplicated()) {
+            if(!((IllusionCreeperEntity) this.mob).hasDuplicated()) {
                 for (int i = 0; i < 4; ++i) {
-                    FakeIllusionCreeperEntity fakeIllusionCreeperEntity = new FakeIllusionCreeperEntity(
-                            (EntityType<? extends CreeperEntity>) this.mob.getType(), this.mob.world);
+                    FakeIllusionCreeperEntity fakeIllusionCreeperEntity = new FakeIllusionCreeperEntity(ElementalCreepers.FAKE_ILLUSION_CREEPER, this.mob.world);
                     fakeIllusionCreeperEntity.refreshPositionAfterTeleport(this.mob.getX(), this.mob.getY(), this.mob.getZ());
                     this.mob.world.spawnEntity(fakeIllusionCreeperEntity);
+                    this.mob.setVelocity(0, 0.5D, 0);
+                    fakeIllusionCreeperEntity.setVelocity(0, 0.5D, 0);
                 }
-                illusionCreeperEntity.setHasDuplicated(true);
+                ((IllusionCreeperEntity) this.mob).setHasDuplicated(true);
             }
             super.start();
         }

@@ -11,7 +11,8 @@
   ],
   "contact": {
     "homepage": "https://www.curseforge.com/minecraft/mc-mods/elemental-creepers-refabricated",
-    "sourcesRe": "https://github.com/Luligabi1/ElementalCreepersRefabricated"
+    "sources": "https://github.com/Luligabi1/ElementalCreepersRefabricated",
+    "issues": "https://github.com/Luligabi1/ElementalCreepersRefabricated/issues"
   },
 
   "license": "MIT",
