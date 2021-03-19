@@ -6,12 +6,15 @@ import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
+import net.fabricmc.fabric.mixin.object.builder.SpawnRestrictionAccessor;
 import net.minecraft.entity.EntityDimensions;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
+import net.minecraft.entity.SpawnRestriction;
 import net.minecraft.item.*;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
+import net.minecraft.world.Heightmap;
 import net.minecraft.world.biome.Biome;
 
 public class ElementalCreepers implements ModInitializer {
@@ -133,6 +136,8 @@ public class ElementalCreepers implements ModInitializer {
                     biomeSelector.getBiome().getCategory() == Biome.Category.RIVER ||
                     biomeSelector.getBiome().getCategory() == Biome.Category.BEACH ||
                     biomeSelector.getBiome().getCategory() == Biome.Category.SWAMP, SpawnGroup.MONSTER, WATER_CREEPER, config.getOrDefault("waterCreeperSpawnRate", 20), 1, 1);
+
+            SpawnRestrictionAccessor.callRegister(WATER_CREEPER, SpawnRestriction.Location.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, (type, world, reason, pos, random) -> true);
         }
         // Fire Creeper
         if(config.getOrDefault("fireCreeperEnabled", true)) {
@@ -140,6 +145,8 @@ public class ElementalCreepers implements ModInitializer {
                     biomeSelector.getBiome().getCategory() == Biome.Category.DESERT ||
                     biomeSelector.getBiome().getCategory() == Biome.Category.SAVANNA ||
                     biomeSelector.getBiome().getCategory() == Biome.Category.MESA, SpawnGroup.MONSTER, FIRE_CREEPER, config.getOrDefault("fireCreeperSpawnRate", 25), 1, 2);
+
+            SpawnRestrictionAccessor.callRegister(FIRE_CREEPER, SpawnRestriction.Location.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, (type, world, reason, pos, random) -> true);
         }
         // Earth Creeper
         if(config.getOrDefault("earthCreeperEnabled", true)) {
@@ -150,11 +157,15 @@ public class ElementalCreepers implements ModInitializer {
                     biomeSelector.getBiome().getCategory() == Biome.Category.SAVANNA ||
                     biomeSelector.getBiome().getCategory() == Biome.Category.SWAMP ||
                     biomeSelector.getBiome().getCategory() == Biome.Category.JUNGLE, SpawnGroup.MONSTER, EARTH_CREEPER, config.getOrDefault("earthCreeperSpawnRate", 15), 1, 1);
+
+            SpawnRestrictionAccessor.callRegister(EARTH_CREEPER, SpawnRestriction.Location.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, (type, world, reason, pos, random) -> true);
         }
         // Air Creeper
         if(config.getOrDefault("airCreeperEnabled", true)) {
             BiomeModifications.addSpawn(biomeSelector ->
                     biomeSelector.getBiome().getCategory() == Biome.Category.EXTREME_HILLS, SpawnGroup.MONSTER, AIR_CREEPER, config.getOrDefault("airCreeperSpawnRate", 20), 1, 1);
+
+            SpawnRestrictionAccessor.callRegister(AIR_CREEPER, SpawnRestriction.Location.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, (type, world, reason, pos, random) -> true);
         }
         // Electric Creeper
         if(config.getOrDefault("electricCreeperEnabled", true)) {
@@ -165,6 +176,8 @@ public class ElementalCreepers implements ModInitializer {
                     biomeSelector.getBiome().getCategory() == Biome.Category.SAVANNA ||
                     biomeSelector.getBiome().getCategory() == Biome.Category.SWAMP ||
                     biomeSelector.getBiome().getCategory() == Biome.Category.JUNGLE, SpawnGroup.MONSTER, ELECTRIC_CREEPER, config.getOrDefault("electricCreeperSpawnRate", 7), 1, 1);
+
+            SpawnRestrictionAccessor.callRegister(ELECTRIC_CREEPER, SpawnRestriction.Location.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, (type, world, reason, pos, random) -> true);
         }
         // Light Creeper
         if(config.getOrDefault("lightCreeperEnabled", true)) {
@@ -175,6 +188,8 @@ public class ElementalCreepers implements ModInitializer {
                             biomeSelector.getBiome().getCategory() == Biome.Category.SAVANNA ||
                             biomeSelector.getBiome().getCategory() == Biome.Category.SWAMP ||
                             biomeSelector.getBiome().getCategory() == Biome.Category.JUNGLE, SpawnGroup.MONSTER, LIGHT_CREEPER, config.getOrDefault("lightCreeperSpawnRate", 12), 1, 1);
+
+            SpawnRestrictionAccessor.callRegister(LIGHT_CREEPER, SpawnRestriction.Location.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, (type, world, reason, pos, random) -> true);
         }
         // Dark Creeper
         if(config.getOrDefault("darkCreeperEnabled", true)) {
@@ -185,20 +200,25 @@ public class ElementalCreepers implements ModInitializer {
                             biomeSelector.getBiome().getCategory() == Biome.Category.SAVANNA ||
                             biomeSelector.getBiome().getCategory() == Biome.Category.SWAMP ||
                             biomeSelector.getBiome().getCategory() == Biome.Category.JUNGLE, SpawnGroup.MONSTER, DARK_CREEPER, config.getOrDefault("darkCreeperSpawnRate", 12), 1, 1);
+
+            SpawnRestrictionAccessor.callRegister(DARK_CREEPER, SpawnRestriction.Location.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, (type, world, reason, pos, random) -> true);
         }
         // Ice Creeper
         if(config.getOrDefault("iceCreeperEnabled", true)) {
             BiomeModifications.addSpawn(biomeSelector ->
                     biomeSelector.getBiome().getCategory() == Biome.Category.ICY ||
                     biomeSelector.getBiome().getCategory() == Biome.Category.EXTREME_HILLS, SpawnGroup.MONSTER, ICE_CREEPER, config.getOrDefault("iceCreeperSpawnRate", 20), 1, 2);
+
+            SpawnRestrictionAccessor.callRegister(ICE_CREEPER, SpawnRestriction.Location.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, (type, world, reason, pos, random) -> true);
         }
         // Magma Creeper
         if(config.getOrDefault("magmaCreeperEnabled", true)) {
-            //noinspection deprecation
             BiomeModifications.addSpawn(biomeSelector ->
                     biomeSelector.getBiome().getCategory() == Biome.Category.DESERT ||
                             biomeSelector.getBiome().getCategory() == Biome.Category.SAVANNA ||
                             biomeSelector.getBiome().getCategory() == Biome.Category.MESA, SpawnGroup.MONSTER, MAGMA_CREEPER, config.getOrDefault("magmaCreeperSpawnRate", 5), 1, 1);
+
+            SpawnRestrictionAccessor.callRegister(MAGMA_CREEPER, SpawnRestriction.Location.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, (type, world, reason, pos, random) -> true);
         }
         // Hydrogen Creeper
         if(config.getOrDefault("hydrogenCreeperEnabled", true)) {
@@ -209,6 +229,8 @@ public class ElementalCreepers implements ModInitializer {
                     biomeSelector.getBiome().getCategory() == Biome.Category.SAVANNA ||
                     biomeSelector.getBiome().getCategory() == Biome.Category.SWAMP ||
                     biomeSelector.getBiome().getCategory() == Biome.Category.JUNGLE, SpawnGroup.MONSTER, HYDROGEN_CREEPER, config.getOrDefault("hydrogenCreeperSpawnRate", 3), 1, 1);
+
+            SpawnRestrictionAccessor.callRegister(HYDROGEN_CREEPER, SpawnRestriction.Location.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, (type, world, reason, pos, random) -> true);
         }
         // Reverse Creeper
         if(config.getOrDefault("reverseCreeperEnabled", true)) {
@@ -219,11 +241,15 @@ public class ElementalCreepers implements ModInitializer {
                     biomeSelector.getBiome().getCategory() == Biome.Category.SAVANNA ||
                     biomeSelector.getBiome().getCategory() == Biome.Category.SWAMP ||
                     biomeSelector.getBiome().getCategory() == Biome.Category.JUNGLE, SpawnGroup.MONSTER, REVERSE_CREEPER, config.getOrDefault("reverseCreeperSpawnRate", 10), 1, 1);
+
+            SpawnRestrictionAccessor.callRegister(REVERSE_CREEPER, SpawnRestriction.Location.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, (type, world, reason, pos, random) -> true);
         }
         // Miner Creeper
         if(config.getOrDefault("minerCreeperEnabled", true)) {
             BiomeModifications.addSpawn(biomeSelector ->
                     biomeSelector.getBiome().getCategory() == Biome.Category.EXTREME_HILLS, SpawnGroup.MONSTER, MINER_CREEPER, config.getOrDefault("minerCreeperSpawnRate", 15), 1, 2);
+
+            SpawnRestrictionAccessor.callRegister(MINER_CREEPER, SpawnRestriction.Location.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, (type, world, reason, pos, random) -> true);
         }
         // Illusion Creeper
         if(config.getOrDefault("illusionCreeperEnabled", true)) {
@@ -234,6 +260,8 @@ public class ElementalCreepers implements ModInitializer {
                     biomeSelector.getBiome().getCategory() == Biome.Category.SAVANNA ||
                     biomeSelector.getBiome().getCategory() == Biome.Category.SWAMP ||
                     biomeSelector.getBiome().getCategory() == Biome.Category.JUNGLE, SpawnGroup.MONSTER, ILLUSION_CREEPER, config.getOrDefault("illusionCreeperSpawnRate", 10), 1, 1);
+
+            SpawnRestrictionAccessor.callRegister(ILLUSION_CREEPER, SpawnRestriction.Location.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, (type, world, reason, pos, random) -> true);
         }
         // Firework Creeper
         if(config.getOrDefault("fireworkCreeperEnabled", true)) {
@@ -244,6 +272,8 @@ public class ElementalCreepers implements ModInitializer {
                     biomeSelector.getBiome().getCategory() == Biome.Category.SAVANNA ||
                     biomeSelector.getBiome().getCategory() == Biome.Category.SWAMP ||
                     biomeSelector.getBiome().getCategory() == Biome.Category.JUNGLE, SpawnGroup.MONSTER, FIREWORK_CREEPER, config.getOrDefault("fireworkCreeperSpawnRate", 4), 1, 1);
+
+            SpawnRestrictionAccessor.callRegister(FIREWORK_CREEPER, SpawnRestriction.Location.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, (type, world, reason, pos, random) -> true);
         }
         // Cookie Creeper
         if(config.getOrDefault("cookieCreeperEnabled", true)) {
@@ -254,6 +284,8 @@ public class ElementalCreepers implements ModInitializer {
                     biomeSelector.getBiome().getCategory() == Biome.Category.SAVANNA ||
                     biomeSelector.getBiome().getCategory() == Biome.Category.SWAMP ||
                     biomeSelector.getBiome().getCategory() == Biome.Category.JUNGLE, SpawnGroup.MONSTER, COOKIE_CREEPER, config.getOrDefault("cookieCreeperSpawnRate", 2), 1, 2);
+
+            SpawnRestrictionAccessor.callRegister(COOKIE_CREEPER, SpawnRestriction.Location.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, (type, world, reason, pos, random) -> true);
         }
     }
 
