@@ -1,0 +1,50 @@
+{
+  "entity.elementalcreepers.water_creeper": "Creeper de Água",
+  "item.elementalcreepers.water_creeper_spawn_egg": "Invocar Creeper de Água",
+
+  "entity.elementalcreepers.fire_creeper": "Creeper de Fogo",
+  "item.elementalcreepers.fire_creeper_spawn_egg": "Invocar Creeper de Fogo",
+
+  "entity.elementalcreepers.earth_creeper": "Creeper de Terra",
+  "item.elementalcreepers.earth_creeper_spawn_egg": "Invocar Creeper de Terra",
+
+  "entity.elementalcreepers.air_creeper": "Creeper de Ar",
+  "item.elementalcreepers.air_creeper_spawn_egg": "Invocar Creeper de Ar",
+
+  "entity.elementalcreepers.electric_creeper": "Creeper Elétrico",
+  "item.elementalcreepers.electric_creeper_spawn_egg": "Invocar Creeper Elétrico",
+
+  "entity.elementalcreepers.light_creeper": "Creeper de Luz",
+  "item.elementalcreepers.light_creeper_spawn_egg": "Invocar Creeper de Luz",
+
+  "entity.elementalcreepers.dark_creeper": "Creeper das Trevas",
+  "item.elementalcreepers.dark_creeper_spawn_egg": "Invocar Creeper das Trevas",
+
+  "entity.elementalcreepers.ice_creeper": "Creeper de Gelo",
+  "item.elementalcreepers.ice_creeper_spawn_egg": "Invocar Creeper de Gelo",
+
+  "entity.elementalcreepers.magma_creeper": "Creeper de Magma",
+  "item.elementalcreepers.magma_creeper_spawn_egg": "Invocar Creeper de Magma",
+
+  "entity.elementalcreepers.hydrogen_creeper": "Creeper de Hidrogênio",
+  "item.elementalcreepers.hydrogen_creeper_spawn_egg": "Invocar Creeper de Hidrogênio",
+
+  "entity.elementalcreepers.reverse_creeper": "Creeper Reverso",
+  "item.elementalcreepers.reverse_creeper_spawn_egg": "Invocar Creeper Reverso",
+
+  "entity.elementalcreepers.miner_creeper": "Creeper Minerador",
+  "item.elementalcreepers.miner_creeper_spawn_egg": "Invocar Creeper Minerador",
+
+  "entity.elementalcreepers.illusion_creeper": "Creeper de Ilusão",
+  "item.elementalcreepers.illusion_creeper_spawn_egg": "Invocar Creeper de Ilusão",
+
+  "entity.elementalcreepers.fake_illusion_creeper": "Creeper de Ilusão",
+
+  "entity.elementalcreepers.firework_creeper": "Creeper Fogo de Artifício",
+  "item.elementalcreepers.firework_creeper_spawn_egg": "Invocar Creeper Fogo de Artifício",
+
+  "entity.elementalcreepers.cookie_creeper": "Creeper de Biscoito",
+  "item.elementalcreepers.cookie_creeper_spawn_egg": "Invocar Creeper de Biscoito",
+
+  "itemGroup.elementalcreepers.category": "Elemental Creepers: Refabricated"
+}
