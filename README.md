@@ -3,4 +3,11 @@
 **Elemental Creepers: Refabricated** is a port of the [original mod by xSmallDeadGuyx](https://github.com/xSmallDeadGuyx/ElementalCreepers/), given some liberties to modernize the mod.
 
 
-<center>[![Foo](https://camo.githubusercontent.com/9296b230044bb4ef07851ff9baa2d04aeb210baee3467abafff1380fa081f08b/68747470733a2f2f692e696d6775722e636f6d2f4f6c31546366382e706e67)](https://www.curseforge.com/minecraft/mc-mods/elemental-creepers-refabricated)</center>
+<p align="center">
+    <a title="Fabric API" href="https://github.com/FabricMC/fabric">
+    <img src="https://i.imgur.com/Ol1Tcf8.png" width="151" height="50" />
+  </a>
+<p align="center">
+  <a href="https://www.curseforge.com/minecraft/mc-mods/elemental-creepers-refabricated"><img src="http://cf.way2muchnoise.eu/versions/elemental-creepers-refabricated.svg"></a>
+  <a href="https://www.curseforge.com/minecraft/mc-mods/elemental-creepers-refabricated"><img src="http://cf.way2muchnoise.eu/short_elemental-creepers-refabricated.svg"></a>
+</p>
