@@ -64,13 +64,9 @@ public class ReverseCreeperEntity extends ElementalCreeperEntity {
                     for (int z = (int) (-radius - 1); z <= radius; z++) {
                         BlockPos blockPos = new BlockPos(posX + x, posY + y, posZ + z);
                         BlockState state = states[(int) (x + radius + 1)][(int) (2 * radius - (y + radius))][(int) (z + radius + 1)];
-                        BlockEntity te = tiles[(int) (x + radius + 1)][(int) (2 * radius - (y + radius))][(int) (z + radius + 1)];
 
                         if (state != null && state.getBlock() != null && posY + y > 5) {
                             world.setBlockState(blockPos, state, 3);
-                            if (te != null) {
-                                world.setBlockEntity(blockPos, te);
-                            }
                         }
                     }
                 }
