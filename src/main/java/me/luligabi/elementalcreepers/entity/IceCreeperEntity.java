@@ -1,24 +1,17 @@
 package me.luligabi.elementalcreepers.entity;
 
 import me.luligabi.elementalcreepers.ElementalCreepers;
+import me.luligabi.elementalcreepers.ExplosionEffects;
 import me.luligabi.elementalcreepers.SimpleConfig;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
-import net.minecraft.entity.effect.StatusEffectInstance;
-import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.mob.CreeperEntity;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Box;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.GameRules;
 import net.minecraft.world.World;
-import net.minecraft.world.explosion.Explosion;
-
-import java.util.Random;
 
 public class IceCreeperEntity extends ElementalCreeperEntity {
 
@@ -54,39 +47,11 @@ public class IceCreeperEntity extends ElementalCreeperEntity {
             }
         }
     }
+
     @Override
     public void onExplode() {
         generateSnow = false;
-        this.world.createExplosion(this,
-                this.getX(), this.getY(), this.getZ(), 0, Explosion.DestructionType.NONE);
-        if(this.world.getGameRules().getBoolean(GameRules.DO_MOB_GRIEFING)) {
-            double radius = config.getOrDefault("iceCreeperRadius", 4);
-            for (int x = (int) -radius - 1; x <= radius; x++) {
-                for (int y = (int) -radius - 1; y <= radius; y++) {
-                    for (int z = (int) -radius - 1; z <= radius; z++) {
-                        if (Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2) + Math.pow(z, 2)) <= radius) {
-                            BlockPos blockPos = new BlockPos((int) this.getX() + x, (int) this.getY() + y, (int) this.getZ() + z);
-                            if (this.world.getBlockState(blockPos).isAir() && !this.world.getBlockState(new BlockPos((int) this.getX() + x, (int) (this.getY() + y) - 1, (int) this.getZ() + z)).isAir()) {
-                                if (new Random().nextBoolean()) {
-                                    this.world.setBlockState(blockPos, Blocks.SNOW_BLOCK.getDefaultState());
-                                } else {
-                                    this.world.setBlockState(blockPos, Blocks.SNOW.getDefaultState());
-                                }
-                            } else if (this.world.getBlockState(blockPos) == Blocks.WATER.getDefaultState()) {
-                                this.world.setBlockState(blockPos, Blocks.ICE.getDefaultState());
-                            } else if (this.world.getBlockState(blockPos) == Blocks.LAVA.getDefaultState()) {
-                                this.world.setBlockState(blockPos, Blocks.OBSIDIAN.getDefaultState());
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        for(Entity entity : this.world.getOtherEntities(null, new Box(this.getX()-5, this.getY()-5, this.getZ()-5, this.getX()+5, this.getY()+5, this.getZ()+5))) {
-            if(entity instanceof LivingEntity) {
-                ((LivingEntity) entity).addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, 40 * 20, 1));
-            }
-        }
+        new ExplosionEffects().iceExplosionEffect(this, this.world, this.getX(), this.getY(), this.getZ());
         super.onExplode();
         generateSnow = true;
     }
