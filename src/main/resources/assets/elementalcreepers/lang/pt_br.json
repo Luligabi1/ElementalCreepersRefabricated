@@ -46,5 +46,8 @@
   "entity.elementalcreepers.cookie_creeper": "Creeper de Biscoito",
   "item.elementalcreepers.cookie_creeper_spawn_egg": "Invocar Creeper de Biscoito",
 
+  "entity.elementalcreepers.rainbow_creeper": "Creeper Arco-Íris",
+  "item.elementalcreepers.rainbow_creeper_spawn_egg": "Invocar Creeper Arco-Íris",
+
   "itemGroup.elementalcreepers.category": "Elemental Creepers: Refabricated"
 }

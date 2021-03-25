@@ -26,5 +26,6 @@ public class ElementalCreepersClient implements ClientModInitializer {
         EntityRendererRegistry.INSTANCE.register(ElementalCreepers.FAKE_ILLUSION_CREEPER, (entityRenderDispatcher, context) -> new IllusionCreeperRenderer(entityRenderDispatcher));
         EntityRendererRegistry.INSTANCE.register(ElementalCreepers.FIREWORK_CREEPER, (entityRenderDispatcher, context) -> new FireworkCreeperRenderer(entityRenderDispatcher));
         EntityRendererRegistry.INSTANCE.register(ElementalCreepers.COOKIE_CREEPER, (entityRenderDispatcher, context) -> new CookieCreeperRenderer(entityRenderDispatcher));
+        EntityRendererRegistry.INSTANCE.register(ElementalCreepers.RAINBOW_CREEPER, (entityRenderDispatcher, context) -> new RainbowCreeperRenderer(entityRenderDispatcher));
     }
 }
