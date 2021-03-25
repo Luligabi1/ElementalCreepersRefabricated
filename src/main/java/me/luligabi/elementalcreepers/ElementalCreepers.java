@@ -126,6 +126,7 @@ public class ElementalCreepers implements ModInitializer {
         FabricDefaultAttributeRegistry.register(FAKE_ILLUSION_CREEPER, FakeIllusionCreeperEntity.createCreeperAttributes());
         FabricDefaultAttributeRegistry.register(FIREWORK_CREEPER, FireworkCreeperEntity.createCreeperAttributes());
         FabricDefaultAttributeRegistry.register(COOKIE_CREEPER, CookieCreeperEntity.createCreeperAttributes());
+        FabricDefaultAttributeRegistry.register(RAINBOW_CREEPER, RainbowCreeperEntity.createCreeperAttributes());
     }
 
     @SuppressWarnings("deprecation")
@@ -385,6 +386,11 @@ public class ElementalCreepers implements ModInitializer {
             Registry.register(Registry.ENTITY_TYPE,
                     new Identifier(NAME_SPACE, "cookie_creeper"),
                     FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, CookieCreeperEntity::new).dimensions(EntityDimensions.fixed(0.6F, 1.7F)).build());
+
+    public static final EntityType<RainbowCreeperEntity> RAINBOW_CREEPER =
+            Registry.register(Registry.ENTITY_TYPE,
+                    new Identifier(NAME_SPACE, "rainbow_creeper"),
+                    FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, RainbowCreeperEntity::new).fireImmune().dimensions(EntityDimensions.fixed(0.6F, 1.7F)).build());
 
     public static final ItemGroup CATEGORY = FabricItemGroupBuilder.create(
             new Identifier(NAME_SPACE, "category"))

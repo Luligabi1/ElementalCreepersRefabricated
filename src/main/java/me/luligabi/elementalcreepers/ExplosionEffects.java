@@ -310,4 +310,52 @@ public class ExplosionEffects {
         entityWorld.spawnEntity(new ItemEntity(entityWorld,
                 entityX, entityY, entityZ, new ItemStack(Items.COOKIE, randomCookie)));
     }
+    public void rainbowExplosionEffect(Entity entity, World entityWorld, double entityX, double entityY, double entityZ) {
+        switch (new Random().nextInt(14 - 1 + 1) + 1) {
+            case 1:
+                waterExplosionEffect(entity, entityWorld, entityX, entityY, entityZ);
+                break;
+            case 2:
+                fireExplosionEffect(entity, entityWorld, entityX, entityY, entityZ);
+                break;
+            case 3:
+                earthExplosionEffect(entity, entityWorld, entityX, entityY, entityZ);
+                break;
+            case 4:
+                airExplosionEffect(entity, entityWorld, entityX, entityY, entityZ);
+                break;
+            case 5:
+                electricExplosionEffect(entityWorld, entityX, entityY, entityZ);
+                break;
+            case 6:
+                lightExplosionEffect(entity, entityWorld, entityX, entityY, entityZ);
+                break;
+            case 7:
+                darkExplosionEffect(entity, entityWorld, entityX, entityY, entityZ);
+                break;
+            case 8:
+                iceExplosionEffect(entity, entityWorld, entityX, entityY, entityZ);
+                break;
+            case 9:
+                magmaExplosionEffect(entity, entityWorld, entityX, entityY, entityZ);
+                break;
+            case 10:
+                hydrogenExplosionEffect(entity, entityWorld, entityX, entityY, entityZ);
+                break;
+            case 11:
+                reverseExplosionEffect(entity, entityWorld, entityX, entityY, entityZ);
+                break;
+            case 12:
+                minerExplosionEffect(entity, entityWorld, entityX, entityY, entityZ);
+                break;
+            case 13:
+                fireworkExplosionEffect(entityWorld, entityX, entityY, entityZ);
+                break;
+            case 14:
+                cookieExplosionEffect(entity, entityWorld, entityX, entityY, entityZ);
+                break;
+            default:
+                break;
+        }
+    }
 }
