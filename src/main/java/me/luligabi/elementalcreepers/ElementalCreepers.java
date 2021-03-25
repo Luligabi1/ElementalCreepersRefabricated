@@ -307,6 +307,7 @@ public class ElementalCreepers implements ModInitializer {
         Registry.register(Registry.ITEM, new Identifier(NAME_SPACE, "illusion_creeper_spawn_egg"), new SpawnEggItem(ILLUSION_CREEPER, 0x4319A2, 0x8274C6, new Item.Settings().group(ElementalCreepers.CATEGORY)));
         Registry.register(Registry.ITEM, new Identifier(NAME_SPACE, "firework_creeper_spawn_egg"), new SpawnEggItem(FIREWORK_CREEPER, 0xD73939, 0xE4E4E4, new Item.Settings().group(ElementalCreepers.CATEGORY)));
         Registry.register(Registry.ITEM, new Identifier(NAME_SPACE, "cookie_creeper_spawn_egg"), new SpawnEggItem(COOKIE_CREEPER, 0xE88E3F, 0x8A4929, new Item.Settings().group(ElementalCreepers.CATEGORY)));
+        Registry.register(Registry.ITEM, new Identifier(NAME_SPACE, "rainbow_creeper_spawn_egg"), new SpawnEggItem(RAINBOW_CREEPER, 0xD73939, 0x8CC4FC, new Item.Settings().group(ElementalCreepers.CATEGORY)));
     }
 
     public static final EntityType<WaterCreeperEntity> WATER_CREEPER =

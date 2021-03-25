@@ -46,5 +46,8 @@
   "entity.elementalcreepers.cookie_creeper": "Cookie Creeper",
   "item.elementalcreepers.cookie_creeper_spawn_egg": "Cookie Creeper Spawn Egg",
 
+  "entity.elementalcreepers.rainbow_creeper": "Rainbow Creeper",
+  "item.elementalcreepers.rainbow_creeper_spawn_egg": "Rainbow Creeper Spawn Egg",
+
   "itemGroup.elementalcreepers.category": "Elemental Creepers: Refabricated"
 }
