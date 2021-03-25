@@ -99,7 +99,11 @@ public class ElementalCreepers implements ModInitializer {
 
                 "# Cookie Creeper\n" +
                 "cookieCreeperEnabled=true\n" +
-                "cookieCreeperSpawnRate=2";
+                "cookieCreeperSpawnRate=2\n\n" +
+
+                "# Rainbow Creeper\n" +
+                "rainbowCreeperEnabled=true\n" +
+                "rainbowCreeperSpawnRate=1";
     }
 
     @Override
@@ -287,6 +291,19 @@ public class ElementalCreepers implements ModInitializer {
                     biomeSelector.getBiome().getCategory() == Biome.Category.JUNGLE, SpawnGroup.MONSTER, COOKIE_CREEPER, config.getOrDefault("cookieCreeperSpawnRate", 2), 1, 2);
 
             SpawnRestrictionAccessor.callRegister(COOKIE_CREEPER, SpawnRestriction.Location.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, HostileEntity::canSpawnInDark);
+        }
+        if(config.getOrDefault("rainbowCreeperEnabled", true)) {
+            BiomeModifications.addSpawn(biomeSelector ->
+                    biomeSelector.getBiome().getCategory() == Biome.Category.PLAINS ||
+                    biomeSelector.getBiome().getCategory() == Biome.Category.FOREST ||
+                    biomeSelector.getBiome().getCategory() == Biome.Category.TAIGA ||
+                    biomeSelector.getBiome().getCategory() == Biome.Category.SAVANNA ||
+                    biomeSelector.getBiome().getCategory() == Biome.Category.DESERT ||
+                    biomeSelector.getBiome().getCategory() == Biome.Category.MESA ||
+                    biomeSelector.getBiome().getCategory() == Biome.Category.SWAMP ||
+                    biomeSelector.getBiome().getCategory() == Biome.Category.JUNGLE, SpawnGroup.MONSTER, HYDROGEN_CREEPER, config.getOrDefault("rainbowCreeperSpawnRate", 1), 1, 1);
+
+            SpawnRestrictionAccessor.callRegister(RAINBOW_CREEPER, SpawnRestriction.Location.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, HostileEntity::canSpawnInDark);
         }
     }
 
