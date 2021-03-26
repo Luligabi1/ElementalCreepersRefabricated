@@ -86,12 +86,11 @@ public class ExplosionEffects {
             }
         }
     }
-    public void airExplosionEffect(Entity entity, World entityWorld, double entityX, double entityY, double entityZ) {
-        entityWorld.createExplosion(entity,
-                entityX, entityY, entityZ,
-                0, Explosion.DestructionType.NONE);
+    public void airExplosionEffect(World entityWorld, double entityX, double entityY, double entityZ) {
         for(Entity entities : entityWorld.getOtherEntities(null, new Box(entityX-5, entityY-5, entityZ-5, entityX+5, entityY+5, entityZ+5))) {
-            entities.setVelocity(0, config.getOrDefault("airCreeperRadius", 1.75D), 0);
+            if(entities instanceof LivingEntity) {
+                 entities.setVelocity(0, config.getOrDefault("airCreeperRadius", 1.75D), 0);
+            }
         }
     }
     public void electricExplosionEffect(World entityWorld, double entityX, double entityY, double entityZ) {
@@ -322,7 +321,7 @@ public class ExplosionEffects {
                 earthExplosionEffect(entity, entityWorld, entityX, entityY, entityZ);
                 break;
             case 4:
-                airExplosionEffect(entity, entityWorld, entityX, entityY, entityZ);
+                airExplosionEffect(entityWorld, entityX, entityY, entityZ);
                 break;
             case 5:
                 electricExplosionEffect(entityWorld, entityX, entityY, entityZ);
