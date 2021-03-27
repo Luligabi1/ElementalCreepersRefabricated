@@ -1,6 +1,5 @@
-package me.luligabi.elementalcreepers.client;
+package me.luligabi.elementalcreepers;
 
-import me.luligabi.elementalcreepers.ElementalCreepers;
 import me.luligabi.elementalcreepers.renderer.*;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.rendereregistry.v1.EntityRendererRegistry;

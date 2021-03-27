@@ -24,7 +24,7 @@
       "me.luligabi.elementalcreepers.ElementalCreepers"
     ],
     "client": [
-      "me.luligabi.elementalcreepers.client.ElementalCreepersClient"
+      "me.luligabi.elementalcreepers.ElementalCreepersClient"
     ]
   },
   "mixins": [

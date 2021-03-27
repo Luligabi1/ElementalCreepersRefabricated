@@ -17,10 +17,14 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.Heightmap;
 import net.minecraft.world.biome.Biome;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class ElementalCreepers implements ModInitializer {
 
     private static final String NAME_SPACE = "elementalcreepers";
+    private static final Logger LOGGER = LogManager.getLogger("Elemental Creepers: Refabricated");
+
     SimpleConfig config = SimpleConfig.of(NAME_SPACE).provider(this::provider).request();
 
     private String provider(String filename) {
@@ -111,9 +115,12 @@ public class ElementalCreepers implements ModInitializer {
         registerCreeperEntities();
         registerNaturalSpawning();
         registerCreeperSpawnEggItems();
+        LOGGER.info("Mod Initialized!");
     }
 
     private void registerCreeperEntities() {
+        LOGGER.info("Registering entities...");
+
         FabricDefaultAttributeRegistry.register(WATER_CREEPER, WaterCreeperEntity.createCreeperAttributes());
         FabricDefaultAttributeRegistry.register(FIRE_CREEPER, FireCreeperEntity.createCreeperAttributes());
         FabricDefaultAttributeRegistry.register(EARTH_CREEPER, EarthCreeperEntity.createCreeperAttributes());
@@ -136,6 +143,7 @@ public class ElementalCreepers implements ModInitializer {
 
     @SuppressWarnings("deprecation")
     private void registerNaturalSpawning() {
+        LOGGER.info("Registering Natural Spawning...");
         // Water Creeper
         if(config.getOrDefault("waterCreeperEnabled", true)) {
             BiomeModifications.addSpawn(biomeSelector ->
@@ -308,6 +316,8 @@ public class ElementalCreepers implements ModInitializer {
     }
 
     private void registerCreeperSpawnEggItems() {
+        LOGGER.info("Registering Spawn Eggs...");
+
         Registry.register(Registry.ITEM, new Identifier(NAME_SPACE, "water_creeper_spawn_egg"), new SpawnEggItem(WATER_CREEPER, 0x415DB3, 0XA4A4CC, new Item.Settings().group(ElementalCreepers.CATEGORY)));
         Registry.register(Registry.ITEM, new Identifier(NAME_SPACE, "fire_creeper_spawn_egg"), new SpawnEggItem(FIRE_CREEPER, 0xC4814F, 0xA65F0A, new Item.Settings().group(ElementalCreepers.CATEGORY)));
         Registry.register(Registry.ITEM, new Identifier(NAME_SPACE, "earth_creeper_spawn_egg"), new SpawnEggItem(EARTH_CREEPER, 0x7A583C, 0x64A444, new Item.Settings().group(ElementalCreepers.CATEGORY)));
