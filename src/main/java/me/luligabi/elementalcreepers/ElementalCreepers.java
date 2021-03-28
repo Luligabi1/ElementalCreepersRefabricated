@@ -1,6 +1,6 @@
 package me.luligabi.elementalcreepers;
 
-import me.luligabi.elementalcreepers.entity.*;
+import me.luligabi.elementalcreepers.entity.creeper.*;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;

@@ -1,4 +1,4 @@
-package me.luligabi.elementalcreepers.entity;
+package me.luligabi.elementalcreepers.entity.creeper;
 
 import me.luligabi.elementalcreepers.ExplosionEffects;
 import net.minecraft.entity.EntityType;

@@ -1,4 +1,4 @@
-package me.luligabi.elementalcreepers.entity;
+package me.luligabi.elementalcreepers.entity.creeper;
 
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.mob.CreeperEntity;

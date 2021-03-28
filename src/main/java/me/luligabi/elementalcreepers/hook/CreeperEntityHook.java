@@ -1,7 +1,7 @@
 package me.luligabi.elementalcreepers.hook;
 
-import me.luligabi.elementalcreepers.entity.AirCreeperEntity;
-import me.luligabi.elementalcreepers.entity.ElementalCreeperEntity;
+import me.luligabi.elementalcreepers.entity.creeper.AirCreeperEntity;
+import me.luligabi.elementalcreepers.entity.creeper.ElementalCreeperEntity;
 import net.minecraft.entity.mob.CreeperEntity;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
