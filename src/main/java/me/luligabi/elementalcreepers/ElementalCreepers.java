@@ -1,18 +1,25 @@
 package me.luligabi.elementalcreepers;
 
+import me.luligabi.elementalcreepers.block.CookieTntBlock;
 import me.luligabi.elementalcreepers.entity.creeper.*;
+import me.luligabi.elementalcreepers.entity.tnt.CookieTntEntity;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
+import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
+import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
 import net.fabricmc.fabric.mixin.object.builder.SpawnRestrictionAccessor;
+import net.minecraft.block.Block;
+import net.minecraft.block.Material;
 import net.minecraft.entity.EntityDimensions;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
 import net.minecraft.entity.SpawnRestriction;
 import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.item.*;
+import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.Heightmap;
@@ -115,6 +122,7 @@ public class ElementalCreepers implements ModInitializer {
         registerCreeperEntities();
         registerNaturalSpawning();
         registerCreeperSpawnEggItems();
+        registerTntBlocks();
         LOGGER.info("Mod Initialized!");
     }
 
@@ -144,6 +152,7 @@ public class ElementalCreepers implements ModInitializer {
     @SuppressWarnings("deprecation")
     private void registerNaturalSpawning() {
         LOGGER.info("Registering Natural Spawning...");
+
         // Water Creeper
         if(config.getOrDefault("waterCreeperEnabled", true)) {
             BiomeModifications.addSpawn(biomeSelector ->
@@ -337,6 +346,13 @@ public class ElementalCreepers implements ModInitializer {
         Registry.register(Registry.ITEM, new Identifier(NAME_SPACE, "rainbow_creeper_spawn_egg"), new SpawnEggItem(RAINBOW_CREEPER, 0xD73939, 0x8CC4FC, new Item.Settings().group(ElementalCreepers.CATEGORY)));
     }
 
+    private void registerTntBlocks() {
+        LOGGER.info("Registering TNTs...");
+
+        Registry.register(Registry.BLOCK, new Identifier(NAME_SPACE, "cookie_tnt"), COOKIE_TNT_BLOCK);
+        Registry.register(Registry.ITEM, new Identifier(NAME_SPACE, "cookie_tnt"), new BlockItem(COOKIE_TNT_BLOCK, new FabricItemSettings().group(ElementalCreepers.CATEGORY)));
+    }
+
     public static final EntityType<WaterCreeperEntity> WATER_CREEPER =
             Registry.register(Registry.ENTITY_TYPE,
                     new Identifier(NAME_SPACE, "water_creeper"),
@@ -421,6 +437,16 @@ public class ElementalCreepers implements ModInitializer {
             Registry.register(Registry.ENTITY_TYPE,
                     new Identifier(NAME_SPACE, "rainbow_creeper"),
                     FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, RainbowCreeperEntity::new).fireImmune().dimensions(EntityDimensions.fixed(0.6F, 1.7F)).build());
+
+    // Tnt
+
+    public static final Block COOKIE_TNT_BLOCK = new CookieTntBlock(FabricBlockSettings.of(Material.TNT).breakInstantly().sounds(BlockSoundGroup.GRASS));
+
+    public static final EntityType<CookieTntEntity> COOKIE_TNT_ENTITY =
+            Registry.register(Registry.ENTITY_TYPE,
+                    new Identifier(NAME_SPACE, "cookie_tnt"),
+                    FabricEntityTypeBuilder.create(SpawnGroup.MISC, CookieTntEntity::new).dimensions(EntityDimensions.fixed(0.98f, 0.98f)).fireImmune().trackRangeBlocks(10).trackedUpdateRate(10).build());
+
 
     public static final ItemGroup CATEGORY = FabricItemGroupBuilder.create(
             new Identifier(NAME_SPACE, "category"))

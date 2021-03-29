@@ -305,9 +305,8 @@ public class ExplosionEffects {
         entityWorld.createExplosion(entity,
                 entityX, entityY, entityZ,
                 0, Explosion.DestructionType.NONE);
-        int randomCookie = new Random().nextInt(4 - 2 + 1) + 2;
         entityWorld.spawnEntity(new ItemEntity(entityWorld,
-                entityX, entityY, entityZ, new ItemStack(Items.COOKIE, randomCookie)));
+                entityX, entityY, entityZ, new ItemStack(Items.COOKIE, new Random().nextInt(4 - 2 + 1) + 2)));
     }
     public void rainbowExplosionEffect(Entity entity, World entityWorld, double entityX, double entityY, double entityZ) {
         switch (new Random().nextInt(14 - 1 + 1) + 1) {

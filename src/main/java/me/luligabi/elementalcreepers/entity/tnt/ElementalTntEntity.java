@@ -12,7 +12,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.explosion.Explosion;
 import org.jetbrains.annotations.Nullable;
 
-public class ElementalTntEntity extends Entity {
+public class ElementalTntEntity extends Entity { //TODO: Fix glitch where TNTs speed up to hell when activated.
 
     private static final TrackedData<Integer> FUSE;
 
@@ -73,7 +73,7 @@ public class ElementalTntEntity extends Entity {
     }
 
     public void explode() {
-        this.world.createExplosion(this, this.getX(), this.getBodyY(0.0625), this.getZ(), 4.0f, Explosion.DestructionType.BREAK);
+        this.world.createExplosion(this, this.getX(), this.getBodyY(0.0625), this.getZ(), 0, Explosion.DestructionType.NONE);
     }
 
     protected void writeCustomDataToTag(CompoundTag tag) {
