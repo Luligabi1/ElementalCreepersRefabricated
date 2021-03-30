@@ -12,7 +12,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.explosion.Explosion;
 import org.jetbrains.annotations.Nullable;
 
-public class ElementalTntEntity extends Entity { //TODO: Add dispenser compatibility.
+public class ElementalTntEntity extends Entity {
 
     private static final TrackedData<Integer> FUSE;
 
