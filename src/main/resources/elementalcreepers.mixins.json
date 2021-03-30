@@ -4,11 +4,12 @@
   "package": "me.luligabi.elementalcreepers.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
-    "ClientPlayNetworkHandlerMixin",
     "CreeperEntityInvoker",
     "CreeperEntityMixin"
   ],
-  "client": [],
+  "client": [
+    "ClientPlayNetworkHandlerMixin"
+  ],
   "server": [],
   "injectors": {
     "defaultRequire": 1
