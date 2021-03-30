@@ -4,6 +4,7 @@ import me.luligabi.elementalcreepers.ElementalCreepers;
 import me.luligabi.elementalcreepers.entity.tnt.CookieTntEntity;
 import me.luligabi.elementalcreepers.entity.tnt.ElementalTntEntity;
 import me.luligabi.elementalcreepers.entity.tnt.FireTntEntity;
+import me.luligabi.elementalcreepers.entity.tnt.WaterTntEntity;
 import net.minecraft.client.network.ClientPlayNetworkHandler;
 import net.minecraft.client.world.ClientWorld;
 import net.minecraft.entity.Entity;
@@ -28,7 +29,12 @@ public class ClientPlayNetworkHandlerMixin {
         double z = packet.getZ();
         EntityType<?> entityType = packet.getEntityTypeId();
         Entity entity = null;
-
+        
+        if (entityType == ElementalCreepers.WATER_TNT_ENTITY) {
+            WaterTntEntity waterTnt = new WaterTntEntity(ElementalCreepers.WATER_TNT_ENTITY, this.world);
+            ElementalTntEntity.update(waterTnt, this.world, x, y, z, null);
+            entity = waterTnt;
+        }
 
         if (entityType == ElementalCreepers.FIRE_TNT_ENTITY) {
             FireTntEntity fireTnt = new FireTntEntity(ElementalCreepers.FIRE_TNT_ENTITY, this.world);

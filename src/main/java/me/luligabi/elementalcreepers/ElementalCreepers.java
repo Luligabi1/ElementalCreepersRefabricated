@@ -2,9 +2,11 @@ package me.luligabi.elementalcreepers;
 
 import me.luligabi.elementalcreepers.block.CookieTntBlock;
 import me.luligabi.elementalcreepers.block.FireTntBlock;
+import me.luligabi.elementalcreepers.block.WaterTntBlock;
 import me.luligabi.elementalcreepers.entity.creeper.*;
 import me.luligabi.elementalcreepers.entity.tnt.CookieTntEntity;
 import me.luligabi.elementalcreepers.entity.tnt.FireTntEntity;
+import me.luligabi.elementalcreepers.entity.tnt.WaterTntEntity;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
@@ -351,6 +353,10 @@ public class ElementalCreepers implements ModInitializer {
     private void registerTntBlocks() {
         LOGGER.info("Registering TNTs...");
 
+        Registry.register(Registry.BLOCK, new Identifier(NAME_SPACE, "water_tnt"), WATER_TNT_BLOCK);
+        Registry.register(Registry.ITEM, new Identifier(NAME_SPACE, "water_tnt"), new BlockItem(WATER_TNT_BLOCK, new FabricItemSettings().group(ElementalCreepers.CATEGORY)));
+
+
         Registry.register(Registry.BLOCK, new Identifier(NAME_SPACE, "fire_tnt"), FIRE_TNT_BLOCK);
         Registry.register(Registry.ITEM, new Identifier(NAME_SPACE, "fire_tnt"), new BlockItem(FIRE_TNT_BLOCK, new FabricItemSettings().group(ElementalCreepers.CATEGORY)));
 
@@ -444,6 +450,14 @@ public class ElementalCreepers implements ModInitializer {
                     FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, RainbowCreeperEntity::new).fireImmune().dimensions(EntityDimensions.fixed(0.6F, 1.7F)).build());
 
     // Tnt
+
+    public static final Block WATER_TNT_BLOCK = new WaterTntBlock(FabricBlockSettings.of(Material.TNT).breakInstantly().sounds(BlockSoundGroup.GRASS));
+
+    public static final EntityType<WaterTntEntity> WATER_TNT_ENTITY =
+            Registry.register(Registry.ENTITY_TYPE,
+                    new Identifier(NAME_SPACE, "water_tnt"),
+                    FabricEntityTypeBuilder.create(SpawnGroup.MISC, WaterTntEntity::new).dimensions(EntityDimensions.fixed(0.98f, 0.98f)).fireImmune().trackRangeBlocks(10).trackedUpdateRate(10).build());
+
 
     public static final Block FIRE_TNT_BLOCK = new FireTntBlock(FabricBlockSettings.of(Material.TNT).breakInstantly().sounds(BlockSoundGroup.GRASS));
 
