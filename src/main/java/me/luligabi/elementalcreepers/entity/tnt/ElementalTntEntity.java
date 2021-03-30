@@ -12,7 +12,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.explosion.Explosion;
 import org.jetbrains.annotations.Nullable;
 
-public class ElementalTntEntity extends Entity { //TODO: Fix glitch where TNTs speed up to hell when activated.
+public class ElementalTntEntity extends Entity { //TODO: Add dispenser compatibility.
 
     private static final TrackedData<Integer> FUSE;
 
@@ -56,7 +56,7 @@ public class ElementalTntEntity extends Entity { //TODO: Fix glitch where TNTs s
         this.move(MovementType.SELF, this.getVelocity());
         this.setVelocity(this.getVelocity().multiply(0.98));
         if (this.onGround) {
-            this.setVelocity(this.getVelocity().add(0.7, -0.5, 0.7)); //a
+            this.setVelocity(this.getVelocity().multiply(0.7, -0.5, 0.7));
         }
         --this.fuseTimer;
         if (this.fuseTimer <= 0) {
@@ -72,7 +72,7 @@ public class ElementalTntEntity extends Entity { //TODO: Fix glitch where TNTs s
         }
     }
 
-    public void explode() {
+    public void explode() { // Don't call this on custom TNT's, unless it's meant to explode as vanilla TNT. Instead, override it.
         this.world.createExplosion(this, this.getX(), this.getBodyY(0.0625), this.getZ(), 0, Explosion.DestructionType.NONE);
     }
 
