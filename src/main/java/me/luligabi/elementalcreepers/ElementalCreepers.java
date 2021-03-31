@@ -361,6 +361,10 @@ public class ElementalCreepers implements ModInitializer {
         Registry.register(Registry.BLOCK, new Identifier(NAME_SPACE, "electric_tnt"), ELECTRIC_TNT_BLOCK);
         Registry.register(Registry.ITEM, new Identifier(NAME_SPACE, "electric_tnt"), new BlockItem(ELECTRIC_TNT_BLOCK, new FabricItemSettings().group(ElementalCreepers.CATEGORY)));
 
+        Registry.register(Registry.BLOCK, new Identifier(NAME_SPACE, "light_tnt"), LIGHT_TNT_BLOCK);
+        Registry.register(Registry.ITEM, new Identifier(NAME_SPACE, "light_tnt"), new BlockItem(LIGHT_TNT_BLOCK, new FabricItemSettings().group(ElementalCreepers.CATEGORY)));
+
+
         Registry.register(Registry.BLOCK, new Identifier(NAME_SPACE, "cookie_tnt"), COOKIE_TNT_BLOCK);
         Registry.register(Registry.ITEM, new Identifier(NAME_SPACE, "cookie_tnt"), new BlockItem(COOKIE_TNT_BLOCK, new FabricItemSettings().group(ElementalCreepers.CATEGORY)));
     }
@@ -459,7 +463,6 @@ public class ElementalCreepers implements ModInitializer {
                     new Identifier(NAME_SPACE, "water_tnt"),
                     FabricEntityTypeBuilder.create(SpawnGroup.MISC, WaterTntEntity::new).dimensions(EntityDimensions.fixed(0.98f, 0.98f)).fireImmune().trackRangeBlocks(10).trackedUpdateRate(10).build());
 
-
     public static final Block FIRE_TNT_BLOCK = new FireTntBlock(FabricBlockSettings.of(Material.TNT).breakInstantly().sounds(BlockSoundGroup.GRASS));
 
     public static final EntityType<FireTntEntity> FIRE_TNT_ENTITY =
@@ -481,6 +484,12 @@ public class ElementalCreepers implements ModInitializer {
                     new Identifier(NAME_SPACE, "electric_tnt"),
                     FabricEntityTypeBuilder.create(SpawnGroup.MISC, ElectricTntEntity::new).dimensions(EntityDimensions.fixed(0.98f, 0.98f)).fireImmune().trackRangeBlocks(10).trackedUpdateRate(10).build());
 
+    public static final Block LIGHT_TNT_BLOCK = new LightTntBlock(FabricBlockSettings.of(Material.TNT).breakInstantly().sounds(BlockSoundGroup.GRASS));
+
+    public static final EntityType<LightTntEntity> LIGHT_TNT_ENTITY =
+            Registry.register(Registry.ENTITY_TYPE,
+                    new Identifier(NAME_SPACE, "light_tnt"),
+                    FabricEntityTypeBuilder.create(SpawnGroup.MISC, LightTntEntity::new).dimensions(EntityDimensions.fixed(0.98f, 0.98f)).fireImmune().trackRangeBlocks(10).trackedUpdateRate(10).build());
 
     public static final Block COOKIE_TNT_BLOCK = new CookieTntBlock(FabricBlockSettings.of(Material.TNT).breakInstantly().sounds(BlockSoundGroup.GRASS));
 

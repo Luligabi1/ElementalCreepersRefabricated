@@ -46,9 +46,15 @@ public class ClientPlayNetworkHandlerMixin {
         }
 
         if (entityType == ElementalCreepers.ELECTRIC_TNT_ENTITY) {
-            EarthTntEntity electricTnt = new EarthTntEntity(ElementalCreepers.ELECTRIC_TNT_ENTITY, this.world);
+            ElectricTntEntity electricTnt = new ElectricTntEntity(ElementalCreepers.ELECTRIC_TNT_ENTITY, this.world);
             ElementalTntEntity.update(electricTnt, this.world, x, y, z, null);
             entity = electricTnt;
+        }
+
+        if (entityType == ElementalCreepers.LIGHT_TNT_ENTITY) {
+            LightTntEntity lightTnt = new LightTntEntity(ElementalCreepers.LIGHT_TNT_ENTITY, this.world);
+            ElementalTntEntity.update(lightTnt, this.world, x, y, z, null);
+            entity = lightTnt;
         }
 
         if (entityType == ElementalCreepers.COOKIE_TNT_ENTITY) {
