@@ -1,10 +1,12 @@
 package me.luligabi.elementalcreepers;
 
 import me.luligabi.elementalcreepers.block.CookieTntBlock;
+import me.luligabi.elementalcreepers.block.EarthTntBlock;
 import me.luligabi.elementalcreepers.block.FireTntBlock;
 import me.luligabi.elementalcreepers.block.WaterTntBlock;
 import me.luligabi.elementalcreepers.entity.creeper.*;
 import me.luligabi.elementalcreepers.entity.tnt.CookieTntEntity;
+import me.luligabi.elementalcreepers.entity.tnt.EarthTntEntity;
 import me.luligabi.elementalcreepers.entity.tnt.FireTntEntity;
 import me.luligabi.elementalcreepers.entity.tnt.WaterTntEntity;
 import net.fabricmc.api.ModInitializer;
@@ -356,9 +358,11 @@ public class ElementalCreepers implements ModInitializer {
         Registry.register(Registry.BLOCK, new Identifier(NAME_SPACE, "water_tnt"), WATER_TNT_BLOCK);
         Registry.register(Registry.ITEM, new Identifier(NAME_SPACE, "water_tnt"), new BlockItem(WATER_TNT_BLOCK, new FabricItemSettings().group(ElementalCreepers.CATEGORY)));
 
-
         Registry.register(Registry.BLOCK, new Identifier(NAME_SPACE, "fire_tnt"), FIRE_TNT_BLOCK);
         Registry.register(Registry.ITEM, new Identifier(NAME_SPACE, "fire_tnt"), new BlockItem(FIRE_TNT_BLOCK, new FabricItemSettings().group(ElementalCreepers.CATEGORY)));
+
+        Registry.register(Registry.BLOCK, new Identifier(NAME_SPACE, "earth_tnt"), EARTH_TNT_BLOCK);
+        Registry.register(Registry.ITEM, new Identifier(NAME_SPACE, "earth_tnt"), new BlockItem(EARTH_TNT_BLOCK, new FabricItemSettings().group(ElementalCreepers.CATEGORY)));
 
         Registry.register(Registry.BLOCK, new Identifier(NAME_SPACE, "cookie_tnt"), COOKIE_TNT_BLOCK);
         Registry.register(Registry.ITEM, new Identifier(NAME_SPACE, "cookie_tnt"), new BlockItem(COOKIE_TNT_BLOCK, new FabricItemSettings().group(ElementalCreepers.CATEGORY)));
@@ -465,6 +469,13 @@ public class ElementalCreepers implements ModInitializer {
             Registry.register(Registry.ENTITY_TYPE,
                     new Identifier(NAME_SPACE, "fire_tnt"),
                     FabricEntityTypeBuilder.create(SpawnGroup.MISC, FireTntEntity::new).dimensions(EntityDimensions.fixed(0.98f, 0.98f)).fireImmune().trackRangeBlocks(10).trackedUpdateRate(10).build());
+
+    public static final Block EARTH_TNT_BLOCK = new EarthTntBlock(FabricBlockSettings.of(Material.TNT).breakInstantly().sounds(BlockSoundGroup.GRASS));
+
+    public static final EntityType<EarthTntEntity> EARTH_TNT_ENTITY =
+            Registry.register(Registry.ENTITY_TYPE,
+                    new Identifier(NAME_SPACE, "earth_tnt"),
+                    FabricEntityTypeBuilder.create(SpawnGroup.MISC, EarthTntEntity::new).dimensions(EntityDimensions.fixed(0.98f, 0.98f)).fireImmune().trackRangeBlocks(10).trackedUpdateRate(10).build());
 
     public static final Block COOKIE_TNT_BLOCK = new CookieTntBlock(FabricBlockSettings.of(Material.TNT).breakInstantly().sounds(BlockSoundGroup.GRASS));
 
