@@ -12,16 +12,16 @@ import net.minecraft.util.math.BlockPointer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class EarthTntEntity extends ElementalTntEntity {
+public class ElectricTntEntity extends ElementalTntEntity {
 
-    public EarthTntEntity(EntityType<? extends ElementalTntEntity> entityType, World world) {
+    public ElectricTntEntity(EntityType<? extends ElementalTntEntity> entityType, World world) {
         super(entityType, world);
 
-        DispenserBlock.registerBehavior(ElementalCreepers.EARTH_TNT_BLOCK, new ItemDispenserBehavior() {
+        DispenserBlock.registerBehavior(ElementalCreepers.ELECTRIC_TNT_BLOCK, new ItemDispenserBehavior() {
             protected ItemStack dispenseSilently(BlockPointer blockPointer, ItemStack itemStack) {
                 World world = blockPointer.getWorld();
                 BlockPos blockPos = blockPointer.getBlockPos().offset(blockPointer.getBlockState().get(DispenserBlock.FACING));
-                EarthTntEntity tntEntity = new EarthTntEntity(entityType, world);
+                ElectricTntEntity tntEntity = new ElectricTntEntity(entityType, world);
                 tntEntity.refreshPositionAfterTeleport((double) blockPos.getX() + 0.5D, (double) blockPos.getY(), (double) blockPos.getZ() + 0.5D);
                 world.spawnEntity(tntEntity);
                 tntEntity.setVelocity(-Math.sin(world.random.nextDouble() * 6.2831854820251465) * 0.02, 0.20000000298023224, -Math.cos(world.random.nextDouble() * 6.2831854820251465) * 0.02);
@@ -34,7 +34,7 @@ public class EarthTntEntity extends ElementalTntEntity {
 
     @Override
     public void explode() {
-        new ExplosionEffects().earthExplosionEffect(this, this.world, this.getX(), this.getY(), this.getZ());
+        new ExplosionEffects().electricExplosionEffect(this.world, this.getX(), this.getY(), this.getZ());
     }
 
 }

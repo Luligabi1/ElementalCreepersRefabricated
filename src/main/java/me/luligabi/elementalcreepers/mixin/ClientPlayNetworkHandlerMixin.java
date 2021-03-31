@@ -45,6 +45,12 @@ public class ClientPlayNetworkHandlerMixin {
             entity = earthTnt;
         }
 
+        if (entityType == ElementalCreepers.ELECTRIC_TNT_ENTITY) {
+            EarthTntEntity electricTnt = new EarthTntEntity(ElementalCreepers.ELECTRIC_TNT_ENTITY, this.world);
+            ElementalTntEntity.update(electricTnt, this.world, x, y, z, null);
+            entity = electricTnt;
+        }
+
         if (entityType == ElementalCreepers.COOKIE_TNT_ENTITY) {
             CookieTntEntity cookieTnt = new CookieTntEntity(ElementalCreepers.COOKIE_TNT_ENTITY, this.world);
             ElementalTntEntity.update(cookieTnt, this.world, x, y, z, null);
