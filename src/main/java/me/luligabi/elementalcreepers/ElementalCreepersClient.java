@@ -35,6 +35,7 @@ public class ElementalCreepersClient implements ClientModInitializer {
         EntityRendererRegistry.INSTANCE.register(ElementalCreepers.LIGHT_TNT_ENTITY, (entityRenderDispatcher, context) -> new ElementalTntRenderer(entityRenderDispatcher, ElementalCreepers.LIGHT_TNT_BLOCK.getDefaultState()));
         EntityRendererRegistry.INSTANCE.register(ElementalCreepers.DARK_TNT_ENTITY, (entityRenderDispatcher, context) -> new ElementalTntRenderer(entityRenderDispatcher, ElementalCreepers.DARK_TNT_BLOCK.getDefaultState()));
         EntityRendererRegistry.INSTANCE.register(ElementalCreepers.ICE_TNT_ENTITY, (entityRenderDispatcher, context) -> new ElementalTntRenderer(entityRenderDispatcher, ElementalCreepers.ICE_TNT_BLOCK.getDefaultState()));
+        EntityRendererRegistry.INSTANCE.register(ElementalCreepers.MAGMA_TNT_ENTITY, (entityRenderDispatcher, context) -> new ElementalTntRenderer(entityRenderDispatcher, ElementalCreepers.MAGMA_TNT_BLOCK.getDefaultState()));
 
         EntityRendererRegistry.INSTANCE.register(ElementalCreepers.COOKIE_TNT_ENTITY, (entityRenderDispatcher, context) -> new ElementalTntRenderer(entityRenderDispatcher, ElementalCreepers.COOKIE_TNT_BLOCK.getDefaultState()));
     }
