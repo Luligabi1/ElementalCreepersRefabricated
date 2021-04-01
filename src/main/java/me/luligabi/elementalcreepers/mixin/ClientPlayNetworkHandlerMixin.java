@@ -75,6 +75,12 @@ public class ClientPlayNetworkHandlerMixin {
             entity = magmaTnt;
         }
 
+        if (entityType == ElementalCreepers.HYDROGEN_TNT_ENTITY) {
+            HydrogenTntEntity hydrogenTnt = new  HydrogenTntEntity(ElementalCreepers.HYDROGEN_TNT_ENTITY, this.world);
+            ElementalTntEntity.update(hydrogenTnt, this.world, x, y, z, null);
+            entity = hydrogenTnt;
+        }
+
         if (entityType == ElementalCreepers.COOKIE_TNT_ENTITY) {
             CookieTntEntity cookieTnt = new CookieTntEntity(ElementalCreepers.COOKIE_TNT_ENTITY, this.world);
             ElementalTntEntity.update(cookieTnt, this.world, x, y, z, null);
