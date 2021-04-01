@@ -367,6 +367,9 @@ public class ElementalCreepers implements ModInitializer {
         Registry.register(Registry.BLOCK, new Identifier(NAME_SPACE, "dark_tnt"), DARK_TNT_BLOCK);
         Registry.register(Registry.ITEM, new Identifier(NAME_SPACE, "dark_tnt"), new BlockItem(DARK_TNT_BLOCK, new FabricItemSettings().group(ElementalCreepers.CATEGORY)));
 
+        Registry.register(Registry.BLOCK, new Identifier(NAME_SPACE, "ice_tnt"), ICE_TNT_BLOCK);
+        Registry.register(Registry.ITEM, new Identifier(NAME_SPACE, "ice_tnt"), new BlockItem(ICE_TNT_BLOCK, new FabricItemSettings().group(ElementalCreepers.CATEGORY)));
+
 
         Registry.register(Registry.BLOCK, new Identifier(NAME_SPACE, "cookie_tnt"), COOKIE_TNT_BLOCK);
         Registry.register(Registry.ITEM, new Identifier(NAME_SPACE, "cookie_tnt"), new BlockItem(COOKIE_TNT_BLOCK, new FabricItemSettings().group(ElementalCreepers.CATEGORY)));
@@ -500,6 +503,13 @@ public class ElementalCreepers implements ModInitializer {
             Registry.register(Registry.ENTITY_TYPE,
                     new Identifier(NAME_SPACE, "dark_tnt"),
                     FabricEntityTypeBuilder.create(SpawnGroup.MISC, DarkTntEntity::new).dimensions(EntityDimensions.fixed(0.98f, 0.98f)).fireImmune().trackRangeBlocks(10).trackedUpdateRate(10).build());
+
+    public static final Block ICE_TNT_BLOCK = new IceTntBlock(FabricBlockSettings.of(Material.TNT).breakInstantly().sounds(BlockSoundGroup.GRASS));
+
+    public static final EntityType<IceTntEntity> ICE_TNT_ENTITY =
+            Registry.register(Registry.ENTITY_TYPE,
+                    new Identifier(NAME_SPACE, "ice_tnt"),
+                    FabricEntityTypeBuilder.create(SpawnGroup.MISC, IceTntEntity::new).dimensions(EntityDimensions.fixed(0.98f, 0.98f)).fireImmune().trackRangeBlocks(10).trackedUpdateRate(10).build());
 
 
     public static final Block COOKIE_TNT_BLOCK = new CookieTntBlock(FabricBlockSettings.of(Material.TNT).breakInstantly().sounds(BlockSoundGroup.GRASS));

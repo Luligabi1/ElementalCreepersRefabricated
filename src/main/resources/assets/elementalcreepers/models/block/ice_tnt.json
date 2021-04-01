@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "top": "elementalcreepers:block/ice_tnt_top",
+    "bottom": "elementalcreepers:block/ice_tnt_bottom",
+    "side": "elementalcreepers:block/ice_tnt_side"
+  }
+}

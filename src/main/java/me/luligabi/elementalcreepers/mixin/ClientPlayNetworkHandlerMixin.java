@@ -63,6 +63,12 @@ public class ClientPlayNetworkHandlerMixin {
             entity = darkTnt;
         }
 
+        if (entityType == ElementalCreepers.ICE_TNT_ENTITY) {
+            IceTntEntity iceTnt = new IceTntEntity(ElementalCreepers.ICE_TNT_ENTITY, this.world);
+            ElementalTntEntity.update(iceTnt, this.world, x, y, z, null);
+            entity = iceTnt;
+        }
+
         if (entityType == ElementalCreepers.COOKIE_TNT_ENTITY) {
             CookieTntEntity cookieTnt = new CookieTntEntity(ElementalCreepers.COOKIE_TNT_ENTITY, this.world);
             ElementalTntEntity.update(cookieTnt, this.world, x, y, z, null);
