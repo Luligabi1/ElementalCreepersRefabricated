@@ -372,6 +372,10 @@ public class ElementalCreepers implements ModInitializer {
         Registry.register(Registry.BLOCK, new Identifier(NAME_SPACE, "reverse_tnt"), REVERSE_TNT_BLOCK);
         Registry.register(Registry.ITEM, new Identifier(NAME_SPACE, "reverse_tnt"), new BlockItem(REVERSE_TNT_BLOCK, new FabricItemSettings().group(ElementalCreepers.CATEGORY)));
 
+        Registry.register(Registry.BLOCK, new Identifier(NAME_SPACE, "miner_tnt"), MINER_TNT_BLOCK);
+        Registry.register(Registry.ITEM, new Identifier(NAME_SPACE, "miner_tnt"), new BlockItem(MINER_TNT_BLOCK, new FabricItemSettings().group(ElementalCreepers.CATEGORY)));
+
+
         Registry.register(Registry.BLOCK, new Identifier(NAME_SPACE, "cookie_tnt"), COOKIE_TNT_BLOCK);
         Registry.register(Registry.ITEM, new Identifier(NAME_SPACE, "cookie_tnt"), new BlockItem(COOKIE_TNT_BLOCK, new FabricItemSettings().group(ElementalCreepers.CATEGORY)));
     }
@@ -533,6 +537,14 @@ public class ElementalCreepers implements ModInitializer {
             Registry.register(Registry.ENTITY_TYPE,
                     new Identifier(NAME_SPACE, "reverse_tnt"),
                     FabricEntityTypeBuilder.create(SpawnGroup.MISC, ReverseTntEntity::new).dimensions(EntityDimensions.fixed(0.98f, 0.98f)).fireImmune().trackRangeBlocks(10).trackedUpdateRate(10).build());
+
+    public static final Block MINER_TNT_BLOCK = new MinerTntBlock(FabricBlockSettings.of(Material.TNT).breakInstantly().sounds(BlockSoundGroup.GRASS));
+
+    public static final EntityType<MinerTntEntity> MINER_TNT_ENTITY =
+            Registry.register(Registry.ENTITY_TYPE,
+                    new Identifier(NAME_SPACE, "miner_tnt"),
+                    FabricEntityTypeBuilder.create(SpawnGroup.MISC, MinerTntEntity::new).dimensions(EntityDimensions.fixed(0.98f, 0.98f)).fireImmune().trackRangeBlocks(10).trackedUpdateRate(10).build());
+
 
     public static final Block COOKIE_TNT_BLOCK = new CookieTntBlock(FabricBlockSettings.of(Material.TNT).breakInstantly().sounds(BlockSoundGroup.GRASS));
 
