@@ -1,8 +1,8 @@
 {
   "parent": "minecraft:block/cube_bottom_top",
   "textures": {
-    "top": "elementalcreepers:block/reverse_tnt_top",
-    "bottom": "elementalcreepers:block/reverse_tnt_bottom",
+    "top": "minecraft:block/tnt_bottom",
+    "bottom": "minecraft:block/tnt_top",
     "side": "elementalcreepers:block/reverse_tnt_side"
   }
 }
