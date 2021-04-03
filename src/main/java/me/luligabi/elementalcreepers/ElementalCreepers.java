@@ -375,6 +375,9 @@ public class ElementalCreepers implements ModInitializer {
         Registry.register(Registry.BLOCK, new Identifier(NAME_SPACE, "miner_tnt"), MINER_TNT_BLOCK);
         Registry.register(Registry.ITEM, new Identifier(NAME_SPACE, "miner_tnt"), new BlockItem(MINER_TNT_BLOCK, new FabricItemSettings().group(ElementalCreepers.CATEGORY)));
 
+        Registry.register(Registry.BLOCK, new Identifier(NAME_SPACE, "illusion_tnt"), ILLUSION_TNT_BLOCK);
+        Registry.register(Registry.ITEM, new Identifier(NAME_SPACE, "illusion_tnt"), new BlockItem(ILLUSION_TNT_BLOCK, new FabricItemSettings().group(ElementalCreepers.CATEGORY)));
+
         Registry.register(Registry.BLOCK, new Identifier(NAME_SPACE, "firework_tnt"), FIREWORK_TNT_BLOCK);
         Registry.register(Registry.ITEM, new Identifier(NAME_SPACE, "firework_tnt"), new BlockItem(FIREWORK_TNT_BLOCK, new FabricItemSettings().group(ElementalCreepers.CATEGORY)));
 
@@ -383,6 +386,9 @@ public class ElementalCreepers implements ModInitializer {
 
         Registry.register(Registry.BLOCK, new Identifier(NAME_SPACE, "rainbow_tnt"), RAINBOW_TNT_BLOCK);
         Registry.register(Registry.ITEM, new Identifier(NAME_SPACE, "rainbow_tnt"), new BlockItem(RAINBOW_TNT_BLOCK, new FabricItemSettings().group(ElementalCreepers.CATEGORY)));
+
+        Registry.register(Registry.BLOCK, new Identifier(NAME_SPACE, "fake_illusion_tnt"), FAKE_ILLUSION_TNT_BLOCK);
+        Registry.register(Registry.ITEM, new Identifier(NAME_SPACE, "fake_illusion_tnt"), new BlockItem(FAKE_ILLUSION_TNT_BLOCK, new FabricItemSettings()));
     }
 
     public static final EntityType<WaterCreeperEntity> WATER_CREEPER =
@@ -550,7 +556,12 @@ public class ElementalCreepers implements ModInitializer {
                     new Identifier(NAME_SPACE, "miner_tnt"),
                     FabricEntityTypeBuilder.create(SpawnGroup.MISC, MinerTntEntity::new).dimensions(EntityDimensions.fixed(0.98f, 0.98f)).fireImmune().trackRangeBlocks(10).trackedUpdateRate(10).build());
 
+    public static final Block ILLUSION_TNT_BLOCK = new IllusionTntBlock(FabricBlockSettings.of(Material.TNT).breakInstantly().sounds(BlockSoundGroup.GRASS));
 
+    public static final EntityType<IllusionTntEntity> ILLUSION_TNT_ENTITY =
+            Registry.register(Registry.ENTITY_TYPE,
+                    new Identifier(NAME_SPACE, "illusion_tnt"),
+                    FabricEntityTypeBuilder.create(SpawnGroup.MISC, IllusionTntEntity::new).dimensions(EntityDimensions.fixed(0.98f, 0.98f)).fireImmune().trackRangeBlocks(10).trackedUpdateRate(10).build());
 
     public static final Block FIREWORK_TNT_BLOCK = new FireworkTntBlock(FabricBlockSettings.of(Material.TNT).breakInstantly().sounds(BlockSoundGroup.GRASS));
 
@@ -572,6 +583,13 @@ public class ElementalCreepers implements ModInitializer {
             Registry.register(Registry.ENTITY_TYPE,
                     new Identifier(NAME_SPACE, "rainbow_tnt"),
                     FabricEntityTypeBuilder.create(SpawnGroup.MISC, RainbowTntEntity::new).dimensions(EntityDimensions.fixed(0.98f, 0.98f)).fireImmune().trackRangeBlocks(10).trackedUpdateRate(10).build());
+
+    public static final Block FAKE_ILLUSION_TNT_BLOCK = new FakeIllusionTntBlock(FabricBlockSettings.of(Material.TNT).breakInstantly().sounds(BlockSoundGroup.GRASS));
+
+    public static final EntityType<FakeIllusionTntEntity> FAKE_ILLUSION_TNT_ENTITY =
+            Registry.register(Registry.ENTITY_TYPE,
+                    new Identifier(NAME_SPACE, "fake_illusion_tnt"),
+                    FabricEntityTypeBuilder.create(SpawnGroup.MISC, FakeIllusionTntEntity::new).dimensions(EntityDimensions.fixed(0.98f, 0.98f)).fireImmune().trackRangeBlocks(10).trackedUpdateRate(10).build());
 
 
     public static final ItemGroup CATEGORY = FabricItemGroupBuilder.create(

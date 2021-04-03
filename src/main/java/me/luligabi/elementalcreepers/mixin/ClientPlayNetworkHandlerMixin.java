@@ -93,6 +93,12 @@ public class ClientPlayNetworkHandlerMixin {
             entity = minerTnt;
         }
 
+        if (entityType == ElementalCreepers.ILLUSION_TNT_ENTITY) {
+            IllusionTntEntity illusionTnt = new IllusionTntEntity(ElementalCreepers.ILLUSION_TNT_ENTITY, this.world);
+            ElementalTntEntity.update(illusionTnt, this.world, x, y, z, null);
+            entity = illusionTnt;
+        }
+
         if (entityType == ElementalCreepers.FIREWORK_TNT_ENTITY) {
             FireworkTntEntity fireworkTnt = new FireworkTntEntity(ElementalCreepers.FIREWORK_TNT_ENTITY, this.world);
             ElementalTntEntity.update(fireworkTnt, this.world, x, y, z, null);
@@ -109,6 +115,12 @@ public class ClientPlayNetworkHandlerMixin {
             RainbowTntEntity rainbowTnt = new RainbowTntEntity(ElementalCreepers.RAINBOW_TNT_ENTITY, this.world);
             ElementalTntEntity.update(rainbowTnt, this.world, x, y, z, null);
             entity = rainbowTnt;
+        }
+
+        if (entityType == ElementalCreepers.FAKE_ILLUSION_TNT_ENTITY) {
+            FakeIllusionTntEntity fakeIllusionTnt = new FakeIllusionTntEntity(ElementalCreepers.FAKE_ILLUSION_TNT_ENTITY, this.world);
+            ElementalTntEntity.update(fakeIllusionTnt, this.world, x, y, z, null);
+            entity = fakeIllusionTnt;
         }
 
         if (entity != null) {
