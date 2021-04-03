@@ -375,9 +375,14 @@ public class ElementalCreepers implements ModInitializer {
         Registry.register(Registry.BLOCK, new Identifier(NAME_SPACE, "miner_tnt"), MINER_TNT_BLOCK);
         Registry.register(Registry.ITEM, new Identifier(NAME_SPACE, "miner_tnt"), new BlockItem(MINER_TNT_BLOCK, new FabricItemSettings().group(ElementalCreepers.CATEGORY)));
 
+        Registry.register(Registry.BLOCK, new Identifier(NAME_SPACE, "firework_tnt"), FIREWORK_TNT_BLOCK);
+        Registry.register(Registry.ITEM, new Identifier(NAME_SPACE, "firework_tnt"), new BlockItem(FIREWORK_TNT_BLOCK, new FabricItemSettings().group(ElementalCreepers.CATEGORY)));
 
         Registry.register(Registry.BLOCK, new Identifier(NAME_SPACE, "cookie_tnt"), COOKIE_TNT_BLOCK);
         Registry.register(Registry.ITEM, new Identifier(NAME_SPACE, "cookie_tnt"), new BlockItem(COOKIE_TNT_BLOCK, new FabricItemSettings().group(ElementalCreepers.CATEGORY)));
+
+        Registry.register(Registry.BLOCK, new Identifier(NAME_SPACE, "rainbow_tnt"), RAINBOW_TNT_BLOCK);
+        Registry.register(Registry.ITEM, new Identifier(NAME_SPACE, "rainbow_tnt"), new BlockItem(RAINBOW_TNT_BLOCK, new FabricItemSettings().group(ElementalCreepers.CATEGORY)));
     }
 
     public static final EntityType<WaterCreeperEntity> WATER_CREEPER =
@@ -546,12 +551,27 @@ public class ElementalCreepers implements ModInitializer {
                     FabricEntityTypeBuilder.create(SpawnGroup.MISC, MinerTntEntity::new).dimensions(EntityDimensions.fixed(0.98f, 0.98f)).fireImmune().trackRangeBlocks(10).trackedUpdateRate(10).build());
 
 
+
+    public static final Block FIREWORK_TNT_BLOCK = new FireworkTntBlock(FabricBlockSettings.of(Material.TNT).breakInstantly().sounds(BlockSoundGroup.GRASS));
+
+    public static final EntityType<FireworkTntEntity> FIREWORK_TNT_ENTITY =
+            Registry.register(Registry.ENTITY_TYPE,
+                    new Identifier(NAME_SPACE, "firework_tnt"),
+                    FabricEntityTypeBuilder.create(SpawnGroup.MISC, FireworkTntEntity::new).dimensions(EntityDimensions.fixed(0.98f, 0.98f)).fireImmune().trackRangeBlocks(10).trackedUpdateRate(10).build());
+
     public static final Block COOKIE_TNT_BLOCK = new CookieTntBlock(FabricBlockSettings.of(Material.TNT).breakInstantly().sounds(BlockSoundGroup.GRASS));
 
     public static final EntityType<CookieTntEntity> COOKIE_TNT_ENTITY =
             Registry.register(Registry.ENTITY_TYPE,
                     new Identifier(NAME_SPACE, "cookie_tnt"),
                     FabricEntityTypeBuilder.create(SpawnGroup.MISC, CookieTntEntity::new).dimensions(EntityDimensions.fixed(0.98f, 0.98f)).fireImmune().trackRangeBlocks(10).trackedUpdateRate(10).build());
+
+    public static final Block RAINBOW_TNT_BLOCK = new RainbowTntBlock(FabricBlockSettings.of(Material.TNT).breakInstantly().sounds(BlockSoundGroup.GRASS));
+
+    public static final EntityType<RainbowTntEntity> RAINBOW_TNT_ENTITY =
+            Registry.register(Registry.ENTITY_TYPE,
+                    new Identifier(NAME_SPACE, "rainbow_tnt"),
+                    FabricEntityTypeBuilder.create(SpawnGroup.MISC, RainbowTntEntity::new).dimensions(EntityDimensions.fixed(0.98f, 0.98f)).fireImmune().trackRangeBlocks(10).trackedUpdateRate(10).build());
 
 
     public static final ItemGroup CATEGORY = FabricItemGroupBuilder.create(

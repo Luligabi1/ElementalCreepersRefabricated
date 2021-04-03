@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "top": "elementalcreepers:block/rainbow_tnt_top",
+    "bottom": "elementalcreepers:block/rainbow_tnt_bottom",
+    "side": "elementalcreepers:block/rainbow_tnt_side"
+  }
+}

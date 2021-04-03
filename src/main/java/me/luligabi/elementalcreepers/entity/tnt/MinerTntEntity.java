@@ -3,6 +3,7 @@ package me.luligabi.elementalcreepers.entity.tnt;
 import me.luligabi.elementalcreepers.ElementalCreepers;
 import me.luligabi.elementalcreepers.ExplosionEffects;
 import net.minecraft.block.DispenserBlock;
+import net.minecraft.block.dispenser.DispenserBehavior;
 import net.minecraft.block.dispenser.ItemDispenserBehavior;
 import net.minecraft.entity.EntityType;
 import net.minecraft.item.ItemStack;
@@ -12,7 +13,7 @@ import net.minecraft.util.math.BlockPointer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class MinerTntEntity extends ElementalTntEntity {
+public class MinerTntEntity extends ElementalTntEntity implements DispenserBehavior {
 
     public MinerTntEntity(EntityType<? extends ElementalTntEntity> entityType, World world) {
         super(entityType, world);
@@ -37,4 +38,8 @@ public class MinerTntEntity extends ElementalTntEntity {
         new ExplosionEffects().minerExplosionEffect(this, this.world, this.getX(), this.getY(), this.getZ());
     }
 
+    @Override
+    public ItemStack dispense(BlockPointer blockPointer, ItemStack itemStack) {
+        return null;
+    }
 }

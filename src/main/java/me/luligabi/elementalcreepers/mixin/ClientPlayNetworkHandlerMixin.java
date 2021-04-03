@@ -93,10 +93,22 @@ public class ClientPlayNetworkHandlerMixin {
             entity = minerTnt;
         }
 
+        if (entityType == ElementalCreepers.FIREWORK_TNT_ENTITY) {
+            FireworkTntEntity fireworkTnt = new FireworkTntEntity(ElementalCreepers.FIREWORK_TNT_ENTITY, this.world);
+            ElementalTntEntity.update(fireworkTnt, this.world, x, y, z, null);
+            entity = fireworkTnt;
+        }
+
         if (entityType == ElementalCreepers.COOKIE_TNT_ENTITY) {
             CookieTntEntity cookieTnt = new CookieTntEntity(ElementalCreepers.COOKIE_TNT_ENTITY, this.world);
             ElementalTntEntity.update(cookieTnt, this.world, x, y, z, null);
             entity = cookieTnt;
+        }
+
+        if (entityType == ElementalCreepers.RAINBOW_TNT_ENTITY) {
+            RainbowTntEntity rainbowTnt = new RainbowTntEntity(ElementalCreepers.RAINBOW_TNT_ENTITY, this.world);
+            ElementalTntEntity.update(rainbowTnt, this.world, x, y, z, null);
+            entity = rainbowTnt;
         }
 
         if (entity != null) {
