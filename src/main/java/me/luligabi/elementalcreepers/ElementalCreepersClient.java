@@ -30,7 +30,7 @@ public class ElementalCreepersClient implements ClientModInitializer {
         EntityRendererRegistry.INSTANCE.register(ElementalCreepers.WATER_TNT_ENTITY, (entityRenderDispatcher, context) -> new ElementalTntRenderer(entityRenderDispatcher, ElementalCreepers.WATER_TNT_BLOCK.getDefaultState()));
         EntityRendererRegistry.INSTANCE.register(ElementalCreepers.FIRE_TNT_ENTITY, (entityRenderDispatcher, context) -> new ElementalTntRenderer(entityRenderDispatcher, ElementalCreepers.FIRE_TNT_BLOCK.getDefaultState()));
         EntityRendererRegistry.INSTANCE.register(ElementalCreepers.EARTH_TNT_ENTITY, (entityRenderDispatcher, context) -> new ElementalTntRenderer(entityRenderDispatcher, ElementalCreepers.EARTH_TNT_BLOCK.getDefaultState()));
-        //air
+        EntityRendererRegistry.INSTANCE.register(ElementalCreepers.AIR_TNT_ENTITY, (entityRenderDispatcher, context) -> new ElementalTntRenderer(entityRenderDispatcher, ElementalCreepers.AIR_TNT_BLOCK.getDefaultState()));
         EntityRendererRegistry.INSTANCE.register(ElementalCreepers.ELECTRIC_TNT_ENTITY, (entityRenderDispatcher, context) -> new ElementalTntRenderer(entityRenderDispatcher, ElementalCreepers.ELECTRIC_TNT_BLOCK.getDefaultState()));
         EntityRendererRegistry.INSTANCE.register(ElementalCreepers.LIGHT_TNT_ENTITY, (entityRenderDispatcher, context) -> new ElementalTntRenderer(entityRenderDispatcher, ElementalCreepers.LIGHT_TNT_BLOCK.getDefaultState()));
         EntityRendererRegistry.INSTANCE.register(ElementalCreepers.DARK_TNT_ENTITY, (entityRenderDispatcher, context) -> new ElementalTntRenderer(entityRenderDispatcher, ElementalCreepers.DARK_TNT_BLOCK.getDefaultState()));

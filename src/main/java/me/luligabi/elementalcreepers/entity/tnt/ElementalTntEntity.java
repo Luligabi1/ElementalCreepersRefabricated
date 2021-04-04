@@ -61,7 +61,14 @@ public class ElementalTntEntity extends Entity {
         --this.fuseTimer;
         if (this.fuseTimer <= 0) {
             this.remove();
-            if (!this.world.isClient) {
+
+            if (!this.world.isClient && !(this instanceof AirTntEntity)) {
+                this.explode();
+            }
+            if(this instanceof AirTntEntity) {
+                if(!world.isClient) {
+                    this.world.createExplosion(this, this.getX(), this.getY(), this.getZ(), 0, Explosion.DestructionType.NONE);
+                }
                 this.explode();
             }
         } else {
