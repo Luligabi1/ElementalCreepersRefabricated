@@ -1,6 +1,6 @@
 package me.luligabi.elementalcreepers.entity.creeper;
 
-import me.luligabi.elementalcreepers.ElementalCreepers;
+import me.luligabi.elementalcreepers.registry.CreeperRegistry;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.mob.CreeperEntity;
@@ -69,7 +69,7 @@ public class IllusionCreeperEntity extends ElementalCreeperEntity {
             this.mob.setTarget(this.targetEntity);
             if(!((IllusionCreeperEntity) this.mob).hasDuplicated()) {
                 for (int i = 0; i < 4; ++i) {
-                    FakeIllusionCreeperEntity fakeIllusionCreeperEntity = new FakeIllusionCreeperEntity(ElementalCreepers.FAKE_ILLUSION_CREEPER, this.mob.world);
+                    FakeIllusionCreeperEntity fakeIllusionCreeperEntity = new FakeIllusionCreeperEntity(CreeperRegistry.FAKE_ILLUSION_CREEPER, this.mob.world);
                     fakeIllusionCreeperEntity.refreshPositionAfterTeleport(this.mob.getX(), this.mob.getY(), this.mob.getZ());
                     this.mob.world.spawnEntity(fakeIllusionCreeperEntity);
                     fakeIllusionCreeperEntity.setVelocity(0, 0.5D, 0);

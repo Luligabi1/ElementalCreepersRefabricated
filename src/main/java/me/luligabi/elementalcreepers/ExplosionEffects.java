@@ -2,6 +2,7 @@ package me.luligabi.elementalcreepers;
 
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import me.luligabi.elementalcreepers.entity.tnt.FakeIllusionTntEntity;
+import me.luligabi.elementalcreepers.registry.TntRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -359,7 +360,7 @@ public class ExplosionEffects {
     }
     public void illusionTNTExplosionEffect(Entity entity, World entityWorld, double entityX, double entityY, double entityZ) {
         for (int i = 0; i < 4; ++i) {
-            FakeIllusionTntEntity fakeIllusionTntEntity = new FakeIllusionTntEntity(ElementalCreepers.FAKE_ILLUSION_TNT_ENTITY, entityWorld);
+            FakeIllusionTntEntity fakeIllusionTntEntity = new FakeIllusionTntEntity(TntRegistry.FAKE_ILLUSION_TNT_ENTITY, entityWorld);
             fakeIllusionTntEntity.refreshPositionAfterTeleport(entityX, entityY, entityZ);
             entityWorld.spawnEntity(fakeIllusionTntEntity);
             fakeIllusionTntEntity.setVelocity(-Math.sin(entityWorld.random.nextDouble() * 6.2831854820251465) * 0.02, 0.20000000298023224, -Math.cos(entityWorld.random.nextDouble() * 6.2831854820251465) * 0.02);

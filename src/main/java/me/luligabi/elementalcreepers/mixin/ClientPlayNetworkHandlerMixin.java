@@ -1,7 +1,7 @@
 package me.luligabi.elementalcreepers.mixin;
 
-import me.luligabi.elementalcreepers.ElementalCreepers;
 import me.luligabi.elementalcreepers.entity.tnt.*;
+import me.luligabi.elementalcreepers.registry.TntRegistry;
 import net.minecraft.client.network.ClientPlayNetworkHandler;
 import net.minecraft.client.world.ClientWorld;
 import net.minecraft.entity.Entity;
@@ -27,88 +27,88 @@ public class ClientPlayNetworkHandlerMixin {
         EntityType<?> entityType = packet.getEntityTypeId();
         Entity entity = null;
         
-        if (entityType == ElementalCreepers.WATER_TNT_ENTITY) {
-            WaterTntEntity waterTnt = new WaterTntEntity(ElementalCreepers.WATER_TNT_ENTITY, this.world);
+        if (entityType == TntRegistry.WATER_TNT_ENTITY) {
+            WaterTntEntity waterTnt = new WaterTntEntity(TntRegistry.WATER_TNT_ENTITY, this.world);
             ElementalTntEntity.update(waterTnt, this.world, x, y, z, null);
             entity = waterTnt;
         }
-        if (entityType == ElementalCreepers.FIRE_TNT_ENTITY) {
-            FireTntEntity fireTnt = new FireTntEntity(ElementalCreepers.FIRE_TNT_ENTITY, this.world);
+        if (entityType == TntRegistry.FIRE_TNT_ENTITY) {
+            FireTntEntity fireTnt = new FireTntEntity(TntRegistry.FIRE_TNT_ENTITY, this.world);
             ElementalTntEntity.update(fireTnt, this.world, x, y, z, null);
             entity = fireTnt;
         }
-        if (entityType == ElementalCreepers.EARTH_TNT_ENTITY) {
-            EarthTntEntity earthTnt = new EarthTntEntity(ElementalCreepers.EARTH_TNT_ENTITY, this.world);
+        if (entityType == TntRegistry.EARTH_TNT_ENTITY) {
+            EarthTntEntity earthTnt = new EarthTntEntity(TntRegistry.EARTH_TNT_ENTITY, this.world);
             ElementalTntEntity.update(earthTnt, this.world, x, y, z, null);
             entity = earthTnt;
         }
-        if (entityType == ElementalCreepers.AIR_TNT_ENTITY) {
-            AirTntEntity airTnt = new AirTntEntity(ElementalCreepers.AIR_TNT_ENTITY, this.world);
+        if (entityType == TntRegistry.AIR_TNT_ENTITY) {
+            AirTntEntity airTnt = new AirTntEntity(TntRegistry.AIR_TNT_ENTITY, this.world);
             ElementalTntEntity.update(airTnt, this.world, x, y, z, null);
             entity = airTnt;
         }
-        if (entityType == ElementalCreepers.ELECTRIC_TNT_ENTITY) {
-            ElectricTntEntity electricTnt = new ElectricTntEntity(ElementalCreepers.ELECTRIC_TNT_ENTITY, this.world);
+        if (entityType == TntRegistry.ELECTRIC_TNT_ENTITY) {
+            ElectricTntEntity electricTnt = new ElectricTntEntity(TntRegistry.ELECTRIC_TNT_ENTITY, this.world);
             ElementalTntEntity.update(electricTnt, this.world, x, y, z, null);
             entity = electricTnt;
         }
-        if (entityType == ElementalCreepers.LIGHT_TNT_ENTITY) {
-            LightTntEntity lightTnt = new LightTntEntity(ElementalCreepers.LIGHT_TNT_ENTITY, this.world);
+        if (entityType == TntRegistry.LIGHT_TNT_ENTITY) {
+            LightTntEntity lightTnt = new LightTntEntity(TntRegistry.LIGHT_TNT_ENTITY, this.world);
             ElementalTntEntity.update(lightTnt, this.world, x, y, z, null);
             entity = lightTnt;
         }
-        if (entityType == ElementalCreepers.DARK_TNT_ENTITY) {
-            DarkTntEntity darkTnt = new DarkTntEntity(ElementalCreepers.DARK_TNT_ENTITY, this.world);
+        if (entityType == TntRegistry.DARK_TNT_ENTITY) {
+            DarkTntEntity darkTnt = new DarkTntEntity(TntRegistry.DARK_TNT_ENTITY, this.world);
             ElementalTntEntity.update(darkTnt, this.world, x, y, z, null);
             entity = darkTnt;
         }
-        if (entityType == ElementalCreepers.ICE_TNT_ENTITY) {
-            IceTntEntity iceTnt = new IceTntEntity(ElementalCreepers.ICE_TNT_ENTITY, this.world);
+        if (entityType == TntRegistry.ICE_TNT_ENTITY) {
+            IceTntEntity iceTnt = new IceTntEntity(TntRegistry.ICE_TNT_ENTITY, this.world);
             ElementalTntEntity.update(iceTnt, this.world, x, y, z, null);
             entity = iceTnt;
         }
-        if (entityType == ElementalCreepers.MAGMA_TNT_ENTITY) {
-            MagmaTntEntity magmaTnt = new MagmaTntEntity(ElementalCreepers.MAGMA_TNT_ENTITY, this.world);
+        if (entityType == TntRegistry.MAGMA_TNT_ENTITY) {
+            MagmaTntEntity magmaTnt = new MagmaTntEntity(TntRegistry.MAGMA_TNT_ENTITY, this.world);
             ElementalTntEntity.update(magmaTnt, this.world, x, y, z, null);
             entity = magmaTnt;
         }
-        if (entityType == ElementalCreepers.HYDROGEN_TNT_ENTITY) {
-            HydrogenTntEntity hydrogenTnt = new  HydrogenTntEntity(ElementalCreepers.HYDROGEN_TNT_ENTITY, this.world);
+        if (entityType == TntRegistry.HYDROGEN_TNT_ENTITY) {
+            HydrogenTntEntity hydrogenTnt = new  HydrogenTntEntity(TntRegistry.HYDROGEN_TNT_ENTITY, this.world);
             ElementalTntEntity.update(hydrogenTnt, this.world, x, y, z, null);
             entity = hydrogenTnt;
         }
-        if (entityType == ElementalCreepers.REVERSE_TNT_ENTITY) {
-            ReverseTntEntity reverseTnt = new ReverseTntEntity(ElementalCreepers.REVERSE_TNT_ENTITY, this.world);
+        if (entityType == TntRegistry.REVERSE_TNT_ENTITY) {
+            ReverseTntEntity reverseTnt = new ReverseTntEntity(TntRegistry.REVERSE_TNT_ENTITY, this.world);
             ElementalTntEntity.update(reverseTnt, this.world, x, y, z, null);
             entity = reverseTnt;
         }
-        if (entityType == ElementalCreepers.MINER_TNT_ENTITY) {
-            MinerTntEntity minerTnt = new MinerTntEntity(ElementalCreepers.MINER_TNT_ENTITY, this.world);
+        if (entityType == TntRegistry.MINER_TNT_ENTITY) {
+            MinerTntEntity minerTnt = new MinerTntEntity(TntRegistry.MINER_TNT_ENTITY, this.world);
             ElementalTntEntity.update(minerTnt, this.world, x, y, z, null);
             entity = minerTnt;
         }
-        if (entityType == ElementalCreepers.ILLUSION_TNT_ENTITY) {
-            IllusionTntEntity illusionTnt = new IllusionTntEntity(ElementalCreepers.ILLUSION_TNT_ENTITY, this.world);
+        if (entityType == TntRegistry.ILLUSION_TNT_ENTITY) {
+            IllusionTntEntity illusionTnt = new IllusionTntEntity(TntRegistry.ILLUSION_TNT_ENTITY, this.world);
             ElementalTntEntity.update(illusionTnt, this.world, x, y, z, null);
             entity = illusionTnt;
         }
-        if (entityType == ElementalCreepers.FIREWORK_TNT_ENTITY) {
-            FireworkTntEntity fireworkTnt = new FireworkTntEntity(ElementalCreepers.FIREWORK_TNT_ENTITY, this.world);
+        if (entityType == TntRegistry.FIREWORK_TNT_ENTITY) {
+            FireworkTntEntity fireworkTnt = new FireworkTntEntity(TntRegistry.FIREWORK_TNT_ENTITY, this.world);
             ElementalTntEntity.update(fireworkTnt, this.world, x, y, z, null);
             entity = fireworkTnt;
         }
-        if (entityType == ElementalCreepers.COOKIE_TNT_ENTITY) {
-            CookieTntEntity cookieTnt = new CookieTntEntity(ElementalCreepers.COOKIE_TNT_ENTITY, this.world);
+        if (entityType == TntRegistry.COOKIE_TNT_ENTITY) {
+            CookieTntEntity cookieTnt = new CookieTntEntity(TntRegistry.COOKIE_TNT_ENTITY, this.world);
             ElementalTntEntity.update(cookieTnt, this.world, x, y, z, null);
             entity = cookieTnt;
         }
-        if (entityType == ElementalCreepers.RAINBOW_TNT_ENTITY) {
-            RainbowTntEntity rainbowTnt = new RainbowTntEntity(ElementalCreepers.RAINBOW_TNT_ENTITY, this.world);
+        if (entityType == TntRegistry.RAINBOW_TNT_ENTITY) {
+            RainbowTntEntity rainbowTnt = new RainbowTntEntity(TntRegistry.RAINBOW_TNT_ENTITY, this.world);
             ElementalTntEntity.update(rainbowTnt, this.world, x, y, z, null);
             entity = rainbowTnt;
         }
-        if (entityType == ElementalCreepers.FAKE_ILLUSION_TNT_ENTITY) {
-            FakeIllusionTntEntity fakeIllusionTnt = new FakeIllusionTntEntity(ElementalCreepers.FAKE_ILLUSION_TNT_ENTITY, this.world);
+        if (entityType == TntRegistry.FAKE_ILLUSION_TNT_ENTITY) {
+            FakeIllusionTntEntity fakeIllusionTnt = new FakeIllusionTntEntity(TntRegistry.FAKE_ILLUSION_TNT_ENTITY, this.world);
             ElementalTntEntity.update(fakeIllusionTnt, this.world, x, y, z, null);
             entity = fakeIllusionTnt;
         }

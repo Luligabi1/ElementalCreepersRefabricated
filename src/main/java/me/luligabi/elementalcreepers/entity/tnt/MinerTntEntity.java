@@ -1,7 +1,7 @@
 package me.luligabi.elementalcreepers.entity.tnt;
 
-import me.luligabi.elementalcreepers.ElementalCreepers;
 import me.luligabi.elementalcreepers.ExplosionEffects;
+import me.luligabi.elementalcreepers.registry.TntRegistry;
 import net.minecraft.block.DispenserBlock;
 import net.minecraft.block.dispenser.DispenserBehavior;
 import net.minecraft.block.dispenser.ItemDispenserBehavior;
@@ -18,11 +18,11 @@ public class MinerTntEntity extends ElementalTntEntity implements DispenserBehav
     public MinerTntEntity(EntityType<? extends ElementalTntEntity> entityType, World world) {
         super(entityType, world);
 
-        DispenserBlock.registerBehavior(ElementalCreepers.MINER_TNT_BLOCK, new ItemDispenserBehavior() {
+        DispenserBlock.registerBehavior(TntRegistry.MINER_TNT_BLOCK, new ItemDispenserBehavior() {
             protected ItemStack dispenseSilently(BlockPointer blockPointer, ItemStack itemStack) {
                 World world = blockPointer.getWorld();
                 BlockPos blockPos = blockPointer.getBlockPos().offset(blockPointer.getBlockState().get(DispenserBlock.FACING));
-                MinerTntEntity tntEntity = new MinerTntEntity(ElementalCreepers.MINER_TNT_ENTITY, world);
+                MinerTntEntity tntEntity = new MinerTntEntity(TntRegistry.MINER_TNT_ENTITY, world);
                 tntEntity.refreshPositionAfterTeleport((double) blockPos.getX() + 0.5D, (double) blockPos.getY(), (double) blockPos.getZ() + 0.5D);
                 world.spawnEntity(tntEntity);
                 tntEntity.setVelocity(-Math.sin(world.random.nextDouble() * 6.2831854820251465) * 0.02, 0.20000000298023224, -Math.cos(world.random.nextDouble() * 6.2831854820251465) * 0.02);
