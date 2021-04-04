@@ -362,8 +362,9 @@ public class ExplosionEffects {
             FakeIllusionTntEntity fakeIllusionTntEntity = new FakeIllusionTntEntity(ElementalCreepers.FAKE_ILLUSION_TNT_ENTITY, entityWorld);
             fakeIllusionTntEntity.refreshPositionAfterTeleport(entityX, entityY, entityZ);
             entityWorld.spawnEntity(fakeIllusionTntEntity);
-            fakeIllusionTntEntity.setVelocity(0, 0.5D, 0);
+            fakeIllusionTntEntity.setVelocity(-Math.sin(entityWorld.random.nextDouble() * 6.2831854820251465) * 0.02, 0.20000000298023224, -Math.cos(entityWorld.random.nextDouble() * 6.2831854820251465) * 0.02);
         }
         entity.setVelocity(0, 0.5D, 0);
+        entityWorld.createExplosion(entity, entityX, entityY, entityZ, 4, Explosion.DestructionType.BREAK);
     }
 }
