@@ -102,11 +102,7 @@ public class ClientPlayNetworkHandlerMixin {
             ElementalTntEntity.update(cookieTnt, this.world, x, y, z, null);
             entity = cookieTnt;
         }
-        if (entityType == TntRegistry.RAINBOW_TNT_ENTITY) {
-            RainbowTntEntity rainbowTnt = new RainbowTntEntity(TntRegistry.RAINBOW_TNT_ENTITY, this.world);
-            ElementalTntEntity.update(rainbowTnt, this.world, x, y, z, null);
-            entity = rainbowTnt;
-        }
+
         if (entityType == TntRegistry.FAKE_ILLUSION_TNT_ENTITY) {
             FakeIllusionTntEntity fakeIllusionTnt = new FakeIllusionTntEntity(TntRegistry.FAKE_ILLUSION_TNT_ENTITY, this.world);
             ElementalTntEntity.update(fakeIllusionTnt, this.world, x, y, z, null);

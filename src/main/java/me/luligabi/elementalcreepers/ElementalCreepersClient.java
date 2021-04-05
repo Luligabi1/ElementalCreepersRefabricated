@@ -45,7 +45,6 @@ public class ElementalCreepersClient implements ClientModInitializer {
         EntityRendererRegistry.INSTANCE.register(TntRegistry.MINER_TNT_ENTITY, (entityRenderDispatcher, context) -> new ElementalTntRenderer(entityRenderDispatcher, TntRegistry.MINER_TNT_BLOCK.getDefaultState()));
         EntityRendererRegistry.INSTANCE.register(TntRegistry.ILLUSION_TNT_ENTITY, (entityRenderDispatcher, context) -> new ElementalTntRenderer(entityRenderDispatcher, TntRegistry.ILLUSION_TNT_BLOCK.getDefaultState()));
         EntityRendererRegistry.INSTANCE.register(TntRegistry.FIREWORK_TNT_ENTITY, (entityRenderDispatcher, context) -> new ElementalTntRenderer(entityRenderDispatcher, TntRegistry.FIREWORK_TNT_BLOCK.getDefaultState()));
-        EntityRendererRegistry.INSTANCE.register(TntRegistry.RAINBOW_TNT_ENTITY, (entityRenderDispatcher, context) -> new ElementalTntRenderer(entityRenderDispatcher, TntRegistry.RAINBOW_TNT_BLOCK.getDefaultState()));
         EntityRendererRegistry.INSTANCE.register(TntRegistry.COOKIE_TNT_ENTITY, (entityRenderDispatcher, context) -> new ElementalTntRenderer(entityRenderDispatcher, TntRegistry.COOKIE_TNT_BLOCK.getDefaultState()));
 
         EntityRendererRegistry.INSTANCE.register(TntRegistry.FAKE_ILLUSION_TNT_ENTITY, (entityRenderDispatcher, context) -> new ElementalTntRenderer(entityRenderDispatcher, TntRegistry.FAKE_ILLUSION_TNT_BLOCK.getDefaultState()));

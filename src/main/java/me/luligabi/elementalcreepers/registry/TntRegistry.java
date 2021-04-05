@@ -65,9 +65,6 @@ public class TntRegistry {
         Registry.register(Registry.BLOCK, new Identifier(ElementalCreepers.MOD_ID, "cookie_tnt"), COOKIE_TNT_BLOCK);
         Registry.register(Registry.ITEM, new Identifier(ElementalCreepers.MOD_ID, "cookie_tnt"), new BlockItem(COOKIE_TNT_BLOCK, new FabricItemSettings().group(ElementalCreepers.CATEGORY)));
 
-        Registry.register(Registry.BLOCK, new Identifier(ElementalCreepers.MOD_ID, "rainbow_tnt"), RAINBOW_TNT_BLOCK);
-        Registry.register(Registry.ITEM, new Identifier(ElementalCreepers.MOD_ID, "rainbow_tnt"), new BlockItem(RAINBOW_TNT_BLOCK, new FabricItemSettings().group(ElementalCreepers.CATEGORY)));
-
         Registry.register(Registry.BLOCK, new Identifier(ElementalCreepers.MOD_ID, "fake_illusion_tnt"), FAKE_ILLUSION_TNT_BLOCK);
         Registry.register(Registry.ITEM, new Identifier(ElementalCreepers.MOD_ID, "fake_illusion_tnt"), new BlockItem(FAKE_ILLUSION_TNT_BLOCK, new FabricItemSettings()));
     }
@@ -177,13 +174,6 @@ public class TntRegistry {
             Registry.register(Registry.ENTITY_TYPE,
                     new Identifier(ElementalCreepers.MOD_ID, "cookie_tnt"),
                     FabricEntityTypeBuilder.create(SpawnGroup.MISC, CookieTntEntity::new).dimensions(EntityDimensions.fixed(0.98f, 0.98f)).fireImmune().trackRangeBlocks(10).trackedUpdateRate(10).build());
-
-    public static final Block RAINBOW_TNT_BLOCK = new RainbowTntBlock(FabricBlockSettings.of(Material.TNT).breakInstantly().sounds(BlockSoundGroup.GRASS));
-
-    public static final EntityType<RainbowTntEntity> RAINBOW_TNT_ENTITY =
-            Registry.register(Registry.ENTITY_TYPE,
-                    new Identifier(ElementalCreepers.MOD_ID, "rainbow_tnt"),
-                    FabricEntityTypeBuilder.create(SpawnGroup.MISC, RainbowTntEntity::new).dimensions(EntityDimensions.fixed(0.98f, 0.98f)).fireImmune().trackRangeBlocks(10).trackedUpdateRate(10).build());
 
     public static final Block FAKE_ILLUSION_TNT_BLOCK = new FakeIllusionTntBlock(FabricBlockSettings.of(Material.TNT).breakInstantly().sounds(BlockSoundGroup.GRASS));
 
