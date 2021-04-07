@@ -49,5 +49,50 @@
   "entity.elementalcreepers.rainbow_creeper": "Creeper Arco-Íris",
   "item.elementalcreepers.rainbow_creeper_spawn_egg": "Invocar Creeper Arco-Íris",
 
+  "block.elementalcreepers.water_tnt": "Dinamite de Água",
+  "item.elementalcreepers.water_gunpowder": "Pólvora de Água",
+
+  "block.elementalcreepers.fire_tnt": "Dinamite de Fogo",
+  "item.elementalcreepers.fire_gunpowder": "Pólvora de Fogo",
+
+  "block.elementalcreepers.earth_tnt": "Dinamite de Terra",
+  "item.elementalcreepers.earth_gunpowder": "Pólvora de Terra",
+
+  "block.elementalcreepers.air_tnt": "Dinamite de Ar",
+  "item.elementalcreepers.air_gunpowder": "Pólvora de Ar",
+
+  "block.elementalcreepers.electric_tnt": "Dinamite Elétrica",
+  "item.elementalcreepers.electric_gunpowder": "Pólvora Elétrica",
+
+  "block.elementalcreepers.light_tnt": "Dinamite de Luz",
+  "item.elementalcreepers.light_gunpowder": "Pólvora de Luz",
+
+  "block.elementalcreepers.dark_tnt": "Dinamite das Trevas",
+  "item.elementalcreepers.dark_gunpowder": "Pólvora das Trevas",
+
+  "block.elementalcreepers.ice_tnt": "Dinamite de Gelo",
+  "item.elementalcreepers.ice_gunpowder": "Pólvora de Gelo",
+
+  "block.elementalcreepers.magma_tnt": "Dinamite de Magma",
+  "item.elementalcreepers.magma_gunpowder": "Pólvora de Magma",
+
+  "block.elementalcreepers.hydrogen_tnt": "Dinamite de Hidrogênio",
+  "item.elementalcreepers.hydrogen_gunpowder": "Pólvora de Hidrogênio",
+
+  "block.elementalcreepers.reverse_tnt": "Dinamite Reversa",
+  "item.elementalcreepers.reverse_gunpowder": "Pólvora Reversa",
+
+  "block.elementalcreepers.miner_tnt": "Dinamite Mineiradora",
+  "item.elementalcreepers.miner_gunpowder": "Pólvora de Mineirador",
+
+  "block.elementalcreepers.illusion_tnt": "Dinamite de Ilusão",
+  "item.elementalcreepers.illusion_gunpowder": "Pólvora de Ilusão",
+
+  "block.elementalcreepers.firework_tnt": "Dinamite de Fogos de Artifício",
+  "item.elementalcreepers.firework_gunpowder": "Pólvora de Fogos de Artifício",
+
+  "block.elementalcreepers.cookie_tnt": "Dinamite de Biscoito",
+  "item.elementalcreepers.cookie_gunpowder": "Pólvora de Biscoito",
+
   "itemGroup.elementalcreepers.category": "Elemental Creepers: Refabricated"
 }
