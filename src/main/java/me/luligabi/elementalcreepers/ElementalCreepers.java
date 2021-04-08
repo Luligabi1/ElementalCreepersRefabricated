@@ -107,6 +107,7 @@ public class ElementalCreepers implements ModInitializer {
         SpawnEggRegistry.register();
         TntRegistry.register();
         ItemRegistry.register();
+        DispenserLogicRegistry.register();
         LOGGER.info("Mod Initialized!");
     }
 
