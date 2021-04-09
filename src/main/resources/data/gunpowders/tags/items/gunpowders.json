@@ -1,0 +1,20 @@
+{
+  "replace": false,
+  "values": [
+    "elementalcreepers:water_gunpowder",
+    "elementalcreepers:fire_gunpowder",
+    "elementalcreepers:earth_gunpowder",
+    "elementalcreepers:air_gunpowder",
+    "elementalcreepers:electric_gunpowder",
+    "elementalcreepers:light_gunpowder",
+    "elementalcreepers:dark_gunpowder",
+    "elementalcreepers:ice_gunpowder",
+    "elementalcreepers:magma_gunpowder",
+    "elementalcreepers:hydrogen_gunpowder",
+    "elementalcreepers:reverse_gunpowder",
+    "elementalcreepers:miner_gunpowder",
+    "elementalcreepers:illusion_gunpowder",
+    "elementalcreepers:firework_gunpowder",
+    "elementalcreepers:cookie_gunpowder"
+  ]
+}
