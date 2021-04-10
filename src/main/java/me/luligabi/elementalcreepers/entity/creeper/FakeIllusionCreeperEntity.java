@@ -13,7 +13,6 @@ public class FakeIllusionCreeperEntity extends ElementalCreeperEntity {
 
     @Override
     public void onExplode() {
-        //TODO: Add white particle here.
         super.onExplode();
     }
 }
