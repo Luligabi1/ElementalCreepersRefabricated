@@ -3,6 +3,6 @@
   "textures": {
     "top": "minecraft:block/tnt_bottom",
     "bottom": "minecraft:block/tnt_top",
-    "side": "elementalcreepers:block/reverse_tnt_side"
+    "side": "elementalcreepers:block/reverse_tnt/reverse_tnt_side"
   }
 }
