@@ -1,5 +1,6 @@
 package me.luligabi.elementalcreepers.entity.creeper;
 
+import me.luligabi.elementalcreepers.mixin.CreeperEntityAccessor;
 import me.luligabi.elementalcreepers.mixin.CreeperEntityInvoker;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.mob.CreeperEntity;
@@ -16,5 +17,9 @@ public abstract class ElementalCreeperEntity extends CreeperEntity {
         this.dead = true;
         this.remove();
         ((CreeperEntityInvoker) this).invokeSpawnEffectsCloud();
+    }
+
+    public boolean isCharged() {
+        return this.dataTracker.get(CreeperEntityAccessor.isCharged());
     }
 }
