@@ -14,7 +14,7 @@ public class AirCreeperEntity extends ElementalCreeperEntity {
 
     @Override
     public void onExplode() {
-        new ExplosionEffects().airExplosionEffect(this.world, this.getX(), this.getY(), this.getZ());
+        new ExplosionEffects().airExplosionEffect(this, this.world, this.getX(), this.getY(), this.getZ());
         super.onExplode();
     }
 }

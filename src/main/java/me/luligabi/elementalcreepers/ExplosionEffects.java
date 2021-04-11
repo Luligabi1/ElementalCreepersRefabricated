@@ -1,6 +1,7 @@
 package me.luligabi.elementalcreepers;
 
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
+import me.luligabi.elementalcreepers.entity.creeper.ElementalCreeperEntity;
 import me.luligabi.elementalcreepers.entity.tnt.FakeIllusionTntEntity;
 import me.luligabi.elementalcreepers.registry.TntRegistry;
 import net.minecraft.block.Block;
@@ -27,10 +28,14 @@ public class ExplosionEffects {
     SimpleConfig config = new ElementalCreepers().getConfig();
 
     public void waterExplosionEffect(Entity entity, World entityWorld, double entityX, double entityY, double entityZ) {
+        double radius = config.getOrDefault("waterCreeperRadius", 3);
+
+        if(entity instanceof ElementalCreeperEntity) {
+            radius = ((ElementalCreeperEntity) entity).isCharged() ? radius*1.5 : radius;
+        }
         entityWorld.createExplosion(entity,
                 entityX, entityY, entityZ, 0, Explosion.DestructionType.NONE);
         if(entityWorld.getGameRules().getBoolean(GameRules.DO_MOB_GRIEFING)) {
-            double radius = config.getOrDefault("waterCreeperRadius", 3);
             for (int x = (int) -radius - 1; x <= radius; x++) {
                 for (int y = (int) -radius - 1; y <= radius; y++) {
                     for (int z = (int) -radius - 1; z <= radius; z++) {
@@ -44,10 +49,14 @@ public class ExplosionEffects {
         }
     }
     public void fireExplosionEffect(Entity entity, World entityWorld, double entityX, double entityY, double entityZ) {
+        double radius = config.getOrDefault("fireCreeperRadius", 3);
+
+        if(entity instanceof ElementalCreeperEntity) {
+            radius = ((ElementalCreeperEntity) entity).isCharged() ? radius*1.5 : radius;
+        }
         entityWorld.createExplosion(entity,
                 entityX, entityY, entityZ, 0, Explosion.DestructionType.NONE);
         if(entityWorld.getGameRules().getBoolean(GameRules.DO_MOB_GRIEFING)) {
-            double radius = config.getOrDefault("fireCreeperRadius", 3);
             for (int x = (int) -radius - 1; x <= radius; x++) {
                 for (int y = (int) -radius - 1; y <= radius; y++) {
                     for (int z = (int) -radius - 1; z <= radius; z++) {
@@ -62,10 +71,14 @@ public class ExplosionEffects {
         }
     }
     public void earthExplosionEffect(Entity entity, World entityWorld, double entityX, double entityY, double entityZ) {
+        double radius = config.getOrDefault("earthCreeperRadius", 5);
+
+        if(entity instanceof ElementalCreeperEntity) {
+            radius = ((ElementalCreeperEntity) entity).isCharged() ? radius*1.5 : radius;
+        }
         entityWorld.createExplosion(entity,
                 entityX, entityY, entityZ, 0, Explosion.DestructionType.NONE);
         if(entityWorld.getGameRules().getBoolean(GameRules.DO_MOB_GRIEFING)) {
-            double radius = config.getOrDefault("earthCreeperRadius", 5);
             for (int x = (int) -radius - 1; x <= radius; x++) {
                 for (int y = (int) -radius - 1; y <= radius; y++) {
                     for (int z = (int) -radius - 1; z <= radius; z++) {
@@ -88,10 +101,15 @@ public class ExplosionEffects {
             }
         }
     }
-    public void airExplosionEffect(World entityWorld, double entityX, double entityY, double entityZ) {
+    public void airExplosionEffect(Entity entity, World entityWorld, double entityX, double entityY, double entityZ) {
+        double radius = config.getOrDefault("airCreeperRadius", 1.75D);
+
+        if(entity instanceof ElementalCreeperEntity) {
+            radius = ((ElementalCreeperEntity) entity).isCharged() ? radius*1.5 : radius;
+        }
         for(Entity entities : entityWorld.getOtherEntities(null, new Box(entityX-5, entityY-5, entityZ-5, entityX+5, entityY+5, entityZ+5))) {
             if(entities instanceof LivingEntity) {
-                 entities.setVelocity(0, config.getOrDefault("airCreeperRadius", 1.75D), 0);
+                 entities.setVelocity(0, radius, 0);
             }
         }
     }
@@ -102,10 +120,14 @@ public class ExplosionEffects {
         entityWorld.spawnEntity(lightningEntity);
     }
     public void lightExplosionEffect(Entity entity, World entityWorld, double entityX, double entityY, double entityZ) {
+        double radius = config.getOrDefault("lightCreeperRadius", 4);
+
+        if(entity instanceof ElementalCreeperEntity) {
+            radius = ((ElementalCreeperEntity) entity).isCharged() ? radius*1.5 : radius;
+        }
         entityWorld.createExplosion(entity,
                 entityX, entityY, entityZ, 0, Explosion.DestructionType.NONE);
         if(entityWorld.getGameRules().getBoolean(GameRules.DO_MOB_GRIEFING)) {
-            double radius = config.getOrDefault("lightCreeperRadius", 4);
             for (int x = (int) -radius - 1; x <= radius; x++) {
                 for (int y = (int) -radius - 1; y <= radius; y++) {
                     for (int z = (int) -radius - 1; z <= radius; z++) {
@@ -126,17 +148,20 @@ public class ExplosionEffects {
         }
         for(Entity entities : entityWorld.getOtherEntities(null, new Box(entityX-5, entityY-5, entityZ-5, entityX+5, entityY+5, entityZ+5))) {
             if(entities instanceof LivingEntity) {
-                // TODO: Add "white blindness" effect
                 ((LivingEntity) entities).addStatusEffect(new StatusEffectInstance(StatusEffects.GLOWING, 40 * 20, 0));
             }
         }
     }
     public void darkExplosionEffect(Entity entity, World entityWorld, double entityX, double entityY, double entityZ) {
+        double radius = config.getOrDefault("darkCreeperRadius", 4);
+
+        if(entity instanceof ElementalCreeperEntity) {
+            radius = ((ElementalCreeperEntity) entity).isCharged() ? radius*1.5 : radius;
+        }
         entityWorld.createExplosion(entity,
                 entityX, entityY, entityZ,
                 0, Explosion.DestructionType.NONE);
         if(entityWorld.getGameRules().getBoolean(GameRules.DO_MOB_GRIEFING)) {
-            double radius = config.getOrDefault("darkCreeperRadius", 4);
             for (int x = (int) -radius; x <= radius; x++) {
                 for (int y = (int) -radius; y <= radius; y++) {
                     for (int z = (int) -radius; z <= radius; z++) {
@@ -162,10 +187,14 @@ public class ExplosionEffects {
         }
     }
     public void iceExplosionEffect(Entity entity, World entityWorld, double entityX, double entityY, double entityZ) {
+        double radius = config.getOrDefault("iceCreeperRadius", 4);
+
+        if(entity instanceof ElementalCreeperEntity) {
+            radius = ((ElementalCreeperEntity) entity).isCharged() ? radius*1.5 : radius;
+        }
         entityWorld.createExplosion(entity,
                 entityX, entityY, entityZ, 0, Explosion.DestructionType.NONE);
         if(entityWorld.getGameRules().getBoolean(GameRules.DO_MOB_GRIEFING)) {
-            double radius = config.getOrDefault("iceCreeperRadius", 4);
             for (int x = (int) -radius - 1; x <= radius; x++) {
                 for (int y = (int) -radius - 1; y <= radius; y++) {
                     for (int z = (int) -radius - 1; z <= radius; z++) {
@@ -194,10 +223,14 @@ public class ExplosionEffects {
         }
     }
     public void magmaExplosionEffect(Entity entity, World entityWorld, double entityX, double entityY, double entityZ) {
+        double radius = config.getOrDefault("magmaCreeperRadius", 4);
+
+        if(entity instanceof ElementalCreeperEntity) {
+            radius = ((ElementalCreeperEntity) entity).isCharged() ? radius*1.5 : radius;
+        }
         entityWorld.createExplosion(entity,
                 entityX, entityY, entityZ, 0, Explosion.DestructionType.NONE);
         if(entityWorld.getGameRules().getBoolean(GameRules.DO_MOB_GRIEFING)) {
-            double radius = config.getOrDefault("magmaCreeperRadius", 4);
             for (int x = (int) -radius - 1; x <= radius; x++) {
                 for (int y = (int) -radius - 1; y <= radius; y++) {
                     for (int z = (int) -radius - 1; z <= radius; z++) {
@@ -211,13 +244,21 @@ public class ExplosionEffects {
         }
     }
     public void hydrogenExplosionEffect(Entity entity, World entityWorld, double entityX, double entityY, double entityZ) {
-        entityWorld.createExplosion(entity, entityX, entityY, entityZ,
-                (float) config.getOrDefault("hydrogenCreeperRadius", 7F), entityWorld.getGameRules().getBoolean(GameRules.DO_MOB_GRIEFING) ?
-                        Explosion.DestructionType.DESTROY : Explosion.DestructionType.NONE);
+        double radius = config.getOrDefault("hydrogenCreeperRadius", 7F);
+
+        if(entity instanceof ElementalCreeperEntity) {
+            radius = ((ElementalCreeperEntity) entity).isCharged() ? radius*1.5 : radius;
+        }
+        entityWorld.createExplosion(entity, entityX, entityY, entityZ, (float) radius,
+                entityWorld.getGameRules().getBoolean(GameRules.DO_MOB_GRIEFING) ?
+                Explosion.DestructionType.DESTROY : Explosion.DestructionType.NONE);
     }
     public void reverseExplosionEffect(Entity entity, World entityWorld, double entityX, double entityY, double entityZ) {
         double radius = config.getOrDefault("reverseCreeperRadius", 3.75);
 
+        if(entity instanceof ElementalCreeperEntity) {
+            radius = ((ElementalCreeperEntity) entity).isCharged() ? radius*1.5 : radius;
+        }
         entityWorld.createExplosion(entity,
                 entityX, entityY, entityZ, 0, Explosion.DestructionType.NONE);
         if(entityWorld.getGameRules().getBoolean(GameRules.DO_MOB_GRIEFING)) {
@@ -263,10 +304,14 @@ public class ExplosionEffects {
         }
     }
     public void minerExplosionEffect(Entity entity, World entityWorld, double entityX, double entityY, double entityZ) {
+        double radius = config.getOrDefault("minerCreeperRadius", 3.75);
+
+        if(entity instanceof ElementalCreeperEntity) {
+            radius = ((ElementalCreeperEntity) entity).isCharged() ? radius*1.5 : radius;
+        }
         entityWorld.createExplosion(entity, entityX, entityY, entityZ,
                 0, Explosion.DestructionType.NONE);
         if(entityWorld.getGameRules().getBoolean(GameRules.DO_MOB_GRIEFING)) {
-            double radius = config.getOrDefault("minerCreeperRadius", 3.75);
             for (int x = (int) -radius; x <= radius; x++) {
                 for (int y = (int) -radius; y <= radius; y++) {
                     for (int z = (int) -radius; z <= radius; z++) {
@@ -322,7 +367,7 @@ public class ExplosionEffects {
                 earthExplosionEffect(entity, entityWorld, entityX, entityY, entityZ);
                 break;
             case 4:
-                airExplosionEffect(entityWorld, entityX, entityY, entityZ);
+                airExplosionEffect(entity, entityWorld, entityX, entityY, entityZ);
                 break;
             case 5:
                 electricExplosionEffect(entityWorld, entityX, entityY, entityZ);

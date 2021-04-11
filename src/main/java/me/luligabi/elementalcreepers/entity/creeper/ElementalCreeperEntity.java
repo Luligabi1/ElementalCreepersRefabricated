@@ -6,7 +6,6 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.entity.mob.CreeperEntity;
 import net.minecraft.world.World;
 
-@SuppressWarnings("EntityConstructor")
 public abstract class ElementalCreeperEntity extends CreeperEntity {
 
     public ElementalCreeperEntity(EntityType<? extends CreeperEntity> entityType, World world) {
