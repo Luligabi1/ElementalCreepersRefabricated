@@ -94,5 +94,8 @@
   "block.elementalcreepers.cookie_tnt": "Dinamite de Biscoito",
   "item.elementalcreepers.cookie_gunpowder": "Pólvora de Biscoito",
 
+  "item.elementalcreepers.gunpowder.tooltip.1": "Usada para fabricar Dinamites Elementais",
+  "item.elementalcreepers.gunpowder.tooltip.2": "Dica: Pode ser fabricada em Pólvora em proporção 1:2",
+
   "itemGroup.elementalcreepers.category": "Elemental Creepers: Refabricated"
 }

@@ -94,5 +94,8 @@
   "block.elementalcreepers.cookie_tnt": "Cookie TNT",
   "item.elementalcreepers.cookie_gunpowder": "Cookie Gunpowder",
 
+  "item.elementalcreepers.gunpowder.tooltip.1": "Used to craft Elemental TNT's",
+  "item.elementalcreepers.gunpowder.tooltip.2": "TIP: Can be crafted into gunpowder on a 1:2 ratio.",
+
   "itemGroup.elementalcreepers.category": "Elemental Creepers: Refabricated"
 }
