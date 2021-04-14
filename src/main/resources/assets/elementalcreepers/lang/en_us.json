@@ -49,5 +49,53 @@
   "entity.elementalcreepers.rainbow_creeper": "Rainbow Creeper",
   "item.elementalcreepers.rainbow_creeper_spawn_egg": "Rainbow Creeper Spawn Egg",
 
+  "block.elementalcreepers.water_tnt": "Water TNT",
+  "item.elementalcreepers.water_gunpowder": "Water Gunpowder",
+
+  "block.elementalcreepers.fire_tnt": "Fire TNT",
+  "item.elementalcreepers.fire_gunpowder": "Fire Gunpowder",
+
+  "block.elementalcreepers.earth_tnt": "Earth TNT",
+  "item.elementalcreepers.earth_gunpowder": "Earth Gunpowder",
+
+  "block.elementalcreepers.air_tnt": "Air TNT",
+  "item.elementalcreepers.air_gunpowder": "Air Gunpowder",
+
+  "block.elementalcreepers.electric_tnt": "Electric TNT",
+  "item.elementalcreepers.electric_gunpowder": "Electric Gunpowder",
+
+  "block.elementalcreepers.light_tnt": "Light TNT",
+  "item.elementalcreepers.light_gunpowder": "Light Gunpowder",
+
+  "block.elementalcreepers.dark_tnt": "Dark TNT",
+  "item.elementalcreepers.dark_gunpowder": "Dark Gunpowder",
+
+  "block.elementalcreepers.ice_tnt": "Ice TNT",
+  "item.elementalcreepers.ice_gunpowder": "Ice Gunpowder",
+
+  "block.elementalcreepers.magma_tnt": "Magma TNT",
+  "item.elementalcreepers.magma_gunpowder": "Magma Gunpowder",
+
+  "block.elementalcreepers.hydrogen_tnt": "Hydrogen TNT",
+  "item.elementalcreepers.hydrogen_gunpowder": "Hydrogen Gunpowder",
+
+  "block.elementalcreepers.reverse_tnt": "Reverse TNT",
+  "item.elementalcreepers.reverse_gunpowder": "Reverse Gunpowder",
+
+  "block.elementalcreepers.miner_tnt": "Miner TNT",
+  "item.elementalcreepers.miner_gunpowder": "Miner Gunpowder",
+
+  "block.elementalcreepers.illusion_tnt": "Illusion TNT",
+  "item.elementalcreepers.illusion_gunpowder": "Illusion Gunpowder",
+
+  "block.elementalcreepers.firework_tnt": "Firework TNT",
+  "item.elementalcreepers.firework_gunpowder": "Firework Gunpowder",
+
+  "block.elementalcreepers.cookie_tnt": "Cookie TNT",
+  "item.elementalcreepers.cookie_gunpowder": "Cookie Gunpowder",
+
+  "item.elementalcreepers.gunpowder.tooltip.1": "Used to craft Elemental TNT's",
+  "item.elementalcreepers.gunpowder.tooltip.2": "TIP: Can be crafted into gunpowder on a 1:2 ratio.",
+
   "itemGroup.elementalcreepers.category": "Elemental Creepers: Refabricated"
 }

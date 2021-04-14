@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "top": "elementalcreepers:block/electric_tnt/electric_tnt_top",
+    "bottom": "elementalcreepers:block/electric_tnt/electric_tnt_bottom",
+    "side": "elementalcreepers:block/electric_tnt/electric_tnt_side"
+  }
+}
