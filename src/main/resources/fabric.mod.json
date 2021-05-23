@@ -21,10 +21,10 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "me.luligabi.elementalcreepers.ElementalCreepers"
+      "me.luligabi.elementalcreepers.common.ElementalCreepers"
     ],
     "client": [
-      "me.luligabi.elementalcreepers.ElementalCreepersClient"
+      "me.luligabi.elementalcreepers.client.ElementalCreepersClient"
     ]
   },
   "mixins": [
