@@ -1,6 +1,8 @@
-package me.luligabi.elementalcreepers;
+package me.luligabi.elementalcreepers.entity;
 
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
+import me.luligabi.elementalcreepers.ElementalCreepers;
+import me.luligabi.elementalcreepers.SimpleConfig;
 import me.luligabi.elementalcreepers.entity.creeper.ElementalCreeperEntity;
 import me.luligabi.elementalcreepers.entity.tnt.FakeIllusionTntEntity;
 import me.luligabi.elementalcreepers.registry.TntRegistry;
@@ -85,15 +87,9 @@ public class ExplosionEffects {
                         BlockPos blockPos = new BlockPos(entityX + x, entityY + y, entityZ + z);
                         if (entityWorld.getBlockState(blockPos).isAir() && Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2) + Math.pow(z, 2)) <= radius) {
                             switch (new Random().nextInt(5 - 1 + 1) + 1) {
-                                case 1:
-                                    entityWorld.setBlockState(blockPos, Blocks.DIRT.getDefaultState());
-                                    break;
-                                case 2:
-                                    entityWorld.setBlockState(blockPos, Blocks.COARSE_DIRT.getDefaultState());
-                                    break;
-                                default:
-                                    entityWorld.setBlockState(blockPos, Blocks.AIR.getDefaultState());
-                                    break;
+                                case 1 -> entityWorld.setBlockState(blockPos, Blocks.DIRT.getDefaultState());
+                                case 2 -> entityWorld.setBlockState(blockPos, Blocks.COARSE_DIRT.getDefaultState());
+                                default -> entityWorld.setBlockState(blockPos, Blocks.AIR.getDefaultState());
                             }
                         }
                     }
@@ -134,12 +130,8 @@ public class ExplosionEffects {
                         BlockPos blockPos = new BlockPos(entityX + x, entityY + y, entityZ + z);
                         if (entityWorld.getBlockState(blockPos).isAir() && Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2) + Math.pow(z, 2)) <= radius) {
                             switch (new Random().nextInt(5 - 1 + 1) + 1) {
-                                case 1: case 2:
-                                    entityWorld.setBlockState(blockPos, Blocks.GLOWSTONE.getDefaultState());
-                                    break;
-                                case 3: case 4: case 5:
-                                    entityWorld.setBlockState(blockPos, Blocks.AIR.getDefaultState());
-                                    break;
+                                case 1, 2 -> entityWorld.setBlockState(blockPos, Blocks.GLOWSTONE.getDefaultState());
+                                case 3, 4, 5 -> entityWorld.setBlockState(blockPos, Blocks.AIR.getDefaultState());
                             }
                         }
                     }
@@ -320,7 +312,16 @@ public class ExplosionEffects {
 
                         if (state != null && state.getBlock() != null) {
                             Block stoneBlock = state.getBlock();
-                            Block[] stoneBlockList = {Blocks.STONE, Blocks.GRANITE, Blocks.DIORITE, Blocks.ANDESITE, Blocks.GRAVEL, Blocks.CLAY};
+                            Block[] stoneBlockList = {Blocks.STONE,
+                                    Blocks.GRANITE,
+                                    Blocks.DIORITE,
+                                    Blocks.ANDESITE,
+                                    Blocks.GRAVEL,
+                                    Blocks.CLAY,
+                                    Blocks.DEEPSLATE,
+                                    Blocks.COBBLED_DEEPSLATE,
+                                    Blocks.CALCITE,
+                                    Blocks.TUFF};
 
                             if (stoneBlock != null && Arrays.asList(stoneBlockList).contains(stoneBlock) && Math.sqrt(Math.pow(x, 2.0D) + Math.pow(y, 2.0D) + Math.pow(z, 2.0D)) <= radius) {
                                 entityWorld.setBlockState(blockPos, Blocks.AIR.getDefaultState());

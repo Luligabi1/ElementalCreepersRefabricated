@@ -1,8 +1,8 @@
 package me.luligabi.elementalcreepers.entity.creeper;
 
 import me.luligabi.elementalcreepers.ElementalCreepers;
-import me.luligabi.elementalcreepers.ExplosionEffects;
 import me.luligabi.elementalcreepers.SimpleConfig;
+import me.luligabi.elementalcreepers.entity.ExplosionEffects;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityType;

@@ -1,6 +1,6 @@
 package me.luligabi.elementalcreepers.entity.creeper;
 
-import me.luligabi.elementalcreepers.ExplosionEffects;
+import me.luligabi.elementalcreepers.entity.ExplosionEffects;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.mob.CreeperEntity;
 import net.minecraft.world.World;
