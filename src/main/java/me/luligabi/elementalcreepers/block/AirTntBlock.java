@@ -10,7 +10,7 @@ public class AirTntBlock extends ElementalTntBlock {
         super(settings, (world, x, y, z, livingEntity) -> {
             AirTntEntity tntEntity;
             tntEntity = new AirTntEntity(TntRegistry.AIR_TNT_ENTITY, world);
-            ElementalTntEntity.update(tntEntity, world, x, y, z, livingEntity);
+            ElementalTntEntity.update(tntEntity, world, x, y, z);
             return tntEntity;
         });
     }

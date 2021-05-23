@@ -3,20 +3,20 @@ package me.luligabi.elementalcreepers.renderer;
 import me.luligabi.elementalcreepers.entity.tnt.ElementalTntEntity;
 import net.minecraft.block.BlockState;
 import net.minecraft.client.render.VertexConsumerProvider;
-import net.minecraft.client.render.entity.EntityRenderDispatcher;
 import net.minecraft.client.render.entity.EntityRenderer;
+import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.client.render.entity.TntMinecartEntityRenderer;
 import net.minecraft.client.texture.SpriteAtlasTexture;
 import net.minecraft.client.util.math.MatrixStack;
-import net.minecraft.client.util.math.Vector3f;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.Vec3f;
 
 public class ElementalTntRenderer extends EntityRenderer<ElementalTntEntity> {
     private final BlockState blockState;
 
-    public ElementalTntRenderer(EntityRenderDispatcher entityRenderDispatcher, BlockState blockState) {
-        super(entityRenderDispatcher);
+    public ElementalTntRenderer(EntityRendererFactory.Context context, BlockState blockState) {
+        super(context);
         this.shadowRadius = 0.5f;
         this.blockState = blockState;
     }
@@ -32,9 +32,9 @@ public class ElementalTntRenderer extends EntityRenderer<ElementalTntEntity> {
             final float j = 1.0f + h * 0.3f;
             matrixStack.scale(j, j, j);
         }
-        matrixStack.multiply(Vector3f.POSITIVE_Y.getDegreesQuaternion(-90.0f));
+        matrixStack.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion(-90.0f));
         matrixStack.translate(-0.5, -0.5, 0.5);
-        matrixStack.multiply(Vector3f.POSITIVE_Y.getDegreesQuaternion(90.0f));
+        matrixStack.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion(90.0f));
         TntMinecartEntityRenderer.renderFlashingBlock(this.blockState, matrixStack, vertexConsumerProvider, i, tntEntity.getFuseTimer() / 5 % 2 == 0);
         matrixStack.pop();
         super.render(tntEntity, f, g, matrixStack, vertexConsumerProvider, i);

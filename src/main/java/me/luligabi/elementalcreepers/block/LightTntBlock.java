@@ -10,7 +10,7 @@ public class LightTntBlock extends ElementalTntBlock {
         super(settings, (world, x, y, z, livingEntity) -> {
             LightTntEntity tntEntity;
             tntEntity = new LightTntEntity(TntRegistry.LIGHT_TNT_ENTITY, world);
-            ElementalTntEntity.update(tntEntity, world, x, y, z, livingEntity);
+            ElementalTntEntity.update(tntEntity, world, x, y, z);
             return tntEntity;
         });
     }

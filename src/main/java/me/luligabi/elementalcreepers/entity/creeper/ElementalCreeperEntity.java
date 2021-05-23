@@ -14,7 +14,7 @@ public abstract class ElementalCreeperEntity extends CreeperEntity {
     public void onExplode() {
         this.clearStatusEffects();
         this.dead = true;
-        this.remove();
+        this.discard();
         ((CreeperEntityInvoker) this).invokeSpawnEffectsCloud();
     }
 

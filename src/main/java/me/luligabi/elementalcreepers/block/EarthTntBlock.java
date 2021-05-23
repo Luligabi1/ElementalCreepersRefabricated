@@ -10,7 +10,7 @@ public class EarthTntBlock extends ElementalTntBlock {
         super(settings, (world, x, y, z, livingEntity) -> {
             EarthTntEntity tntEntity;
             tntEntity = new EarthTntEntity(TntRegistry.EARTH_TNT_ENTITY, world);
-            ElementalTntEntity.update(tntEntity, world, x, y, z, livingEntity);
+            ElementalTntEntity.update(tntEntity, world, x, y, z);
             return tntEntity;
         });
     }

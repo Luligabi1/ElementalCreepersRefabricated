@@ -10,7 +10,7 @@ public class FakeIllusionTntBlock extends ElementalTntBlock {
         super(settings, (world, x, y, z, livingEntity) -> {
             FakeIllusionTntEntity tntEntity;
             tntEntity = new FakeIllusionTntEntity(TntRegistry.FAKE_ILLUSION_TNT_ENTITY, world);
-            ElementalTntEntity.update(tntEntity, world, x, y, z, livingEntity);
+            ElementalTntEntity.update(tntEntity, world, x, y, z);
             return tntEntity;
         });
     }

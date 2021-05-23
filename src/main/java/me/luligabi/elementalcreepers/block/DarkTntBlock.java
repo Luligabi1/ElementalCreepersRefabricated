@@ -10,7 +10,7 @@ public class DarkTntBlock extends ElementalTntBlock {
         super(settings, (world, x, y, z, livingEntity) -> {
             DarkTntEntity tntEntity;
             tntEntity = new DarkTntEntity(TntRegistry.DARK_TNT_ENTITY, world);
-            ElementalTntEntity.update(tntEntity, world, x, y, z, livingEntity);
+            ElementalTntEntity.update(tntEntity, world, x, y, z);
             return tntEntity;
         });
     }

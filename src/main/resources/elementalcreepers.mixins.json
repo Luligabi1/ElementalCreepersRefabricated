@@ -2,11 +2,12 @@
   "required": true,
   "minVersion": "0.8",
   "package": "me.luligabi.elementalcreepers.mixin",
-  "compatibilityLevel": "JAVA_8",
+  "compatibilityLevel": "JAVA_16",
   "mixins": [
     "CreeperEntityAccessor",
     "CreeperEntityInvoker",
-    "CreeperEntityMixin"
+    "CreeperEntityMixin",
+    "EntityAccessor"
   ],
   "client": [
     "ClientPlayNetworkHandlerMixin"

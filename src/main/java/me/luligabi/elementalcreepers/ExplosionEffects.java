@@ -169,7 +169,7 @@ public class ExplosionEffects {
                         BlockState state = entityWorld.getBlockState(blockPos);
                         if (state != null && state.getBlock() != null) {
                             Block lightBlock = state.getBlock();
-                            if (lightBlock != null && !lightBlock.hasBlockEntity() && state.getLuminance() > 7.5F &&
+                            if (lightBlock != null && state.getLuminance() > 7.5F && //TODO: Add blockentity check
                                     Math.sqrt(Math.pow(x, 2.0D) + Math.pow(y, 2.0D) + Math.pow(z, 2.0D)) <= radius) {
                                 entityWorld.setBlockState(blockPos, Blocks.AIR.getDefaultState());
                                 entityWorld.spawnEntity(new ItemEntity(entityWorld,

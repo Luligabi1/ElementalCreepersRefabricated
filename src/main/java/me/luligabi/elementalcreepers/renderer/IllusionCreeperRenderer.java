@@ -1,14 +1,14 @@
 package me.luligabi.elementalcreepers.renderer;
 
 import net.minecraft.client.render.entity.CreeperEntityRenderer;
-import net.minecraft.client.render.entity.EntityRenderDispatcher;
+import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.entity.mob.CreeperEntity;
 import net.minecraft.util.Identifier;
 
 public class IllusionCreeperRenderer extends CreeperEntityRenderer {
 
-    public IllusionCreeperRenderer(EntityRenderDispatcher entityRenderDispatcher) {
-        super(entityRenderDispatcher);
+    public IllusionCreeperRenderer(EntityRendererFactory.Context context) {
+        super(context);
     }
 
     @Override

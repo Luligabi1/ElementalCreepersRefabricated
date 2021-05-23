@@ -10,7 +10,7 @@ public class CookieTntBlock extends ElementalTntBlock {
         super(settings, (world, x, y, z, livingEntity) -> {
             CookieTntEntity tntEntity;
             tntEntity = new CookieTntEntity(TntRegistry.COOKIE_TNT_ENTITY, world);
-            ElementalTntEntity.update(tntEntity, world, x, y, z, livingEntity);
+            ElementalTntEntity.update(tntEntity, world, x, y, z);
             return tntEntity;
         });
     }

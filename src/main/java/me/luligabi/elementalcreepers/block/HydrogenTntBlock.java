@@ -10,7 +10,7 @@ public class HydrogenTntBlock extends ElementalTntBlock {
         super(settings, (world, x, y, z, livingEntity) -> {
             HydrogenTntEntity tntEntity;
             tntEntity = new HydrogenTntEntity(TntRegistry.HYDROGEN_TNT_ENTITY, world);
-            ElementalTntEntity.update(tntEntity, world, x, y, z, livingEntity);
+            ElementalTntEntity.update(tntEntity, world, x, y, z);
             return tntEntity;
         });
     }

@@ -10,7 +10,7 @@ public class MinerTntBlock extends ElementalTntBlock {
         super(settings, (world, x, y, z, livingEntity) -> {
             MinerTntEntity tntEntity;
             tntEntity = new MinerTntEntity(TntRegistry.MINER_TNT_ENTITY, world);
-            ElementalTntEntity.update(tntEntity, world, x, y, z, livingEntity);
+            ElementalTntEntity.update(tntEntity, world, x, y, z);
             return tntEntity;
         });
     }

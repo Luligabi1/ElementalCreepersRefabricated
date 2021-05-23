@@ -8,7 +8,7 @@ import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.passive.CatEntity;
 import net.minecraft.entity.passive.OcelotEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.NbtCompound;
 import net.minecraft.world.GameRules;
 import net.minecraft.world.World;
 import net.minecraft.world.explosion.Explosion;
@@ -44,14 +44,14 @@ public class IllusionCreeperEntity extends ElementalCreeperEntity {
     }
 
     @Override
-    public void writeCustomDataToTag(CompoundTag compoundTag) {
-        super.writeCustomDataToTag(compoundTag);
+    public void writeCustomDataToNbt(NbtCompound compoundTag) {
+        super.writeCustomDataToNbt(compoundTag);
         compoundTag.putBoolean("hasDuplicated", hasDuplicated);
     }
 
     @Override
-    public void readCustomDataFromTag(CompoundTag compoundTag) {
-        super.readCustomDataFromTag(compoundTag);
+    public void readCustomDataFromNbt(NbtCompound compoundTag) {
+        super.readCustomDataFromNbt(compoundTag);
         this.hasDuplicated = compoundTag.getBoolean("hasDuplicated");
     }
 

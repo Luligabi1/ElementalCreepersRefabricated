@@ -10,7 +10,7 @@ public class ElectricTntBlock extends ElementalTntBlock {
         super(settings, (world, x, y, z, livingEntity) -> {
             ElectricTntEntity tntEntity;
             tntEntity = new ElectricTntEntity(TntRegistry.ELECTRIC_TNT_ENTITY, world);
-            ElementalTntEntity.update(tntEntity, world, x, y, z, livingEntity);
+            ElementalTntEntity.update(tntEntity, world, x, y, z);
             return tntEntity;
         });
     }

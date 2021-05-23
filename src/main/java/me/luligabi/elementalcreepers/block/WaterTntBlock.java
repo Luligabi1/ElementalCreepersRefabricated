@@ -10,7 +10,7 @@ public class WaterTntBlock extends ElementalTntBlock {
         super(settings, (world, x, y, z, livingEntity) -> {
             WaterTntEntity tntEntity;
             tntEntity = new WaterTntEntity(TntRegistry.WATER_TNT_ENTITY, world);
-            ElementalTntEntity.update(tntEntity, world, x, y, z, livingEntity);
+            ElementalTntEntity.update(tntEntity, world, x, y, z);
             return tntEntity;
         });
     }

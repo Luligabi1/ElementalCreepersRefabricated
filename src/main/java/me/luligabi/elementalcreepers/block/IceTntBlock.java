@@ -10,7 +10,7 @@ public class IceTntBlock extends ElementalTntBlock {
         super(settings, (world, x, y, z, livingEntity) -> {
             IceTntEntity tntEntity;
             tntEntity = new IceTntEntity(TntRegistry.ICE_TNT_ENTITY, world);
-            ElementalTntEntity.update(tntEntity, world, x, y, z, livingEntity);
+            ElementalTntEntity.update(tntEntity, world, x, y, z);
             return tntEntity;
         });
     }

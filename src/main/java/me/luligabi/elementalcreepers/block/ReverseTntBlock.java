@@ -10,7 +10,7 @@ public class ReverseTntBlock extends ElementalTntBlock {
         super(settings, (world, x, y, z, livingEntity) -> {
             ReverseTntEntity tntEntity;
             tntEntity = new ReverseTntEntity(TntRegistry.REVERSE_TNT_ENTITY, world);
-            ElementalTntEntity.update(tntEntity, world, x, y, z, livingEntity);
+            ElementalTntEntity.update(tntEntity, world, x, y, z);
             return tntEntity;
         });
     }

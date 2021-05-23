@@ -10,7 +10,7 @@ public class IllusionTntBlock extends ElementalTntBlock {
         super(settings, (world, x, y, z, livingEntity) -> {
             IllusionTntEntity tntEntity;
             tntEntity = new IllusionTntEntity(TntRegistry.ILLUSION_TNT_ENTITY, world);
-            ElementalTntEntity.update(tntEntity, world, x, y, z, livingEntity);
+            ElementalTntEntity.update(tntEntity, world, x, y, z);
             return tntEntity;
         });
     }

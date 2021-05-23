@@ -10,7 +10,7 @@ public class MagmaTntBlock extends ElementalTntBlock {
         super(settings, (world, x, y, z, livingEntity) -> {
             MagmaTntEntity tntEntity;
             tntEntity = new MagmaTntEntity(TntRegistry.MAGMA_TNT_ENTITY, world);
-            ElementalTntEntity.update(tntEntity, world, x, y, z, livingEntity);
+            ElementalTntEntity.update(tntEntity, world, x, y, z);
             return tntEntity;
         });
     }

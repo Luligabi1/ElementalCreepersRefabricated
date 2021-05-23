@@ -4,20 +4,17 @@ import net.minecraft.entity.*;
 import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
-import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.NbtCompound;
 import net.minecraft.network.Packet;
 import net.minecraft.network.packet.s2c.play.EntitySpawnS2CPacket;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.world.World;
 import net.minecraft.world.explosion.Explosion;
-import org.jetbrains.annotations.Nullable;
 
 public class ElementalTntEntity extends Entity {
 
     private static final TrackedData<Integer> FUSE;
 
-    @Nullable
-    private LivingEntity causingEntity;
     private int fuseTimer;
 
     public ElementalTntEntity(EntityType<? extends ElementalTntEntity> entityType, World world) {
@@ -26,7 +23,7 @@ public class ElementalTntEntity extends Entity {
         this.inanimate = true;
     }
 
-    public static void update(ElementalTntEntity entity, World world, double x, double y, double z, LivingEntity livingEntity) {
+    public static void update(ElementalTntEntity entity, World world, double x, double y, double z) {
         entity.updatePosition(x, y, z);
         final double d = world.random.nextDouble() * 6.2831854820251465;
         entity.setVelocity(-Math.sin(d) * 0.02, 0.20000000298023224, -Math.cos(d) * 0.02);
@@ -34,7 +31,6 @@ public class ElementalTntEntity extends Entity {
         entity.prevX = x;
         entity.prevY = y;
         entity.prevZ = z;
-        entity.causingEntity = livingEntity;
     }
 
     protected void initDataTracker() {
@@ -42,11 +38,7 @@ public class ElementalTntEntity extends Entity {
     }
 
     public boolean collides() {
-        return !this.removed;
-    }
-
-    protected boolean canClimb() {
-        return false;
+        return !this.isRemoved();
     }
 
     public void tick() {
@@ -60,7 +52,7 @@ public class ElementalTntEntity extends Entity {
         }
         --this.fuseTimer;
         if (this.fuseTimer <= 0) {
-            this.remove();
+            this.discard();
             if (!this.world.isClient && !(this instanceof AirTntEntity)) {
                 this.explode();
             }
@@ -82,21 +74,12 @@ public class ElementalTntEntity extends Entity {
         this.world.createExplosion(this, this.getX(), this.getBodyY(0.0625), this.getZ(), 4, Explosion.DestructionType.BREAK);
     }
 
-    protected void writeCustomDataToTag(CompoundTag tag) {
-        tag.putShort("Fuse", (short) this.getFuseTimer());
+    protected void writeCustomDataToNbt(NbtCompound nbt) {
+        nbt.putShort("Fuse", (short)this.getFuse());
     }
 
-    protected void readCustomDataFromTag(CompoundTag tag) {
-        this.setFuse(tag.getShort("Fuse"));
-    }
-
-    @Nullable
-    public LivingEntity getCausingEntity() {
-        return this.causingEntity;
-    }
-
-    public void setCausingEntity(LivingEntity causingEntity) {
-        this.causingEntity = causingEntity;
+    protected void readCustomDataFromNbt(NbtCompound nbt) {
+        this.setFuse(nbt.getShort("Fuse"));
     }
 
     protected float getEyeHeight(EntityPose pose, EntityDimensions dimensions) {
