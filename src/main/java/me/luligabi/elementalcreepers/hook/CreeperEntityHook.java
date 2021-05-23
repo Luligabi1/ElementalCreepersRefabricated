@@ -24,7 +24,6 @@ public class CreeperEntityHook {
                    for(int i=0; i < 4; ++i) {
                        creeperEntity.world.addParticle(ParticleTypes.SPIT, creeperEntity.getX(), creeperEntity.getY() + 0.75, creeperEntity.getZ(), 0.0, 0.0, 0.0);
                    }
-                   System.out.println("test");
                }
                ((ElementalCreeperEntity) creeperEntity).onExplode();
                info.cancel();
