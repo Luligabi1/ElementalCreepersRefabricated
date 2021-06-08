@@ -1,4 +1,4 @@
-package me.luligabi.elementalcreepers.common.item.gunpowder;
+package me.luligabi.elementalcreepers.common.item;
 
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.item.Item;
@@ -10,9 +10,9 @@ import net.minecraft.world.World;
 
 import java.util.List;
 
-public class LightGunpowderItem extends Item {
+public class ElementalGunpowderItem extends Item {
 
-    public LightGunpowderItem(Settings settings) {
+    public ElementalGunpowderItem(Item.Settings settings) {
         super(settings);
     }
 
