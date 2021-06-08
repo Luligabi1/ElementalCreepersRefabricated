@@ -320,8 +320,8 @@ public class ExplosionEffects {
                                     Blocks.ANDESITE,
                                     Blocks.GRAVEL,
                                     Blocks.CLAY,
+                                    Blocks.DRIPSTONE_BLOCK,
                                     Blocks.DEEPSLATE,
-                                    Blocks.COBBLED_DEEPSLATE,
                                     Blocks.CALCITE,
                                     Blocks.TUFF};
 
