@@ -1,7 +1,8 @@
-package me.luligabi.elementalcreepers.common.registry;
+package me.luligabi.elementalcreepers.common.misc;
 
 import me.luligabi.elementalcreepers.common.ElementalCreepers;
 import me.luligabi.elementalcreepers.common.SimpleConfig;
+import me.luligabi.elementalcreepers.common.entity.creeper.CreeperRegistry;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.mixin.object.builder.SpawnRestrictionAccessor;
 import net.minecraft.entity.SpawnGroup;
@@ -14,7 +15,7 @@ public class NaturalSpawningRegistry {
 
     private static final SimpleConfig CONFIG = new ElementalCreepers().getConfig();
 
-    public static void register() {
+    public static void init() {
         // Water Creeper
         if(CONFIG.getOrDefault("waterCreeperEnabled", true)) {
             BiomeModifications.addSpawn(biomeSelector ->

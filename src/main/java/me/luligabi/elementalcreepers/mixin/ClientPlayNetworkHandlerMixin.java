@@ -1,7 +1,7 @@
 package me.luligabi.elementalcreepers.mixin;
 
 import me.luligabi.elementalcreepers.common.entity.tnt.*;
-import me.luligabi.elementalcreepers.common.registry.TntRegistry;
+import me.luligabi.elementalcreepers.common.block.TntRegistry;
 import net.minecraft.client.network.ClientPlayNetworkHandler;
 import net.minecraft.client.world.ClientWorld;
 import net.minecraft.entity.Entity;

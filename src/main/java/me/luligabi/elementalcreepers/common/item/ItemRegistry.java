@@ -1,4 +1,4 @@
-package me.luligabi.elementalcreepers.common.registry;
+package me.luligabi.elementalcreepers.common.item;
 
 import me.luligabi.elementalcreepers.common.ElementalCreepers;
 import me.luligabi.elementalcreepers.common.item.ElementalGunpowderItem;
@@ -9,7 +9,7 @@ import net.minecraft.util.registry.Registry;
 
 public class ItemRegistry {
 
-    public static void register() {
+    public static void init() {
         Registry.register(Registry.ITEM, new Identifier(ElementalCreepers.MOD_ID, "water_gunpowder"), WATER_GUNPOWDER);
         Registry.register(Registry.ITEM, new Identifier(ElementalCreepers.MOD_ID, "fire_gunpowder"), FIRE_GUNPOWDER);
         Registry.register(Registry.ITEM, new Identifier(ElementalCreepers.MOD_ID, "earth_gunpowder"), EARTH_GUNPOWDER);

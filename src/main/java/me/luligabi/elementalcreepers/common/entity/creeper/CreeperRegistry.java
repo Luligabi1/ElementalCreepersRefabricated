@@ -1,4 +1,4 @@
-package me.luligabi.elementalcreepers.common.registry;
+package me.luligabi.elementalcreepers.common.entity.creeper;
 
 import me.luligabi.elementalcreepers.common.ElementalCreepers;
 import me.luligabi.elementalcreepers.common.entity.creeper.*;
@@ -12,7 +12,7 @@ import net.minecraft.util.registry.Registry;
 
 public class CreeperRegistry {
 
-    public static void register() {
+    public static void init() {
         FabricDefaultAttributeRegistry.register(WATER_CREEPER, WaterCreeperEntity.createCreeperAttributes());
         FabricDefaultAttributeRegistry.register(FIRE_CREEPER, FireCreeperEntity.createCreeperAttributes());
         FabricDefaultAttributeRegistry.register(EARTH_CREEPER, EarthCreeperEntity.createCreeperAttributes());

@@ -1,6 +1,5 @@
 package me.luligabi.elementalcreepers.common.entity.creeper;
 
-import me.luligabi.elementalcreepers.common.registry.CreeperRegistry;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.mob.CreeperEntity;
@@ -74,7 +73,7 @@ public class IllusionCreeperEntity extends ElementalCreeperEntity {
                     this.mob.world.spawnEntity(fakeIllusionCreeperEntity);
                     fakeIllusionCreeperEntity.setVelocity(0, 0.5D, 0);
                 }
-                this.mob.setVelocity(0, 0.5D, 0);
+                this.mob.setVelocity(0, 0.5D, 0); // TODO: Improve dispersion of fake creepers.
                 ((IllusionCreeperEntity) this.mob).setHasDuplicated(true);
             }
             super.start();

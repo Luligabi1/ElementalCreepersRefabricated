@@ -1,8 +1,8 @@
 package me.luligabi.elementalcreepers.client;
 
 import me.luligabi.elementalcreepers.client.renderer.*;
-import me.luligabi.elementalcreepers.common.registry.CreeperRegistry;
-import me.luligabi.elementalcreepers.common.registry.TntRegistry;
+import me.luligabi.elementalcreepers.common.entity.creeper.CreeperRegistry;
+import me.luligabi.elementalcreepers.common.block.TntRegistry;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.rendereregistry.v1.EntityRendererRegistry;
 

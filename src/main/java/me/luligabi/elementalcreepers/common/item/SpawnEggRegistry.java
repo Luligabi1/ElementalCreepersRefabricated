@@ -1,6 +1,7 @@
-package me.luligabi.elementalcreepers.common.registry;
+package me.luligabi.elementalcreepers.common.item;
 
 import me.luligabi.elementalcreepers.common.ElementalCreepers;
+import me.luligabi.elementalcreepers.common.entity.creeper.CreeperRegistry;
 import net.minecraft.item.Item;
 import net.minecraft.item.SpawnEggItem;
 import net.minecraft.util.Identifier;
@@ -8,7 +9,7 @@ import net.minecraft.util.registry.Registry;
 
 public class SpawnEggRegistry {
 
-    public static void register() {
+    public static void init() {
         Registry.register(Registry.ITEM, new Identifier(ElementalCreepers.MOD_ID, "water_creeper_spawn_egg"), new SpawnEggItem(CreeperRegistry.WATER_CREEPER, 0x415DB3, 0XA4A4CC, new Item.Settings().group(ElementalCreepers.CATEGORY)));
         Registry.register(Registry.ITEM, new Identifier(ElementalCreepers.MOD_ID, "fire_creeper_spawn_egg"), new SpawnEggItem(CreeperRegistry.FIRE_CREEPER, 0xC4814F, 0xA65F0A, new Item.Settings().group(ElementalCreepers.CATEGORY)));
         Registry.register(Registry.ITEM, new Identifier(ElementalCreepers.MOD_ID, "earth_creeper_spawn_egg"), new SpawnEggItem(CreeperRegistry.EARTH_CREEPER, 0x7A583C, 0x64A444, new Item.Settings().group(ElementalCreepers.CATEGORY)));

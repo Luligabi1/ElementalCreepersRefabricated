@@ -1,4 +1,4 @@
-package me.luligabi.elementalcreepers.common.registry;
+package me.luligabi.elementalcreepers.common.block;
 
 import me.luligabi.elementalcreepers.common.ElementalCreepers;
 import me.luligabi.elementalcreepers.common.block.*;
@@ -18,7 +18,7 @@ import net.minecraft.util.registry.Registry;
 
 public class TntRegistry {
 
-    public static void register() {
+    public static void init() {
         Registry.register(Registry.BLOCK, new Identifier(ElementalCreepers.MOD_ID, "water_tnt"), WATER_TNT_BLOCK);
         Registry.register(Registry.ITEM, new Identifier(ElementalCreepers.MOD_ID, "water_tnt"), new BlockItem(WATER_TNT_BLOCK, new FabricItemSettings().group(ElementalCreepers.CATEGORY)));
 

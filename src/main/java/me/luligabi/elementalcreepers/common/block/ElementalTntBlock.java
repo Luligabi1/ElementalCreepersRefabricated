@@ -27,7 +27,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.explosion.Explosion;
 import org.jetbrains.annotations.Nullable;
 
-public class ElementalTntBlock extends Block {
+public abstract class ElementalTntBlock extends Block {
 
     public static final BooleanProperty UNSTABLE;
     private final TntBuilder creator;

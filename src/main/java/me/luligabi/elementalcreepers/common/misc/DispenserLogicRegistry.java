@@ -1,5 +1,6 @@
-package me.luligabi.elementalcreepers.common.registry;
+package me.luligabi.elementalcreepers.common.misc;
 
+import me.luligabi.elementalcreepers.common.block.TntRegistry;
 import me.luligabi.elementalcreepers.common.entity.tnt.*;
 import net.minecraft.block.DispenserBlock;
 import net.minecraft.block.dispenser.DispenserBehavior;
@@ -14,7 +15,7 @@ import net.minecraft.world.World;
 
 public class DispenserLogicRegistry implements DispenserBehavior {
 
-    public static void register() {
+    public static void init() {
         DispenserBlock.registerBehavior(TntRegistry.WATER_TNT_BLOCK, new ItemDispenserBehavior() {
             protected ItemStack dispenseSilently(BlockPointer blockPointer, ItemStack itemStack) {
                 BlockPos blockPos = blockPointer.getPos().offset(blockPointer.getBlockState().get(DispenserBlock.FACING));

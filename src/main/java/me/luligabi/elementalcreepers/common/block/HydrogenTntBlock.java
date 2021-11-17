@@ -2,7 +2,6 @@ package me.luligabi.elementalcreepers.common.block;
 
 import me.luligabi.elementalcreepers.common.entity.tnt.ElementalTntEntity;
 import me.luligabi.elementalcreepers.common.entity.tnt.HydrogenTntEntity;
-import me.luligabi.elementalcreepers.common.registry.TntRegistry;
 
 public class HydrogenTntBlock extends ElementalTntBlock {
 

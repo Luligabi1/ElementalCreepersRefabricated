@@ -1,6 +1,12 @@
 package me.luligabi.elementalcreepers.common;
 
-import me.luligabi.elementalcreepers.common.registry.*;
+import me.luligabi.elementalcreepers.common.block.TntRegistry;
+import me.luligabi.elementalcreepers.common.entity.creeper.CreeperRegistry;
+import me.luligabi.elementalcreepers.common.item.ItemRegistry;
+import me.luligabi.elementalcreepers.common.item.SpawnEggRegistry;
+import me.luligabi.elementalcreepers.common.misc.DispenserLogicRegistry;
+import me.luligabi.elementalcreepers.common.misc.NaturalSpawningRegistry;
+import me.luligabi.elementalcreepers.common.misc.TagRegistry;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.minecraft.item.ItemGroup;
@@ -10,10 +16,27 @@ import net.minecraft.util.Identifier;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class ElementalCreepers implements ModInitializer {
+public class ElementalCreepers implements ModInitializer { // TODO: Update to 1.18-pre4
 
     public static final String MOD_ID = "elementalcreepers";
     private static final Logger LOGGER = LogManager.getLogger("Elemental Creepers: Refabricated");
+
+    @Override
+    public void onInitialize() {
+        CreeperRegistry.init();
+        NaturalSpawningRegistry.init();
+        SpawnEggRegistry.init();
+        TntRegistry.init();
+        ItemRegistry.init();
+        TagRegistry.init();
+        DispenserLogicRegistry.init();
+        LOGGER.info("Mod Initialized!");
+    }
+
+    public static final ItemGroup CATEGORY = FabricItemGroupBuilder.create(
+            new Identifier(MOD_ID, "category"))
+            .icon(() -> new ItemStack(Items.CREEPER_SPAWN_EGG))
+            .build();
 
     SimpleConfig config = SimpleConfig.of(MOD_ID).provider(this::provider).request();
 
@@ -100,22 +123,6 @@ public class ElementalCreepers implements ModInitializer {
                 rainbowCreeperEnabled=true
                 rainbowCreeperSpawnRate=1""";
     }
-
-    @Override
-    public void onInitialize() {
-        CreeperRegistry.register();
-        NaturalSpawningRegistry.register();
-        SpawnEggRegistry.register();
-        TntRegistry.register();
-        ItemRegistry.register();
-        DispenserLogicRegistry.register();
-        LOGGER.info("Mod Initialized!");
-    }
-
-    public static final ItemGroup CATEGORY = FabricItemGroupBuilder.create(
-            new Identifier(MOD_ID, "category"))
-            .icon(() -> new ItemStack(Items.CREEPER_SPAWN_EGG))
-            .build();
 
     public SimpleConfig getConfig() { return config; }
 }

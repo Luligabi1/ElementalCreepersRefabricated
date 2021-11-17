@@ -2,7 +2,6 @@ package me.luligabi.elementalcreepers.common.block;
 
 import me.luligabi.elementalcreepers.common.entity.tnt.ElementalTntEntity;
 import me.luligabi.elementalcreepers.common.entity.tnt.IceTntEntity;
-import me.luligabi.elementalcreepers.common.registry.TntRegistry;
 
 public class IceTntBlock extends ElementalTntBlock {
 

@@ -5,7 +5,8 @@ import me.luligabi.elementalcreepers.common.ElementalCreepers;
 import me.luligabi.elementalcreepers.common.SimpleConfig;
 import me.luligabi.elementalcreepers.common.entity.creeper.ElementalCreeperEntity;
 import me.luligabi.elementalcreepers.common.entity.tnt.FakeIllusionTntEntity;
-import me.luligabi.elementalcreepers.common.registry.TntRegistry;
+import me.luligabi.elementalcreepers.common.block.TntRegistry;
+import me.luligabi.elementalcreepers.common.misc.TagRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -22,10 +23,9 @@ import net.minecraft.world.GameRules;
 import net.minecraft.world.World;
 import net.minecraft.world.explosion.Explosion;
 
-import java.util.Arrays;
 import java.util.Random;
 
-public class ExplosionEffects {
+public class ExplosionEffects { // TODO: Refactor to be less... exquisite.
 
     SimpleConfig config = new ElementalCreepers().getConfig();
 
@@ -300,38 +300,22 @@ public class ExplosionEffects {
     public void minerExplosionEffect(Entity entity, World entityWorld, double entityX, double entityY, double entityZ) {
         double radius = config.getOrDefault("minerCreeperRadius", 3.75);
 
-        if(entity instanceof ElementalCreeperEntity) {
-            radius = ((ElementalCreeperEntity) entity).isCharged() ? radius*1.5 : radius;
-        }
+        if(entity instanceof ElementalCreeperEntity) radius = ((ElementalCreeperEntity) entity).isCharged() ? radius*1.5 : radius;
+
         entityWorld.createExplosion(entity, entityX, entityY, entityZ,
                 0, Explosion.DestructionType.NONE);
-        if(entityWorld.getGameRules().getBoolean(GameRules.DO_MOB_GRIEFING)) {
-            for (int x = (int) -radius; x <= radius; x++) {
-                for (int y = (int) -radius; y <= radius; y++) {
-                    for (int z = (int) -radius; z <= radius; z++) {
-                        BlockPos blockPos = new BlockPos(entityX + x, entityY+ y, entityZ + z);
-                        BlockState state = entityWorld.getBlockState(blockPos);
+        if(!entityWorld.getGameRules().getBoolean(GameRules.DO_MOB_GRIEFING)) return;
+        for (int x = (int) -radius; x <= radius; x++) {
+            for (int y = (int) -radius; y <= radius; y++) {
+                for (int z = (int) -radius; z <= radius; z++) {
+                    BlockPos blockPos = new BlockPos(entityX + x, entityY+ y, entityZ + z);
+                    BlockState state = entityWorld.getBlockState(blockPos);
 
-                        if (state != null && state.getBlock() != null) {
-                            Block stoneBlock = state.getBlock();
-                            Block[] stoneBlockList = {Blocks.STONE,
-                                    Blocks.GRANITE,
-                                    Blocks.DIORITE,
-                                    Blocks.ANDESITE,
-                                    Blocks.GRAVEL,
-                                    Blocks.CLAY,
-                                    Blocks.DRIPSTONE_BLOCK,
-                                    Blocks.DEEPSLATE,
-                                    Blocks.CALCITE,
-                                    Blocks.TUFF};
-
-                            if (stoneBlock != null && Arrays.asList(stoneBlockList).contains(stoneBlock) && Math.sqrt(Math.pow(x, 2.0D) + Math.pow(y, 2.0D) + Math.pow(z, 2.0D)) <= radius) {
-                                entityWorld.setBlockState(blockPos, Blocks.AIR.getDefaultState());
-                                if(new Random().nextBoolean()) {
-                                    entityWorld.spawnEntity(new ItemEntity(entityWorld,
-                                            entityX, entityY, entityZ, new ItemStack(stoneBlock.asItem(), 1)));
-                                }
-                            }
+                    if (state != null && state.getBlock() != null) {
+                        if (state.isIn(TagRegistry.MINER_CREEPER_EXPLODABLE) && Math.sqrt(Math.pow(x, 2.0D) + Math.pow(y, 2.0D) + Math.pow(z, 2.0D)) <= radius) {
+                            entityWorld.setBlockState(blockPos, Blocks.AIR.getDefaultState());
+                            if(new Random().nextBoolean()) entityWorld.spawnEntity(new ItemEntity(entityWorld,
+                                    entityX, entityY, entityZ, new ItemStack(state.getBlock().asItem(), 1)));
                         }
                     }
                 }
@@ -359,51 +343,21 @@ public class ExplosionEffects {
                 entityX, entityY, entityZ, new ItemStack(Items.COOKIE, new Random().nextInt(4 - 2 + 1) + 2)));
     }
     public void rainbowExplosionEffect(Entity entity, World entityWorld, double entityX, double entityY, double entityZ) {
-        switch (new Random().nextInt(14 - 1 + 1) + 1) {
-            case 1:
-                waterExplosionEffect(entity, entityWorld, entityX, entityY, entityZ);
-                break;
-            case 2:
-                fireExplosionEffect(entity, entityWorld, entityX, entityY, entityZ);
-                break;
-            case 3:
-                earthExplosionEffect(entity, entityWorld, entityX, entityY, entityZ);
-                break;
-            case 4:
-                airExplosionEffect(entity, entityWorld, entityX, entityY, entityZ);
-                break;
-            case 5:
-                electricExplosionEffect(entityWorld, entityX, entityY, entityZ);
-                break;
-            case 6:
-                lightExplosionEffect(entity, entityWorld, entityX, entityY, entityZ);
-                break;
-            case 7:
-                darkExplosionEffect(entity, entityWorld, entityX, entityY, entityZ);
-                break;
-            case 8:
-                iceExplosionEffect(entity, entityWorld, entityX, entityY, entityZ);
-                break;
-            case 9:
-                magmaExplosionEffect(entity, entityWorld, entityX, entityY, entityZ);
-                break;
-            case 10:
-                hydrogenExplosionEffect(entity, entityWorld, entityX, entityY, entityZ);
-                break;
-            case 11:
-                reverseExplosionEffect(entity, entityWorld, entityX, entityY, entityZ);
-                break;
-            case 12:
-                minerExplosionEffect(entity, entityWorld, entityX, entityY, entityZ);
-                break;
-            case 13:
-                fireworkExplosionEffect(entityWorld, entityX, entityY, entityZ);
-                break;
-            case 14:
-                cookieExplosionEffect(entity, entityWorld, entityX, entityY, entityZ);
-                break;
-            default:
-                break;
+        switch(entityWorld.getRandom().nextInt(14 - 1 + 1) + 1) {
+            case 1 -> waterExplosionEffect(entity, entityWorld, entityX, entityY, entityZ);
+            case 2 -> fireExplosionEffect(entity, entityWorld, entityX, entityY, entityZ);
+            case 3 -> earthExplosionEffect(entity, entityWorld, entityX, entityY, entityZ);
+            case 4 -> airExplosionEffect(entity, entityWorld, entityX, entityY, entityZ);
+            case 5 -> electricExplosionEffect(entityWorld, entityX, entityY, entityZ);
+            case 6 -> lightExplosionEffect(entity, entityWorld, entityX, entityY, entityZ);
+            case 7 -> darkExplosionEffect(entity, entityWorld, entityX, entityY, entityZ);
+            case 8 -> iceExplosionEffect(entity, entityWorld, entityX, entityY, entityZ);
+            case 9 -> magmaExplosionEffect(entity, entityWorld, entityX, entityY, entityZ);
+            case 10 -> hydrogenExplosionEffect(entity, entityWorld, entityX, entityY, entityZ);
+            case 11 -> reverseExplosionEffect(entity, entityWorld, entityX, entityY, entityZ);
+            case 12 -> minerExplosionEffect(entity, entityWorld, entityX, entityY, entityZ);
+            case 13 -> fireworkExplosionEffect(entityWorld, entityX, entityY, entityZ);
+            case 14 -> cookieExplosionEffect(entity, entityWorld, entityX, entityY, entityZ);
         }
     }
     public void illusionTNTExplosionEffect(Entity entity, World entityWorld, double entityX, double entityY, double entityZ) {
