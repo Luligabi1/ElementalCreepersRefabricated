@@ -31,9 +31,9 @@
     "elementalcreepers.mixins.json"
   ],
   "depends": {
-    "fabricloader": ">=0.11.1",
+    "fabricloader": ">=0.12.5",
     "fabric": "*",
-    "minecraft": "1.17.x",
+    "minecraft": "1.18.x",
     "java": ">=16"
   }
 }

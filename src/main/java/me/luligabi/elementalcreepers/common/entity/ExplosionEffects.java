@@ -343,7 +343,7 @@ public class ExplosionEffects {
     public void fireworkExplosionEffect(World entityWorld, double entityX, double entityY, double entityZ) {
         ItemStack fireWork = new ItemStack(Items.FIREWORK_ROCKET);
         try {
-            fireWork.putSubTag("Fireworks", StringNbtReader.parse("{Explosions:[{Type:3,Flicker:1,Colors:[I;4312372],FadeColors:[I;4312372]}],Flight:1}"));
+            fireWork.setSubNbt("Fireworks", StringNbtReader.parse("{Explosions:[{Type:3,Flicker:1,Colors:[I;4312372],FadeColors:[I;4312372]}],Flight:1}"));
         } catch(CommandSyntaxException ignored) {}
         FireworkRocketEntity fireworkEntity = new FireworkRocketEntity(entityWorld,
                 entityX, entityY, entityZ, fireWork);

@@ -1,4 +1,4 @@
-package me.luligabi.elementalcreepers.common.mixin;
+package me.luligabi.elementalcreepers.mixin;
 
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.mob.CreeperEntity;

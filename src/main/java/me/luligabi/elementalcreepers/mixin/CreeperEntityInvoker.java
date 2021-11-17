@@ -1,4 +1,4 @@
-package me.luligabi.elementalcreepers.common.mixin;
+package me.luligabi.elementalcreepers.mixin;
 
 import net.minecraft.entity.mob.CreeperEntity;
 import org.spongepowered.asm.mixin.Mixin;

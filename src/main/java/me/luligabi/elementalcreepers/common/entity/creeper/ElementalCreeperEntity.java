@@ -1,7 +1,7 @@
 package me.luligabi.elementalcreepers.common.entity.creeper;
 
-import me.luligabi.elementalcreepers.common.mixin.CreeperEntityAccessor;
-import me.luligabi.elementalcreepers.common.mixin.CreeperEntityInvoker;
+import me.luligabi.elementalcreepers.mixin.CreeperEntityAccessor;
+import me.luligabi.elementalcreepers.mixin.CreeperEntityInvoker;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.mob.CreeperEntity;
 import net.minecraft.world.World;

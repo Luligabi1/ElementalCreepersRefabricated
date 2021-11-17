@@ -1,4 +1,4 @@
-package me.luligabi.elementalcreepers.common.mixin;
+package me.luligabi.elementalcreepers.mixin;
 
 import me.luligabi.elementalcreepers.common.entity.tnt.*;
 import me.luligabi.elementalcreepers.common.registry.TntRegistry;
@@ -114,7 +114,7 @@ public class ClientPlayNetworkHandlerMixin {
             entity.refreshPositionAfterTeleport(x, y, z);
             ((EntityAccessor) entity).setPitch(packet.getPitch() * 360 / 256.0f);
             ((EntityAccessor) entity).setYaw(packet.getYaw() * 360 / 256.0f);
-            entity.setEntityId(i);
+            entity.setId(i);
             entity.setUuid(packet.getUuid());
             this.world.addEntity(i, entity);
         }
