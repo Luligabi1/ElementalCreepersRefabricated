@@ -16,7 +16,7 @@ import net.minecraft.util.Identifier;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class ElementalCreepers implements ModInitializer { // TODO: Update to 1.18-pre4
+public class ElementalCreepers implements ModInitializer {
 
     public static final String MOD_ID = "elementalcreepers";
     private static final Logger LOGGER = LogManager.getLogger("Elemental Creepers: Refabricated");
