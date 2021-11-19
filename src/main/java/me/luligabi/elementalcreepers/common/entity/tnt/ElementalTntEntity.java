@@ -11,7 +11,7 @@ import net.minecraft.particle.ParticleTypes;
 import net.minecraft.world.World;
 import net.minecraft.world.explosion.Explosion;
 
-public class ElementalTntEntity extends Entity {
+public abstract class ElementalTntEntity extends Entity {
 
     private static final TrackedData<Integer> FUSE;
 
@@ -34,7 +34,7 @@ public class ElementalTntEntity extends Entity {
     }
 
     protected void initDataTracker() {
-        this.dataTracker.startTracking((TrackedData) ElementalTntEntity.FUSE, (Object) 80); // 80 = 4*20 -> 4 seconds in ticks
+        this.dataTracker.startTracking(ElementalTntEntity.FUSE, 4*20);
     }
 
     public boolean collides() {
@@ -93,11 +93,11 @@ public class ElementalTntEntity extends Entity {
     }
 
     public int getFuse() {
-        return (int) this.dataTracker.get((TrackedData) ElementalTntEntity.FUSE);
+        return this.dataTracker.get(ElementalTntEntity.FUSE);
     }
 
     public void setFuse(final int fuse) {
-        this.dataTracker.set((TrackedData) ElementalTntEntity.FUSE, (Object) fuse);
+        this.dataTracker.set(ElementalTntEntity.FUSE, fuse);
         this.fuseTimer = fuse;
     }
 

@@ -73,7 +73,8 @@ public class IllusionCreeperEntity extends ElementalCreeperEntity {
                     this.mob.world.spawnEntity(fakeIllusionCreeperEntity);
                     fakeIllusionCreeperEntity.setVelocity(0, 0.5D, 0);
                 }
-                this.mob.setVelocity(0, 0.5D, 0); // TODO: Improve dispersion of fake creepers.
+                double d = this.mob.world.random.nextDouble() * 6.2831854820251465;
+                this.mob.setVelocity(-Math.sin(d) * 0.02, 0.20000000298023224, -Math.cos(d) * 0.02);
                 ((IllusionCreeperEntity) this.mob).setHasDuplicated(true);
             }
             super.start();
