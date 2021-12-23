@@ -6,6 +6,7 @@ import org.spongepowered.asm.mixin.gen.Invoker;
 
 @Mixin(CreeperEntity.class)
 public interface CreeperEntityInvoker {
+
     @Invoker("spawnEffectsCloud")
     void invokeSpawnEffectsCloud();
 }
