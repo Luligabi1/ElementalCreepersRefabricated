@@ -1,7 +1,6 @@
 package me.luligabi.elementalcreepers.common.entity.creeper;
 
 import me.luligabi.elementalcreepers.common.entity.ExplosionEffects;
-import me.luligabi.elementalcreepers.mixin.BiomeInvoker;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityType;
@@ -20,7 +19,7 @@ public class IceCreeperEntity extends ElementalCreeperEntity {
     boolean generateSnow = true;
 
     @Override
-    public void tickMovement() { // TODO: Re-add checks for biome temperature (invokers is not working for some reason)
+    public void tickMovement() {
         super.tickMovement();
         if(!this.world.isClient) {
             if(generateSnow) {
@@ -28,9 +27,9 @@ public class IceCreeperEntity extends ElementalCreeperEntity {
                 int posX = MathHelper.floor(this.getX());
                 int posY = MathHelper.floor(this.getY());
                 int posZ = MathHelper.floor(this.getZ());
-                /*if (((BiomeInvoker) this.world.getBiome(new BlockPos(posX, 0, posZ))).invokeGetTemperature(new BlockPos(posX, posY, posZ)) > 1.0F) {
+                if (this.world.getBiome(new BlockPos(posX, posY, posZ)).value().getTemperature() > 1.0F) {
                     this.damage(DamageSource.ON_FIRE, 1.0F);
-                }*/
+                }
                 BlockState blockState = Blocks.SNOW.getDefaultState();
 
                 for (int i = 0; i < 4; ++i) {
@@ -38,7 +37,7 @@ public class IceCreeperEntity extends ElementalCreeperEntity {
                     posY = MathHelper.floor(this.getY());
                     posZ = MathHelper.floor(this.getZ() + (double) ((float) (i / 2 % 2 * 2 - 1) * 0.25F));
                     BlockPos blockPos = new BlockPos(posX, posY, posZ);
-                    if (this.world.getBlockState(blockPos).isAir() /*&& ((BiomeInvoker) this.world.getBiome(blockPos)).invokeGetTemperature(blockPos) < 0.8F*/ && blockState.canPlaceAt(this.world, blockPos)) {
+                    if (this.world.getBlockState(blockPos).isAir() && this.world.getBiome(blockPos).value().getTemperature() < 0.8F && blockState.canPlaceAt(this.world, blockPos)) {
                         this.world.setBlockState(blockPos, blockState);
                     }
                 }
