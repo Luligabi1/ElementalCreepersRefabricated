@@ -1,25 +1,24 @@
 package me.luligabi.elementalcreepers.common;
 
+import com.mojang.logging.LogUtils;
 import me.luligabi.elementalcreepers.common.block.TntRegistry;
 import me.luligabi.elementalcreepers.common.entity.creeper.CreeperRegistry;
 import me.luligabi.elementalcreepers.common.item.ItemRegistry;
 import me.luligabi.elementalcreepers.common.item.SpawnEggRegistry;
 import me.luligabi.elementalcreepers.common.misc.DispenserLogicRegistry;
 import me.luligabi.elementalcreepers.common.misc.NaturalSpawningRegistry;
-import me.luligabi.elementalcreepers.common.misc.TagRegistry;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.util.Identifier;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
 
 public class ElementalCreepers implements ModInitializer {
 
     public static final String MOD_ID = "elementalcreepers";
-    private static final Logger LOGGER = LogManager.getLogger("Elemental Creepers: Refabricated");
+    private static final Logger LOGGER = LogUtils.getLogger();
 
     @Override
     public void onInitialize() {
