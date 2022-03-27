@@ -20,7 +20,7 @@ public abstract class ElementalTntEntity extends Entity {
     public ElementalTntEntity(EntityType<? extends ElementalTntEntity> entityType, World world) {
         super(entityType, world);
         this.fuseTimer = 80;
-        this.inanimate = true;
+        this.intersectionChecked = true;
     }
 
     public static void update(ElementalTntEntity entity, World world, double x, double y, double z) {
