@@ -43,7 +43,7 @@ public class ItemRegistry {
 
     public static final Item ICE_GUNPOWDER = new ElementalGunpowderItem(new FabricItemSettings().group(ElementalCreepers.CATEGORY));
 
-    public static final Item MAGMA_GUNPOWDER = new ElementalGunpowderItem(new FabricItemSettings().group(ElementalCreepers.CATEGORY));
+    public static final Item MAGMA_GUNPOWDER = new ElementalGunpowderItem(new FabricItemSettings().fireproof().group(ElementalCreepers.CATEGORY));
 
     public static final Item HYDROGEN_GUNPOWDER = new ElementalGunpowderItem(new FabricItemSettings().group(ElementalCreepers.CATEGORY));
 
