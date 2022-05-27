@@ -14,7 +14,9 @@ import net.minecraft.util.registry.RegistryEntry;
 import net.minecraft.world.Heightmap;
 import net.minecraft.world.biome.Biome;
 
-public class NaturalSpawningRegistry { // TODO: Check if tags using a structure as reference have proper 'IS_[BIOME]' tags now
+// TODO: Check if tags using a structure as reference have proper 'IS_[BIOME]' tags now
+// Update May 27th, 2022: They don't
+public class NaturalSpawningRegistry {
 
     private static final SimpleConfig CONFIG = new ElementalCreepers().getConfig();
 

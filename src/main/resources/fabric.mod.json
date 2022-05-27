@@ -2,7 +2,6 @@
   "schemaVersion": 1,
   "id": "elementalcreepers",
   "version": "${version}",
-
   "name": "Elemental Creepers: Refabricated",
   "description": "A recreation of xSmallDeadGuyx's original Elemental Creepers mod on 1.16+.",
   "authors": [
@@ -14,10 +13,8 @@
     "sources": "https://github.com/Luligabi1/ElementalCreepersRefabricated",
     "issues": "https://github.com/Luligabi1/ElementalCreepersRefabricated/issues"
   },
-
   "license": "MIT",
   "icon": "assets/elementalcreepers/icon.png",
-
   "environment": "*",
   "entrypoints": {
     "main": [
@@ -31,9 +28,8 @@
     "elementalcreepers.mixins.json"
   ],
   "depends": {
-    "fabricloader": ">=0.12.5",
+    "fabricloader": ">=0.14.0",
     "fabric": "*",
-    "minecraft": "1.18.x",
-    "java": ">=16"
+    "minecraft": "1.19.x"
   }
 }
