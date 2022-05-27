@@ -1,7 +1,6 @@
 package me.luligabi.elementalcreepers.common.block;
 
 import me.luligabi.elementalcreepers.common.ElementalCreepers;
-import me.luligabi.elementalcreepers.common.block.*;
 import me.luligabi.elementalcreepers.common.entity.tnt.*;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
@@ -20,50 +19,50 @@ public class TntRegistry {
 
     public static void init() {
         Registry.register(Registry.BLOCK, new Identifier(ElementalCreepers.MOD_ID, "water_tnt"), WATER_TNT_BLOCK);
-        Registry.register(Registry.ITEM, new Identifier(ElementalCreepers.MOD_ID, "water_tnt"), new BlockItem(WATER_TNT_BLOCK, new FabricItemSettings().group(ElementalCreepers.CATEGORY)));
+        Registry.register(Registry.ITEM, new Identifier(ElementalCreepers.MOD_ID, "water_tnt"), new BlockItem(WATER_TNT_BLOCK, new FabricItemSettings().group(ElementalCreepers.ITEM_GROUP)));
 
         Registry.register(Registry.BLOCK, new Identifier(ElementalCreepers.MOD_ID, "fire_tnt"), FIRE_TNT_BLOCK);
-        Registry.register(Registry.ITEM, new Identifier(ElementalCreepers.MOD_ID, "fire_tnt"), new BlockItem(FIRE_TNT_BLOCK, new FabricItemSettings().group(ElementalCreepers.CATEGORY)));
+        Registry.register(Registry.ITEM, new Identifier(ElementalCreepers.MOD_ID, "fire_tnt"), new BlockItem(FIRE_TNT_BLOCK, new FabricItemSettings().group(ElementalCreepers.ITEM_GROUP)));
 
         Registry.register(Registry.BLOCK, new Identifier(ElementalCreepers.MOD_ID, "earth_tnt"), EARTH_TNT_BLOCK);
-        Registry.register(Registry.ITEM, new Identifier(ElementalCreepers.MOD_ID, "earth_tnt"), new BlockItem(EARTH_TNT_BLOCK, new FabricItemSettings().group(ElementalCreepers.CATEGORY)));
+        Registry.register(Registry.ITEM, new Identifier(ElementalCreepers.MOD_ID, "earth_tnt"), new BlockItem(EARTH_TNT_BLOCK, new FabricItemSettings().group(ElementalCreepers.ITEM_GROUP)));
 
         Registry.register(Registry.BLOCK, new Identifier(ElementalCreepers.MOD_ID, "air_tnt"), AIR_TNT_BLOCK);
-        Registry.register(Registry.ITEM, new Identifier(ElementalCreepers.MOD_ID, "air_tnt"), new BlockItem(AIR_TNT_BLOCK, new FabricItemSettings().group(ElementalCreepers.CATEGORY)));
+        Registry.register(Registry.ITEM, new Identifier(ElementalCreepers.MOD_ID, "air_tnt"), new BlockItem(AIR_TNT_BLOCK, new FabricItemSettings().group(ElementalCreepers.ITEM_GROUP)));
 
         Registry.register(Registry.BLOCK, new Identifier(ElementalCreepers.MOD_ID, "electric_tnt"), ELECTRIC_TNT_BLOCK);
-        Registry.register(Registry.ITEM, new Identifier(ElementalCreepers.MOD_ID, "electric_tnt"), new BlockItem(ELECTRIC_TNT_BLOCK, new FabricItemSettings().group(ElementalCreepers.CATEGORY)));
+        Registry.register(Registry.ITEM, new Identifier(ElementalCreepers.MOD_ID, "electric_tnt"), new BlockItem(ELECTRIC_TNT_BLOCK, new FabricItemSettings().group(ElementalCreepers.ITEM_GROUP)));
 
         Registry.register(Registry.BLOCK, new Identifier(ElementalCreepers.MOD_ID, "light_tnt"), LIGHT_TNT_BLOCK);
-        Registry.register(Registry.ITEM, new Identifier(ElementalCreepers.MOD_ID, "light_tnt"), new BlockItem(LIGHT_TNT_BLOCK, new FabricItemSettings().group(ElementalCreepers.CATEGORY)));
+        Registry.register(Registry.ITEM, new Identifier(ElementalCreepers.MOD_ID, "light_tnt"), new BlockItem(LIGHT_TNT_BLOCK, new FabricItemSettings().group(ElementalCreepers.ITEM_GROUP)));
 
         Registry.register(Registry.BLOCK, new Identifier(ElementalCreepers.MOD_ID, "dark_tnt"), DARK_TNT_BLOCK);
-        Registry.register(Registry.ITEM, new Identifier(ElementalCreepers.MOD_ID, "dark_tnt"), new BlockItem(DARK_TNT_BLOCK, new FabricItemSettings().group(ElementalCreepers.CATEGORY)));
+        Registry.register(Registry.ITEM, new Identifier(ElementalCreepers.MOD_ID, "dark_tnt"), new BlockItem(DARK_TNT_BLOCK, new FabricItemSettings().group(ElementalCreepers.ITEM_GROUP)));
 
         Registry.register(Registry.BLOCK, new Identifier(ElementalCreepers.MOD_ID, "ice_tnt"), ICE_TNT_BLOCK);
-        Registry.register(Registry.ITEM, new Identifier(ElementalCreepers.MOD_ID, "ice_tnt"), new BlockItem(ICE_TNT_BLOCK, new FabricItemSettings().group(ElementalCreepers.CATEGORY)));
+        Registry.register(Registry.ITEM, new Identifier(ElementalCreepers.MOD_ID, "ice_tnt"), new BlockItem(ICE_TNT_BLOCK, new FabricItemSettings().group(ElementalCreepers.ITEM_GROUP)));
 
         Registry.register(Registry.BLOCK, new Identifier(ElementalCreepers.MOD_ID, "magma_tnt"), MAGMA_TNT_BLOCK);
-        Registry.register(Registry.ITEM, new Identifier(ElementalCreepers.MOD_ID, "magma_tnt"), new BlockItem(MAGMA_TNT_BLOCK, new FabricItemSettings().group(ElementalCreepers.CATEGORY)));
+        Registry.register(Registry.ITEM, new Identifier(ElementalCreepers.MOD_ID, "magma_tnt"), new BlockItem(MAGMA_TNT_BLOCK, new FabricItemSettings().group(ElementalCreepers.ITEM_GROUP)));
 
         Registry.register(Registry.BLOCK, new Identifier(ElementalCreepers.MOD_ID, "hydrogen_tnt"), HYDROGEN_TNT_BLOCK);
-        Registry.register(Registry.ITEM, new Identifier(ElementalCreepers.MOD_ID, "hydrogen_tnt"), new BlockItem(HYDROGEN_TNT_BLOCK, new FabricItemSettings().group(ElementalCreepers.CATEGORY)));
+        Registry.register(Registry.ITEM, new Identifier(ElementalCreepers.MOD_ID, "hydrogen_tnt"), new BlockItem(HYDROGEN_TNT_BLOCK, new FabricItemSettings().group(ElementalCreepers.ITEM_GROUP)));
 
 
         Registry.register(Registry.BLOCK, new Identifier(ElementalCreepers.MOD_ID, "reverse_tnt"), REVERSE_TNT_BLOCK);
-        Registry.register(Registry.ITEM, new Identifier(ElementalCreepers.MOD_ID, "reverse_tnt"), new BlockItem(REVERSE_TNT_BLOCK, new FabricItemSettings().group(ElementalCreepers.CATEGORY)));
+        Registry.register(Registry.ITEM, new Identifier(ElementalCreepers.MOD_ID, "reverse_tnt"), new BlockItem(REVERSE_TNT_BLOCK, new FabricItemSettings().group(ElementalCreepers.ITEM_GROUP)));
 
         Registry.register(Registry.BLOCK, new Identifier(ElementalCreepers.MOD_ID, "miner_tnt"), MINER_TNT_BLOCK);
-        Registry.register(Registry.ITEM, new Identifier(ElementalCreepers.MOD_ID, "miner_tnt"), new BlockItem(MINER_TNT_BLOCK, new FabricItemSettings().group(ElementalCreepers.CATEGORY)));
+        Registry.register(Registry.ITEM, new Identifier(ElementalCreepers.MOD_ID, "miner_tnt"), new BlockItem(MINER_TNT_BLOCK, new FabricItemSettings().group(ElementalCreepers.ITEM_GROUP)));
 
         Registry.register(Registry.BLOCK, new Identifier(ElementalCreepers.MOD_ID, "illusion_tnt"), ILLUSION_TNT_BLOCK);
-        Registry.register(Registry.ITEM, new Identifier(ElementalCreepers.MOD_ID, "illusion_tnt"), new BlockItem(ILLUSION_TNT_BLOCK, new FabricItemSettings().group(ElementalCreepers.CATEGORY)));
+        Registry.register(Registry.ITEM, new Identifier(ElementalCreepers.MOD_ID, "illusion_tnt"), new BlockItem(ILLUSION_TNT_BLOCK, new FabricItemSettings().group(ElementalCreepers.ITEM_GROUP)));
 
         Registry.register(Registry.BLOCK, new Identifier(ElementalCreepers.MOD_ID, "firework_tnt"), FIREWORK_TNT_BLOCK);
-        Registry.register(Registry.ITEM, new Identifier(ElementalCreepers.MOD_ID, "firework_tnt"), new BlockItem(FIREWORK_TNT_BLOCK, new FabricItemSettings().group(ElementalCreepers.CATEGORY)));
+        Registry.register(Registry.ITEM, new Identifier(ElementalCreepers.MOD_ID, "firework_tnt"), new BlockItem(FIREWORK_TNT_BLOCK, new FabricItemSettings().group(ElementalCreepers.ITEM_GROUP)));
 
         Registry.register(Registry.BLOCK, new Identifier(ElementalCreepers.MOD_ID, "cookie_tnt"), COOKIE_TNT_BLOCK);
-        Registry.register(Registry.ITEM, new Identifier(ElementalCreepers.MOD_ID, "cookie_tnt"), new BlockItem(COOKIE_TNT_BLOCK, new FabricItemSettings().group(ElementalCreepers.CATEGORY)));
+        Registry.register(Registry.ITEM, new Identifier(ElementalCreepers.MOD_ID, "cookie_tnt"), new BlockItem(COOKIE_TNT_BLOCK, new FabricItemSettings().group(ElementalCreepers.ITEM_GROUP)));
 
         Registry.register(Registry.BLOCK, new Identifier(ElementalCreepers.MOD_ID, "fake_illusion_tnt"), FAKE_ILLUSION_TNT_BLOCK);
         Registry.register(Registry.ITEM, new Identifier(ElementalCreepers.MOD_ID, "fake_illusion_tnt"), new BlockItem(FAKE_ILLUSION_TNT_BLOCK, new FabricItemSettings()));

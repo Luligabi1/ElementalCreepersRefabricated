@@ -1,7 +1,6 @@
 package me.luligabi.elementalcreepers.common.item;
 
 import me.luligabi.elementalcreepers.common.ElementalCreepers;
-import me.luligabi.elementalcreepers.common.item.ElementalGunpowderItem;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.item.Item;
 import net.minecraft.util.Identifier;
@@ -27,33 +26,33 @@ public class ItemRegistry {
         Registry.register(Registry.ITEM, new Identifier(ElementalCreepers.MOD_ID, "cookie_gunpowder"), COOKIE_GUNPOWDER);
     }
 
-    public static final Item WATER_GUNPOWDER = new ElementalGunpowderItem(new FabricItemSettings().group(ElementalCreepers.CATEGORY));
+    public static final Item WATER_GUNPOWDER = new ElementalGunpowderItem(new FabricItemSettings().group(ElementalCreepers.ITEM_GROUP));
 
-    public static final Item FIRE_GUNPOWDER = new ElementalGunpowderItem(new FabricItemSettings().group(ElementalCreepers.CATEGORY));
+    public static final Item FIRE_GUNPOWDER = new ElementalGunpowderItem(new FabricItemSettings().group(ElementalCreepers.ITEM_GROUP));
 
-    public static final Item EARTH_GUNPOWDER = new ElementalGunpowderItem(new FabricItemSettings().group(ElementalCreepers.CATEGORY));
+    public static final Item EARTH_GUNPOWDER = new ElementalGunpowderItem(new FabricItemSettings().group(ElementalCreepers.ITEM_GROUP));
 
-    public static final Item AIR_GUNPOWDER = new ElementalGunpowderItem(new FabricItemSettings().group(ElementalCreepers.CATEGORY));
+    public static final Item AIR_GUNPOWDER = new ElementalGunpowderItem(new FabricItemSettings().group(ElementalCreepers.ITEM_GROUP));
 
-    public static final Item ELECTRIC_GUNPOWDER = new ElementalGunpowderItem(new FabricItemSettings().group(ElementalCreepers.CATEGORY));
+    public static final Item ELECTRIC_GUNPOWDER = new ElementalGunpowderItem(new FabricItemSettings().group(ElementalCreepers.ITEM_GROUP));
 
-    public static final Item LIGHT_GUNPOWDER = new ElementalGunpowderItem(new FabricItemSettings().group(ElementalCreepers.CATEGORY));
+    public static final Item LIGHT_GUNPOWDER = new ElementalGunpowderItem(new FabricItemSettings().group(ElementalCreepers.ITEM_GROUP));
 
-    public static final Item DARK_GUNPOWDER = new ElementalGunpowderItem(new FabricItemSettings().group(ElementalCreepers.CATEGORY));
+    public static final Item DARK_GUNPOWDER = new ElementalGunpowderItem(new FabricItemSettings().group(ElementalCreepers.ITEM_GROUP));
 
-    public static final Item ICE_GUNPOWDER = new ElementalGunpowderItem(new FabricItemSettings().group(ElementalCreepers.CATEGORY));
+    public static final Item ICE_GUNPOWDER = new ElementalGunpowderItem(new FabricItemSettings().group(ElementalCreepers.ITEM_GROUP));
 
-    public static final Item MAGMA_GUNPOWDER = new ElementalGunpowderItem(new FabricItemSettings().fireproof().group(ElementalCreepers.CATEGORY));
+    public static final Item MAGMA_GUNPOWDER = new ElementalGunpowderItem(new FabricItemSettings().fireproof().group(ElementalCreepers.ITEM_GROUP));
 
-    public static final Item HYDROGEN_GUNPOWDER = new ElementalGunpowderItem(new FabricItemSettings().group(ElementalCreepers.CATEGORY));
+    public static final Item HYDROGEN_GUNPOWDER = new ElementalGunpowderItem(new FabricItemSettings().group(ElementalCreepers.ITEM_GROUP));
 
-    public static final Item REVERSE_GUNPOWDER = new ElementalGunpowderItem(new FabricItemSettings().group(ElementalCreepers.CATEGORY));
+    public static final Item REVERSE_GUNPOWDER = new ElementalGunpowderItem(new FabricItemSettings().group(ElementalCreepers.ITEM_GROUP));
 
-    public static final Item MINER_GUNPOWDER = new ElementalGunpowderItem(new FabricItemSettings().group(ElementalCreepers.CATEGORY));
+    public static final Item MINER_GUNPOWDER = new ElementalGunpowderItem(new FabricItemSettings().group(ElementalCreepers.ITEM_GROUP));
 
-    public static final Item ILLUSION_GUNPOWDER = new ElementalGunpowderItem(new FabricItemSettings().group(ElementalCreepers.CATEGORY));
+    public static final Item ILLUSION_GUNPOWDER = new ElementalGunpowderItem(new FabricItemSettings().group(ElementalCreepers.ITEM_GROUP));
 
-    public static final Item FIREWORK_GUNPOWDER = new ElementalGunpowderItem(new FabricItemSettings().group(ElementalCreepers.CATEGORY));
+    public static final Item FIREWORK_GUNPOWDER = new ElementalGunpowderItem(new FabricItemSettings().group(ElementalCreepers.ITEM_GROUP));
 
-    public static final Item COOKIE_GUNPOWDER = new ElementalGunpowderItem(new FabricItemSettings().group(ElementalCreepers.CATEGORY));
+    public static final Item COOKIE_GUNPOWDER = new ElementalGunpowderItem(new FabricItemSettings().group(ElementalCreepers.ITEM_GROUP));
 }

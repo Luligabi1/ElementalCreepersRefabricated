@@ -1,7 +1,5 @@
 package me.luligabi.elementalcreepers.common.entity.creeper;
 
-import me.luligabi.elementalcreepers.common.ElementalCreepers;
-import me.luligabi.elementalcreepers.common.SimpleConfig;
 import me.luligabi.elementalcreepers.common.entity.ExplosionEffects;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -19,7 +17,6 @@ public class MagmaCreeperEntity extends ElementalCreeperEntity {
         super(entityType, world);
         this.setPathfindingPenalty(PathNodeType.WATER, -1.0F);
     }
-    SimpleConfig config = new ElementalCreepers().getConfig();
 
     @Override
     public void tickMovement() {

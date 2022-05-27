@@ -29,14 +29,14 @@ import org.jetbrains.annotations.Nullable;
 
 public abstract class ElementalTntBlock extends Block {
 
-    public static final BooleanProperty UNSTABLE;
-    private final TntBuilder creator;
-
     public ElementalTntBlock(AbstractBlock.Settings settings, final TntBuilder creator) {
         super(settings);
-        this.setDefaultState(this.getDefaultState().with((Property) ElementalTntBlock.UNSTABLE, (Comparable) false));
+        this.setDefaultState(getDefaultState().with(ElementalTntBlock.UNSTABLE, false));
         this.creator = creator;
     }
+
+    public static final BooleanProperty UNSTABLE;
+    private final TntBuilder creator;
 
     public void onBlockAdded(BlockState state, World world, BlockPos pos, BlockState oldState, boolean notify) {
         if (!oldState.isOf(state.getBlock()) && world.isReceivingRedstonePower(pos)) {

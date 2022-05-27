@@ -27,10 +27,9 @@ import java.util.Random;
 
 public class ExplosionEffects {
 
-    SimpleConfig config = new ElementalCreepers().getConfig();
 
     public void waterExplosionEffect(Entity entity, World entityWorld, double entityX, double entityY, double entityZ) {
-        double radius = config.getOrDefault("waterCreeperRadius", 3);
+        double radius = ElementalCreepers.CONFIG.waterCreeperRadius;
 
         if(entity instanceof ElementalCreeperEntity) radius = ((ElementalCreeperEntity) entity).isCharged() ? radius*1.5 : radius;
 
@@ -50,7 +49,7 @@ public class ExplosionEffects {
         }
     }
     public void fireExplosionEffect(Entity entity, World entityWorld, double entityX, double entityY, double entityZ) {
-        double radius = config.getOrDefault("fireCreeperRadius", 3);
+        double radius = ElementalCreepers.CONFIG.fireCreeperRadius;
 
         if(entity instanceof ElementalCreeperEntity) radius = ((ElementalCreeperEntity) entity).isCharged() ? radius*1.5 : radius;
 
@@ -71,7 +70,7 @@ public class ExplosionEffects {
         }
     }
     public void earthExplosionEffect(Entity entity, World entityWorld, double entityX, double entityY, double entityZ) {
-        double radius = config.getOrDefault("earthCreeperRadius", 5);
+        double radius = ElementalCreepers.CONFIG.earthCreeperRadius;
 
         if(entity instanceof ElementalCreeperEntity) radius = ((ElementalCreeperEntity) entity).isCharged() ? radius*1.5 : radius;
 
@@ -95,7 +94,7 @@ public class ExplosionEffects {
         }
     }
     public void airExplosionEffect(Entity entity, World entityWorld, double entityX, double entityY, double entityZ) {
-        double radius = config.getOrDefault("airCreeperRadius", 1.75D);
+        double radius = ElementalCreepers.CONFIG.airCreeperRadius;
 
         if(entity instanceof ElementalCreeperEntity) radius = ((ElementalCreeperEntity) entity).isCharged() ? radius*1.5 : radius;
 
@@ -114,7 +113,7 @@ public class ExplosionEffects {
         entityWorld.spawnEntity(lightningEntity);
     }
     public void lightExplosionEffect(Entity entity, World entityWorld, double entityX, double entityY, double entityZ) {
-        double radius = config.getOrDefault("lightCreeperRadius", 4);
+        double radius = ElementalCreepers.CONFIG.lightCreeperRadius;
 
         if(entity instanceof ElementalCreeperEntity) radius = ((ElementalCreeperEntity) entity).isCharged() ? radius*1.5 : radius;
 
@@ -142,7 +141,7 @@ public class ExplosionEffects {
         }
     }
     public void darkExplosionEffect(Entity entity, World entityWorld, double entityX, double entityY, double entityZ) {
-        double radius = config.getOrDefault("darkCreeperRadius", 4);
+        double radius = ElementalCreepers.CONFIG.darkCreeperRadius;
 
         if(entity instanceof ElementalCreeperEntity) radius = ((ElementalCreeperEntity) entity).isCharged() ? radius*1.5 : radius;
 
@@ -175,7 +174,7 @@ public class ExplosionEffects {
         }
     }
     public void iceExplosionEffect(Entity entity, World entityWorld, double entityX, double entityY, double entityZ) {
-        double radius = config.getOrDefault("iceCreeperRadius", 4);
+        double radius = ElementalCreepers.CONFIG.iceCreeperRadius;
 
         if(entity instanceof ElementalCreeperEntity) radius = ((ElementalCreeperEntity) entity).isCharged() ? radius*1.5 : radius;
 
@@ -210,7 +209,7 @@ public class ExplosionEffects {
         }
     }
     public void magmaExplosionEffect(Entity entity, World entityWorld, double entityX, double entityY, double entityZ) {
-        double radius = config.getOrDefault("magmaCreeperRadius", 4);
+        double radius = ElementalCreepers.CONFIG.magmaCreeperRadius;
 
         if(entity instanceof ElementalCreeperEntity) radius = ((ElementalCreeperEntity) entity).isCharged() ? radius*1.5 : radius;
 
@@ -230,7 +229,7 @@ public class ExplosionEffects {
         }
     }
     public void hydrogenExplosionEffect(Entity entity, World entityWorld, double entityX, double entityY, double entityZ) {
-        double radius = config.getOrDefault("hydrogenCreeperRadius", 7F);
+        double radius = ElementalCreepers.CONFIG.hydrogenCreeperRadius;
 
         if(entity instanceof ElementalCreeperEntity) radius = ((ElementalCreeperEntity) entity).isCharged() ? radius*1.5 : radius;
 
@@ -239,7 +238,7 @@ public class ExplosionEffects {
                 Explosion.DestructionType.DESTROY : Explosion.DestructionType.NONE);
     }
     public void reverseExplosionEffect(Entity entity, World entityWorld, double entityX, double entityY, double entityZ) {
-        double radius = config.getOrDefault("reverseCreeperRadius", 3.75);
+        double radius = ElementalCreepers.CONFIG.reverseCreeperRadius;
 
         if(entity instanceof ElementalCreeperEntity) radius = ((ElementalCreeperEntity) entity).isCharged() ? radius*1.5 : radius;
 
@@ -288,7 +287,7 @@ public class ExplosionEffects {
         }
     }
     public void minerExplosionEffect(Entity entity, World entityWorld, double entityX, double entityY, double entityZ) {
-        double radius = config.getOrDefault("minerCreeperRadius", 3.75);
+        double radius = ElementalCreepers.CONFIG.minerCreeperRadius;
 
         if(entity instanceof ElementalCreeperEntity) radius = ((ElementalCreeperEntity) entity).isCharged() ? radius*1.5 : radius;
 
