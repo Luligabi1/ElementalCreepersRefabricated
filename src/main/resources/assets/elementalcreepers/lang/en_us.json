@@ -97,5 +97,151 @@
   "item.elementalcreepers.gunpowder.tooltip.1": "Used to craft Elemental TNT's",
   "item.elementalcreepers.gunpowder.tooltip.2": "TIP: Can be crafted into gunpowder on a 1:2 ratio.",
 
-  "itemGroup.elementalcreepers.category": "Elemental Creepers: Refabricated"
+  "itemGroup.elementalcreepers.category": "Elemental Creepers: Refabricated",
+
+
+  "configOption.elementalcreepers.waterCreeperEnabled": "Enable Water Creeper?",
+  "configOption.elementalcreepers.waterCreeperEnabled.tooltip": "Allows Water Creepers to spawn on the world",
+
+  "configOption.elementalcreepers.waterCreeperSpawnRate": "Water Creeper's Spawn Rate",
+  "configOption.elementalcreepers.waterCreeperSpawnRate.tooltip": "How often Water Creepers will spawn on the world",
+
+  "configOption.elementalcreepers.waterCreeperRadius": "Water Creeper's Explosion Effect Radius",
+  "configOption.elementalcreepers.waterCreeperRadius.tooltip": "How big Water Creeper's explosion is",
+
+
+  "configOption.elementalcreepers.fireCreeperEnabled": "Enable Fire Creeper?",
+  "configOption.elementalcreepers.fireCreeperEnabled.tooltip": "Allows Fire Creepers to spawn on the world",
+
+  "configOption.elementalcreepers.fireCreeperSpawnRate": "Fire Creeper's Spawn Rate",
+  "configOption.elementalcreepers.fireCreeperSpawnRate.tooltip": "How often Fire Creepers will spawn on the world",
+
+  "configOption.elementalcreepers.fireCreeperRadius": "Fire Creeper's Explosion Effect Radius",
+  "configOption.elementalcreepers.fireCreeperRadius.tooltip": "How big Fire Creeper's explosion is",
+
+
+  "configOption.elementalcreepers.earthCreeperEnabled": "Enable Earth Creeper?",
+  "configOption.elementalcreepers.earthCreeperEnabled.tooltip": "Allows Earth Creepers to spawn on the world",
+
+  "configOption.elementalcreepers.earthCreeperSpawnRate": "Earth Creeper's Spawn Rate",
+  "configOption.elementalcreepers.earthCreeperSpawnRate.tooltip": "How often Earth Creepers will spawn on the world",
+
+  "configOption.elementalcreepers.earthCreeperRadius": "Earth Creeper's Explosion Effect Radius",
+  "configOption.elementalcreepers.earthCreeperRadius.tooltip": "How big Earth Creeper's explosion is",
+
+
+  "configOption.elementalcreepers.airCreeperEnabled": "Enable Air Creeper?",
+  "configOption.elementalcreepers.airCreeperEnabled.tooltip": "Allows Air Creepers to spawn on the world",
+
+  "configOption.elementalcreepers.airCreeperSpawnRate": "Air Creeper's Spawn Rate",
+  "configOption.elementalcreepers.airCreeperSpawnRate.tooltip": "How often Air Creepers will spawn on the world",
+
+  "configOption.elementalcreepers.airCreeperRadius": "Air Creeper's Explosion Effect Radius",
+  "configOption.elementalcreepers.airCreeperRadius.tooltip": "How big Air Creeper's explosion is",
+
+
+  "configOption.elementalcreepers.electricCreeperEnabled": "Enable Electric Creeper?",
+  "configOption.elementalcreepers.electricCreeperEnabled.tooltip": "Allows Electric Creepers to spawn on the world",
+
+  "configOption.elementalcreepers.electricCreeperSpawnRate": "Electric Creeper's Spawn Rate",
+  "configOption.elementalcreepers.electricCreeperSpawnRate.tooltip": "How often Electric Creepers will spawn on the world",
+
+
+  "configOption.elementalcreepers.lightCreeperEnabled": "Enable Light Creeper?",
+  "configOption.elementalcreepers.lightCreeperEnabled.tooltip": "Allows Light Creepers to spawn on the world",
+
+  "configOption.elementalcreepers.lightCreeperSpawnRate": "Light Creeper's Spawn Rate",
+  "configOption.elementalcreepers.lightCreeperSpawnRate.tooltip": "How often Light Creepers will spawn on the world",
+
+  "configOption.elementalcreepers.lightCreeperRadius": "Light Creeper's Explosion Effect Radius",
+  "configOption.elementalcreepers.lightCreeperRadius.tooltip": "How big Light Creeper's explosion is",
+
+
+  "configOption.elementalcreepers.darkCreeperEnabled": "Enable Dark Creeper?",
+  "configOption.elementalcreepers.darkCreeperEnabled.tooltip": "Allows Dark Creepers to spawn on the world",
+
+  "configOption.elementalcreepers.darkCreeperSpawnRate": "Dark Creeper's Spawn Rate",
+  "configOption.elementalcreepers.darkCreeperSpawnRate.tooltip": "How often Dark Creepers will spawn on the world",
+
+  "configOption.elementalcreepers.darkCreeperRadius": "Dark Creeper's Explosion Effect Radius",
+  "configOption.elementalcreepers.darkCreeperRadius.tooltip": "How big Dark Creeper's explosion is",
+
+
+  "configOption.elementalcreepers.iceCreeperEnabled": "Enable Ice Creeper?",
+  "configOption.elementalcreepers.iceCreeperEnabled.tooltip": "Allows Ice Creepers to spawn on the world",
+
+  "configOption.elementalcreepers.iceCreeperSpawnRate": "Ice Creeper's Spawn Rate",
+  "configOption.elementalcreepers.iceCreeperSpawnRate.tooltip": "How often Ice Creepers will spawn on the world",
+
+  "configOption.elementalcreepers.iceCreeperRadius": "Ice Creeper's Explosion Effect Radius",
+  "configOption.elementalcreepers.iceCreeperRadius.tooltip": "How big Ice Creeper's explosion is",
+
+
+  "configOption.elementalcreepers.magmaCreeperEnabled": "Enable Magma Creeper?",
+  "configOption.elementalcreepers.magmaCreeperEnabled.tooltip": "Allows Magma Creepers to spawn on the world",
+
+  "configOption.elementalcreepers.magmaCreeperSpawnRate": "Magma Creeper's Spawn Rate",
+  "configOption.elementalcreepers.magmaCreeperSpawnRate.tooltip": "How often Magma Creepers will spawn on the world",
+
+  "configOption.elementalcreepers.magmaCreeperRadius": "Magma Creeper's Explosion Effect Radius",
+  "configOption.elementalcreepers.magmaCreeperRadius.tooltip": "How big Magma Creeper's explosion is",
+
+
+  "configOption.elementalcreepers.hydrogenCreeperEnabled": "Enable Hydrogen Creeper?",
+  "configOption.elementalcreepers.hydrogenCreeperEnabled.tooltip": "Allows Hydrogen Creepers to spawn on the world",
+
+  "configOption.elementalcreepers.hydrogenCreeperSpawnRate": "Hydrogen Creeper's Spawn Rate",
+  "configOption.elementalcreepers.hydrogenCreeperSpawnRate.tooltip": "How often Hydrogen Creepers will spawn on the world",
+
+  "configOption.elementalcreepers.hydrogenCreeperRadius": "Hydrogen Creeper's Explosion Effect Radius",
+  "configOption.elementalcreepers.hydrogenCreeperRadius.tooltip": "How big Hydrogen Creeper's explosion is",
+
+
+  "configOption.elementalcreepers.reverseCreeperEnabled": "Enable Reverse Creeper?",
+  "configOption.elementalcreepers.reverseCreeperEnabled.tooltip": "Allows Reverse Creepers to spawn on the world",
+
+  "configOption.elementalcreepers.reverseCreeperSpawnRate": "Reverse Creeper's Spawn Rate",
+  "configOption.elementalcreepers.reverseCreeperSpawnRate.tooltip": "How often Reverse Creepers will spawn on the world",
+
+  "configOption.elementalcreepers.reverseCreeperRadius": "Reverse Creeper's Explosion Effect Radius",
+  "configOption.elementalcreepers.reverseCreeperRadius.tooltip": "How big Reverse Creeper's explosion is",
+
+
+  "configOption.elementalcreepers.minerCreeperEnabled": "Enable Miner Creeper?",
+  "configOption.elementalcreepers.minerCreeperEnabled.tooltip": "Allows Miner Creepers to spawn on the world",
+
+  "configOption.elementalcreepers.minerCreeperSpawnRate": "Miner Creeper's Spawn Rate",
+  "configOption.elementalcreepers.minerCreeperSpawnRate.tooltip": "How often Miner Creepers will spawn on the world",
+
+  "configOption.elementalcreepers.minerCreeperRadius": "Miner Creeper's Explosion Effect Radius",
+  "configOption.elementalcreepers.minerCreeperRadius.tooltip": "How big Miner Creeper's explosion is",
+
+
+  "configOption.elementalcreepers.illusionCreeperEnabled": "Enable Illusion Creeper?",
+  "configOption.elementalcreepers.illusionCreeperEnabled.tooltip": "Allows Illusion Creepers to spawn on the world",
+
+  "configOption.elementalcreepers.illusionCreeperSpawnRate": "Illusion Creeper's Spawn Rate",
+  "configOption.elementalcreepers.illusionCreeperSpawnRate.tooltip": "How often Illusion Creepers will spawn on the world",
+
+
+  "configOption.elementalcreepers.fireworkCreeperEnabled": "Enable Firework Creeper?",
+  "configOption.elementalcreepers.fireworkCreeperEnabled.tooltip": "Allows Firework Creepers to spawn on the world",
+
+  "configOption.elementalcreepers.fireworkCreeperSpawnRate": "Firework Creeper's Spawn Rate",
+  "configOption.elementalcreepers.fireworkCreeperSpawnRate.tooltip": "How often Firework Creepers will spawn on the world",
+
+
+  "configOption.elementalcreepers.cookieCreeperEnabled": "Enable Cookie Creeper?",
+  "configOption.elementalcreepers.cookieCreeperEnabled.tooltip": "Allows Cookie Creepers to spawn on the world",
+
+  "configOption.elementalcreepers.cookieCreeperSpawnRate": "Cookie Creeper's Spawn Rate",
+  "configOption.elementalcreepers.cookieCreeperSpawnRate.tooltip": "How often Cookie Creepers will spawn on the world",
+
+
+  "configOption.elementalcreepers.rainbowCreeperEnabled": "Enable Rainbow Creeper?",
+  "configOption.elementalcreepers.rainbowCreeperEnabled.tooltip": "Allows Rainbow Creepers to spawn on the world",
+
+  "configOption.elementalcreepers.rainbowCreeperSpawnRate": "Rainbow Creeper's Spawn Rate",
+  "configOption.elementalcreepers.rainbowCreeperSpawnRate.tooltip": "How often Rainbow Creepers will spawn on the world"
+
 }

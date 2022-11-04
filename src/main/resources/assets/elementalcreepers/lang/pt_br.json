@@ -97,5 +97,151 @@
   "item.elementalcreepers.gunpowder.tooltip.1": "Usada para fabricar Dinamites Elementais",
   "item.elementalcreepers.gunpowder.tooltip.2": "Dica: Pode ser fabricada em Pólvora em proporção 1:2",
 
-  "itemGroup.elementalcreepers.category": "Elemental Creepers: Refabricated"
+  "itemGroup.elementalcreepers.category": "Elemental Creepers: Refabricated",
+
+
+  "configOption.elementalcreepers.waterCreeperEnabled": "Ativar Creeper de Água?",
+  "configOption.elementalcreepers.waterCreeperEnabled.tooltip": "Permitir que Creepers de Água nasçam no mundo",
+
+  "configOption.elementalcreepers.waterCreeperSpawnRate": "Taxa de Spawn de Creepers de Água",
+  "configOption.elementalcreepers.waterCreeperSpawnRate.tooltip": "Frequência com que Creepers de Água nascerão no mundo",
+
+  "configOption.elementalcreepers.waterCreeperRadius": "Raio do Efeito de Explosão de Creepers de Água",
+  "configOption.elementalcreepers.waterCreeperRadius.tooltip": "Quão grande a explosão de Creepers de Água é",
+
+
+  "configOption.elementalcreepers.fireCreeperEnabled": "Ativar Creeper de Fogo?",
+  "configOption.elementalcreepers.fireCreeperEnabled.tooltip": "Permitir que Creepers de Fogo nasçam no mundo",
+
+  "configOption.elementalcreepers.fireCreeperSpawnRate": "Taxa de Spawn de Creepers de Fogo",
+  "configOption.elementalcreepers.fireCreeperSpawnRate.tooltip": "Frequência com que Creepers de Fogo nascerão no mundo",
+
+  "configOption.elementalcreepers.fireCreeperRadius": "Raio do Efeito de Explosão de Creepers de Fogo",
+  "configOption.elementalcreepers.fireCreeperRadius.tooltip": "Quão grande a explosão de Creepers de Fogo é",
+
+
+  "configOption.elementalcreepers.earthCreeperEnabled": "Ativar Creeper de Terra?",
+  "configOption.elementalcreepers.earthCreeperEnabled.tooltip": "Permitir que Creepers de Terra nasçam no mundo",
+
+  "configOption.elementalcreepers.earthCreeperSpawnRate": "Taxa de Spawn de Creepers de Terra",
+  "configOption.elementalcreepers.earthCreeperSpawnRate.tooltip": "Frequência com que Creepers de Terra nascerão no mundo",
+
+  "configOption.elementalcreepers.earthCreeperRadius": "Raio do Efeito de Explosão de Creepers de Terra",
+  "configOption.elementalcreepers.earthCreeperRadius.tooltip": "Quão grande a explosão de Creepers de Terra é",
+
+
+  "configOption.elementalcreepers.airCreeperEnabled": "Ativar Creeper de Ar?",
+  "configOption.elementalcreepers.airCreeperEnabled.tooltip": "Permitir que Creepers de Ar nasçam no mundo",
+
+  "configOption.elementalcreepers.airCreeperSpawnRate": "Taxa de Spawn de Creepers de Ar",
+  "configOption.elementalcreepers.airCreeperSpawnRate.tooltip": "Frequência com que Creepers de Ar nascerão no mundo",
+
+  "configOption.elementalcreepers.airCreeperRadius": "Raio do Efeito de Explosão de Creepers de Ar",
+  "configOption.elementalcreepers.airCreeperRadius.tooltip": "Quão grande a explosão de Creepers de Ar é",
+
+
+  "configOption.elementalcreepers.electricCreeperEnabled": "Ativar Creeper Elétrico?",
+  "configOption.elementalcreepers.electricCreeperEnabled.tooltip": "Permitir que Creepers Elétricos nasçam no mundo",
+
+  "configOption.elementalcreepers.electricCreeperSpawnRate": "Taxa de Spawn de Creepers Elétricos",
+  "configOption.elementalcreepers.electricCreeperSpawnRate.tooltip": "Frequência com que Creepers Elétricos nascerão no mundo",
+
+
+  "configOption.elementalcreepers.lightCreeperEnabled": "Ativar Creeper de Luz?",
+  "configOption.elementalcreepers.lightCreeperEnabled.tooltip": "Permitir que Creepers de Luz nasçam no mundo",
+
+  "configOption.elementalcreepers.lightCreeperSpawnRate": "Taxa de Spawn de Creepers de Luz",
+  "configOption.elementalcreepers.lightCreeperSpawnRate.tooltip": "Frequência com que Creepers de Luz nascerão no mundo",
+
+  "configOption.elementalcreepers.lightCreeperRadius": "Raio do Efeito de Explosão de Creepers de Luz",
+  "configOption.elementalcreepers.lightCreeperRadius.tooltip": "Quão grande a explosão de Creepers de Luz é",
+
+
+  "configOption.elementalcreepers.darkCreeperEnabled": "Ativar Creeper das Trevas?",
+  "configOption.elementalcreepers.darkCreeperEnabled.tooltip": "Permitir que Creepers das Trevas nasçam no mundo",
+
+  "configOption.elementalcreepers.darkCreeperSpawnRate": "Taxa de Spawn de Creepers das Trevas",
+  "configOption.elementalcreepers.darkCreeperSpawnRate.tooltip": "Frequência com que Creepers das Trevas nascerão no mundo",
+
+  "configOption.elementalcreepers.darkCreeperRadius": "Raio do Efeito de Explosão de Creepers das Trevas",
+  "configOption.elementalcreepers.darkCreeperRadius.tooltip": "Quão grande a explosão de Creepers das Trevas é",
+
+
+  "configOption.elementalcreepers.iceCreeperEnabled": "Ativar Creeper de Gelo?",
+  "configOption.elementalcreepers.iceCreeperEnabled.tooltip": "Permitir que Creepers de Gelo nasçam no mundo",
+
+  "configOption.elementalcreepers.iceCreeperSpawnRate": "Taxa de Spawn de Creepers de Gelo",
+  "configOption.elementalcreepers.iceCreeperSpawnRate.tooltip": "Frequência com que Creepers de Gelo nascerão no mundo",
+
+  "configOption.elementalcreepers.iceCreeperRadius": "Raio do Efeito de Explosão de Creepers de Gelo",
+  "configOption.elementalcreepers.iceCreeperRadius.tooltip": "Quão grande a explosão de Creepers de Gelo é",
+
+
+  "configOption.elementalcreepers.magmaCreeperEnabled": "Ativar Creeper de Magma?",
+  "configOption.elementalcreepers.magmaCreeperEnabled.tooltip": "Permitir que Creepers de Magma nasçam no mundo",
+
+  "configOption.elementalcreepers.magmaCreeperSpawnRate": "Taxa de Spawn de Creepers de Magma",
+  "configOption.elementalcreepers.magmaCreeperSpawnRate.tooltip": "Frequência com que Creepers de Magma nascerão no mundo",
+
+  "configOption.elementalcreepers.magmaCreeperRadius": "Raio do Efeito de Explosão de Creepers de Magma",
+  "configOption.elementalcreepers.magmaCreeperRadius.tooltip": "Quão grande a explosão de Creepers de Magma é",
+
+
+  "configOption.elementalcreepers.hydrogenCreeperEnabled": "Ativar Creeper de Hidrogênio?",
+  "configOption.elementalcreepers.hydrogenCreeperEnabled.tooltip": "Permitir que Creepers de Hidrogênio nasçam no mundo",
+
+  "configOption.elementalcreepers.hydrogenCreeperSpawnRate": "Taxa de Spawn de Creepers de Hidrogênio",
+  "configOption.elementalcreepers.hydrogenCreeperSpawnRate.tooltip": "Frequência com que Creepers de Hidrogênio nascerão no mundo",
+
+  "configOption.elementalcreepers.hydrogenCreeperRadius": "Raio do Efeito de Explosão de Creepers de Hidrogênio",
+  "configOption.elementalcreepers.hydrogenCreeperRadius.tooltip": "Quão grande a explosão de Creepers de Hidrogênio é",
+
+
+  "configOption.elementalcreepers.reverseCreeperEnabled": "Ativar Creeper Reverso?",
+  "configOption.elementalcreepers.reverseCreeperEnabled.tooltip": "Permitir que Creepers Reversos nasçam no mundo",
+
+  "configOption.elementalcreepers.reverseCreeperSpawnRate": "Taxa de Spawn de Creepers Reversos",
+  "configOption.elementalcreepers.reverseCreeperSpawnRate.tooltip": "Frequência com que Creepers Reversos nascerão no mundo",
+
+  "configOption.elementalcreepers.reverseCreeperRadius": "Raio do Efeito de Explosão de Creepers Reversos",
+  "configOption.elementalcreepers.reverseCreeperRadius.tooltip": "Quão grande a explosão de Creepers Reversos é",
+
+
+  "configOption.elementalcreepers.minerCreeperEnabled": "Ativar Creeper Minerador?",
+  "configOption.elementalcreepers.minerCreeperEnabled.tooltip": "Permitir que Creepers Mineradores nasçam no mundo",
+
+  "configOption.elementalcreepers.minerCreeperSpawnRate": "Taxa de Spawn de Creepers Mineradores",
+  "configOption.elementalcreepers.minerCreeperSpawnRate.tooltip": "Frequência com que Creepers Mineradores nascerão no mundo",
+
+  "configOption.elementalcreepers.minerCreeperRadius": "Raio do Efeito de Explosão de Creepers Mineradores",
+  "configOption.elementalcreepers.minerCreeperRadius.tooltip": "Quão grande a explosão de Creepers Mineradores é",
+
+
+  "configOption.elementalcreepers.illusionCreeperEnabled": "Ativar Creeper de Ilusão?",
+  "configOption.elementalcreepers.illusionCreeperEnabled.tooltip": "Permitir que Creepers de Ilusão nasçam no mundo",
+
+  "configOption.elementalcreepers.illusionCreeperSpawnRate": "Taxa de Spawn de Creepers de Ilusão",
+  "configOption.elementalcreepers.illusionCreeperSpawnRate.tooltip": "Frequência com que Creepers de Ilusão nascerão no mundo",
+
+
+  "configOption.elementalcreepers.fireworkCreeperEnabled": "Ativar Creeper Fogo de Artifício?",
+  "configOption.elementalcreepers.fireworkCreeperEnabled.tooltip": "Permitir que Creepers Fogos de Artifício nasçam no mundo",
+
+  "configOption.elementalcreepers.fireworkCreeperSpawnRate": "Taxa de Spawn de Creepers Fogos de Artifício",
+  "configOption.elementalcreepers.fireworkCreeperSpawnRate.tooltip": "Frequência com que Creepers Fogos de Artifício nascerão no mundo",
+
+
+  "configOption.elementalcreepers.cookieCreeperEnabled": "Ativar Creeper de Biscoito?",
+  "configOption.elementalcreepers.cookieCreeperEnabled.tooltip": "Permitir que Creepers de Biscoito nasçam no mundo",
+
+  "configOption.elementalcreepers.cookieCreeperSpawnRate": "Taxa de Spawn de Creepers de Biscoito",
+  "configOption.elementalcreepers.cookieCreeperSpawnRate.tooltip": "Frequência com que Creepers de Biscoito nascerão no mundo",
+
+
+  "configOption.elementalcreepers.rainbowCreeperEnabled": "Ativar Creeper Arco-Íris?",
+  "configOption.elementalcreepers.rainbowCreeperEnabled.tooltip": "Permitir que Creepers Arco-Íris nasçam no mundo",
+
+  "configOption.elementalcreepers.rainbowCreeperSpawnRate": "Taxa de Spawn de Creepers Arco-Íris",
+  "configOption.elementalcreepers.rainbowCreeperSpawnRate.tooltip": "Frequência com que Creepers Arco-Íris nascerão no mundo"
+
 }

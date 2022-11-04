@@ -1,10 +1,8 @@
 package me.luligabi.elementalcreepers.client;
 
-import draylar.omegaconfiggui.OmegaConfigGui;
 import me.luligabi.elementalcreepers.client.renderer.*;
-import me.luligabi.elementalcreepers.common.ElementalCreepers;
-import me.luligabi.elementalcreepers.common.entity.creeper.CreeperRegistry;
 import me.luligabi.elementalcreepers.common.block.TntRegistry;
+import me.luligabi.elementalcreepers.common.entity.creeper.CreeperRegistry;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 
@@ -50,8 +48,6 @@ public class ElementalCreepersClient implements ClientModInitializer {
         EntityRendererRegistry.register(TntRegistry.COOKIE_TNT_ENTITY, (context) -> new ElementalTntRenderer(context, TntRegistry.COOKIE_TNT_BLOCK.getDefaultState()));
 
         EntityRendererRegistry.register(TntRegistry.FAKE_ILLUSION_TNT_ENTITY, (context) -> new ElementalTntRenderer(context, TntRegistry.FAKE_ILLUSION_TNT_BLOCK.getDefaultState()));
-
-        OmegaConfigGui.registerConfigScreen(ElementalCreepers.CONFIG);
     }
 
 }

@@ -22,6 +22,9 @@
     ],
     "client": [
       "me.luligabi.elementalcreepers.client.ElementalCreepersClient"
+    ],
+    "modmenu": [
+      "me.luligabi.elementalcreepers.common.compat.modmenu.ConfigScreenEntrypoint"
     ]
   },
   "mixins": [
