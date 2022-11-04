@@ -35,8 +35,8 @@ public class IllusionCreeperEntity extends ElementalCreeperEntity {
 
     @Override
     public void onExplode() {
-        this.world.createExplosion(this, this.getX(), this.getY(), this.getZ(),
-                3,  this.world.getGameRules().getBoolean(GameRules.DO_MOB_GRIEFING) ?
+        world.createExplosion(this, getX(), getY(), getZ(),
+                3,  world.getGameRules().getBoolean(GameRules.DO_MOB_GRIEFING) ?
                 Explosion.DestructionType.DESTROY : Explosion.DestructionType.NONE);
         super.onExplode();
         hasDuplicated = false;
@@ -57,9 +57,9 @@ public class IllusionCreeperEntity extends ElementalCreeperEntity {
     public boolean hasDuplicated() { return hasDuplicated; }
     public void setHasDuplicated(boolean hasDuplicated) { this.hasDuplicated = hasDuplicated; }
 
-    static class IllusionCreeperFollowTargetGoal extends ActiveTargetGoal<IllusionCreeperEntity> {
+    static class IllusionCreeperFollowTargetGoal extends ActiveTargetGoal<PlayerEntity> {
 
-        public IllusionCreeperFollowTargetGoal(MobEntity mobEntity, Class targetClass, boolean bl) {
+        public IllusionCreeperFollowTargetGoal(MobEntity mobEntity, Class<PlayerEntity> targetClass, boolean bl) {
             super(mobEntity, targetClass, bl);
         }
 

@@ -12,7 +12,7 @@ public class ReverseTntEntity extends ElementalTntEntity {
 
     @Override
     public void explode() {
-        new ExplosionEffects().reverseExplosionEffect(this, this.world, this.getX(), this.getY(), this.getZ());
+        ExplosionEffects.reverseExplosionEffect(this, world, getX(), getY(), getZ());
     }
 
 }

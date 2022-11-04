@@ -13,7 +13,7 @@ public class CookieCreeperEntity extends ElementalCreeperEntity {
 
     @Override
     public void onExplode() {
-        new ExplosionEffects().cookieExplosionEffect(this, this.world, this.getX(), this.getY(), this.getZ());
+        ExplosionEffects.cookieExplosionEffect(this, world, getX(), getY(), getZ());
         super.onExplode();
     }
 }

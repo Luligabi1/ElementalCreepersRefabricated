@@ -70,9 +70,7 @@ public abstract class ElementalTntEntity extends Entity {
         }
     }
 
-    public void explode() { // Don't call this on custom TNT's, unless it's meant to explode as vanilla TNT. Instead, override it.
-        this.world.createExplosion(this, this.getX(), this.getBodyY(0.0625), this.getZ(), 4, Explosion.DestructionType.BREAK);
-    }
+    public abstract void explode();
 
     protected void writeCustomDataToNbt(NbtCompound nbt) {
         nbt.putShort("Fuse", (short)this.getFuse());

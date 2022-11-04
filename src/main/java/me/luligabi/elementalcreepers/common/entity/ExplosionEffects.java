@@ -28,7 +28,7 @@ import java.util.Random;
 public class ExplosionEffects {
 
 
-    public void waterExplosionEffect(Entity entity, World entityWorld, double entityX, double entityY, double entityZ) {
+    public static void waterExplosionEffect(Entity entity, World entityWorld, double entityX, double entityY, double entityZ) {
         double radius = ElementalCreepers.CONFIG.waterCreeperRadius;
 
         if(entity instanceof ElementalCreeperEntity) radius = ((ElementalCreeperEntity) entity).isCharged() ? radius*1.5 : radius;
@@ -48,7 +48,8 @@ public class ExplosionEffects {
             }
         }
     }
-    public void fireExplosionEffect(Entity entity, World entityWorld, double entityX, double entityY, double entityZ) {
+
+    public static void fireExplosionEffect(Entity entity, World entityWorld, double entityX, double entityY, double entityZ) {
         double radius = ElementalCreepers.CONFIG.fireCreeperRadius;
 
         if(entity instanceof ElementalCreeperEntity) radius = ((ElementalCreeperEntity) entity).isCharged() ? radius*1.5 : radius;
@@ -69,7 +70,8 @@ public class ExplosionEffects {
             }
         }
     }
-    public void earthExplosionEffect(Entity entity, World entityWorld, double entityX, double entityY, double entityZ) {
+
+    public static void earthExplosionEffect(Entity entity, World entityWorld, double entityX, double entityY, double entityZ) {
         double radius = ElementalCreepers.CONFIG.earthCreeperRadius;
 
         if(entity instanceof ElementalCreeperEntity) radius = ((ElementalCreeperEntity) entity).isCharged() ? radius*1.5 : radius;
@@ -93,7 +95,8 @@ public class ExplosionEffects {
             }
         }
     }
-    public void airExplosionEffect(Entity entity, World entityWorld, double entityX, double entityY, double entityZ) {
+
+    public static void airExplosionEffect(Entity entity, World entityWorld, double entityX, double entityY, double entityZ) {
         double radius = ElementalCreepers.CONFIG.airCreeperRadius;
 
         if(entity instanceof ElementalCreeperEntity) radius = ((ElementalCreeperEntity) entity).isCharged() ? radius*1.5 : radius;
@@ -104,7 +107,8 @@ public class ExplosionEffects {
             }
         }
     }
-    public void electricExplosionEffect(World entityWorld, double entityX, double entityY, double entityZ) {
+
+    public static void electricExplosionEffect(World entityWorld, double entityX, double entityY, double entityZ) {
         LightningEntity lightningEntity = EntityType.LIGHTNING_BOLT.create(entityWorld);
         if (lightningEntity != null) {
             lightningEntity.setCosmetic(!entityWorld.getGameRules().getBoolean(GameRules.DO_MOB_GRIEFING));
@@ -112,7 +116,8 @@ public class ExplosionEffects {
         lightningEntity.refreshPositionAfterTeleport(entityX, entityY, entityZ);
         entityWorld.spawnEntity(lightningEntity);
     }
-    public void lightExplosionEffect(Entity entity, World entityWorld, double entityX, double entityY, double entityZ) {
+
+    public static void lightExplosionEffect(Entity entity, World entityWorld, double entityX, double entityY, double entityZ) {
         double radius = ElementalCreepers.CONFIG.lightCreeperRadius;
 
         if(entity instanceof ElementalCreeperEntity) radius = ((ElementalCreeperEntity) entity).isCharged() ? radius*1.5 : radius;
@@ -140,7 +145,8 @@ public class ExplosionEffects {
             }
         }
     }
-    public void darkExplosionEffect(Entity entity, World entityWorld, double entityX, double entityY, double entityZ) {
+
+    public static void darkExplosionEffect(Entity entity, World entityWorld, double entityX, double entityY, double entityZ) {
         double radius = ElementalCreepers.CONFIG.darkCreeperRadius;
 
         if(entity instanceof ElementalCreeperEntity) radius = ((ElementalCreeperEntity) entity).isCharged() ? radius*1.5 : radius;
@@ -173,7 +179,8 @@ public class ExplosionEffects {
             }
         }
     }
-    public void iceExplosionEffect(Entity entity, World entityWorld, double entityX, double entityY, double entityZ) {
+
+    public static void iceExplosionEffect(Entity entity, World entityWorld, double entityX, double entityY, double entityZ) {
         double radius = ElementalCreepers.CONFIG.iceCreeperRadius;
 
         if(entity instanceof ElementalCreeperEntity) radius = ((ElementalCreeperEntity) entity).isCharged() ? radius*1.5 : radius;
@@ -208,7 +215,8 @@ public class ExplosionEffects {
             }
         }
     }
-    public void magmaExplosionEffect(Entity entity, World entityWorld, double entityX, double entityY, double entityZ) {
+
+    public static void magmaExplosionEffect(Entity entity, World entityWorld, double entityX, double entityY, double entityZ) {
         double radius = ElementalCreepers.CONFIG.magmaCreeperRadius;
 
         if(entity instanceof ElementalCreeperEntity) radius = ((ElementalCreeperEntity) entity).isCharged() ? radius*1.5 : radius;
@@ -228,7 +236,8 @@ public class ExplosionEffects {
             }
         }
     }
-    public void hydrogenExplosionEffect(Entity entity, World entityWorld, double entityX, double entityY, double entityZ) {
+
+    public static void hydrogenExplosionEffect(Entity entity, World entityWorld, double entityX, double entityY, double entityZ) {
         double radius = ElementalCreepers.CONFIG.hydrogenCreeperRadius;
 
         if(entity instanceof ElementalCreeperEntity) radius = ((ElementalCreeperEntity) entity).isCharged() ? radius*1.5 : radius;
@@ -237,7 +246,8 @@ public class ExplosionEffects {
                 entityWorld.getGameRules().getBoolean(GameRules.DO_MOB_GRIEFING) ?
                 Explosion.DestructionType.DESTROY : Explosion.DestructionType.NONE);
     }
-    public void reverseExplosionEffect(Entity entity, World entityWorld, double entityX, double entityY, double entityZ) {
+
+    public static void reverseExplosionEffect(Entity entity, World entityWorld, double entityX, double entityY, double entityZ) {
         double radius = ElementalCreepers.CONFIG.reverseCreeperRadius;
 
         if(entity instanceof ElementalCreeperEntity) radius = ((ElementalCreeperEntity) entity).isCharged() ? radius*1.5 : radius;
@@ -286,7 +296,8 @@ public class ExplosionEffects {
             }
         }
     }
-    public void minerExplosionEffect(Entity entity, World entityWorld, double entityX, double entityY, double entityZ) {
+
+    public static void minerExplosionEffect(Entity entity, World entityWorld, double entityX, double entityY, double entityZ) {
         double radius = ElementalCreepers.CONFIG.minerCreeperRadius;
 
         if(entity instanceof ElementalCreeperEntity) radius = ((ElementalCreeperEntity) entity).isCharged() ? radius*1.5 : radius;
@@ -313,7 +324,7 @@ public class ExplosionEffects {
     }
     // Missing illusion Creeper is intentional, as it's the same as vanilla creeper.
 
-    public void fireworkExplosionEffect(World entityWorld, double entityX, double entityY, double entityZ) {
+    public static void fireworkExplosionEffect(World entityWorld, double entityX, double entityY, double entityZ) {
         ItemStack fireWork = new ItemStack(Items.FIREWORK_ROCKET);
         try {
             fireWork.setSubNbt("Fireworks", StringNbtReader.parse("{Explosions:[{Type:3,Flicker:1,Colors:[I;4312372],FadeColors:[I;4312372]}],Flight:1}"));
@@ -324,14 +335,15 @@ public class ExplosionEffects {
         entityWorld.spawnEntity(fireworkEntity);
     }
 
-    public void cookieExplosionEffect(Entity entity, World entityWorld, double entityX, double entityY, double entityZ) {
+    public static void cookieExplosionEffect(Entity entity, World entityWorld, double entityX, double entityY, double entityZ) {
         entityWorld.createExplosion(entity,
                 entityX, entityY, entityZ,
                 0, Explosion.DestructionType.NONE);
         entityWorld.spawnEntity(new ItemEntity(entityWorld,
                 entityX, entityY, entityZ, new ItemStack(Items.COOKIE, new Random().nextInt(4 - 2 + 1) + 2)));
     }
-    public void rainbowExplosionEffect(Entity entity, World entityWorld, double entityX, double entityY, double entityZ) {
+
+    public static void rainbowExplosionEffect(Entity entity, World entityWorld, double entityX, double entityY, double entityZ) {
         switch(entityWorld.getRandom().nextInt(14 - 1 + 1) + 1) {
             case 1 -> waterExplosionEffect(entity, entityWorld, entityX, entityY, entityZ);
             case 2 -> fireExplosionEffect(entity, entityWorld, entityX, entityY, entityZ);
@@ -349,7 +361,8 @@ public class ExplosionEffects {
             case 14 -> cookieExplosionEffect(entity, entityWorld, entityX, entityY, entityZ);
         }
     }
-    public void illusionTNTExplosionEffect(Entity entity, World entityWorld, double entityX, double entityY, double entityZ) {
+
+    public static void illusionTNTExplosionEffect(Entity entity, World entityWorld, double entityX, double entityY, double entityZ) {
         for (int i = 0; i < 4; ++i) {
             FakeIllusionTntEntity fakeIllusionTntEntity = new FakeIllusionTntEntity(TntRegistry.FAKE_ILLUSION_TNT_ENTITY, entityWorld);
             fakeIllusionTntEntity.refreshPositionAfterTeleport(entityX, entityY, entityZ);
@@ -359,4 +372,5 @@ public class ExplosionEffects {
         entity.setVelocity(0, 0.5D, 0);
         entityWorld.createExplosion(entity, entityX, entityY, entityZ, 4, Explosion.DestructionType.BREAK);
     }
+
 }

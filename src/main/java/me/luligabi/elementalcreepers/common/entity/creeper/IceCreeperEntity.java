@@ -48,7 +48,7 @@ public class IceCreeperEntity extends ElementalCreeperEntity {
     @Override
     public void onExplode() {
         generateSnow = false;
-        new ExplosionEffects().iceExplosionEffect(this, this.world, this.getX(), this.getY(), this.getZ());
+        ExplosionEffects.iceExplosionEffect(this, world, getX(), getY(), getZ());
         super.onExplode();
         generateSnow = true;
     }

@@ -13,7 +13,7 @@ public class HydrogenCreeperEntity extends ElementalCreeperEntity {
 
     @Override
     public void onExplode() {
-        new ExplosionEffects().hydrogenExplosionEffect(this, this.world, this.getX(), this.getY(), this.getZ());
+        ExplosionEffects.hydrogenExplosionEffect(this, world, getX(), getY(), getZ());
         super.onExplode();
     }
 }

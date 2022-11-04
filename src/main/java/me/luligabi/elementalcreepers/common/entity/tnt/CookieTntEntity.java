@@ -12,7 +12,7 @@ public class CookieTntEntity extends ElementalTntEntity {
 
     @Override
     public void explode() {
-        new ExplosionEffects().cookieExplosionEffect(this, this.world, this.getX(), this.getY(), this.getZ());
+        ExplosionEffects.cookieExplosionEffect(this, world, getX(), getY(), getZ());
     }
 
 }

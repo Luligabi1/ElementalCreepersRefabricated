@@ -11,6 +11,7 @@ public abstract class ElementalCreeperEntity extends CreeperEntity {
     public ElementalCreeperEntity(EntityType<? extends CreeperEntity> entityType, World world) {
         super(entityType, world);
     }
+
     public void onExplode() {
         this.clearStatusEffects();
         this.dead = true;

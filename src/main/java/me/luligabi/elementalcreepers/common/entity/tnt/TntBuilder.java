@@ -6,5 +6,5 @@ import org.jetbrains.annotations.Nullable;
 
 @FunctionalInterface
 public interface TntBuilder {
-    ElementalTntEntity create(World world, double p1, double p2, double p3, @Nullable LivingEntity livingEntity);
+    ElementalTntEntity create(World world, double x, double y, double z, @Nullable LivingEntity livingEntity);
 }

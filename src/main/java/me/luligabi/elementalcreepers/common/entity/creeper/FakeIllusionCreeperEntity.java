@@ -11,8 +11,4 @@ public class FakeIllusionCreeperEntity extends ElementalCreeperEntity {
         super(entityType, world);
     }
 
-    @Override
-    public void onExplode() {
-        super.onExplode();
-    }
 }

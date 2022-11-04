@@ -13,7 +13,7 @@ public class RainbowCreeperEntity extends ElementalCreeperEntity {
 
     @Override
     public void onExplode() {
-        new ExplosionEffects().rainbowExplosionEffect(this, this.world, this.getX(), this.getY(), this.getZ());
+        ExplosionEffects.rainbowExplosionEffect(this, world, getX(), getY(), getZ());
         super.onExplode();
     }
 }

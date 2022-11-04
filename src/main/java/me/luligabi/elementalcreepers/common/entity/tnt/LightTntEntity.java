@@ -12,7 +12,7 @@ public class LightTntEntity extends ElementalTntEntity {
 
     @Override
     public void explode() {
-        new ExplosionEffects().lightExplosionEffect(this, this.world, this.getX(), this.getY(), this.getZ());
+        ExplosionEffects.lightExplosionEffect(this, world, getX(), getY(), getZ());
     }
 
 }

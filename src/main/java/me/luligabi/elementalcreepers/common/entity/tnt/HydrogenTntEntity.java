@@ -12,7 +12,7 @@ public class HydrogenTntEntity extends ElementalTntEntity {
 
     @Override
     public void explode() {
-        new ExplosionEffects().hydrogenExplosionEffect(this, this.world, this.getX(), this.getY(), this.getZ());
+        ExplosionEffects.hydrogenExplosionEffect(this, world, getX(), getY(), getZ());
     }
 
 }

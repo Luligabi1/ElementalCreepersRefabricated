@@ -12,7 +12,7 @@ public class MinerTntEntity extends ElementalTntEntity {
 
     @Override
     public void explode() {
-        new ExplosionEffects().minerExplosionEffect(this, this.world, this.getX(), this.getY(), this.getZ());
+        ExplosionEffects.minerExplosionEffect(this, world, getX(), getY(), getZ());
     }
 
 }

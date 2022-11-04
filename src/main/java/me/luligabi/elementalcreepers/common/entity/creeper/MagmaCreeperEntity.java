@@ -42,7 +42,7 @@ public class MagmaCreeperEntity extends ElementalCreeperEntity {
 
     @Override
     public void onExplode() {
-        new ExplosionEffects().magmaExplosionEffect(this, this.world, this.getX(), this.getY(), this.getZ());
+        ExplosionEffects.magmaExplosionEffect(this, world, getX(), getY(), getZ());
         super.onExplode();
     }
 }
