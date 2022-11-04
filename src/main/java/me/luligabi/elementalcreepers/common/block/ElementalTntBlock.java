@@ -18,7 +18,6 @@ import net.minecraft.sound.SoundEvents;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.Properties;
-import net.minecraft.state.property.Property;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
@@ -53,7 +52,7 @@ public abstract class ElementalTntBlock extends Block {
     }
 
     public void onBreak(World world, BlockPos pos, BlockState state, PlayerEntity player) {
-        if (!world.isClient() && !player.isCreative() && (boolean) state.get((Property) ElementalTntBlock.UNSTABLE)) {
+        if (!world.isClient() && !player.isCreative() && state.get(ElementalTntBlock.UNSTABLE)) {
             this.primeTnt(world, pos);
         }
         super.onBreak(world, pos, state, player);
