@@ -5,7 +5,7 @@ import me.luligabi.elementalcreepers.common.entity.creeper.ElementalCreeperEntit
 import me.luligabi.elementalcreepers.common.entity.creeper.FakeIllusionCreeperEntity;
 import net.minecraft.entity.mob.CreeperEntity;
 import net.minecraft.particle.ParticleTypes;
-import net.minecraft.world.explosion.Explosion;
+import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 
@@ -15,7 +15,7 @@ public class CreeperEntityHook {
         if(creeperEntity instanceof ElementalCreeperEntity) {
            if(creeperEntity instanceof AirCreeperEntity) {
                if(!creeperEntity.world.isClient) {
-                   creeperEntity.world.createExplosion(creeperEntity, creeperEntity.getX(), creeperEntity.getY(), creeperEntity.getZ(), 0, Explosion.DestructionType.NONE);
+                   creeperEntity.world.createExplosion(creeperEntity, creeperEntity.getX(), creeperEntity.getY(), creeperEntity.getZ(), 0, World.ExplosionSourceType.NONE);
                }
                ((ElementalCreeperEntity) creeperEntity).onExplode();
                info.cancel();

@@ -19,12 +19,12 @@ public class ClientPlayNetworkHandlerMixin {
     @Shadow
     private ClientWorld world;
 
-    @Inject(at = @At("RETURN"), method = "onEntitySpawn", cancellable = true)
+    @Inject(at = @At("RETURN"), method = "onEntitySpawn")
     private void injectOnEntitySpawn(EntitySpawnS2CPacket packet, CallbackInfo info) {
         double x = packet.getX();
         double y = packet.getY();
         double z = packet.getZ();
-        EntityType<?> entityType = packet.getEntityTypeId();
+        EntityType<?> entityType = packet.getEntityType();
         Entity entity = null;
         
         if (entityType == TntRegistry.WATER_TNT_ENTITY) {

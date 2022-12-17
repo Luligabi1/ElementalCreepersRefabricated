@@ -2,7 +2,6 @@ package me.luligabi.elementalcreepers.common.entity.tnt;
 
 import net.minecraft.entity.EntityType;
 import net.minecraft.world.World;
-import net.minecraft.world.explosion.Explosion;
 
 public class FakeIllusionTntEntity extends ElementalTntEntity {
 
@@ -13,6 +12,7 @@ public class FakeIllusionTntEntity extends ElementalTntEntity {
 
     @Override
     public void explode() {
-        world.createExplosion(this, getX(), getY(), getZ(), 2, Explosion.DestructionType.NONE);
+        world.createExplosion(this, getX(), getY(), getZ(), 2, World.ExplosionSourceType.NONE);
     }
+
 }

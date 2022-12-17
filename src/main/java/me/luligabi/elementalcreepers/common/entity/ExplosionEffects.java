@@ -2,7 +2,6 @@ package me.luligabi.elementalcreepers.common.entity;
 
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import me.luligabi.elementalcreepers.common.ElementalCreepers;
-import me.luligabi.elementalcreepers.common.SimpleConfig;
 import me.luligabi.elementalcreepers.common.entity.creeper.ElementalCreeperEntity;
 import me.luligabi.elementalcreepers.common.entity.tnt.FakeIllusionTntEntity;
 import me.luligabi.elementalcreepers.common.block.TntRegistry;
@@ -21,7 +20,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Box;
 import net.minecraft.world.GameRules;
 import net.minecraft.world.World;
-import net.minecraft.world.explosion.Explosion;
 
 import java.util.Random;
 
@@ -34,7 +32,7 @@ public class ExplosionEffects {
         if(entity instanceof ElementalCreeperEntity) radius = ((ElementalCreeperEntity) entity).isCharged() ? radius*1.5 : radius;
 
         entityWorld.createExplosion(entity,
-                entityX, entityY, entityZ, 0, Explosion.DestructionType.NONE);
+                entityX, entityY, entityZ, 0, World.ExplosionSourceType.NONE);
         if(entityWorld.getGameRules().getBoolean(GameRules.DO_MOB_GRIEFING)) {
             for (int x = (int) -radius - 1; x <= radius; x++) {
                 for (int y = (int) -radius - 1; y <= radius; y++) {
@@ -55,7 +53,7 @@ public class ExplosionEffects {
         if(entity instanceof ElementalCreeperEntity) radius = ((ElementalCreeperEntity) entity).isCharged() ? radius*1.5 : radius;
 
         entityWorld.createExplosion(entity,
-                entityX, entityY, entityZ, 0, Explosion.DestructionType.NONE);
+                entityX, entityY, entityZ, 0, World.ExplosionSourceType.NONE);
         if(entityWorld.getGameRules().getBoolean(GameRules.DO_MOB_GRIEFING)) {
             for (int x = (int) -radius - 1; x <= radius; x++) {
                 for (int y = (int) -radius - 1; y <= radius; y++) {
@@ -77,7 +75,7 @@ public class ExplosionEffects {
         if(entity instanceof ElementalCreeperEntity) radius = ((ElementalCreeperEntity) entity).isCharged() ? radius*1.5 : radius;
 
         entityWorld.createExplosion(entity,
-                entityX, entityY, entityZ, 0, Explosion.DestructionType.NONE);
+                entityX, entityY, entityZ, 0, World.ExplosionSourceType.NONE);
         if(entityWorld.getGameRules().getBoolean(GameRules.DO_MOB_GRIEFING)) {
             for (int x = (int) -radius - 1; x <= radius; x++) {
                 for (int y = (int) -radius - 1; y <= radius; y++) {
@@ -123,7 +121,7 @@ public class ExplosionEffects {
         if(entity instanceof ElementalCreeperEntity) radius = ((ElementalCreeperEntity) entity).isCharged() ? radius*1.5 : radius;
 
         entityWorld.createExplosion(entity,
-                entityX, entityY, entityZ, 0, Explosion.DestructionType.NONE);
+                entityX, entityY, entityZ, 0, World.ExplosionSourceType.NONE);
         if(entityWorld.getGameRules().getBoolean(GameRules.DO_MOB_GRIEFING)) {
             for (int x = (int) -radius - 1; x <= radius; x++) {
                 for (int y = (int) -radius - 1; y <= radius; y++) {
@@ -153,7 +151,7 @@ public class ExplosionEffects {
 
         entityWorld.createExplosion(entity,
                 entityX, entityY, entityZ,
-                0, Explosion.DestructionType.NONE);
+                0, World.ExplosionSourceType.NONE);
         if(entityWorld.getGameRules().getBoolean(GameRules.DO_MOB_GRIEFING)) {
             for (int x = (int) -radius; x <= radius; x++) {
                 for (int y = (int) -radius; y <= radius; y++) {
@@ -186,7 +184,7 @@ public class ExplosionEffects {
         if(entity instanceof ElementalCreeperEntity) radius = ((ElementalCreeperEntity) entity).isCharged() ? radius*1.5 : radius;
 
         entityWorld.createExplosion(entity,
-                entityX, entityY, entityZ, 0, Explosion.DestructionType.NONE);
+                entityX, entityY, entityZ, 0, World.ExplosionSourceType.NONE);
         if(entityWorld.getGameRules().getBoolean(GameRules.DO_MOB_GRIEFING)) {
             for (int x = (int) -radius - 1; x <= radius; x++) {
                 for (int y = (int) -radius - 1; y <= radius; y++) {
@@ -222,7 +220,7 @@ public class ExplosionEffects {
         if(entity instanceof ElementalCreeperEntity) radius = ((ElementalCreeperEntity) entity).isCharged() ? radius*1.5 : radius;
 
         entityWorld.createExplosion(entity,
-                entityX, entityY, entityZ, 0, Explosion.DestructionType.NONE);
+                entityX, entityY, entityZ, 0, World.ExplosionSourceType.NONE);
         if(entityWorld.getGameRules().getBoolean(GameRules.DO_MOB_GRIEFING)) {
             for (int x = (int) -radius - 1; x <= radius; x++) {
                 for (int y = (int) -radius - 1; y <= radius; y++) {
@@ -244,7 +242,7 @@ public class ExplosionEffects {
 
         entityWorld.createExplosion(entity, entityX, entityY, entityZ, (float) radius,
                 entityWorld.getGameRules().getBoolean(GameRules.DO_MOB_GRIEFING) ?
-                Explosion.DestructionType.DESTROY : Explosion.DestructionType.NONE);
+                World.ExplosionSourceType.TNT : World.ExplosionSourceType.NONE);
     }
 
     public static void reverseExplosionEffect(Entity entity, World entityWorld, double entityX, double entityY, double entityZ) {
@@ -253,7 +251,7 @@ public class ExplosionEffects {
         if(entity instanceof ElementalCreeperEntity) radius = ((ElementalCreeperEntity) entity).isCharged() ? radius*1.5 : radius;
 
         entityWorld.createExplosion(entity,
-                entityX, entityY, entityZ, 0, Explosion.DestructionType.NONE);
+                entityX, entityY, entityZ, 0, World.ExplosionSourceType.NONE);
         if(entityWorld.getGameRules().getBoolean(GameRules.DO_MOB_GRIEFING)) {
             BlockState[][][] states = new BlockState[(int) (radius * 2 + 2)][(int) (radius * 2 + 2)][(int) (radius * 2 + 2)];
             for (int x = (int) -radius - 1; x <= radius; x++) {
@@ -303,7 +301,7 @@ public class ExplosionEffects {
         if(entity instanceof ElementalCreeperEntity) radius = ((ElementalCreeperEntity) entity).isCharged() ? radius*1.5 : radius;
 
         entityWorld.createExplosion(entity, entityX, entityY, entityZ,
-                0, Explosion.DestructionType.NONE);
+                0, World.ExplosionSourceType.NONE);
         if(!entityWorld.getGameRules().getBoolean(GameRules.DO_MOB_GRIEFING)) return;
         for (int x = (int) -radius; x <= radius; x++) {
             for (int y = (int) -radius; y <= radius; y++) {
@@ -338,7 +336,7 @@ public class ExplosionEffects {
     public static void cookieExplosionEffect(Entity entity, World entityWorld, double entityX, double entityY, double entityZ) {
         entityWorld.createExplosion(entity,
                 entityX, entityY, entityZ,
-                0, Explosion.DestructionType.NONE);
+                0, World.ExplosionSourceType.NONE);
         entityWorld.spawnEntity(new ItemEntity(entityWorld,
                 entityX, entityY, entityZ, new ItemStack(Items.COOKIE, new Random().nextInt(4 - 2 + 1) + 2)));
     }
@@ -370,7 +368,7 @@ public class ExplosionEffects {
             fakeIllusionTntEntity.setVelocity(-Math.sin(entityWorld.random.nextDouble() * 6.2831854820251465) * 0.02, 0.20000000298023224, -Math.cos(entityWorld.random.nextDouble() * 6.2831854820251465) * 0.02);
         }
         entity.setVelocity(0, 0.5D, 0);
-        entityWorld.createExplosion(entity, entityX, entityY, entityZ, 4, Explosion.DestructionType.BREAK);
+        entityWorld.createExplosion(entity, entityX, entityY, entityZ, 4, World.ExplosionSourceType.TNT);
     }
 
 }

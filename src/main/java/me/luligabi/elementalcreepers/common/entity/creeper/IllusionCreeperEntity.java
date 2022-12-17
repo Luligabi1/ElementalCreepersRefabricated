@@ -10,7 +10,6 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.world.GameRules;
 import net.minecraft.world.World;
-import net.minecraft.world.explosion.Explosion;
 
 public class IllusionCreeperEntity extends ElementalCreeperEntity {
 
@@ -37,7 +36,7 @@ public class IllusionCreeperEntity extends ElementalCreeperEntity {
     public void onExplode() {
         world.createExplosion(this, getX(), getY(), getZ(),
                 3,  world.getGameRules().getBoolean(GameRules.DO_MOB_GRIEFING) ?
-                Explosion.DestructionType.DESTROY : Explosion.DestructionType.NONE);
+                World.ExplosionSourceType.TNT : World.ExplosionSourceType.NONE);
         super.onExplode();
         hasDuplicated = false;
     }

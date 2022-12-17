@@ -11,7 +11,7 @@ import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.screen.PlayerScreenHandler;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.MathHelper;
-import net.minecraft.util.math.Vec3f;
+import net.minecraft.util.math.RotationAxis;
 
 public class ElementalTntRenderer extends EntityRenderer<ElementalTntEntity> {
 
@@ -38,9 +38,9 @@ public class ElementalTntRenderer extends EntityRenderer<ElementalTntEntity> {
             matrixStack.scale(k, k, k);
         }
 
-        matrixStack.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion(-90.0F));
+        matrixStack.multiply(RotationAxis.POSITIVE_Y.rotation(-90F));
         matrixStack.translate(-0.5, -0.5, 0.5);
-        matrixStack.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion(90.0F));
+        matrixStack.multiply(RotationAxis.POSITIVE_Y.rotation(90F));
         TntMinecartEntityRenderer.renderFlashingBlock(blockRenderManager, blockState, matrixStack, vertexConsumerProvider, i, j / 5 % 2 == 0);
         matrixStack.pop();
         super.render(tntEntity, f, g, matrixStack, vertexConsumerProvider, i);

@@ -6,10 +6,10 @@ import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.network.Packet;
+import net.minecraft.network.listener.ClientPlayPacketListener;
 import net.minecraft.network.packet.s2c.play.EntitySpawnS2CPacket;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.world.World;
-import net.minecraft.world.explosion.Explosion;
 
 public abstract class ElementalTntEntity extends Entity {
 
@@ -37,10 +37,6 @@ public abstract class ElementalTntEntity extends Entity {
         this.dataTracker.startTracking(ElementalTntEntity.FUSE, 4*20);
     }
 
-    public boolean collides() {
-        return !this.isRemoved();
-    }
-
     public void tick() {
         if (!this.hasNoGravity()) {
             this.setVelocity(this.getVelocity().add(0.0, -0.04, 0.0));
@@ -58,7 +54,7 @@ public abstract class ElementalTntEntity extends Entity {
             }
             if(this instanceof AirTntEntity) {
                 if(!world.isClient) {
-                    this.world.createExplosion(this, this.getX(), this.getY(), this.getZ(), 0, Explosion.DestructionType.NONE);
+                    this.world.createExplosion(this, this.getX(), this.getY(), this.getZ(), 0, World.ExplosionSourceType.NONE);
                 }
                 this.explode();
             }
@@ -103,11 +99,11 @@ public abstract class ElementalTntEntity extends Entity {
         return this.fuseTimer;
     }
 
-    public Packet<?> createSpawnPacket() {
+    public Packet<ClientPlayPacketListener> createSpawnPacket() {
         return new EntitySpawnS2CPacket(this);
     }
 
     static {
-        FUSE = DataTracker.registerData(TntEntity.class, TrackedDataHandlerRegistry.INTEGER);
+        FUSE = DataTracker.registerData(ElementalTntEntity.class, TrackedDataHandlerRegistry.INTEGER);
     }
 }

@@ -10,11 +10,12 @@ import me.luligabi.elementalcreepers.common.item.SpawnEggRegistry;
 import me.luligabi.elementalcreepers.common.misc.DispenserLogicRegistry;
 import me.luligabi.elementalcreepers.common.misc.NaturalSpawningRegistry;
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
+import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -83,9 +84,59 @@ public class ElementalCreepers implements ModInitializer {
 
     public static final String MOD_ID = "elementalcreepers";
 
-    public static final ItemGroup ITEM_GROUP = FabricItemGroupBuilder.create(
-                    new Identifier(MOD_ID, "category"))
+    public static final ItemGroup ITEM_GROUP = FabricItemGroup.builder(new Identifier(MOD_ID, "category"))
+            .displayName(Text.translatable("itemGroup.elementalcreepers.category"))
             .icon(() -> new ItemStack(Items.CREEPER_SPAWN_EGG))
+            .entries((enabledFeatures, entries, operatorEnabled) -> {
+                entries.add(SpawnEggRegistry.WATER_CREEPER_SPAWN_EGG);
+                entries.add(SpawnEggRegistry.FIRE_CREEPER_SPAWN_EGG);
+                entries.add(SpawnEggRegistry.EARTH_CREEPER_SPAWN_EGG);
+                entries.add(SpawnEggRegistry.AIR_CREEPER_SPAWN_EGG);
+                entries.add(SpawnEggRegistry.ELECTRIC_CREEPER_SPAWN_EGG);
+                entries.add(SpawnEggRegistry.LIGHT_CREEPER_SPAWN_EGG);
+                entries.add(SpawnEggRegistry.DARK_CREEPER_SPAWN_EGG);
+                entries.add(SpawnEggRegistry.ICE_CREEPER_SPAWN_EGG);
+                entries.add(SpawnEggRegistry.MAGMA_CREEPER_SPAWN_EGG);
+                entries.add(SpawnEggRegistry.HYDROGEN_CREEPER_SPAWN_EGG);
+                entries.add(SpawnEggRegistry.REVERSE_CREEPER_SPAWN_EGG);
+                entries.add(SpawnEggRegistry.MINER_CREEPER_SPAWN_EGG);
+                entries.add(SpawnEggRegistry.ILLUSION_CREEPER_SPAWN_EGG);
+                entries.add(SpawnEggRegistry.FIREWORK_CREEPER_SPAWN_EGG);
+                entries.add(SpawnEggRegistry.COOKIE_CREEPER_SPAWN_EGG);
+                entries.add(SpawnEggRegistry.RAINBOW_CREEPER_SPAWN_EGG);
+
+                entries.add(TntRegistry.WATER_TNT_BLOCK);
+                entries.add(TntRegistry.FIRE_TNT_BLOCK);
+                entries.add(TntRegistry.EARTH_TNT_BLOCK);
+                entries.add(TntRegistry.AIR_TNT_BLOCK);
+                entries.add(TntRegistry.ELECTRIC_TNT_BLOCK);
+                entries.add(TntRegistry.LIGHT_TNT_BLOCK);
+                entries.add(TntRegistry.DARK_TNT_BLOCK);
+                entries.add(TntRegistry.ICE_TNT_BLOCK);
+                entries.add(TntRegistry.MAGMA_TNT_BLOCK);
+                entries.add(TntRegistry.HYDROGEN_TNT_BLOCK);
+                entries.add(TntRegistry.REVERSE_TNT_BLOCK);
+                entries.add(TntRegistry.MINER_TNT_BLOCK);
+                entries.add(TntRegistry.ILLUSION_TNT_BLOCK);
+                entries.add(TntRegistry.FIREWORK_TNT_BLOCK);
+                entries.add(TntRegistry.COOKIE_TNT_BLOCK);
+
+                entries.add(ItemRegistry.WATER_GUNPOWDER);
+                entries.add(ItemRegistry.FIRE_GUNPOWDER);
+                entries.add(ItemRegistry.EARTH_GUNPOWDER);
+                entries.add(ItemRegistry.AIR_GUNPOWDER);
+                entries.add(ItemRegistry.ELECTRIC_GUNPOWDER);
+                entries.add(ItemRegistry.LIGHT_GUNPOWDER);
+                entries.add(ItemRegistry.DARK_GUNPOWDER);
+                entries.add(ItemRegistry.ICE_GUNPOWDER);
+                entries.add(ItemRegistry.MAGMA_GUNPOWDER);
+                entries.add(ItemRegistry.HYDROGEN_GUNPOWDER);
+                entries.add(ItemRegistry.REVERSE_GUNPOWDER);
+                entries.add(ItemRegistry.MINER_GUNPOWDER);
+                entries.add(ItemRegistry.ILLUSION_GUNPOWDER);
+                entries.add(ItemRegistry.FIREWORK_GUNPOWDER);
+                entries.add(ItemRegistry.COOKIE_GUNPOWDER);
+            })
             .build();
 
     public static final Logger LOGGER;
