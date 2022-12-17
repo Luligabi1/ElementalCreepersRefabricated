@@ -7,8 +7,8 @@ import dev.isxander.yacl.api.Option;
 import dev.isxander.yacl.api.OptionGroup;
 import dev.isxander.yacl.api.YetAnotherConfigLib;
 import dev.isxander.yacl.gui.controllers.BooleanController;
-import dev.isxander.yacl.gui.controllers.slider.FloatSliderController;
-import dev.isxander.yacl.gui.controllers.slider.IntegerSliderController;
+import dev.isxander.yacl.gui.controllers.string.number.FloatFieldController;
+import dev.isxander.yacl.gui.controllers.string.number.IntegerFieldController;
 import me.luligabi.elementalcreepers.common.ElementalCreepers;
 import me.luligabi.elementalcreepers.common.ModConfig;
 import net.minecraft.client.gui.screen.Screen;
@@ -36,7 +36,7 @@ public class ConfigScreenEntrypoint implements ModMenuApi {
                         newValue -> config.waterCreeperSpawnRate = newValue
                 )
                 .available(config.waterCreeperEnabled)
-                .controller((intOption) -> new IntegerSliderController(intOption, 1, 100, 5))
+                .controller((intOption) -> new IntegerFieldController(intOption, 1, 100))
                 .build();
 
         Option<Boolean> waterCreeperEnabled = Option.createBuilder(Boolean.class)
@@ -61,7 +61,7 @@ public class ConfigScreenEntrypoint implements ModMenuApi {
                         () -> config.waterCreeperRadius,
                         newValue -> config.waterCreeperRadius = newValue
                 )
-                .controller((intOption) -> new FloatSliderController(intOption, 1, 10, 0.25F))
+                .controller((intOption) -> new FloatFieldController(intOption, 1, 10))
                 .build();
 
         /*
@@ -76,7 +76,7 @@ public class ConfigScreenEntrypoint implements ModMenuApi {
                         newValue -> config.fireCreeperSpawnRate = newValue
                 )
                 .available(config.fireCreeperEnabled)
-                .controller((intOption) -> new IntegerSliderController(intOption, 1, 100, 5))
+                .controller((intOption) -> new IntegerFieldController(intOption, 1, 100))
                 .build();
 
         Option<Boolean> fireCreeperEnabled = Option.createBuilder(Boolean.class)
@@ -101,7 +101,7 @@ public class ConfigScreenEntrypoint implements ModMenuApi {
                         () -> config.fireCreeperRadius,
                         newValue -> config.fireCreeperRadius = newValue
                 )
-                .controller((intOption) -> new FloatSliderController(intOption, 1, 10, 0.25F))
+                .controller((intOption) -> new FloatFieldController(intOption, 1, 10))
                 .build();
 
         /*
@@ -116,7 +116,7 @@ public class ConfigScreenEntrypoint implements ModMenuApi {
                         newValue -> config.earthCreeperSpawnRate = newValue
                 )
                 .available(config.earthCreeperEnabled)
-                .controller((intOption) -> new IntegerSliderController(intOption, 1, 100, 5))
+                .controller((intOption) -> new IntegerFieldController(intOption, 1, 100))
                 .build();
 
         Option<Boolean> earthCreeperEnabled = Option.createBuilder(Boolean.class)
@@ -141,7 +141,7 @@ public class ConfigScreenEntrypoint implements ModMenuApi {
                         () -> config.earthCreeperRadius,
                         newValue -> config.earthCreeperRadius = newValue
                 )
-                .controller((intOption) -> new FloatSliderController(intOption, 1, 10, 0.25F))
+                .controller((intOption) -> new FloatFieldController(intOption, 1, 10))
                 .build();
 
         /*
@@ -156,7 +156,7 @@ public class ConfigScreenEntrypoint implements ModMenuApi {
                         newValue -> config.airCreeperSpawnRate = newValue
                 )
                 .available(config.airCreeperEnabled)
-                .controller((intOption) -> new IntegerSliderController(intOption, 1, 100, 5))
+                .controller((intOption) -> new IntegerFieldController(intOption, 1, 100))
                 .build();
 
         Option<Boolean> airCreeperEnabled = Option.createBuilder(Boolean.class)
@@ -181,7 +181,7 @@ public class ConfigScreenEntrypoint implements ModMenuApi {
                         () -> config.airCreeperRadius,
                         newValue -> config.airCreeperRadius = newValue
                 )
-                .controller((intOption) -> new FloatSliderController(intOption, 1, 10, 0.25F))
+                .controller((intOption) -> new FloatFieldController(intOption, 1, 10))
                 .build();
 
         /*
@@ -196,7 +196,7 @@ public class ConfigScreenEntrypoint implements ModMenuApi {
                         newValue -> config.electricCreeperSpawnRate = newValue
                 )
                 .available(config.electricCreeperEnabled)
-                .controller((intOption) -> new IntegerSliderController(intOption, 1, 100, 5))
+                .controller((intOption) -> new IntegerFieldController(intOption, 1, 100))
                 .build();
 
         Option<Boolean> electricCreeperEnabled = Option.createBuilder(Boolean.class)
@@ -225,7 +225,7 @@ public class ConfigScreenEntrypoint implements ModMenuApi {
                         newValue -> config.lightCreeperSpawnRate = newValue
                 )
                 .available(config.lightCreeperEnabled)
-                .controller((intOption) -> new IntegerSliderController(intOption, 1, 100, 5))
+                .controller((intOption) -> new IntegerFieldController(intOption, 1, 100))
                 .build();
 
         Option<Boolean> lightCreeperEnabled = Option.createBuilder(Boolean.class)
@@ -250,7 +250,7 @@ public class ConfigScreenEntrypoint implements ModMenuApi {
                         () -> config.lightCreeperRadius,
                         newValue -> config.lightCreeperRadius = newValue
                 )
-                .controller((intOption) -> new FloatSliderController(intOption, 1, 10, 0.25F))
+                .controller((intOption) -> new FloatFieldController(intOption, 1, 10))
                 .build();
 
         /*
@@ -265,7 +265,7 @@ public class ConfigScreenEntrypoint implements ModMenuApi {
                         newValue -> config.darkCreeperSpawnRate = newValue
                 )
                 .available(config.darkCreeperEnabled)
-                .controller((intOption) -> new IntegerSliderController(intOption, 1, 100, 5))
+                .controller((intOption) -> new IntegerFieldController(intOption, 1, 100))
                 .build();
 
         Option<Boolean> darkCreeperEnabled = Option.createBuilder(Boolean.class)
@@ -290,7 +290,7 @@ public class ConfigScreenEntrypoint implements ModMenuApi {
                         () -> config.darkCreeperRadius,
                         newValue -> config.darkCreeperRadius = newValue
                 )
-                .controller((intOption) -> new FloatSliderController(intOption, 1, 10, 0.25F))
+                .controller((intOption) -> new FloatFieldController(intOption, 1, 10))
                 .build();
 
         /*
@@ -305,7 +305,7 @@ public class ConfigScreenEntrypoint implements ModMenuApi {
                         newValue -> config.iceCreeperSpawnRate = newValue
                 )
                 .available(config.iceCreeperEnabled)
-                .controller((intOption) -> new IntegerSliderController(intOption, 1, 100, 5))
+                .controller((intOption) -> new IntegerFieldController(intOption, 1, 100))
                 .build();
 
         Option<Boolean> iceCreeperEnabled = Option.createBuilder(Boolean.class)
@@ -330,7 +330,7 @@ public class ConfigScreenEntrypoint implements ModMenuApi {
                         () -> config.iceCreeperRadius,
                         newValue -> config.iceCreeperRadius = newValue
                 )
-                .controller((intOption) -> new FloatSliderController(intOption, 1, 10, 0.25F))
+                .controller((intOption) -> new FloatFieldController(intOption, 1, 10))
                 .build();
 
         /*
@@ -345,7 +345,7 @@ public class ConfigScreenEntrypoint implements ModMenuApi {
                         newValue -> config.magmaCreeperSpawnRate = newValue
                 )
                 .available(config.magmaCreeperEnabled)
-                .controller((intOption) -> new IntegerSliderController(intOption, 1, 100, 5))
+                .controller((intOption) -> new IntegerFieldController(intOption, 1, 100))
                 .build();
 
         Option<Boolean> magmaCreeperEnabled = Option.createBuilder(Boolean.class)
@@ -370,7 +370,7 @@ public class ConfigScreenEntrypoint implements ModMenuApi {
                         () -> config.magmaCreeperRadius,
                         newValue -> config.magmaCreeperRadius = newValue
                 )
-                .controller((intOption) -> new FloatSliderController(intOption, 1, 10, 0.25F))
+                .controller((intOption) -> new FloatFieldController(intOption, 1, 10))
                 .build();
 
         /*
@@ -385,7 +385,7 @@ public class ConfigScreenEntrypoint implements ModMenuApi {
                         newValue -> config.hydrogenCreeperSpawnRate = newValue
                 )
                 .available(config.hydrogenCreeperEnabled)
-                .controller((intOption) -> new IntegerSliderController(intOption, 1, 100, 5))
+                .controller((intOption) -> new IntegerFieldController(intOption, 1, 100))
                 .build();
 
         Option<Boolean> hydrogenCreeperEnabled = Option.createBuilder(Boolean.class)
@@ -410,7 +410,7 @@ public class ConfigScreenEntrypoint implements ModMenuApi {
                         () -> config.hydrogenCreeperRadius,
                         newValue -> config.hydrogenCreeperRadius = newValue
                 )
-                .controller((intOption) -> new FloatSliderController(intOption, 1, 10, 0.25F))
+                .controller((intOption) -> new FloatFieldController(intOption, 1, 10))
                 .build();
 
         /*
@@ -425,7 +425,7 @@ public class ConfigScreenEntrypoint implements ModMenuApi {
                         newValue -> config.reverseCreeperSpawnRate = newValue
                 )
                 .available(config.reverseCreeperEnabled)
-                .controller((intOption) -> new IntegerSliderController(intOption, 1, 100, 5))
+                .controller((intOption) -> new IntegerFieldController(intOption, 1, 100))
                 .build();
 
         Option<Boolean> reverseCreeperEnabled = Option.createBuilder(Boolean.class)
@@ -450,7 +450,7 @@ public class ConfigScreenEntrypoint implements ModMenuApi {
                         () -> config.reverseCreeperRadius,
                         newValue -> config.reverseCreeperRadius = newValue
                 )
-                .controller((intOption) -> new FloatSliderController(intOption, 1, 10, 0.25F))
+                .controller((intOption) -> new FloatFieldController(intOption, 1, 10))
                 .build();
 
         /*
@@ -465,7 +465,7 @@ public class ConfigScreenEntrypoint implements ModMenuApi {
                         newValue -> config.minerCreeperSpawnRate = newValue
                 )
                 .available(config.minerCreeperEnabled)
-                .controller((intOption) -> new IntegerSliderController(intOption, 1, 100, 5))
+                .controller((intOption) -> new IntegerFieldController(intOption, 1, 100))
                 .build();
 
         Option<Boolean> minerCreeperEnabled = Option.createBuilder(Boolean.class)
@@ -490,7 +490,7 @@ public class ConfigScreenEntrypoint implements ModMenuApi {
                         () -> config.minerCreeperRadius,
                         newValue -> config.minerCreeperRadius = newValue
                 )
-                .controller((intOption) -> new FloatSliderController(intOption, 1, 10, 0.25F))
+                .controller((intOption) -> new FloatFieldController(intOption, 1, 10))
                 .build();
 
         /*
@@ -505,7 +505,7 @@ public class ConfigScreenEntrypoint implements ModMenuApi {
                         newValue -> config.illusionCreeperSpawnRate = newValue
                 )
                 .available(config.illusionCreeperEnabled)
-                .controller((intOption) -> new IntegerSliderController(intOption, 1, 100, 5))
+                .controller((intOption) -> new IntegerFieldController(intOption, 1, 100))
                 .build();
 
         Option<Boolean> illusionCreeperEnabled = Option.createBuilder(Boolean.class)
@@ -534,7 +534,7 @@ public class ConfigScreenEntrypoint implements ModMenuApi {
                         newValue -> config.fireworkCreeperSpawnRate = newValue
                 )
                 .available(config.fireworkCreeperEnabled)
-                .controller((intOption) -> new IntegerSliderController(intOption, 1, 100, 5))
+                .controller((intOption) -> new IntegerFieldController(intOption, 1, 100))
                 .build();
 
         Option<Boolean> fireworkCreeperEnabled = Option.createBuilder(Boolean.class)
@@ -563,7 +563,7 @@ public class ConfigScreenEntrypoint implements ModMenuApi {
                         newValue -> config.cookieCreeperSpawnRate = newValue
                 )
                 .available(config.cookieCreeperEnabled)
-                .controller((intOption) -> new IntegerSliderController(intOption, 1, 100, 5))
+                .controller((intOption) -> new IntegerFieldController(intOption, 1, 100))
                 .build();
 
         Option<Boolean> cookieCreeperEnabled = Option.createBuilder(Boolean.class)
@@ -592,7 +592,7 @@ public class ConfigScreenEntrypoint implements ModMenuApi {
                         newValue -> config.rainbowCreeperSpawnRate = newValue
                 )
                 .available(config.rainbowCreeperEnabled)
-                .controller((intOption) -> new IntegerSliderController(intOption, 1, 100, 5))
+                .controller((intOption) -> new IntegerFieldController(intOption, 1, 100))
                 .build();
 
         Option<Boolean> rainbowCreeperEnabled = Option.createBuilder(Boolean.class)
