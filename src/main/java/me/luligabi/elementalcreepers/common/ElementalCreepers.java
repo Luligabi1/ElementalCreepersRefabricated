@@ -15,6 +15,10 @@ import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
+import net.minecraft.registry.RegistryKey;
+import net.minecraft.registry.RegistryKeys;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
@@ -35,6 +39,62 @@ public class ElementalCreepers implements ModInitializer {
         TntRegistry.init();
         ItemRegistry.init();
         DispenserLogicRegistry.init();
+
+        Registry.register(Registries.ITEM_GROUP, ITEM_GROUP, FabricItemGroup.builder()
+                .displayName(Text.translatable("itemGroup.elementalcreepers.category"))
+                .icon(() -> new ItemStack(Items.CREEPER_SPAWN_EGG))
+                .entries((ctx, entries) -> {
+                    entries.add(SpawnEggRegistry.WATER_CREEPER_SPAWN_EGG);
+                    entries.add(SpawnEggRegistry.FIRE_CREEPER_SPAWN_EGG);
+                    entries.add(SpawnEggRegistry.EARTH_CREEPER_SPAWN_EGG);
+                    entries.add(SpawnEggRegistry.AIR_CREEPER_SPAWN_EGG);
+                    entries.add(SpawnEggRegistry.ELECTRIC_CREEPER_SPAWN_EGG);
+                    entries.add(SpawnEggRegistry.LIGHT_CREEPER_SPAWN_EGG);
+                    entries.add(SpawnEggRegistry.DARK_CREEPER_SPAWN_EGG);
+                    entries.add(SpawnEggRegistry.ICE_CREEPER_SPAWN_EGG);
+                    entries.add(SpawnEggRegistry.MAGMA_CREEPER_SPAWN_EGG);
+                    entries.add(SpawnEggRegistry.HYDROGEN_CREEPER_SPAWN_EGG);
+                    entries.add(SpawnEggRegistry.REVERSE_CREEPER_SPAWN_EGG);
+                    entries.add(SpawnEggRegistry.MINER_CREEPER_SPAWN_EGG);
+                    entries.add(SpawnEggRegistry.ILLUSION_CREEPER_SPAWN_EGG);
+                    entries.add(SpawnEggRegistry.FIREWORK_CREEPER_SPAWN_EGG);
+                    entries.add(SpawnEggRegistry.COOKIE_CREEPER_SPAWN_EGG);
+                    entries.add(SpawnEggRegistry.RAINBOW_CREEPER_SPAWN_EGG);
+
+                    entries.add(TntRegistry.WATER_TNT_BLOCK);
+                    entries.add(TntRegistry.FIRE_TNT_BLOCK);
+                    entries.add(TntRegistry.EARTH_TNT_BLOCK);
+                    entries.add(TntRegistry.AIR_TNT_BLOCK);
+                    entries.add(TntRegistry.ELECTRIC_TNT_BLOCK);
+                    entries.add(TntRegistry.LIGHT_TNT_BLOCK);
+                    entries.add(TntRegistry.DARK_TNT_BLOCK);
+                    entries.add(TntRegistry.ICE_TNT_BLOCK);
+                    entries.add(TntRegistry.MAGMA_TNT_BLOCK);
+                    entries.add(TntRegistry.HYDROGEN_TNT_BLOCK);
+                    entries.add(TntRegistry.REVERSE_TNT_BLOCK);
+                    entries.add(TntRegistry.MINER_TNT_BLOCK);
+                    entries.add(TntRegistry.ILLUSION_TNT_BLOCK);
+                    entries.add(TntRegistry.FIREWORK_TNT_BLOCK);
+                    entries.add(TntRegistry.COOKIE_TNT_BLOCK);
+
+                    entries.add(ItemRegistry.WATER_GUNPOWDER);
+                    entries.add(ItemRegistry.FIRE_GUNPOWDER);
+                    entries.add(ItemRegistry.EARTH_GUNPOWDER);
+                    entries.add(ItemRegistry.AIR_GUNPOWDER);
+                    entries.add(ItemRegistry.ELECTRIC_GUNPOWDER);
+                    entries.add(ItemRegistry.LIGHT_GUNPOWDER);
+                    entries.add(ItemRegistry.DARK_GUNPOWDER);
+                    entries.add(ItemRegistry.ICE_GUNPOWDER);
+                    entries.add(ItemRegistry.MAGMA_GUNPOWDER);
+                    entries.add(ItemRegistry.HYDROGEN_GUNPOWDER);
+                    entries.add(ItemRegistry.REVERSE_GUNPOWDER);
+                    entries.add(ItemRegistry.MINER_GUNPOWDER);
+                    entries.add(ItemRegistry.ILLUSION_GUNPOWDER);
+                    entries.add(ItemRegistry.FIREWORK_GUNPOWDER);
+                    entries.add(ItemRegistry.COOKIE_GUNPOWDER);
+                })
+        .build());
+
         LOGGER.info("Mod Initialized!");
     }
 
@@ -84,60 +144,7 @@ public class ElementalCreepers implements ModInitializer {
 
     public static final String MOD_ID = "elementalcreepers";
 
-    public static final ItemGroup ITEM_GROUP = FabricItemGroup.builder(new Identifier(MOD_ID, "category"))
-            .displayName(Text.translatable("itemGroup.elementalcreepers.category"))
-            .icon(() -> new ItemStack(Items.CREEPER_SPAWN_EGG))
-            .entries((enabledFeatures, entries, operatorEnabled) -> {
-                entries.add(SpawnEggRegistry.WATER_CREEPER_SPAWN_EGG);
-                entries.add(SpawnEggRegistry.FIRE_CREEPER_SPAWN_EGG);
-                entries.add(SpawnEggRegistry.EARTH_CREEPER_SPAWN_EGG);
-                entries.add(SpawnEggRegistry.AIR_CREEPER_SPAWN_EGG);
-                entries.add(SpawnEggRegistry.ELECTRIC_CREEPER_SPAWN_EGG);
-                entries.add(SpawnEggRegistry.LIGHT_CREEPER_SPAWN_EGG);
-                entries.add(SpawnEggRegistry.DARK_CREEPER_SPAWN_EGG);
-                entries.add(SpawnEggRegistry.ICE_CREEPER_SPAWN_EGG);
-                entries.add(SpawnEggRegistry.MAGMA_CREEPER_SPAWN_EGG);
-                entries.add(SpawnEggRegistry.HYDROGEN_CREEPER_SPAWN_EGG);
-                entries.add(SpawnEggRegistry.REVERSE_CREEPER_SPAWN_EGG);
-                entries.add(SpawnEggRegistry.MINER_CREEPER_SPAWN_EGG);
-                entries.add(SpawnEggRegistry.ILLUSION_CREEPER_SPAWN_EGG);
-                entries.add(SpawnEggRegistry.FIREWORK_CREEPER_SPAWN_EGG);
-                entries.add(SpawnEggRegistry.COOKIE_CREEPER_SPAWN_EGG);
-                entries.add(SpawnEggRegistry.RAINBOW_CREEPER_SPAWN_EGG);
-
-                entries.add(TntRegistry.WATER_TNT_BLOCK);
-                entries.add(TntRegistry.FIRE_TNT_BLOCK);
-                entries.add(TntRegistry.EARTH_TNT_BLOCK);
-                entries.add(TntRegistry.AIR_TNT_BLOCK);
-                entries.add(TntRegistry.ELECTRIC_TNT_BLOCK);
-                entries.add(TntRegistry.LIGHT_TNT_BLOCK);
-                entries.add(TntRegistry.DARK_TNT_BLOCK);
-                entries.add(TntRegistry.ICE_TNT_BLOCK);
-                entries.add(TntRegistry.MAGMA_TNT_BLOCK);
-                entries.add(TntRegistry.HYDROGEN_TNT_BLOCK);
-                entries.add(TntRegistry.REVERSE_TNT_BLOCK);
-                entries.add(TntRegistry.MINER_TNT_BLOCK);
-                entries.add(TntRegistry.ILLUSION_TNT_BLOCK);
-                entries.add(TntRegistry.FIREWORK_TNT_BLOCK);
-                entries.add(TntRegistry.COOKIE_TNT_BLOCK);
-
-                entries.add(ItemRegistry.WATER_GUNPOWDER);
-                entries.add(ItemRegistry.FIRE_GUNPOWDER);
-                entries.add(ItemRegistry.EARTH_GUNPOWDER);
-                entries.add(ItemRegistry.AIR_GUNPOWDER);
-                entries.add(ItemRegistry.ELECTRIC_GUNPOWDER);
-                entries.add(ItemRegistry.LIGHT_GUNPOWDER);
-                entries.add(ItemRegistry.DARK_GUNPOWDER);
-                entries.add(ItemRegistry.ICE_GUNPOWDER);
-                entries.add(ItemRegistry.MAGMA_GUNPOWDER);
-                entries.add(ItemRegistry.HYDROGEN_GUNPOWDER);
-                entries.add(ItemRegistry.REVERSE_GUNPOWDER);
-                entries.add(ItemRegistry.MINER_GUNPOWDER);
-                entries.add(ItemRegistry.ILLUSION_GUNPOWDER);
-                entries.add(ItemRegistry.FIREWORK_GUNPOWDER);
-                entries.add(ItemRegistry.COOKIE_GUNPOWDER);
-            })
-            .build();
+    public static final RegistryKey<ItemGroup> ITEM_GROUP = RegistryKey.of(RegistryKeys.ITEM_GROUP, new Identifier(MOD_ID, "category"));
 
     public static final Logger LOGGER;
     private static final Gson GSON;

@@ -12,7 +12,7 @@ public class WaterTntEntity extends ElementalTntEntity {
 
     @Override
     public void explode() {
-        ExplosionEffects.waterExplosionEffect(this, world, getX(), getY(), getZ());
+        ExplosionEffects.waterExplosionEffect(this, getWorld(), getX(), getY(), getZ());
     }
 
 }

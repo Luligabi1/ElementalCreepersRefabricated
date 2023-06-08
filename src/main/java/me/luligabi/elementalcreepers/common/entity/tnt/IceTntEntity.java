@@ -12,7 +12,7 @@ public class IceTntEntity extends ElementalTntEntity {
 
     @Override
     public void explode() {
-        ExplosionEffects.iceExplosionEffect(this, world, getX(), getY(), getZ());
+        ExplosionEffects.iceExplosionEffect(this, getWorld(), getX(), getY(), getZ());
     }
 
 }

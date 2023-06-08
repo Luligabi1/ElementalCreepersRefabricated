@@ -12,7 +12,7 @@ public class FireworkTntEntity extends ElementalTntEntity {
 
     @Override
     public void explode() {
-        ExplosionEffects.fireworkExplosionEffect(world, getX(), getY(), getZ());
+        ExplosionEffects.fireworkExplosionEffect(getWorld(), getX(), getY(), getZ());
     }
 
 }

@@ -12,7 +12,7 @@ public class DarkTntEntity extends ElementalTntEntity {
 
     @Override
     public void explode() {
-        ExplosionEffects.darkExplosionEffect(this, world, getX(), getY(), getZ());
+        ExplosionEffects.darkExplosionEffect(this, getWorld(), getX(), getY(), getZ());
     }
 
 }

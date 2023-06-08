@@ -12,7 +12,7 @@ public class MagmaTntEntity extends ElementalTntEntity {
 
     @Override
     public void explode() {
-        ExplosionEffects.magmaExplosionEffect(this, world, getX(), getY(), getZ());
+        ExplosionEffects.magmaExplosionEffect(this, getWorld(), getX(), getY(), getZ());
     }
 
 }

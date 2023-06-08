@@ -13,7 +13,7 @@ public class EarthCreeperEntity extends ElementalCreeperEntity {
 
     @Override
     public void onExplode() {
-        ExplosionEffects.earthExplosionEffect(this, world, getX(), getY(), getZ());
+        ExplosionEffects.earthExplosionEffect(this, getWorld(), getX(), getY(), getZ());
         super.onExplode();
     }
 }

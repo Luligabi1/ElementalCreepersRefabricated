@@ -14,7 +14,7 @@ public class DarkCreeperEntity extends ElementalCreeperEntity {
 
     @Override
     public void onExplode() {
-        ExplosionEffects.darkExplosionEffect(this, world, getX(), getY(), getZ());
+        ExplosionEffects.darkExplosionEffect(this, getWorld(), getX(), getY(), getZ());
         super.onExplode();
     }
 }

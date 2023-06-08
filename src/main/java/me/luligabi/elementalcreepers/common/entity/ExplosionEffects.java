@@ -37,7 +37,7 @@ public class ExplosionEffects {
             for (int x = (int) -radius - 1; x <= radius; x++) {
                 for (int y = (int) -radius - 1; y <= radius; y++) {
                     for (int z = (int) -radius - 1; z <= radius; z++) {
-                        BlockPos blockPos = new BlockPos(entityX + x,entityY + y,entityZ + z);
+                        BlockPos blockPos = new BlockPos((int) (entityX + x), (int) (entityY + y), (int) (entityZ + z));
                         if (entityWorld.getBlockState(blockPos).isAir() && Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2) + Math.pow(z, 2)) <= radius) {
                             entityWorld.setBlockState(blockPos, Blocks.WATER.getDefaultState());
                         }
@@ -58,8 +58,8 @@ public class ExplosionEffects {
             for (int x = (int) -radius - 1; x <= radius; x++) {
                 for (int y = (int) -radius - 1; y <= radius; y++) {
                     for (int z = (int) -radius - 1; z <= radius; z++) {
-                        BlockPos blockPos = new BlockPos(entityX + x, entityY + y, entityZ + z);
-                        if (entityWorld.getBlockState(blockPos).isAir() && !entityWorld.getBlockState(new BlockPos(entityX + x, (entityY + y) - 1, entityZ + z)).isAir()) {
+                        BlockPos blockPos = new BlockPos((int) (entityX + x), (int) (entityY + y), (int) (entityZ + z));
+                        if (entityWorld.getBlockState(blockPos).isAir() && !entityWorld.getBlockState(new BlockPos((int) (entityX + x), (int) ((entityY + y) - 1), (int) (entityZ + z))).isAir()) {
                             if (new Random().nextBoolean())
                                 entityWorld.setBlockState(blockPos, Blocks.FIRE.getDefaultState());
                         }
@@ -80,7 +80,7 @@ public class ExplosionEffects {
             for (int x = (int) -radius - 1; x <= radius; x++) {
                 for (int y = (int) -radius - 1; y <= radius; y++) {
                     for (int z = (int) -radius - 1; z <= radius; z++) {
-                        BlockPos blockPos = new BlockPos(entityX + x, entityY + y, entityZ + z);
+                        BlockPos blockPos = new BlockPos((int) (entityX + x), (int) (entityY + y), (int) (entityZ + z));
                         if (entityWorld.getBlockState(blockPos).isAir() && Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2) + Math.pow(z, 2)) <= radius) {
                             switch (new Random().nextInt(5 - 1 + 1) + 1) {
                                 case 1 -> entityWorld.setBlockState(blockPos, Blocks.DIRT.getDefaultState());
@@ -126,7 +126,7 @@ public class ExplosionEffects {
             for (int x = (int) -radius - 1; x <= radius; x++) {
                 for (int y = (int) -radius - 1; y <= radius; y++) {
                     for (int z = (int) -radius - 1; z <= radius; z++) {
-                        BlockPos blockPos = new BlockPos(entityX + x, entityY + y, entityZ + z);
+                        BlockPos blockPos = new BlockPos((int) (entityX + x), (int) (entityY + y), (int) (entityZ + z));
                         if (entityWorld.getBlockState(blockPos).isAir() && Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2) + Math.pow(z, 2)) <= radius) {
                             switch (new Random().nextInt(5 - 1 + 1) + 1) {
                                 case 1, 2 -> entityWorld.setBlockState(blockPos, Blocks.GLOWSTONE.getDefaultState());
@@ -156,7 +156,7 @@ public class ExplosionEffects {
             for (int x = (int) -radius; x <= radius; x++) {
                 for (int y = (int) -radius; y <= radius; y++) {
                     for (int z = (int) -radius; z <= radius; z++) {
-                        BlockPos blockPos = new BlockPos(entityX + x, entityY + y, entityZ + z);
+                        BlockPos blockPos = new BlockPos((int) (entityX + x), (int) (entityY + y), (int) (entityZ + z));
                         BlockState state = entityWorld.getBlockState(blockPos);
                         if (state != null && state.getBlock() != null) {
                             Block lightBlock = state.getBlock();
@@ -190,8 +190,8 @@ public class ExplosionEffects {
                 for (int y = (int) -radius - 1; y <= radius; y++) {
                     for (int z = (int) -radius - 1; z <= radius; z++) {
                         if (Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2) + Math.pow(z, 2)) <= radius) {
-                            BlockPos blockPos = new BlockPos(entityX + x, entityY + y, entityZ + z);
-                            if (entityWorld.getBlockState(blockPos).isAir() && !entityWorld.getBlockState(new BlockPos(entityX + x,(entityY + y) - 1, entityZ + z)).isAir()) {
+                            BlockPos blockPos = new BlockPos((int) (entityX + x), (int) (entityY + y), (int) (entityZ + z));
+                            if (entityWorld.getBlockState(blockPos).isAir() && !entityWorld.getBlockState(new BlockPos((int) (entityX + x), (int) ((entityY + y) - 1), (int) (entityZ + z))).isAir()) {
                                 if (new Random().nextBoolean()) {
                                     entityWorld.setBlockState(blockPos, Blocks.SNOW_BLOCK.getDefaultState());
                                 } else {
@@ -225,7 +225,7 @@ public class ExplosionEffects {
             for (int x = (int) -radius - 1; x <= radius; x++) {
                 for (int y = (int) -radius - 1; y <= radius; y++) {
                     for (int z = (int) -radius - 1; z <= radius; z++) {
-                        BlockPos blockPos = new BlockPos(entityX + x, entityY + y, entityZ + z);
+                        BlockPos blockPos = new BlockPos((int) (entityX + x), (int) (entityY + y), (int) (entityZ + z));
                         if (entityWorld.getBlockState(blockPos).isAir() && Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2) + Math.pow(z, 2)) <= radius) {
                             entityWorld.setBlockState(blockPos, Blocks.LAVA.getDefaultState());
                         }
@@ -263,7 +263,7 @@ public class ExplosionEffects {
                         double ex = entityX + x;
                         double ey = entityY + y;
                         double ez = entityZ + z;
-                        BlockPos blockPos = new BlockPos(ex, ey, ez);
+                        BlockPos blockPos = new BlockPos((int) ex, (int) ey, (int) ez);
                         BlockState state = entityWorld.getBlockState(blockPos);
 
                         if (state != null && state.getBlock() != null) {
@@ -283,7 +283,7 @@ public class ExplosionEffects {
             for (int x = (int) (-radius - 1); x <= radius; x++) {
                 for (int y = (int) (-radius - 1); y <= radius; y++) {
                     for (int z = (int) (-radius - 1); z <= radius; z++) {
-                        BlockPos blockPos = new BlockPos(entityX + x, entityY + y, entityZ + z);
+                        BlockPos blockPos = new BlockPos((int) (entityX + x), (int) (entityY + y), (int) (entityZ + z));
                         BlockState state = states[(int) (x + radius + 1)][(int) (2 * radius - (y + radius))][(int) (z + radius + 1)];
 
                         if (state != null && state.getBlock() != null && entityY + y > 5) {
@@ -306,7 +306,7 @@ public class ExplosionEffects {
         for (int x = (int) -radius; x <= radius; x++) {
             for (int y = (int) -radius; y <= radius; y++) {
                 for (int z = (int) -radius; z <= radius; z++) {
-                    BlockPos blockPos = new BlockPos(entityX + x, entityY+ y, entityZ + z);
+                    BlockPos blockPos = new BlockPos((int) (entityX + x), (int) (entityY+ y), (int) (entityZ + z));
                     BlockState state = entityWorld.getBlockState(blockPos);
 
                     if (state != null && state.getBlock() != null) {

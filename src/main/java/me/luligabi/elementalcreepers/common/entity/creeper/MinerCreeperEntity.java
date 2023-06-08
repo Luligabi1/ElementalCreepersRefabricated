@@ -14,7 +14,7 @@ public class MinerCreeperEntity extends ElementalCreeperEntity {
 
     @Override
     public void onExplode() {
-        ExplosionEffects.minerExplosionEffect(this, world, getX(), getY(), getZ());
+        ExplosionEffects.minerExplosionEffect(this, getWorld(), getX(), getY(), getZ());
         super.onExplode();
     }
 }

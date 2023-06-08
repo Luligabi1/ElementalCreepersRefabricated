@@ -21,8 +21,8 @@ public class MagmaCreeperEntity extends ElementalCreeperEntity {
     @Override
     public void tickMovement() {
         super.tickMovement();
-        if(!this.world.isClient) {
-            if (!this.world.getGameRules().getBoolean(GameRules.DO_MOB_GRIEFING)) return;
+        if(!this.getWorld().isClient) {
+            if (!this.getWorld().getGameRules().getBoolean(GameRules.DO_MOB_GRIEFING)) return;
             BlockState blockState = Blocks.FIRE.getDefaultState();
 
             for (int i = 0; i < 4; ++i) {
@@ -30,8 +30,8 @@ public class MagmaCreeperEntity extends ElementalCreeperEntity {
                 int posY = MathHelper.floor(this.getY());
                 int posZ = MathHelper.floor(this.getZ() + (double) ((float) (i / 2 % 2 * 2 - 1) * 0.25F));
                 BlockPos blockPos = new BlockPos(posX, posY, posZ);
-                if (blockState.canPlaceAt(this.world, blockPos)) {
-                    this.world.setBlockState(blockPos, blockState);
+                if (blockState.canPlaceAt(this.getWorld(), blockPos)) {
+                    this.getWorld().setBlockState(blockPos, blockState);
                 }
             }
         }
@@ -42,7 +42,7 @@ public class MagmaCreeperEntity extends ElementalCreeperEntity {
 
     @Override
     public void onExplode() {
-        ExplosionEffects.magmaExplosionEffect(this, world, getX(), getY(), getZ());
+        ExplosionEffects.magmaExplosionEffect(this, getWorld(), getX(), getY(), getZ());
         super.onExplode();
     }
 }

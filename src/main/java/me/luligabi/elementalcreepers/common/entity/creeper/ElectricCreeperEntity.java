@@ -12,7 +12,7 @@ public class ElectricCreeperEntity extends ElementalCreeperEntity {
     }
     @Override
     public void onExplode() {
-        ExplosionEffects.electricExplosionEffect(world, getX(), getY(), getZ());
+        ExplosionEffects.electricExplosionEffect(getWorld(), getX(), getY(), getZ());
         super.onExplode();
     }
 }

@@ -13,7 +13,7 @@ public class WaterCreeperEntity extends ElementalCreeperEntity {
 
     @Override
     public void onExplode() {
-        ExplosionEffects.waterExplosionEffect(this, world, getX(), getY(), getZ());
+        ExplosionEffects.waterExplosionEffect(this, getWorld(), getX(), getY(), getZ());
         super.onExplode();
     }
 }

@@ -19,7 +19,7 @@ public class FireCreeperEntity extends ElementalCreeperEntity {
 
     @Override
     public void onExplode() {
-        ExplosionEffects.fireExplosionEffect(this, world, getX(),getY(), getZ());
+        ExplosionEffects.fireExplosionEffect(this, getWorld(), getX(),getY(), getZ());
         super.onExplode();
     }
 }

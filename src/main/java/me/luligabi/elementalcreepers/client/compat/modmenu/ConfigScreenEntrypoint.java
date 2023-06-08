@@ -2,13 +2,10 @@ package me.luligabi.elementalcreepers.client.compat.modmenu;
 
 import com.terraformersmc.modmenu.api.ConfigScreenFactory;
 import com.terraformersmc.modmenu.api.ModMenuApi;
-import dev.isxander.yacl.api.ConfigCategory;
-import dev.isxander.yacl.api.Option;
-import dev.isxander.yacl.api.OptionGroup;
-import dev.isxander.yacl.api.YetAnotherConfigLib;
-import dev.isxander.yacl.gui.controllers.BooleanController;
-import dev.isxander.yacl.gui.controllers.string.number.FloatFieldController;
-import dev.isxander.yacl.gui.controllers.string.number.IntegerFieldController;
+import dev.isxander.yacl3.api.*;
+import dev.isxander.yacl3.api.controller.BooleanControllerBuilder;
+import dev.isxander.yacl3.api.controller.FloatFieldControllerBuilder;
+import dev.isxander.yacl3.api.controller.IntegerFieldControllerBuilder;
 import me.luligabi.elementalcreepers.common.ElementalCreepers;
 import me.luligabi.elementalcreepers.common.ModConfig;
 import net.minecraft.client.gui.screen.Screen;
@@ -27,21 +24,21 @@ public class ConfigScreenEntrypoint implements ModMenuApi {
         /*
          * Water Creeper
          */
-        Option<Integer> waterCreeperSpawnRate = Option.createBuilder(Integer.class)
+        Option<Integer> waterCreeperSpawnRate = Option.<Integer>createBuilder()
                 .name(Text.translatable("configOption.elementalcreepers.waterCreeperSpawnRate"))
-                .tooltip(Text.translatable("configOption.elementalcreepers.waterCreeperSpawnRate.tooltip"))
+                .description(OptionDescription.of(Text.translatable("configOption.elementalcreepers.waterCreeperSpawnRate.tooltip")))
                 .binding(
                         20,
                         () -> config.waterCreeperSpawnRate,
                         newValue -> config.waterCreeperSpawnRate = newValue
                 )
                 .available(config.waterCreeperEnabled)
-                .controller((intOption) -> new IntegerFieldController(intOption, 1, 100))
+                .controller(option -> IntegerFieldControllerBuilder.create(option).range(1, 100))
                 .build();
 
-        Option<Boolean> waterCreeperEnabled = Option.createBuilder(Boolean.class)
+        Option<Boolean> waterCreeperEnabled = Option.<Boolean>createBuilder()
                 .name(Text.translatable("configOption.elementalcreepers.waterCreeperEnabled"))
-                .tooltip(Text.translatable("configOption.elementalcreepers.waterCreeperEnabled.tooltip"))
+                .description(OptionDescription.of(Text.translatable("configOption.elementalcreepers.waterCreeperEnabled.tooltip")))
                 .binding(
                         true,
                         () -> config.waterCreeperEnabled,
@@ -50,38 +47,38 @@ public class ConfigScreenEntrypoint implements ModMenuApi {
                             waterCreeperSpawnRate.setAvailable(newValue);
                         }
                 )
-                .controller((booleanOption) -> new BooleanController(booleanOption, BooleanController.YES_NO_FORMATTER, true))
+                .controller(option -> BooleanControllerBuilder.create(option).yesNoFormatter().coloured(true))
                 .build();
 
-        Option<Float> waterCreeperRadius = Option.createBuilder(Float.class)
+        Option<Float> waterCreeperRadius = Option.<Float>createBuilder()
                 .name(Text.translatable("configOption.elementalcreepers.waterCreeperRadius"))
-                .tooltip(Text.translatable("configOption.elementalcreepers.waterCreeperRadius.tooltip"))
+                .description(OptionDescription.of(Text.translatable("configOption.elementalcreepers.waterCreeperRadius.tooltip")))
                 .binding(
                         3F,
                         () -> config.waterCreeperRadius,
                         newValue -> config.waterCreeperRadius = newValue
                 )
-                .controller((intOption) -> new FloatFieldController(intOption, 1, 10))
+                .controller(option -> FloatFieldControllerBuilder.create(option).range(1F, 10F))
                 .build();
 
         /*
          * Fire Creeper
          */
-        Option<Integer> fireCreeperSpawnRate = Option.createBuilder(Integer.class)
+        Option<Integer> fireCreeperSpawnRate = Option.<Integer>createBuilder()
                 .name(Text.translatable("configOption.elementalcreepers.fireCreeperSpawnRate"))
-                .tooltip(Text.translatable("configOption.elementalcreepers.fireCreeperSpawnRate.tooltip"))
+                .description(OptionDescription.of(Text.translatable("configOption.elementalcreepers.fireCreeperSpawnRate.tooltip")))
                 .binding(
                         25,
                         () -> config.fireCreeperSpawnRate,
                         newValue -> config.fireCreeperSpawnRate = newValue
                 )
                 .available(config.fireCreeperEnabled)
-                .controller((intOption) -> new IntegerFieldController(intOption, 1, 100))
+                .controller(option -> IntegerFieldControllerBuilder.create(option).range(1, 100))
                 .build();
 
-        Option<Boolean> fireCreeperEnabled = Option.createBuilder(Boolean.class)
+        Option<Boolean> fireCreeperEnabled = Option.<Boolean>createBuilder()
                 .name(Text.translatable("configOption.elementalcreepers.fireCreeperEnabled"))
-                .tooltip(Text.translatable("configOption.elementalcreepers.fireCreeperEnabled.tooltip"))
+                .description(OptionDescription.of(Text.translatable("configOption.elementalcreepers.fireCreeperEnabled.tooltip")))
                 .binding(
                         true,
                         () -> config.fireCreeperEnabled,
@@ -90,38 +87,38 @@ public class ConfigScreenEntrypoint implements ModMenuApi {
                             fireCreeperSpawnRate.setAvailable(newValue);
                         }
                 )
-                .controller((booleanOption) -> new BooleanController(booleanOption, BooleanController.YES_NO_FORMATTER, true))
+                .controller(option -> BooleanControllerBuilder.create(option).yesNoFormatter().coloured(true))
                 .build();
 
-        Option<Float> fireCreeperRadius = Option.createBuilder(Float.class)
+        Option<Float> fireCreeperRadius = Option.<Float>createBuilder()
                 .name(Text.translatable("configOption.elementalcreepers.fireCreeperRadius"))
-                .tooltip(Text.translatable("configOption.elementalcreepers.fireCreeperRadius.tooltip"))
+                .description(OptionDescription.of(Text.translatable("configOption.elementalcreepers.fireCreeperRadius.tooltip")))
                 .binding(
                         3F,
                         () -> config.fireCreeperRadius,
                         newValue -> config.fireCreeperRadius = newValue
                 )
-                .controller((intOption) -> new FloatFieldController(intOption, 1, 10))
+                .controller(option -> FloatFieldControllerBuilder.create(option).range(1F, 10F))
                 .build();
 
         /*
          * Earth Creeper
          */
-        Option<Integer> earthCreeperSpawnRate = Option.createBuilder(Integer.class)
+        Option<Integer> earthCreeperSpawnRate = Option.<Integer>createBuilder()
                 .name(Text.translatable("configOption.elementalcreepers.earthCreeperSpawnRate"))
-                .tooltip(Text.translatable("configOption.elementalcreepers.earthCreeperSpawnRate.tooltip"))
+                .description(OptionDescription.of(Text.translatable("configOption.elementalcreepers.earthCreeperSpawnRate.tooltip")))
                 .binding(
                         15,
                         () -> config.earthCreeperSpawnRate,
                         newValue -> config.earthCreeperSpawnRate = newValue
                 )
                 .available(config.earthCreeperEnabled)
-                .controller((intOption) -> new IntegerFieldController(intOption, 1, 100))
+                .controller(option -> IntegerFieldControllerBuilder.create(option).range(1, 100))
                 .build();
 
-        Option<Boolean> earthCreeperEnabled = Option.createBuilder(Boolean.class)
+        Option<Boolean> earthCreeperEnabled = Option.<Boolean>createBuilder()
                 .name(Text.translatable("configOption.elementalcreepers.earthCreeperEnabled"))
-                .tooltip(Text.translatable("configOption.elementalcreepers.earthCreeperEnabled.tooltip"))
+                .description(OptionDescription.of(Text.translatable("configOption.elementalcreepers.earthCreeperEnabled.tooltip")))
                 .binding(
                         true,
                         () -> config.earthCreeperEnabled,
@@ -130,38 +127,38 @@ public class ConfigScreenEntrypoint implements ModMenuApi {
                             earthCreeperSpawnRate.setAvailable(newValue);
                         }
                 )
-                .controller((booleanOption) -> new BooleanController(booleanOption, BooleanController.YES_NO_FORMATTER, true))
+                .controller(option -> BooleanControllerBuilder.create(option).yesNoFormatter().coloured(true))
                 .build();
 
-        Option<Float> earthCreeperRadius = Option.createBuilder(Float.class)
+        Option<Float> earthCreeperRadius = Option.<Float>createBuilder()
                 .name(Text.translatable("configOption.elementalcreepers.earthCreeperRadius"))
-                .tooltip(Text.translatable("configOption.elementalcreepers.earthCreeperRadius.tooltip"))
+                .description(OptionDescription.of(Text.translatable("configOption.elementalcreepers.earthCreeperRadius.tooltip")))
                 .binding(
                         5F,
                         () -> config.earthCreeperRadius,
                         newValue -> config.earthCreeperRadius = newValue
                 )
-                .controller((intOption) -> new FloatFieldController(intOption, 1, 10))
+                .controller(option -> FloatFieldControllerBuilder.create(option).range(1F, 10F))
                 .build();
 
         /*
          * Air Creeper
          */
-        Option<Integer> airCreeperSpawnRate = Option.createBuilder(Integer.class)
+        Option<Integer> airCreeperSpawnRate = Option.<Integer>createBuilder()
                 .name(Text.translatable("configOption.elementalcreepers.airCreeperSpawnRate"))
-                .tooltip(Text.translatable("configOption.elementalcreepers.airCreeperSpawnRate.tooltip"))
+                .description(OptionDescription.of(Text.translatable("configOption.elementalcreepers.airCreeperSpawnRate.tooltip")))
                 .binding(
                         20,
                         () -> config.airCreeperSpawnRate,
                         newValue -> config.airCreeperSpawnRate = newValue
                 )
                 .available(config.airCreeperEnabled)
-                .controller((intOption) -> new IntegerFieldController(intOption, 1, 100))
+                .controller(option -> IntegerFieldControllerBuilder.create(option).range(1, 100))
                 .build();
 
-        Option<Boolean> airCreeperEnabled = Option.createBuilder(Boolean.class)
+        Option<Boolean> airCreeperEnabled = Option.<Boolean>createBuilder()
                 .name(Text.translatable("configOption.elementalcreepers.airCreeperEnabled"))
-                .tooltip(Text.translatable("configOption.elementalcreepers.airCreeperEnabled.tooltip"))
+                .description(OptionDescription.of(Text.translatable("configOption.elementalcreepers.airCreeperEnabled.tooltip")))
                 .binding(
                         true,
                         () -> config.airCreeperEnabled,
@@ -170,38 +167,38 @@ public class ConfigScreenEntrypoint implements ModMenuApi {
                             airCreeperSpawnRate.setAvailable(newValue);
                         }
                 )
-                .controller((booleanOption) -> new BooleanController(booleanOption, BooleanController.YES_NO_FORMATTER, true))
+                .controller(option -> BooleanControllerBuilder.create(option).yesNoFormatter().coloured(true))
                 .build();
 
-        Option<Float> airCreeperRadius = Option.createBuilder(Float.class)
+        Option<Float> airCreeperRadius = Option.<Float>createBuilder()
                 .name(Text.translatable("configOption.elementalcreepers.airCreeperRadius"))
-                .tooltip(Text.translatable("configOption.elementalcreepers.airCreeperRadius.tooltip"))
+                .description(OptionDescription.of(Text.translatable("configOption.elementalcreepers.airCreeperRadius.tooltip")))
                 .binding(
                         1.75F,
                         () -> config.airCreeperRadius,
                         newValue -> config.airCreeperRadius = newValue
-                )
-                .controller((intOption) -> new FloatFieldController(intOption, 1, 10))
+                ) // option -> FloatFieldControllerBuilder.create(option).range(1F, 10F)
+                .controller(option -> FloatFieldControllerBuilder.create(option).range(1F, 10F))
                 .build();
 
         /*
          * Electric Creeper
          */
-        Option<Integer> electricCreeperSpawnRate = Option.createBuilder(Integer.class)
+        Option<Integer> electricCreeperSpawnRate = Option.<Integer>createBuilder()
                 .name(Text.translatable("configOption.elementalcreepers.electricCreeperSpawnRate"))
-                .tooltip(Text.translatable("configOption.elementalcreepers.electricCreeperSpawnRate.tooltip"))
+                .description(OptionDescription.of(Text.translatable("configOption.elementalcreepers.electricCreeperSpawnRate.tooltip")))
                 .binding(
                         7,
                         () -> config.electricCreeperSpawnRate,
                         newValue -> config.electricCreeperSpawnRate = newValue
                 )
                 .available(config.electricCreeperEnabled)
-                .controller((intOption) -> new IntegerFieldController(intOption, 1, 100))
+                .controller(option -> IntegerFieldControllerBuilder.create(option).range(1, 100))
                 .build();
 
-        Option<Boolean> electricCreeperEnabled = Option.createBuilder(Boolean.class)
+        Option<Boolean> electricCreeperEnabled = Option.<Boolean>createBuilder()
                 .name(Text.translatable("configOption.elementalcreepers.electricCreeperEnabled"))
-                .tooltip(Text.translatable("configOption.elementalcreepers.electricCreeperEnabled.tooltip"))
+                .description(OptionDescription.of(Text.translatable("configOption.elementalcreepers.electricCreeperEnabled.tooltip")))
                 .binding(
                         true,
                         () -> config.electricCreeperEnabled,
@@ -210,27 +207,27 @@ public class ConfigScreenEntrypoint implements ModMenuApi {
                             electricCreeperSpawnRate.setAvailable(newValue);
                         }
                 )
-                .controller((booleanOption) -> new BooleanController(booleanOption, BooleanController.YES_NO_FORMATTER, true))
+                .controller(option -> BooleanControllerBuilder.create(option).yesNoFormatter().coloured(true))
                 .build();
 
         /*
          * Light Creeper
          */
-        Option<Integer> lightCreeperSpawnRate = Option.createBuilder(Integer.class)
+        Option<Integer> lightCreeperSpawnRate = Option.<Integer>createBuilder()
                 .name(Text.translatable("configOption.elementalcreepers.lightCreeperSpawnRate"))
-                .tooltip(Text.translatable("configOption.elementalcreepers.lightCreeperSpawnRate.tooltip"))
+                .description(OptionDescription.of(Text.translatable("configOption.elementalcreepers.lightCreeperSpawnRate.tooltip")))
                 .binding(
                         20,
                         () -> config.lightCreeperSpawnRate,
                         newValue -> config.lightCreeperSpawnRate = newValue
                 )
                 .available(config.lightCreeperEnabled)
-                .controller((intOption) -> new IntegerFieldController(intOption, 1, 100))
+                .controller(option -> IntegerFieldControllerBuilder.create(option).range(1, 100))
                 .build();
 
-        Option<Boolean> lightCreeperEnabled = Option.createBuilder(Boolean.class)
+        Option<Boolean> lightCreeperEnabled = Option.<Boolean>createBuilder()
                 .name(Text.translatable("configOption.elementalcreepers.lightCreeperEnabled"))
-                .tooltip(Text.translatable("configOption.elementalcreepers.lightCreeperEnabled.tooltip"))
+                .description(OptionDescription.of(Text.translatable("configOption.elementalcreepers.lightCreeperEnabled.tooltip")))
                 .binding(
                         true,
                         () -> config.lightCreeperEnabled,
@@ -239,38 +236,38 @@ public class ConfigScreenEntrypoint implements ModMenuApi {
                             lightCreeperSpawnRate.setAvailable(newValue);
                         }
                 )
-                .controller((booleanOption) -> new BooleanController(booleanOption, BooleanController.YES_NO_FORMATTER, true))
+                .controller(option -> BooleanControllerBuilder.create(option).yesNoFormatter().coloured(true))
                 .build();
 
-        Option<Float> lightCreeperRadius = Option.createBuilder(Float.class)
+        Option<Float> lightCreeperRadius = Option.<Float>createBuilder()
                 .name(Text.translatable("configOption.elementalcreepers.lightCreeperRadius"))
-                .tooltip(Text.translatable("configOption.elementalcreepers.lightCreeperRadius.tooltip"))
+                .description(OptionDescription.of(Text.translatable("configOption.elementalcreepers.lightCreeperRadius.tooltip")))
                 .binding(
                         4F,
                         () -> config.lightCreeperRadius,
                         newValue -> config.lightCreeperRadius = newValue
                 )
-                .controller((intOption) -> new FloatFieldController(intOption, 1, 10))
+                .controller(option -> FloatFieldControllerBuilder.create(option).range(1F, 10F))
                 .build();
 
         /*
          * Dark Creeper
          */
-        Option<Integer> darkCreeperSpawnRate = Option.createBuilder(Integer.class)
+        Option<Integer> darkCreeperSpawnRate = Option.<Integer>createBuilder()
                 .name(Text.translatable("configOption.elementalcreepers.darkCreeperSpawnRate"))
-                .tooltip(Text.translatable("configOption.elementalcreepers.darkCreeperSpawnRate.tooltip"))
+                .description(OptionDescription.of(Text.translatable("configOption.elementalcreepers.darkCreeperSpawnRate.tooltip")))
                 .binding(
                         12,
                         () -> config.darkCreeperSpawnRate,
                         newValue -> config.darkCreeperSpawnRate = newValue
                 )
                 .available(config.darkCreeperEnabled)
-                .controller((intOption) -> new IntegerFieldController(intOption, 1, 100))
+                .controller(option -> IntegerFieldControllerBuilder.create(option).range(1, 100))
                 .build();
 
-        Option<Boolean> darkCreeperEnabled = Option.createBuilder(Boolean.class)
+        Option<Boolean> darkCreeperEnabled = Option.<Boolean>createBuilder()
                 .name(Text.translatable("configOption.elementalcreepers.darkCreeperEnabled"))
-                .tooltip(Text.translatable("configOption.elementalcreepers.darkCreeperEnabled.tooltip"))
+                .description(OptionDescription.of(Text.translatable("configOption.elementalcreepers.darkCreeperEnabled.tooltip")))
                 .binding(
                         true,
                         () -> config.darkCreeperEnabled,
@@ -279,38 +276,38 @@ public class ConfigScreenEntrypoint implements ModMenuApi {
                             darkCreeperSpawnRate.setAvailable(newValue);
                         }
                 )
-                .controller((booleanOption) -> new BooleanController(booleanOption, BooleanController.YES_NO_FORMATTER, true))
+                .controller(option -> BooleanControllerBuilder.create(option).yesNoFormatter().coloured(true))
                 .build();
 
-        Option<Float> darkCreeperRadius = Option.createBuilder(Float.class)
+        Option<Float> darkCreeperRadius = Option.<Float>createBuilder()
                 .name(Text.translatable("configOption.elementalcreepers.darkCreeperRadius"))
-                .tooltip(Text.translatable("configOption.elementalcreepers.darkCreeperRadius.tooltip"))
+                .description(OptionDescription.of(Text.translatable("configOption.elementalcreepers.darkCreeperRadius.tooltip")))
                 .binding(
                         4F,
                         () -> config.darkCreeperRadius,
                         newValue -> config.darkCreeperRadius = newValue
                 )
-                .controller((intOption) -> new FloatFieldController(intOption, 1, 10))
+                .controller(option -> FloatFieldControllerBuilder.create(option).range(1F, 10F))
                 .build();
 
         /*
          * Ice Creeper
          */
-        Option<Integer> iceCreeperSpawnRate = Option.createBuilder(Integer.class)
+        Option<Integer> iceCreeperSpawnRate = Option.<Integer>createBuilder()
                 .name(Text.translatable("configOption.elementalcreepers.iceCreeperSpawnRate"))
-                .tooltip(Text.translatable("configOption.elementalcreepers.iceCreeperSpawnRate.tooltip"))
+                .description(OptionDescription.of(Text.translatable("configOption.elementalcreepers.iceCreeperSpawnRate.tooltip")))
                 .binding(
                         20,
                         () -> config.iceCreeperSpawnRate,
                         newValue -> config.iceCreeperSpawnRate = newValue
                 )
                 .available(config.iceCreeperEnabled)
-                .controller((intOption) -> new IntegerFieldController(intOption, 1, 100))
+                .controller(option -> IntegerFieldControllerBuilder.create(option).range(1, 100))
                 .build();
 
-        Option<Boolean> iceCreeperEnabled = Option.createBuilder(Boolean.class)
+        Option<Boolean> iceCreeperEnabled = Option.<Boolean>createBuilder()
                 .name(Text.translatable("configOption.elementalcreepers.iceCreeperEnabled"))
-                .tooltip(Text.translatable("configOption.elementalcreepers.iceCreeperEnabled.tooltip"))
+                .description(OptionDescription.of(Text.translatable("configOption.elementalcreepers.iceCreeperEnabled.tooltip")))
                 .binding(
                         true,
                         () -> config.iceCreeperEnabled,
@@ -319,38 +316,38 @@ public class ConfigScreenEntrypoint implements ModMenuApi {
                             iceCreeperSpawnRate.setAvailable(newValue);
                         }
                 )
-                .controller((booleanOption) -> new BooleanController(booleanOption, BooleanController.YES_NO_FORMATTER, true))
+                .controller(option -> BooleanControllerBuilder.create(option).yesNoFormatter().coloured(true))
                 .build();
 
-        Option<Float> iceCreeperRadius = Option.createBuilder(Float.class)
+        Option<Float> iceCreeperRadius = Option.<Float>createBuilder()
                 .name(Text.translatable("configOption.elementalcreepers.iceCreeperRadius"))
-                .tooltip(Text.translatable("configOption.elementalcreepers.iceCreeperRadius.tooltip"))
+                .description(OptionDescription.of(Text.translatable("configOption.elementalcreepers.iceCreeperRadius.tooltip")))
                 .binding(
                         4F,
                         () -> config.iceCreeperRadius,
                         newValue -> config.iceCreeperRadius = newValue
                 )
-                .controller((intOption) -> new FloatFieldController(intOption, 1, 10))
+                .controller(option -> FloatFieldControllerBuilder.create(option).range(1F, 10F))
                 .build();
 
         /*
          * Magma Creeper
          */
-        Option<Integer> magmaCreeperSpawnRate = Option.createBuilder(Integer.class)
+        Option<Integer> magmaCreeperSpawnRate = Option.<Integer>createBuilder()
                 .name(Text.translatable("configOption.elementalcreepers.magmaCreeperSpawnRate"))
-                .tooltip(Text.translatable("configOption.elementalcreepers.magmaCreeperSpawnRate.tooltip"))
+                .description(OptionDescription.of(Text.translatable("configOption.elementalcreepers.magmaCreeperSpawnRate.tooltip")))
                 .binding(
                         25,
                         () -> config.magmaCreeperSpawnRate,
                         newValue -> config.magmaCreeperSpawnRate = newValue
                 )
                 .available(config.magmaCreeperEnabled)
-                .controller((intOption) -> new IntegerFieldController(intOption, 1, 100))
+                .controller(option -> IntegerFieldControllerBuilder.create(option).range(1, 100))
                 .build();
 
-        Option<Boolean> magmaCreeperEnabled = Option.createBuilder(Boolean.class)
+        Option<Boolean> magmaCreeperEnabled = Option.<Boolean>createBuilder()
                 .name(Text.translatable("configOption.elementalcreepers.magmaCreeperEnabled"))
-                .tooltip(Text.translatable("configOption.elementalcreepers.magmaCreeperEnabled.tooltip"))
+                .description(OptionDescription.of(Text.translatable("configOption.elementalcreepers.magmaCreeperEnabled.tooltip")))
                 .binding(
                         true,
                         () -> config.magmaCreeperEnabled,
@@ -359,38 +356,38 @@ public class ConfigScreenEntrypoint implements ModMenuApi {
                             magmaCreeperSpawnRate.setAvailable(newValue);
                         }
                 )
-                .controller((booleanOption) -> new BooleanController(booleanOption, BooleanController.YES_NO_FORMATTER, true))
+                .controller(option -> BooleanControllerBuilder.create(option).yesNoFormatter().coloured(true))
                 .build();
 
-        Option<Float> magmaCreeperRadius = Option.createBuilder(Float.class)
+        Option<Float> magmaCreeperRadius = Option.<Float>createBuilder()
                 .name(Text.translatable("configOption.elementalcreepers.magmaCreeperRadius"))
-                .tooltip(Text.translatable("configOption.elementalcreepers.magmaCreeperRadius.tooltip"))
+                .description(OptionDescription.of(Text.translatable("configOption.elementalcreepers.magmaCreeperRadius.tooltip")))
                 .binding(
                         4F,
                         () -> config.magmaCreeperRadius,
                         newValue -> config.magmaCreeperRadius = newValue
                 )
-                .controller((intOption) -> new FloatFieldController(intOption, 1, 10))
+                .controller(option -> FloatFieldControllerBuilder.create(option).range(1F, 10F))
                 .build();
 
         /*
          * Hydrogen Creeper
          */
-        Option<Integer> hydrogenCreeperSpawnRate = Option.createBuilder(Integer.class)
+        Option<Integer> hydrogenCreeperSpawnRate = Option.<Integer>createBuilder()
                 .name(Text.translatable("configOption.elementalcreepers.hydrogenCreeperSpawnRate"))
-                .tooltip(Text.translatable("configOption.elementalcreepers.hydrogenCreeperSpawnRate.tooltip"))
+                .description(OptionDescription.of(Text.translatable("configOption.elementalcreepers.hydrogenCreeperSpawnRate.tooltip")))
                 .binding(
                         3,
                         () -> config.hydrogenCreeperSpawnRate,
                         newValue -> config.hydrogenCreeperSpawnRate = newValue
                 )
                 .available(config.hydrogenCreeperEnabled)
-                .controller((intOption) -> new IntegerFieldController(intOption, 1, 100))
+                .controller(option -> IntegerFieldControllerBuilder.create(option).range(1, 100))
                 .build();
 
-        Option<Boolean> hydrogenCreeperEnabled = Option.createBuilder(Boolean.class)
+        Option<Boolean> hydrogenCreeperEnabled = Option.<Boolean>createBuilder()
                 .name(Text.translatable("configOption.elementalcreepers.hydrogenCreeperEnabled"))
-                .tooltip(Text.translatable("configOption.elementalcreepers.hydrogenCreeperEnabled.tooltip"))
+                .description(OptionDescription.of(Text.translatable("configOption.elementalcreepers.hydrogenCreeperEnabled.tooltip")))
                 .binding(
                         true,
                         () -> config.hydrogenCreeperEnabled,
@@ -399,38 +396,38 @@ public class ConfigScreenEntrypoint implements ModMenuApi {
                             hydrogenCreeperSpawnRate.setAvailable(newValue);
                         }
                 )
-                .controller((booleanOption) -> new BooleanController(booleanOption, BooleanController.YES_NO_FORMATTER, true))
+                .controller(option -> BooleanControllerBuilder.create(option).yesNoFormatter().coloured(true))
                 .build();
 
-        Option<Float> hydrogenCreeperRadius = Option.createBuilder(Float.class)
+        Option<Float> hydrogenCreeperRadius = Option.<Float>createBuilder()
                 .name(Text.translatable("configOption.elementalcreepers.hydrogenCreeperRadius"))
-                .tooltip(Text.translatable("configOption.elementalcreepers.hydrogenCreeperRadius.tooltip"))
+                .description(OptionDescription.of(Text.translatable("configOption.elementalcreepers.hydrogenCreeperRadius.tooltip")))
                 .binding(
                         7F,
                         () -> config.hydrogenCreeperRadius,
                         newValue -> config.hydrogenCreeperRadius = newValue
                 )
-                .controller((intOption) -> new FloatFieldController(intOption, 1, 10))
+                .controller(option -> FloatFieldControllerBuilder.create(option).range(1F, 10F))
                 .build();
 
         /*
          * Reverse Creeper
          */
-        Option<Integer> reverseCreeperSpawnRate = Option.createBuilder(Integer.class)
+        Option<Integer> reverseCreeperSpawnRate = Option.<Integer>createBuilder()
                 .name(Text.translatable("configOption.elementalcreepers.reverseCreeperSpawnRate"))
-                .tooltip(Text.translatable("configOption.elementalcreepers.reverseCreeperSpawnRate.tooltip"))
+                .description(OptionDescription.of(Text.translatable("configOption.elementalcreepers.reverseCreeperSpawnRate.tooltip")))
                 .binding(
                         10,
                         () -> config.reverseCreeperSpawnRate,
                         newValue -> config.reverseCreeperSpawnRate = newValue
                 )
                 .available(config.reverseCreeperEnabled)
-                .controller((intOption) -> new IntegerFieldController(intOption, 1, 100))
+                .controller(option -> IntegerFieldControllerBuilder.create(option).range(1, 100))
                 .build();
 
-        Option<Boolean> reverseCreeperEnabled = Option.createBuilder(Boolean.class)
+        Option<Boolean> reverseCreeperEnabled = Option.<Boolean>createBuilder()
                 .name(Text.translatable("configOption.elementalcreepers.reverseCreeperEnabled"))
-                .tooltip(Text.translatable("configOption.elementalcreepers.reverseCreeperEnabled.tooltip"))
+                .description(OptionDescription.of(Text.translatable("configOption.elementalcreepers.reverseCreeperEnabled.tooltip")))
                 .binding(
                         true,
                         () -> config.reverseCreeperEnabled,
@@ -439,38 +436,38 @@ public class ConfigScreenEntrypoint implements ModMenuApi {
                             reverseCreeperSpawnRate.setAvailable(newValue);
                         }
                 )
-                .controller((booleanOption) -> new BooleanController(booleanOption, BooleanController.YES_NO_FORMATTER, true))
+                .controller(option -> BooleanControllerBuilder.create(option).yesNoFormatter().coloured(true))
                 .build();
 
-        Option<Float> reverseCreeperRadius = Option.createBuilder(Float.class)
+        Option<Float> reverseCreeperRadius = Option.<Float>createBuilder()
                 .name(Text.translatable("configOption.elementalcreepers.reverseCreeperRadius"))
-                .tooltip(Text.translatable("configOption.elementalcreepers.reverseCreeperRadius.tooltip"))
+                .description(OptionDescription.of(Text.translatable("configOption.elementalcreepers.reverseCreeperRadius.tooltip")))
                 .binding(
                         3.75F,
                         () -> config.reverseCreeperRadius,
                         newValue -> config.reverseCreeperRadius = newValue
                 )
-                .controller((intOption) -> new FloatFieldController(intOption, 1, 10))
+                .controller(option -> FloatFieldControllerBuilder.create(option).range(1F, 10F))
                 .build();
 
         /*
          * Miner Creeper
          */
-        Option<Integer> minerCreeperSpawnRate = Option.createBuilder(Integer.class)
+        Option<Integer> minerCreeperSpawnRate = Option.<Integer>createBuilder()
                 .name(Text.translatable("configOption.elementalcreepers.minerCreeperSpawnRate"))
-                .tooltip(Text.translatable("configOption.elementalcreepers.minerCreeperSpawnRate.tooltip"))
+                .description(OptionDescription.of(Text.translatable("configOption.elementalcreepers.minerCreeperSpawnRate.tooltip")))
                 .binding(
                         15,
                         () -> config.minerCreeperSpawnRate,
                         newValue -> config.minerCreeperSpawnRate = newValue
                 )
                 .available(config.minerCreeperEnabled)
-                .controller((intOption) -> new IntegerFieldController(intOption, 1, 100))
+                .controller(option -> IntegerFieldControllerBuilder.create(option).range(1, 100))
                 .build();
 
-        Option<Boolean> minerCreeperEnabled = Option.createBuilder(Boolean.class)
+        Option<Boolean> minerCreeperEnabled = Option.<Boolean>createBuilder()
                 .name(Text.translatable("configOption.elementalcreepers.minerCreeperEnabled"))
-                .tooltip(Text.translatable("configOption.elementalcreepers.minerCreeperEnabled.tooltip"))
+                .description(OptionDescription.of(Text.translatable("configOption.elementalcreepers.minerCreeperEnabled.tooltip")))
                 .binding(
                         true,
                         () -> config.minerCreeperEnabled,
@@ -479,38 +476,38 @@ public class ConfigScreenEntrypoint implements ModMenuApi {
                             minerCreeperSpawnRate.setAvailable(newValue);
                         }
                 )
-                .controller((booleanOption) -> new BooleanController(booleanOption, BooleanController.YES_NO_FORMATTER, true))
+                .controller(option -> BooleanControllerBuilder.create(option).yesNoFormatter().coloured(true))
                 .build();
 
-        Option<Float> minerCreeperRadius = Option.createBuilder(Float.class)
+        Option<Float> minerCreeperRadius = Option.<Float>createBuilder()
                 .name(Text.translatable("configOption.elementalcreepers.minerCreeperRadius"))
-                .tooltip(Text.translatable("configOption.elementalcreepers.minerCreeperRadius.tooltip"))
+                .description(OptionDescription.of(Text.translatable("configOption.elementalcreepers.minerCreeperRadius.tooltip")))
                 .binding(
                         3.75F,
                         () -> config.minerCreeperRadius,
                         newValue -> config.minerCreeperRadius = newValue
                 )
-                .controller((intOption) -> new FloatFieldController(intOption, 1, 10))
+                .controller(option -> FloatFieldControllerBuilder.create(option).range(1F, 10F))
                 .build();
 
         /*
          * Illusion Creeper
          */
-        Option<Integer> illusionCreeperSpawnRate = Option.createBuilder(Integer.class)
+        Option<Integer> illusionCreeperSpawnRate = Option.<Integer>createBuilder()
                 .name(Text.translatable("configOption.elementalcreepers.illusionCreeperSpawnRate"))
-                .tooltip(Text.translatable("configOption.elementalcreepers.illusionCreeperSpawnRate.tooltip"))
+                .description(OptionDescription.of(Text.translatable("configOption.elementalcreepers.illusionCreeperSpawnRate.tooltip")))
                 .binding(
                         10,
                         () -> config.illusionCreeperSpawnRate,
                         newValue -> config.illusionCreeperSpawnRate = newValue
                 )
                 .available(config.illusionCreeperEnabled)
-                .controller((intOption) -> new IntegerFieldController(intOption, 1, 100))
+                .controller(option -> IntegerFieldControllerBuilder.create(option).range(1, 100))
                 .build();
 
-        Option<Boolean> illusionCreeperEnabled = Option.createBuilder(Boolean.class)
+        Option<Boolean> illusionCreeperEnabled = Option.<Boolean>createBuilder()
                 .name(Text.translatable("configOption.elementalcreepers.illusionCreeperEnabled"))
-                .tooltip(Text.translatable("configOption.elementalcreepers.illusionCreeperEnabled.tooltip"))
+                .description(OptionDescription.of(Text.translatable("configOption.elementalcreepers.illusionCreeperEnabled.tooltip")))
                 .binding(
                         true,
                         () -> config.illusionCreeperEnabled,
@@ -519,27 +516,27 @@ public class ConfigScreenEntrypoint implements ModMenuApi {
                             illusionCreeperSpawnRate.setAvailable(newValue);
                         }
                 )
-                .controller((booleanOption) -> new BooleanController(booleanOption, BooleanController.YES_NO_FORMATTER, true))
+                .controller(option -> BooleanControllerBuilder.create(option).yesNoFormatter().coloured(true))
                 .build();
 
         /*
          * Firework Creeper
          */
-        Option<Integer> fireworkCreeperSpawnRate = Option.createBuilder(Integer.class)
+        Option<Integer> fireworkCreeperSpawnRate = Option.<Integer>createBuilder()
                 .name(Text.translatable("configOption.elementalcreepers.fireworkCreeperSpawnRate"))
-                .tooltip(Text.translatable("configOption.elementalcreepers.fireworkCreeperSpawnRate.tooltip"))
+                .description(OptionDescription.of(Text.translatable("configOption.elementalcreepers.fireworkCreeperSpawnRate.tooltip")))
                 .binding(
                         10,
                         () -> config.fireworkCreeperSpawnRate,
                         newValue -> config.fireworkCreeperSpawnRate = newValue
                 )
                 .available(config.fireworkCreeperEnabled)
-                .controller((intOption) -> new IntegerFieldController(intOption, 1, 100))
+                .controller(option -> IntegerFieldControllerBuilder.create(option).range(1, 100))
                 .build();
 
-        Option<Boolean> fireworkCreeperEnabled = Option.createBuilder(Boolean.class)
+        Option<Boolean> fireworkCreeperEnabled = Option.<Boolean>createBuilder()
                 .name(Text.translatable("configOption.elementalcreepers.fireworkCreeperEnabled"))
-                .tooltip(Text.translatable("configOption.elementalcreepers.fireworkCreeperEnabled.tooltip"))
+                .description(OptionDescription.of(Text.translatable("configOption.elementalcreepers.fireworkCreeperEnabled.tooltip")))
                 .binding(
                         true,
                         () -> config.fireworkCreeperEnabled,
@@ -548,27 +545,27 @@ public class ConfigScreenEntrypoint implements ModMenuApi {
                             fireworkCreeperSpawnRate.setAvailable(newValue);
                         }
                 )
-                .controller((booleanOption) -> new BooleanController(booleanOption, BooleanController.YES_NO_FORMATTER, true))
+                .controller(option -> BooleanControllerBuilder.create(option).yesNoFormatter().coloured(true))
                 .build();
 
         /*
          * Cookie Creeper
          */
-        Option<Integer> cookieCreeperSpawnRate = Option.createBuilder(Integer.class)
+        Option<Integer> cookieCreeperSpawnRate = Option.<Integer>createBuilder()
                 .name(Text.translatable("configOption.elementalcreepers.cookieCreeperSpawnRate"))
-                .tooltip(Text.translatable("configOption.elementalcreepers.cookieCreeperSpawnRate.tooltip"))
+                .description(OptionDescription.of(Text.translatable("configOption.elementalcreepers.cookieCreeperSpawnRate.tooltip")))
                 .binding(
                         2,
                         () -> config.cookieCreeperSpawnRate,
                         newValue -> config.cookieCreeperSpawnRate = newValue
                 )
                 .available(config.cookieCreeperEnabled)
-                .controller((intOption) -> new IntegerFieldController(intOption, 1, 100))
+                .controller(option -> IntegerFieldControllerBuilder.create(option).range(1, 100))
                 .build();
 
-        Option<Boolean> cookieCreeperEnabled = Option.createBuilder(Boolean.class)
+        Option<Boolean> cookieCreeperEnabled = Option.<Boolean>createBuilder()
                 .name(Text.translatable("configOption.elementalcreepers.cookieCreeperEnabled"))
-                .tooltip(Text.translatable("configOption.elementalcreepers.cookieCreeperEnabled.tooltip"))
+                .description(OptionDescription.of(Text.translatable("configOption.elementalcreepers.cookieCreeperEnabled.tooltip")))
                 .binding(
                         true,
                         () -> config.cookieCreeperEnabled,
@@ -577,27 +574,27 @@ public class ConfigScreenEntrypoint implements ModMenuApi {
                             cookieCreeperSpawnRate.setAvailable(newValue);
                         }
                 )
-                .controller((booleanOption) -> new BooleanController(booleanOption, BooleanController.YES_NO_FORMATTER, true))
+                .controller(option -> BooleanControllerBuilder.create(option).yesNoFormatter().coloured(true))
                 .build();
 
         /*
          * Rainbow Creeper
          */
-        Option<Integer> rainbowCreeperSpawnRate = Option.createBuilder(Integer.class)
+        Option<Integer> rainbowCreeperSpawnRate = Option.<Integer>createBuilder()
                 .name(Text.translatable("configOption.elementalcreepers.rainbowCreeperSpawnRate"))
-                .tooltip(Text.translatable("configOption.elementalcreepers.rainbowCreeperSpawnRate.tooltip"))
+                .description(OptionDescription.of(Text.translatable("configOption.elementalcreepers.rainbowCreeperSpawnRate.tooltip")))
                 .binding(
                         1,
                         () -> config.rainbowCreeperSpawnRate,
                         newValue -> config.rainbowCreeperSpawnRate = newValue
                 )
                 .available(config.rainbowCreeperEnabled)
-                .controller((intOption) -> new IntegerFieldController(intOption, 1, 100))
+                .controller(option -> IntegerFieldControllerBuilder.create(option).range(1, 100))
                 .build();
 
-        Option<Boolean> rainbowCreeperEnabled = Option.createBuilder(Boolean.class)
+        Option<Boolean> rainbowCreeperEnabled = Option.<Boolean>createBuilder()
                 .name(Text.translatable("configOption.elementalcreepers.rainbowCreeperEnabled"))
-                .tooltip(Text.translatable("configOption.elementalcreepers.rainbowCreeperEnabled.tooltip"))
+                .description(OptionDescription.of(Text.translatable("configOption.elementalcreepers.rainbowCreeperEnabled.tooltip")))
                 .binding(
                         true,
                         () -> config.rainbowCreeperEnabled,
@@ -606,7 +603,7 @@ public class ConfigScreenEntrypoint implements ModMenuApi {
                             rainbowCreeperSpawnRate.setAvailable(newValue);
                         }
                 )
-                .controller((booleanOption) -> new BooleanController(booleanOption, BooleanController.YES_NO_FORMATTER, true))
+                .controller(option -> BooleanControllerBuilder.create(option).yesNoFormatter().coloured(true))
                 .build();
 
         return YetAnotherConfigLib.createBuilder()

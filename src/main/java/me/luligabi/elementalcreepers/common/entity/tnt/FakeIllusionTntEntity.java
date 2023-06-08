@@ -12,7 +12,7 @@ public class FakeIllusionTntEntity extends ElementalTntEntity {
 
     @Override
     public void explode() {
-        world.createExplosion(this, getX(), getY(), getZ(), 2, World.ExplosionSourceType.NONE);
+        getWorld().createExplosion(this, getX(), getY(), getZ(), 2, World.ExplosionSourceType.NONE);
     }
 
 }

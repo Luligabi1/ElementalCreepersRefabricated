@@ -34,8 +34,8 @@ public class IllusionCreeperEntity extends ElementalCreeperEntity {
 
     @Override
     public void onExplode() {
-        world.createExplosion(this, getX(), getY(), getZ(),
-                3,  world.getGameRules().getBoolean(GameRules.DO_MOB_GRIEFING) ?
+        getWorld().createExplosion(this, getX(), getY(), getZ(),
+                3,  getWorld().getGameRules().getBoolean(GameRules.DO_MOB_GRIEFING) ?
                 World.ExplosionSourceType.TNT : World.ExplosionSourceType.NONE);
         super.onExplode();
         hasDuplicated = false;
@@ -67,12 +67,12 @@ public class IllusionCreeperEntity extends ElementalCreeperEntity {
             this.mob.setTarget(this.targetEntity);
             if(!((IllusionCreeperEntity) this.mob).hasDuplicated()) {
                 for (int i = 0; i < 4; ++i) {
-                    FakeIllusionCreeperEntity fakeIllusionCreeperEntity = new FakeIllusionCreeperEntity(CreeperRegistry.FAKE_ILLUSION_CREEPER, this.mob.world);
+                    FakeIllusionCreeperEntity fakeIllusionCreeperEntity = new FakeIllusionCreeperEntity(CreeperRegistry.FAKE_ILLUSION_CREEPER, this.mob.getWorld());
                     fakeIllusionCreeperEntity.refreshPositionAfterTeleport(this.mob.getX(), this.mob.getY(), this.mob.getZ());
-                    this.mob.world.spawnEntity(fakeIllusionCreeperEntity);
+                    this.mob.getWorld().spawnEntity(fakeIllusionCreeperEntity);
                     fakeIllusionCreeperEntity.setVelocity(0, 0.5D, 0);
                 }
-                double d = this.mob.world.random.nextDouble() * 6.2831854820251465;
+                double d = this.mob.getWorld().random.nextDouble() * 6.2831854820251465;
                 this.mob.setVelocity(-Math.sin(d) * 0.02, 0.20000000298023224, -Math.cos(d) * 0.02);
                 ((IllusionCreeperEntity) this.mob).setHasDuplicated(true);
             }

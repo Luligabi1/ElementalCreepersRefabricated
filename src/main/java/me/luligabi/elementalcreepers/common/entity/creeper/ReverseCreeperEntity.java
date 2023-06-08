@@ -13,7 +13,7 @@ public class ReverseCreeperEntity extends ElementalCreeperEntity {
 
     @Override
     public void onExplode() {
-        ExplosionEffects.reverseExplosionEffect(this, world, getX(), getY(), getZ());
+        ExplosionEffects.reverseExplosionEffect(this, getWorld(), getX(), getY(), getZ());
         super.onExplode();
     }
 }

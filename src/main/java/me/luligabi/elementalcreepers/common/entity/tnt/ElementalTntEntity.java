@@ -5,8 +5,8 @@ import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.nbt.NbtCompound;
-import net.minecraft.network.Packet;
 import net.minecraft.network.listener.ClientPlayPacketListener;
+import net.minecraft.network.packet.Packet;
 import net.minecraft.network.packet.s2c.play.EntitySpawnS2CPacket;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.world.World;
@@ -25,7 +25,7 @@ public abstract class ElementalTntEntity extends Entity {
 
     public static void update(ElementalTntEntity entity, World world, double x, double y, double z) {
         entity.updatePosition(x, y, z);
-        final double d = world.random.nextDouble() * 6.2831854820251465;
+        double d = world.random.nextDouble() * 6.2831854820251465;
         entity.setVelocity(-Math.sin(d) * 0.02, 0.20000000298023224, -Math.cos(d) * 0.02);
         entity.setFuse(80);
         entity.prevX = x;
@@ -38,30 +38,30 @@ public abstract class ElementalTntEntity extends Entity {
     }
 
     public void tick() {
-        if (!this.hasNoGravity()) {
-            this.setVelocity(this.getVelocity().add(0.0, -0.04, 0.0));
+        if (!hasNoGravity()) {
+            setVelocity(getVelocity().add(0.0, -0.04, 0.0));
         }
-        this.move(MovementType.SELF, this.getVelocity());
-        this.setVelocity(this.getVelocity().multiply(0.98));
-        if (this.onGround) {
-            this.setVelocity(this.getVelocity().multiply(0.7, -0.5, 0.7));
+        move(MovementType.SELF, getVelocity());
+        setVelocity(getVelocity().multiply(0.98));
+        if (isOnGround()) {
+            setVelocity(getVelocity().multiply(0.7, -0.5, 0.7));
         }
-        --this.fuseTimer;
-        if (this.fuseTimer <= 0) {
-            this.discard();
-            if (!this.world.isClient && !(this instanceof AirTntEntity)) {
-                this.explode();
+        --fuseTimer;
+        if (fuseTimer <= 0) {
+            discard();
+            if (!getWorld().isClient() && !(this instanceof AirTntEntity)) {
+                explode();
             }
             if(this instanceof AirTntEntity) {
-                if(!world.isClient) {
-                    this.world.createExplosion(this, this.getX(), this.getY(), this.getZ(), 0, World.ExplosionSourceType.NONE);
+                if(!getWorld().isClient()) {
+                    getWorld().createExplosion(this, getX(), getY(), getZ(), 0, World.ExplosionSourceType.NONE);
                 }
                 this.explode();
             }
         } else {
-            this.updateWaterState();
-            if (this.world.isClient) {
-                this.world.addParticle(ParticleTypes.SMOKE, this.getX(), this.getY() + 0.5, this.getZ(), 0.0, 0.0, 0.0);
+            updateWaterState();
+            if(getWorld().isClient()) {
+                getWorld().addParticle(ParticleTypes.SMOKE, getX(), getY() + 0.5, getZ(), 0.0, 0.0, 0.0);
             }
         }
     }
@@ -69,11 +69,11 @@ public abstract class ElementalTntEntity extends Entity {
     public abstract void explode();
 
     protected void writeCustomDataToNbt(NbtCompound nbt) {
-        nbt.putShort("Fuse", (short)this.getFuse());
+        nbt.putShort("Fuse", (short) getFuse());
     }
 
     protected void readCustomDataFromNbt(NbtCompound nbt) {
-        this.setFuse(nbt.getShort("Fuse"));
+        setFuse(nbt.getShort("Fuse"));
     }
 
     protected float getEyeHeight(EntityPose pose, EntityDimensions dimensions) {
@@ -82,7 +82,7 @@ public abstract class ElementalTntEntity extends Entity {
 
     public void onTrackedDataSet(TrackedData<?> data) {
         if (ElementalTntEntity.FUSE.equals(data)) {
-            this.fuseTimer = this.getFuse();
+            this.fuseTimer = getFuse();
         }
     }
 
